@@ -19,7 +19,9 @@
 
 ### By group
 
-- You can create group
+- You can create group.
+- You can quit group.
+- You can change group intruduction if being creator.
 - You can delete group if being creator.
 - You can also search within a group.
 - You can see when the group were created.
