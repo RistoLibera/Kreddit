@@ -3,10 +3,8 @@ import '../styles/css/home.css';
 
 const Home = () => {
 
-
   return (
     <section id="homepage">
-
       <div className="content-switcher">
         <div>
           <h2>discussion</h2>
