@@ -1,0 +1,12 @@
+#app-header, #app-header .first-left-bar, #app-header .first-right-bar, #app-header .first-right-bar .user-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#app-header .first-left-bar #icon img {
+  width: 50px;
+  height: 50px;
+}
+
+/*# sourceMappingURL=header.css.map */

@@ -1,0 +1,9 @@
+@use 'base';
+
+#homepage {
+  @extend %flex-column-direction;
+
+  .content-switcher {
+    @extend %flex-row-direction;
+  }
+}

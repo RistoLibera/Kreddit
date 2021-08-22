@@ -1,0 +1,12 @@
+// flex-row-direction
+%flex-row-direction {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+// flex-column-direction
+%flex-column-direction {
+  display: flex;
+  flex-direction: column;
+}

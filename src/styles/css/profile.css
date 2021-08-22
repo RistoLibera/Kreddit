@@ -1,0 +1,16 @@
+#profile .upper-profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#profile, #profile .lower-profile {
+  display: flex;
+  flex-direction: column;
+}
+
+#profile .upper-profile {
+  justify-content: space-around;
+}
+
+/*# sourceMappingURL=profile.css.map */

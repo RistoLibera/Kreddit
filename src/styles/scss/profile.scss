@@ -1,0 +1,15 @@
+@use 'base';
+
+#profile {
+  @extend %flex-column-direction;
+
+  .upper-profile {
+    @extend %flex-row-direction;
+    justify-content: space-around;
+  }
+
+  .lower-profile {
+    @extend %flex-column-direction;
+
+  }
+}
