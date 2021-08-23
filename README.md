@@ -13,26 +13,25 @@
 ### As user
 
 - You can create user by nickname and gender.
-- You can edit your registration.
+- You can edit your info.
 - You can upload images to change icon.
 - You can search for what you like.
 
 ### By group
 
-- You can create group.
+- You can create group(5 for most).
 - You can quit group.
 - You can change group intruduction if being creator.
 - You can delete group if being creator.
-- You can also search within a group.
 - You can see when the group were created.
 
 ### For discussion
 
 - You can create, edit, delete your own discussions.
 - You can upload images to discussions.
-- You can upload links to discussions.
 - You can like or unlike discussions.
-- You can comment on any discussions.
+- You can create subdiscussions on any discussions.
+- You can receive notification about your discussions
 - You can see when the discussions were created.
 
 ### Upon environment
