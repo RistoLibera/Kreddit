@@ -15,6 +15,7 @@ export const AuthProvider = ({ children }) => {
     });
   };
   
+  // Check state once for each login
   useEffect(() => {
     changeCurrentUser()
   }, []);
@@ -25,7 +26,7 @@ export const AuthProvider = ({ children }) => {
       <div>
         <h3>Loading....</h3>
       </div>
-    )
+    );
   };
 
   return (

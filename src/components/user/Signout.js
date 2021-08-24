@@ -5,9 +5,11 @@ const Signout = () => {
 
   return (
     <div>
-      <button onClick={() => Firebase.auth().signOut()}>Sign out</button>
+      <button onClick={() => Firebase.auth().signOut()}  type="button">
+        Sign out
+      </button>
     </div>
-  )
-}
+  );
+};
 
 export default Signout;

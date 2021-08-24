@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { AuthProvider } from './components/user/Auth';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 import AllGroups from './pages/AllGroups';
 import Discussion from './pages/Discussion';
 import Group from './pages/Group';
@@ -16,6 +18,8 @@ const Routes = () => {
       <Router>
         <Header />
         <Switch>
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={Signup} />
           <Route exact path="/groups" component={AllGroups} />
           <Route exact path="/discussion" component={Discussion} />
           <Route exact path="/group" component={Group} />
