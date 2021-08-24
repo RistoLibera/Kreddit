@@ -1,5 +1,6 @@
 @use 'base';
 
+// Omnipresent header
 #app-header {
   @extend %flex-row-direction;
   .first-left-bar {
@@ -19,4 +20,3 @@
     }
   }
 }
-

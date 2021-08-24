@@ -7,7 +7,7 @@ export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [pending, setPending] = useState(true);
 
-  // Set current user
+  // Watch for current user
   const changeCurrentUser = () => {
     Firebase.auth().onAuthStateChanged((user) => {
       setCurrentUser(user)
@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
     });
   };
   
-  // Check state once for each login
+  // Ony need add observer once
   useEffect(() => {
     changeCurrentUser()
   }, []);
@@ -23,9 +23,11 @@ export const AuthProvider = ({ children }) => {
   // Wait for server
   if(pending) {
     return (
-      <div>
-        <h3>Loading....</h3>
-      </div>
+      <section class="loading">
+        <div>
+          <h3>....Loading....</h3>
+        </div>
+      </section>
     );
   };
 

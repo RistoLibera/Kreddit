@@ -4,7 +4,7 @@ import Firebase from '../../config/Firebase';
 const Signout = () => {
 
   return (
-    <div>
+    <div id="signout">
       <button onClick={() => Firebase.auth().signOut()}  type="button">
         Sign out
       </button>

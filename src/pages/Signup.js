@@ -1,5 +1,5 @@
-import React, { useContext, useCallback } from 'react';
-import { Redirect, useHistory } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import { AuthContext } from '../components/user/Auth';
 import Firebase from '../config/Firebase';
 
@@ -7,8 +7,8 @@ const Signup = () => {
   const { currentUser } = useContext(AuthContext);
   const history = useHistory();
 
-  // Prevent unnecessary re-rendering
-  const handleSignUp = useCallback(async (event) => {
+  // Sign up via Firebase
+  const handleSignUp = async (event) => {
     event.preventDefault();
     // Input nickname but authenticate with a fake email address
     const { nickname, password } = event.target.elements;
@@ -21,24 +21,27 @@ const Signup = () => {
     } catch (error) {
       alert(error);
     }
-  }, [history]);
+  };
 
   const controlAccess = () => {
     if (currentUser) {
-      // No access even via URL for logged-in-user
-      <Redirect to="/" />
+      // No access for logged-in-user even via URL 
+      history.push("/");
     } else {
       // Signup form
       return (
         <div>
           <form onSubmit={handleSignUp}>
-            <fieldset>
+            <fieldset class="user-auth">
               <legend>Sign up</legend>
               <label htmlFor="nickname">Nickname</label>
-              <input className="form-bar" type="text" name="nickname" placeholder="Give yourself a cool nickname!"/><br></br>
+              <input type="text" name="nickname" placeholder="Give yourself a cool nickname!"/><br></br>
               <label htmlFor="password">Password</label>
-              <input className="form-bar" type="password" name="password" placeholder="No one will survive without a password"/><br></br>
-              <button type="submit" value="Submit">Sign up</button>
+              <input type="password" name="password" placeholder="No one will survive without a password"/><br></br>
+              <div className="auth-buttons">
+                <button className="reset" type="reset" value="Reset">Clear</button>
+                <button className="submit" type="submit" value="Submit">Sign up</button>
+              </div>
             </fieldset>
           </form>
         </div>

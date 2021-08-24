@@ -62,8 +62,7 @@ const Header = () => {
           <h2>mode</h2>
         </div>
       </div>
-
-
+      
     </header>
   )
 }

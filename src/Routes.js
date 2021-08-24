@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { AuthProvider } from './components/user/Auth';
+// Page components
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import AllGroups from './pages/AllGroups';
@@ -10,9 +11,9 @@ import Header from './pages/Header';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Search from './pages/Search';
+// import "./styles/css/reset.css";
 
 const Routes = () => {
-
   return (
     <AuthProvider>
       <Router>
