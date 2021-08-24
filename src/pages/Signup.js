@@ -1,10 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { AuthContext } from '../components/user/Auth';
 import Firebase from '../config/Firebase';
 
 const Signup = () => {
   const { currentUser } = useContext(AuthContext);
+  const [error, setError] = useState([]);
   const history = useHistory();
 
   // Sign up via Firebase
@@ -19,13 +20,13 @@ const Signup = () => {
         .createUserWithEmailAndPassword(email, password.value);
         history.push("/");
     } catch (error) {
-      alert(error);
+      setError(error);
     }
   };
 
   const controlAccess = () => {
     if (currentUser) {
-      // No access for logged-in-user even via URL 
+      // Grant no access for logged-in-user even via URL 
       history.push("/");
     } else {
       // Signup form
@@ -44,6 +45,9 @@ const Signup = () => {
               </div>
             </fieldset>
           </form>
+          <div class="error-message">
+            {error.message}
+          </div>
         </div>
       );
     };
