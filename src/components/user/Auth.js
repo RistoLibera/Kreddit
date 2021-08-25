@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
   // Wait for server
   if(pending) {
     return (
-      <section class="loading">
+      <section className="loading">
         <div>
           <h3>....Loading....</h3>
         </div>

@@ -2,10 +2,11 @@ import React, { useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { AuthContext } from '../components/user/Auth';
 import Firebase from '../config/Firebase';
+import handleFirebaseError from '../components/error/FirebaseError';
 
 const Login = () => {
   const { currentUser } = useContext(AuthContext);
-  const [error, setError] = useState([]);
+  const [errorMessage, setErrorMessage] = useState([]);
   const history = useHistory();
 
   // Log in via Firebase
@@ -20,7 +21,7 @@ const Login = () => {
         .signInWithEmailAndPassword(email, password.value);
         history.push("/");
     } catch (error) {
-      setError(error);
+      setErrorMessage(handleFirebaseError(error));
     }
   };
 
@@ -33,7 +34,7 @@ const Login = () => {
       return (
         <div>
           <form onSubmit={handleSignUp}>
-            <fieldset class="user-auth">
+            <fieldset className="user-auth">
               <legend>Log in</legend>
               <label htmlFor="nickname">Nickname</label>
               <input type="text" name="nickname" placeholder="Give yourself a cool nickname!"/><br></br>
@@ -45,8 +46,8 @@ const Login = () => {
               </div>
             </fieldset>
           </form>
-          <div class="error-message">
-            {error.message}
+          <div className="error-message">
+            {errorMessage}
           </div>
         </div>
       );
