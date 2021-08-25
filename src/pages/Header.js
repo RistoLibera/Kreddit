@@ -28,12 +28,12 @@ const Header = () => {
       return (
         <div className="user-bar">
           <div>
-            <button onClick={() => history.push("./login")} type="button">
+            <button onClick={() => history.push("/login")} type="button">
               Log in
             </button>
           </div>
           <div>
-            <button onClick={() => history.push("./signup")} type="button">
+            <button onClick={() => history.push("/signup")} type="button">
               Sign up
             </button>
           </div>
@@ -44,19 +44,27 @@ const Header = () => {
 
   return (
     <header id="app-header">
-      <div className="first-left-bar">
-        <div id="icon">
-          <img src={Koin} alt="Koin"></img>
-        </div>
-        <div id="home-link">
-          <h1>kreddit</h1>
-        </div>
+      <div className="left-bar">
         <div id="search-bar">
+          {/* Let kreddit! */}
           <h3>Search?</h3>
         </div>
       </div>
 
-      <div className="first-right-bar">
+      <div className="middle-bar">
+        <div>
+          <h2>Group</h2>
+        </div>
+        <div id="icon" onClick={() => history.push("/")}>
+          <img src={Koin} alt="Koin"></img>
+        </div>
+        <div>
+          <h2>Discussion</h2>
+        </div>
+
+      </div>
+
+      <div className="right-bar">
         {registrationBar()}
         <div className="mode-bar">
           <h2>mode</h2>

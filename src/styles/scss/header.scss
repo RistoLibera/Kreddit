@@ -3,16 +3,18 @@
 // Omnipresent header
 #app-header {
   @extend %flex-row-direction;
-  .first-left-bar {
+  // position: fixed;
+  
+  .middle-bar {
     @extend %flex-row-direction;
 
-    #icon img{
-      width: 50px;
-      height: 50px;
+    #icon img {
+      height: 70px;
+      width: 70px;
     }
   }
 
-  .first-right-bar {
+  .right-bar {
     @extend %flex-row-direction;
 
     .user-bar {
