@@ -14,13 +14,14 @@ const handleFirebaseError = (error) => {
     case "auth/user-not-found":
       message = "User do not exist";
       break;
+    case "storage/object-not-found":
+      message = "You should update to your own liking";
+      break;
     default:
       message = "Uncharted error";
   };
 
-  return (
-    <h2>{message}</h2>
-  )
+  return message;
 };
 
 export default handleFirebaseError;

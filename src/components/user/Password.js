@@ -19,7 +19,7 @@ const DeleteAccount = () => {
         .updatePassword(password.value);
       setHidden(!hidden);
     } catch (error) {
-      alert(error);
+      console.log(error.code)
     }
   };
 
@@ -27,7 +27,7 @@ const DeleteAccount = () => {
     <form onSubmit={handleChange} class="change-password">
       <fieldset>
         <div>
-          <input hidden={hidden} type="password" name="password" placeholder="Input new password"/><br></br>
+          <input hidden={hidden} type="password" name="password" placeholder="6 or more!"/><br></br>
           <button hidden={hidden} className="submit" type="submit" value="Submit">
             Confirm
           </button>

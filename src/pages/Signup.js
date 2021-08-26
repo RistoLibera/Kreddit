@@ -47,7 +47,7 @@ const Signup = () => {
             </fieldset>
           </form>
           <div className="error-message">
-            {errorMessage}
+            <h2>{errorMessage}</h2>
           </div>
         </div>
       );

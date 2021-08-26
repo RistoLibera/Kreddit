@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import Firebase from '../../config/Firebase';
+import Default from '../../assets/default-icon.jpg';
+import handleFirebaseError from '../../components/error/FirebaseError';
 
 const Icon = (props) => {
   const [iconURL, setIconURL] = useState("");
   const [loading, setloading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState([]);
   const { uid } = props;
 
   // Show icon
   const showIcon = async () => {
-    let imgURL;
+    let imgURL = Default;
 
     try {
       imgURL = 
@@ -17,7 +20,7 @@ const Icon = (props) => {
           .ref("user-icon/" + uid + "/icon.jpg")
           .getDownloadURL();
     } catch (error) {
-      alert(error);
+      setErrorMessage(handleFirebaseError(error));
     }
 
     setIconURL(imgURL);
@@ -51,6 +54,7 @@ const Icon = (props) => {
       <img src={iconURL}  width="100px" />
       <span hidden={!loading}>...Loading...</span>
       <input onChange={uploadIcon} type='file' name="icon"/>
+      <h2>{errorMessage}</h2>
     </div>
   );
 };
