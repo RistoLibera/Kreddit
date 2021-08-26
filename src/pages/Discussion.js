@@ -6,10 +6,8 @@ const Discussion = () => {
 
 
   return (
-    <div>
-      <h1>All Discussion</h1>
-    </div>
-  )
-}
+    <img />
+  );
+};
 
 export default Discussion

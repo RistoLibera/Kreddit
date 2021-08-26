@@ -4,7 +4,7 @@ import '../styles/css/home.css';
 const Home = () => {
 
   return (
-    <section id="homepage">
+    <section className="homepage">
       <div className="content-switcher">
       </div>
 
@@ -14,7 +14,7 @@ const Home = () => {
       </div>
 
     </section>
-  )
-}
+  );
+};
 
 export default Home

@@ -1,7 +1,7 @@
 @use 'base';
 
 // Omnipresent header
-#app-header {
+.app-header {
   @extend %flex-row-direction;
   // position: fixed;
   
@@ -11,6 +11,7 @@
     #icon img {
       height: 70px;
       width: 70px;
+      cursor: pointer;
     }
   }
 

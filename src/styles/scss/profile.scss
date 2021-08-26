@@ -1,7 +1,7 @@
 @use 'base';
 
 // User profile page
-#profile {
+.profile-page {
   @extend %flex-column-direction;
 
   .upper-profile {

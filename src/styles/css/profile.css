@@ -1,15 +1,15 @@
-#profile .upper-profile {
+.profile-page .upper-profile {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-#profile, #profile .lower-profile {
+.profile-page, .profile-page .lower-profile {
   display: flex;
   flex-direction: column;
 }
 
-#profile .upper-profile {
+.profile-page .upper-profile {
   justify-content: space-around;
 }
 

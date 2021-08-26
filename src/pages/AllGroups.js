@@ -8,7 +8,7 @@ const AllGroups = () => {
     <div>
       <h1>AllGroups</h1>
     </div>
-  )
-}
+  );
+};
 
 export default AllGroups

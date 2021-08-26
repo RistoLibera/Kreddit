@@ -1,3 +1,4 @@
+// Customize Firebase error message
 const handleFirebaseError = (error) => {
   let message 
   switch (error.code){
@@ -17,7 +18,9 @@ const handleFirebaseError = (error) => {
       message = "Uncharted error";
   };
 
-  return message;
+  return (
+    <h2>{message}</h2>
+  )
 };
 
 export default handleFirebaseError;

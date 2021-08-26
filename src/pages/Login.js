@@ -15,6 +15,7 @@ const Login = () => {
     // Input nickname but authenticate with a fake email address
     const { nickname, password } = event.target.elements;
     const email = (nickname.value + "@fake.com").toString();
+
     try {
       await Firebase
         .auth()
@@ -55,10 +56,10 @@ const Login = () => {
   };
 
   return (
-    <section>
+    <section className="login-page">
       {controlAccess()}
     </section>
   );
-}
+};
 
 export default Login;

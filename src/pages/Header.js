@@ -8,6 +8,8 @@ import Signout from '../components/user/Signout';
 const Header = () => {
   const { currentUser } = useContext(AuthContext);
   const history = useHistory();
+  const currentUID =  currentUser.uid;
+  const profileURL = "/profile/" + currentUID;
 
   // Change registration interface
   const registrationBar = () => {
@@ -19,11 +21,11 @@ const Header = () => {
             <h2>notification</h2>
           </div>
           <div>
-          <Link to="./profile">Profile</Link>
+          <Link to={profileURL}>Profile</Link>
           <Signout />
           </div>
         </div>
-      )
+      );
     } else {
       return (
         <div className="user-bar">
@@ -38,15 +40,15 @@ const Header = () => {
             </button>
           </div>
         </div>
-      )
+      );
     };
   };
 
   return (
-    <header id="app-header">
+    <header className="app-header">
       <div className="left-bar">
-        <div id="search-bar">
-          {/* Let kreddit! */}
+        <div className="search-bar">
+          {/* Let's kreddit! */}
           <h3>Search?</h3>
         </div>
       </div>
@@ -72,7 +74,7 @@ const Header = () => {
       </div>
       
     </header>
-  )
-}
+  );
+};
 
 export default Header

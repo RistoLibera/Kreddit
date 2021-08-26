@@ -55,7 +55,7 @@ const Signup = () => {
   };
 
   return (
-    <section>
+    <section className="signup-page">
       {controlAccess()}
     </section>
   );

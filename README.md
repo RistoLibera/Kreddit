@@ -12,8 +12,8 @@
 
 ### As user
 
-- You can create user by nickname and gender.
-- You can edit your info.
+- You can create user by nickname and password.
+- You can edit your password.
 - You can upload images to change icon.
 - You can search for what you like.
 
