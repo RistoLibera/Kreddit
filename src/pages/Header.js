@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { AuthContext } from '../components/user/Auth';
-import Koin from '../assets/Header-Koin.png';
+import Koin from '../assets/header-koin.png';
 import '../styles/css/header.css';
 import Signout from '../components/user/Signout';
 

@@ -6,6 +6,10 @@ const DeleteAccount = () => {
   const history = useHistory();
 
   const handleDelete = async () => {
+    // Prevent erroneous operation
+    let confirmation = window.confirm("Are you serious?");
+    if (!confirmation) return;
+
     try {
       await Firebase
         .auth()
@@ -18,7 +22,7 @@ const DeleteAccount = () => {
   };
 
   return (
-    <div class="account-delete">
+    <div class="delete-account">
       <button onClick={handleDelete} type="button">
         Delete Account
       </button>

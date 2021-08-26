@@ -1,0 +1,43 @@
+import React, { useState } from 'react';
+import Firebase from '../../config/Firebase';
+
+const DeleteAccount = () => {
+  const [hidden, setHidden] = useState(true);
+
+  const switchHidden = () => {
+    setHidden(!hidden);
+  };
+
+  const handleChange = async (event) => {
+    event.preventDefault();
+    const { password } = event.target.elements;
+
+    try {
+      await Firebase
+        .auth()
+        .currentUser
+        .updatePassword(password.value);
+      setHidden(!hidden);
+    } catch (error) {
+      alert(error);
+    }
+  };
+
+  return (
+    <form onSubmit={handleChange} class="change-password">
+      <fieldset>
+        <div>
+          <input hidden={hidden} type="password" name="password" placeholder="Input new password"/><br></br>
+          <button hidden={hidden} className="submit" type="submit" value="Submit">
+            Confirm
+          </button>
+        </div>
+        <button onClick={switchHidden} type="button">
+          Change password
+        </button>
+      </fieldset>
+    </form>
+  );
+};
+
+export default DeleteAccount;

@@ -13,9 +13,11 @@
 ### As user
 
 - You can create user by nickname and password.
+- You can choose a nation.
 - You can edit your password.
-- You can upload images to change icon.
+- You can upload image to change icon.
 - You can search for what you like.
+- You can delete your account.
 
 ### By group
 
