@@ -1,5 +1,6 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
+import ReactCountryFlag from "react-country-flag";
 import Icon from '../components/user/Icon';
 import DeleteAccount from '../components/user/Delete';
 import Password from '../components/user/Password';
@@ -38,7 +39,8 @@ const Profile = () => {
           <div>
             <h2>nickname</h2>
             <h2>nation</h2>
-            <h3>Belong to what group</h3>
+            <ReactCountryFlag countryCode="US" />
+            <h3>Belong to what groups</h3>
             <h3>discussion number</h3>
           </div>
 

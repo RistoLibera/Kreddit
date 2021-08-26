@@ -24,7 +24,7 @@ const DeleteAccount = () => {
   };
 
   return (
-    <form onSubmit={handleChange} class="change-password">
+    <form onSubmit={handleChange} className="change-password">
       <fieldset>
         <div>
           <input hidden={hidden} type="password" name="password" placeholder="6 or more!"/><br></br>

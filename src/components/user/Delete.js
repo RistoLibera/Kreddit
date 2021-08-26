@@ -22,7 +22,7 @@ const DeleteAccount = () => {
   };
 
   return (
-    <div class="delete-account">
+    <div className="delete-account">
       <button onClick={handleDelete} type="button">
         Delete Account
       </button>
