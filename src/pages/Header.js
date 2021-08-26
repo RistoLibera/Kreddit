@@ -8,8 +8,14 @@ import Signout from '../components/user/Signout';
 const Header = () => {
   const { currentUser } = useContext(AuthContext);
   const history = useHistory();
-  const currentUID =  currentUser.uid;
-  const profileURL = "/profile/" + currentUID;
+  let currentUID;
+  let profileURL;
+
+  // Current info
+  if(currentUser) {
+    currentUID =  currentUser.uid;
+    profileURL = "/profile/" + currentUID;
+  };
 
   // Change registration interface
   const registrationBar = () => {
