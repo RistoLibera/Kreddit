@@ -24,9 +24,6 @@ export const AuthProvider = ({ children }) => {
   if(pending) {
     return (
       <section className="loading">
-        <div>
-          <h3>....Loading....</h3>
-        </div>
       </section>
     );
   };
