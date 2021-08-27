@@ -1,33 +1,15 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import ReactCountryFlag from "react-country-flag";
-import Icon from '../components/user/Icon';
+import ShowIcon from '../components/user/ShowIcon';
 import DeleteAccount from '../components/user/DeleteAccount';
 import ChangePassword from '../components/user/ChangePassword';
 import '../styles/css/profile.css';
 
 const Profile = () => {
-  // const [nickname, setNickname] = useState("");
   // Use complex user UID to avoid malice
   const { uid }  = useParams();
 
-  // // Nickname
-  // const showNickname = async () => {
-  //   let test
-  //   try {
-  //     test = 
-  //       await Firebase
-  //         .auth()
-  //         .getUser(uid)
-
-  //   } catch (error) {
-  //     alert(error);
-  //   }
-
-  //   // slice 0 -9
-  //   console.log(test)
-
-  // }
 
   // Data structure
   // groups - Anime -   0    - discussions - 0    1     2   3    - subdis - 0   1   2   3  
@@ -38,7 +20,7 @@ const Profile = () => {
   return (
     <section className="profile-page">
         <div className="upper-profile">
-          <Icon uid = {uid} />
+          <ShowIcon uid = {uid} />
 
           <div className="info">
             <div className="upper-info">

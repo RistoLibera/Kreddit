@@ -6,7 +6,9 @@ const Discussion = () => {
 
 
   return (
-    <img />
+    <div>
+      
+    </div>
   );
 };
 

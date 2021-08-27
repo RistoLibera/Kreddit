@@ -14,7 +14,7 @@
 
 - You can create user by nickname(immutable) and password.
 - You can choose nation and gender.
-- You can edit your info.
+- You can edit your password.
 - You can upload image to change icon.
 - You can search for what you like.
 - You can delete your account.

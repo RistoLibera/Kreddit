@@ -10,12 +10,18 @@ const Signup = () => {
   const [errorMessage, setErrorMessage] = useState([]);
   const history = useHistory();
 
+  // Update nickname, gender and nation to Firestore
+  const updateFirestore = async (nickname, gender, nation) => {
+    //         .ref("user-info/" + uid + "/")
+  };
+
   // Input nickname but authenticate with a fake email address
   const handleSignUp = async (event) => {
     event.preventDefault();
-    const { nickname, password } = event.target.elements;
+    const { nickname, password, gender, nation } = event.target.elements;
     const email = (nickname.value + "@fake.com").toString();
 
+    console.log(gender.value + " " + nation.value)
     try {
       await Firebase
         .auth()
