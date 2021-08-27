@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { AuthContext } from '../components/user/Auth';
 import Firebase from '../config/Firebase';
 import handleFirebaseError from '../components/error/FirebaseError';
+import SelectCountry from '../components/user/SelectCountry';
 
 const Signup = () => {
   const { currentUser } = useContext(AuthContext);
@@ -14,6 +15,7 @@ const Signup = () => {
     event.preventDefault();
     const { nickname, password } = event.target.elements;
     const email = (nickname.value + "@fake.com").toString();
+
     try {
       await Firebase
         .auth()
@@ -30,14 +32,28 @@ const Signup = () => {
       history.push("/");
     } else {
       return (
-        <div>
+        <div className="signup-page">
           <form onSubmit={handleSignUp}>
             <fieldset className="user-auth">
               <legend>Sign up</legend>
               <label htmlFor="nickname">Nickname</label>
-              <input type="text" name="nickname" placeholder="Give yourself a cool nickname!"/><br></br>
+              <input type="text" id="nickname" name="nickname" placeholder="Give yourself a cool nickname!"/><br></br>
               <label htmlFor="password">Password</label>
-              <input type="password" name="password" placeholder="No one will survive without a password"/><br></br>
+              <input type="password" id="password" name="password" placeholder="No one will survive without a password"/><br></br>
+              <div className="info">
+                <div className="gender">
+                  <label htmlFor="male">
+                    Male
+                  </label>
+                  <input type="radio" id="male" name="gender" value="male" />
+                  <label htmlFor="female">
+                    Female
+                  </label>
+                  <input type="radio" id="female" name="gender" value="female" />
+                </div>
+
+                <SelectCountry />
+              </div>
               <div className="auth-buttons">
                 <button className="reset" type="reset" value="Reset">Clear</button>
                 <button className="submit" type="submit" value="Submit">Sign up</button>

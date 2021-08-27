@@ -29,6 +29,12 @@ const Profile = () => {
 
   // }
 
+  // Data structure
+  // groups - Anime -   0    - discussions - 0    1     2   3    - subdis - 0   1   2   3  
+  //               - title  -             - content uid rating  -        - content uid rating
+
+  // user info -  uid -  nickname gender nation
+
   return (
     <section className="profile-page">
         <div className="upper-profile">

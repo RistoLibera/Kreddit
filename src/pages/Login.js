@@ -31,14 +31,14 @@ const Login = () => {
       history.push("/");
     } else {
       return (
-        <div>
+        <div className="login-page">
           <form onSubmit={handleSignUp}>
             <fieldset className="user-auth">
               <legend>Log in</legend>
               <label htmlFor="nickname">Nickname</label>
-              <input type="text" name="nickname" placeholder="Nickname!"/><br></br>
+              <input type="text" id="nickname" name="nickname" placeholder="Nickname!"/><br></br>
               <label htmlFor="password">Password</label>
-              <input type="password" name="password" placeholder="Password"/><br></br>
+              <input type="password" id="password" name="password" placeholder="Password"/><br></br>
               <div className="auth-buttons">
                 <button className="reset" type="reset" value="Reset">Clear</button>
                 <button className="submit" type="submit" value="Submit">Log in</button>
