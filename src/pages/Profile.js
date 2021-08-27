@@ -2,8 +2,8 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import ReactCountryFlag from "react-country-flag";
 import Icon from '../components/user/Icon';
-import DeleteAccount from '../components/user/Delete';
-import Password from '../components/user/Password';
+import DeleteAccount from '../components/user/DeleteAccount';
+import ChangePassword from '../components/user/ChangePassword';
 import '../styles/css/profile.css';
 
 const Profile = () => {
@@ -32,21 +32,23 @@ const Profile = () => {
   return (
     <section className="profile-page">
         <div className="upper-profile">
-          <div className="profile-icon">
-            <Icon uid = {uid} />
+          <Icon uid = {uid} />
+
+          <div className="info">
+            <div className="upper-info">
+              <h2>Gender</h2>
+              <h2>nickname</h2>
+              <ReactCountryFlag countryCode="GB" />
+            </div>
+            <div className="lower-info">
+              <h3>what groups</h3>
+              <h3>discussion number</h3>
+            </div>
           </div>
 
-          <div>
-            <h2>nickname</h2>
-            <h2>nation</h2>
-            <ReactCountryFlag countryCode="US" />
-            <h3>Belong to what groups</h3>
-            <h3>discussion number</h3>
-          </div>
-
-          <div>
-            <DeleteAccount />
-            <Password />
+          <div className="registration">
+            <DeleteAccount uid = {uid} />
+            <ChangePassword uid = {uid} />
           </div>
         </div>
 

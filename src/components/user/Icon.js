@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Firebase from '../../config/Firebase';
-import Default from '../../assets/default-icon.jpg';
+import Default from '../../assets/img/default-icon.jpg';
 import handleFirebaseError from '../../components/error/FirebaseError';
 
 const Icon = (props) => {
@@ -9,7 +9,6 @@ const Icon = (props) => {
   const [errorMessage, setErrorMessage] = useState([]);
   const { uid } = props;
 
-  // Show icon
   const showIcon = async () => {
     let imgURL = Default;
 
@@ -27,7 +26,6 @@ const Icon = (props) => {
     setloading(false);
   };
 
-  // Upload icon to Storage
   const uploadIcon = async (event) => {
     const file = event.target.files[0];
     setloading(true);

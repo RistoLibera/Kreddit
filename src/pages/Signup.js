@@ -9,10 +9,9 @@ const Signup = () => {
   const [errorMessage, setErrorMessage] = useState([]);
   const history = useHistory();
 
-  // Sign up via Firebase
+  // Input nickname but authenticate with a fake email address
   const handleSignUp = async (event) => {
     event.preventDefault();
-    // Input nickname but authenticate with a fake email address
     const { nickname, password } = event.target.elements;
     const email = (nickname.value + "@fake.com").toString();
     try {
@@ -24,13 +23,12 @@ const Signup = () => {
       setErrorMessage(handleFirebaseError(error));
     }
   };
-
+  
+  // Grant no access for logged-in-user even via URL 
   const controlAccess = () => {
     if (currentUser) {
-      // Grant no access for logged-in-user even via URL 
       history.push("/");
     } else {
-      // Signup form
       return (
         <div>
           <form onSubmit={handleSignUp}>

@@ -9,10 +9,9 @@ const Login = () => {
   const [errorMessage, setErrorMessage] = useState([]);
   const history = useHistory();
 
-  // Log in via Firebase
+  // Input nickname but authenticate with a fake email address
   const handleSignUp = async (event) => {
     event.preventDefault();
-    // Input nickname but authenticate with a fake email address
     const { nickname, password } = event.target.elements;
     const email = (nickname.value + "@fake.com").toString();
 
@@ -26,21 +25,20 @@ const Login = () => {
     }
   };
 
+  // Grant no access for logged-in-user even via URL 
   const controlAccess = () => {
     if (currentUser) {
-      // Grant no access for logged-in-user even via URL 
       history.push("/");
     } else {
-      // Login form
       return (
         <div>
           <form onSubmit={handleSignUp}>
             <fieldset className="user-auth">
               <legend>Log in</legend>
               <label htmlFor="nickname">Nickname</label>
-              <input type="text" name="nickname" placeholder="Give yourself a cool nickname!"/><br></br>
+              <input type="text" name="nickname" placeholder="Nickname!"/><br></br>
               <label htmlFor="password">Password</label>
-              <input type="password" name="password" placeholder="No one will survive without a password"/><br></br>
+              <input type="password" name="password" placeholder="Password"/><br></br>
               <div className="auth-buttons">
                 <button className="reset" type="reset" value="Reset">Clear</button>
                 <button className="submit" type="submit" value="Submit">Log in</button>

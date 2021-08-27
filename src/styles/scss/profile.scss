@@ -1,12 +1,35 @@
 @use 'base';
 
-// User profile page
+// Profile page
 .profile-page {
   @extend %flex-column-direction;
 
   .upper-profile {
     @extend %flex-row-direction;
     justify-content: space-around;
+
+    .info {
+      @extend %flex-column-direction;
+
+      .upper-info {
+        @extend %flex-row-direction;
+      }
+
+      .lower-info {
+        @extend %flex-row-direction;
+      }
+    }
+
+    .registration {
+      .lock img {
+        height: 70px;
+        width: 70px;  
+      }
+
+      .hidden {
+        display: none;
+      }
+    }
   }
 
   .lower-profile {

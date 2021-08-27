@@ -7,7 +7,6 @@ export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [pending, setPending] = useState(true);
 
-  // Watch for current user
   const changeCurrentUser = () => {
     Firebase.auth().onAuthStateChanged((user) => {
       setCurrentUser(user)
