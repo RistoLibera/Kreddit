@@ -5,7 +5,7 @@ const Search = () => {
 
   // Search results
   return (
-    <section className="search-result-page">
+    <section className='search-result-page'>
       <div>
         <h1>Old results</h1>
       </div>

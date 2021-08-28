@@ -8,7 +8,7 @@ const DeleteAccount = (props) => {
   const { uid } = props;
   const { currentUser } = useContext(AuthContext);
 
-  const beCurrentUser = () => {
+  const beingCurrentUser = () => {
     let currentUID;
 
     if(currentUser) {
@@ -23,19 +23,8 @@ const DeleteAccount = (props) => {
   
   const handleDelete = async () => {
     // Prevent erroneous operation
-    let confirmation = window.confirm("Are you serious?");
+    let confirmation = window.confirm('Are you serious?');
     if (!confirmation) return;
-
-    // Delete icon
-    try {
-      await Firebase
-          .storage()
-          .ref("user-icon/" + uid + "/icon.jpg")
-          .delete();
-      history.push("/");
-    } catch (error) {
-      alert(error);
-    }
 
     // Delete account
     try {
@@ -43,23 +32,45 @@ const DeleteAccount = (props) => {
         .auth()
         .currentUser
         .delete();
-        history.push("/");
     } catch (error) {
       alert(error);
     }
+    
+    // Delete icon
+    try {
+      await Firebase
+          .storage()
+          .ref('user-icon/' + uid + '/icon.jpg')
+          .delete();
+    } catch (error) {
+      alert(error);
+    }
+
+    // Delete Info
+    try {
+      await Firebase
+      .firestore()
+      .collection('user-info')
+      .doc(uid)
+      .delete();
+    } catch (error) {
+      alert(error);
+    }
+
+    history.push('/');
   };
 
-  if(beCurrentUser()) {
+  if(beingCurrentUser()) {
     return (
-      <div className="delete-account">
-        <button onClick={handleDelete} type="button">
+      <div className='delete-account'>
+        <button onClick={handleDelete} type='button'>
           Delete Account
         </button>
       </div>
     );
   } else {
     return (
-      <div classname="hidden">
+      <div classname='hidden'>
 
       </div>
     );

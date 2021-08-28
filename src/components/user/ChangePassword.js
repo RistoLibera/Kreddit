@@ -42,15 +42,15 @@ const ChangePassword = (props) => {
 
   if(beCurrentUser()) {
     return (
-      <form onSubmit={handleChange} className="change-password">
+      <form onSubmit={handleChange} className='change-password'>
         <fieldset>
           <div>
-            <input hidden={hidden} type="password" name="password" placeholder="6 or more!"/><br></br>
-            <button hidden={hidden} className="submit" type="submit" value="Submit">
+            <input hidden={hidden} type='password' name='password' placeholder='6 or more!'/><br></br>
+            <button hidden={hidden} className='submit' type='submit' value='Submit'>
               Confirm
             </button>
           </div>
-          <button onClick={switchHidden} type="button">
+          <button onClick={switchHidden} type='button'>
             Change password
           </button>
         </fieldset>
@@ -58,8 +58,8 @@ const ChangePassword = (props) => {
     );
   } else {
     return (
-      <div className="lock">
-        <img src={Lock} alt="Lock"></img>
+      <div className='lock'>
+        <img src={Lock} alt='Lock'></img>
       </div>
       );
   }

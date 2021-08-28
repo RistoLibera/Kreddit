@@ -10,14 +10,14 @@ const SelectCountry = () => {
     let option;
 
     CountryData.forEach((data, index) => {
-      countryName = data["country_name"];
-      countryCode = data["country_code"];
+      countryName = data['country_name'];
+      countryCode = data['country_code'];
       option = <option key={index} value={countryCode}>{countryName}</option>;
       optionTAB.push(option);    
     });
 
     return (
-      <select name="nation" id="nation">
+      <select name='nation' id='nation'>
         {optionTAB.map((option) => {
           return (
             option
@@ -28,7 +28,7 @@ const SelectCountry = () => {
   };
 
   return (
-    <div className="all-nations">
+    <div className='all-nations'>
       {createList()}
     </div>
   );

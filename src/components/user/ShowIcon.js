@@ -4,7 +4,7 @@ import Default from '../../assets/img/default-icon.jpg';
 import handleFirebaseError from '../error/FirebaseError';
 
 const ShowIcon = (props) => {
-  const [iconURL, setIconURL] = useState("");
+  const [iconURL, setIconURL] = useState('');
   const [loading, setloading] = useState(false);
   const [errorMessage, setErrorMessage] = useState([]);
   const { uid } = props;
@@ -16,7 +16,7 @@ const ShowIcon = (props) => {
       imgURL = 
         await Firebase
           .storage()
-          .ref("user-icon/" + uid + "/icon.jpg")
+          .ref('user-icon/' + uid + '/icon.jpg')
           .getDownloadURL();
     } catch (error) {
       setErrorMessage(handleFirebaseError(error));
@@ -33,7 +33,7 @@ const ShowIcon = (props) => {
     try {
       await Firebase
         .storage()
-        .ref("user-icon/" + uid + "/icon.jpg")
+        .ref('user-icon/' + uid + '/icon.jpg')
         .put(file);
     } catch (error) {
       alert(error);
@@ -48,10 +48,10 @@ const ShowIcon = (props) => {
   },[]);
   
   return (
-    <div className="profile-icon">
-      <img src={iconURL} alt="icon" width="100px" />
+    <div className='profile-icon'>
+      <img src={iconURL} alt='icon' width='100px' />
       <span hidden={!loading}>...Loading...</span>
-      <input onChange={uploadIcon} type='file' name="icon"/>
+      <input onChange={uploadIcon} type='file' name='icon'/>
       <h2>{errorMessage}</h2>
     </div>
   );

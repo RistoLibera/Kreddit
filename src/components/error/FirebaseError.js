@@ -2,23 +2,23 @@
 const handleFirebaseError = (error) => {
   let message 
   switch (error.code){
-    case "auth/weak-password":
-      message = "Password should be 6 characters or more!";
+    case 'auth/weak-password':
+      message = 'Password should be 6 characters or more!';
       break;
-    case "auth/email-already-in-use":
-      message = "Nickname taken!";
+    case 'auth/email-already-in-use':
+      message = 'Nickname taken!';
       break;
-    case "auth/wrong-password":
-      message = "Wrong password!";
+    case 'auth/wrong-password':
+      message = 'Wrong password!';
       break;
-    case "auth/user-not-found":
-      message = "User do not exist";
+    case 'auth/user-not-found':
+      message = 'User do not exist';
       break;
-    case "storage/object-not-found":
-      message = "You should update to your own liking";
+    case 'storage/object-not-found':
+      message = 'You should update to your own liking';
       break;
     default:
-      message = "Uncharted error";
+      message = 'Uncharted error';
   };
 
   return message;

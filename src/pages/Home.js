@@ -4,8 +4,8 @@ import '../styles/css/home.css';
 const Home = () => {
 
   return (
-    <section className="homepage">
-      <div className="content-switcher">
+    <section className='homepage'>
+      <div className='content-switcher'>
       </div>
 
 

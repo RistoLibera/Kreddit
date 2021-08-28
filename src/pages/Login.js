@@ -10,16 +10,16 @@ const Login = () => {
   const history = useHistory();
 
   // Input nickname but authenticate with a fake email address
-  const handleSignUp = async (event) => {
+  const handleLogin = async (event) => {
     event.preventDefault();
     const { nickname, password } = event.target.elements;
-    const email = (nickname.value + "@fake.com").toString();
+    const email = (nickname.value + '@fake.com').toString();
 
     try {
       await Firebase
         .auth()
         .signInWithEmailAndPassword(email, password.value);
-        history.push("/");
+        history.push('/');
     } catch (error) {
       setErrorMessage(handleFirebaseError(error));
     }
@@ -28,24 +28,24 @@ const Login = () => {
   // Grant no access for logged-in-user even via URL 
   const controlAccess = () => {
     if (currentUser) {
-      history.push("/");
+      history.push('/');
     } else {
       return (
-        <div className="login-page">
-          <form onSubmit={handleSignUp}>
-            <fieldset className="user-auth">
+        <div className='login-page'>
+          <form onSubmit={handleLogin}>
+            <fieldset className='user-auth'>
               <legend>Log in</legend>
-              <label htmlFor="nickname">Nickname</label>
-              <input type="text" id="nickname" name="nickname" placeholder="Nickname!"/><br></br>
-              <label htmlFor="password">Password</label>
-              <input type="password" id="password" name="password" placeholder="Password"/><br></br>
-              <div className="auth-buttons">
-                <button className="reset" type="reset" value="Reset">Clear</button>
-                <button className="submit" type="submit" value="Submit">Log in</button>
+              <label htmlFor='nickname'>Nickname</label>
+              <input type='text' id='nickname' name='nickname' placeholder='Nickname!'/><br></br>
+              <label htmlFor='password'>Password</label>
+              <input type='password' id='password' name='password' placeholder='Password'/><br></br>
+              <div className='auth-buttons'>
+                <button className='reset' type='reset' value='Reset'>Clear</button>
+                <button className='submit' type='submit' value='Submit'>Log in</button>
               </div>
             </fieldset>
           </form>
-          <div className="error-message">
+          <div className='error-message'>
             <h2>{errorMessage}</h2>
           </div>
         </div>
@@ -54,7 +54,7 @@ const Login = () => {
   };
 
   return (
-    <section className="login-page">
+    <section className='login-page'>
       {controlAccess()}
     </section>
   );

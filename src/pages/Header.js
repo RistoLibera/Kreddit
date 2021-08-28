@@ -14,7 +14,7 @@ const Header = () => {
   // Current info
   if(currentUser) {
     currentUID =  currentUser.uid;
-    profileURL = "/profile/" + currentUID;
+    profileURL = '/profile/' + currentUID;
   };
 
   // Change registration interface
@@ -22,7 +22,7 @@ const Header = () => {
     if (currentUser) {
       return (
         // converge into one setting block later
-        <div className="user-bar">
+        <div className='user-bar'>
           <div>
             <h2>notification</h2>
           </div>
@@ -34,14 +34,14 @@ const Header = () => {
       );
     } else {
       return (
-        <div className="user-bar">
+        <div className='user-bar'>
           <div>
-            <button onClick={() => history.push("/login")} type="button">
+            <button onClick={() => history.push('/login')} type='button'>
               Log in
             </button>
           </div>
           <div>
-            <button onClick={() => history.push("/signup")} type="button">
+            <button onClick={() => history.push('/signup')} type='button'>
               Sign up
             </button>
           </div>
@@ -51,20 +51,20 @@ const Header = () => {
   };
 
   return (
-    <header className="app-header">
-      <div className="left-bar">
-        <div className="search-bar">
+    <header className='app-header'>
+      <div className='left-bar'>
+        <div className='search-bar'>
           {/* Let's kreddit! */}
           <h3>Search?</h3>
         </div>
       </div>
 
-      <div className="middle-bar">
+      <div className='middle-bar'>
         <div>
           <h2>Group</h2>
         </div>
-        <div id="icon" onClick={() => history.push("/")}>
-          <img src={Koin} alt="Koin"></img>
+        <div id='icon' onClick={() => history.push('/')}>
+          <img src={Koin} alt='Koin'></img>
         </div>
         <div>
           <h2>Discussion</h2>
@@ -72,9 +72,9 @@ const Header = () => {
 
       </div>
 
-      <div className="right-bar">
+      <div className='right-bar'>
         {registrationBar()}
-        <div className="mode-bar">
+        <div className='mode-bar'>
           <h2>mode</h2>
         </div>
       </div>

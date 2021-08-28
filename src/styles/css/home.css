@@ -1,0 +1,12 @@
+#homepage .content-switcher {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#homepage {
+  display: flex;
+  flex-direction: column;
+}
+
+/*# sourceMappingURL=home.css.map */
