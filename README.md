@@ -5,7 +5,7 @@
 - This is an discussion website imitating Reddit, 
   within which has a set of basic functionality to prove my understanding of Javascript and scss
 
-- Online: https://facebook-replica.herokuapp.com/
+- Online: https://kreddit-d2cd8.firebaseapp.com/
 - Local:  http://localhost:3000/
 
 ## What does this have

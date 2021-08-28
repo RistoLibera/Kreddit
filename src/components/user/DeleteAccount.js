@@ -8,7 +8,7 @@ const DeleteAccount = (props) => {
   const { uid } = props;
   const { currentUser } = useContext(AuthContext);
 
-  const beingCurrentUser = () => {
+  const isCurrentUser = () => {
     let currentUID;
 
     if(currentUser) {
@@ -60,7 +60,7 @@ const DeleteAccount = (props) => {
     history.push('/');
   };
 
-  if(beingCurrentUser()) {
+  if(isCurrentUser()) {
     return (
       <div className='delete-account'>
         <button onClick={handleDelete} type='button'>

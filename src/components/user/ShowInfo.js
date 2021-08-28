@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Firebase from '../../config/Firebase';
 import ReactCountryFlag from 'react-country-flag';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMars, faVenus } from '@fortawesome/free-solid-svg-icons';
 
 const ShowInfo = (props) => {
   const { uid } = props;
@@ -34,9 +36,13 @@ const ShowInfo = (props) => {
 
   return (
     <div className='upper-info'>
-      <h2>{gender}</h2>
+      {(gender === 'male') ?(
+        <FontAwesomeIcon icon={faMars} color="cornflowerblue" size="lg" />
+      ) : (
+        <FontAwesomeIcon icon={faVenus} color="crimson" size="lg" />
+      )}
       <h2>{nickname}</h2>
-      <ReactCountryFlag countryCode={nation} />
+      <ReactCountryFlag countryCode={nation} style={{ fontSize: '2rem' }} />
     </div>
   );
 };
