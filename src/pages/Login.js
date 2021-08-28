@@ -50,7 +50,7 @@ const Login = () => {
           </div>
         </div>
       );
-    };
+    }
   };
 
   return (

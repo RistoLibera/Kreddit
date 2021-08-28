@@ -88,7 +88,7 @@ const Signup = () => {
           </div>
         </div>
       );
-    };
+    }
   };
 
   return (

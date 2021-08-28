@@ -15,7 +15,7 @@ const Header = () => {
   if(currentUser) {
     currentUID =  currentUser.uid;
     profileURL = '/profile/' + currentUID;
-  };
+  }
 
   // Change registration interface
   const registrationBar = () => {
@@ -47,7 +47,7 @@ const Header = () => {
           </div>
         </div>
       );
-    };
+    }
   };
 
   return (

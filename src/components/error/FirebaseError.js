@@ -19,7 +19,7 @@ const handleFirebaseError = (error) => {
       break;
     default:
       message = 'Uncharted error';
-  };
+  }
 
   return message;
 };

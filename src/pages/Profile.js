@@ -1,6 +1,5 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import ReactCountryFlag from 'react-country-flag';
 import ShowIcon from '../components/user/ShowIcon';
 import DeleteAccount from '../components/user/DeleteAccount';
 import ChangePassword from '../components/user/ChangePassword';

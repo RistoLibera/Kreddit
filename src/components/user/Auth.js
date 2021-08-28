@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }) => {
       <section className='loading'>
       </section>
     );
-  };
+  }
 
   return (
     <AuthContext.Provider
