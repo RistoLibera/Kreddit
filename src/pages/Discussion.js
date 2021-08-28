@@ -12,4 +12,4 @@ const Discussion = () => {
   );
 };
 
-export default Discussion
+export default Discussion;

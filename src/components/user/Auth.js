@@ -9,14 +9,14 @@ export const AuthProvider = ({ children }) => {
 
   const changeCurrentUser = () => {
     Firebase.auth().onAuthStateChanged((user) => {
-      setCurrentUser(user)
-      setPending(false)
+      setCurrentUser(user);
+      setPending(false);
     });
   };
   
   // Ony need add observer once
   useEffect(() => {
-    changeCurrentUser()
+    changeCurrentUser();
   }, []);
 
   // Wait for server

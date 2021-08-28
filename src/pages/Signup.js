@@ -1,6 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { AuthContext } from '../components/user/Auth';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMars, faVenus } from '@fortawesome/free-solid-svg-icons';
 import Firebase from '../config/Firebase';
 import handleFirebaseError from '../components/error/FirebaseError';
 import SelectCountry from '../components/user/SelectCountry';
@@ -66,11 +68,11 @@ const Signup = () => {
               <div className='info'>
                 <div className='gender'>
                   <label htmlFor='male'>
-                    Male
+                    <FontAwesomeIcon icon={faMars} color="cornflowerblue" size="lg" />
                   </label>
                   <input type='radio' id='male' name='gender' value='male' checked/>
                   <label htmlFor='female'>
-                    Female
+                    <FontAwesomeIcon icon={faVenus} color="crimson" size="lg" />
                   </label>
                   <input type='radio' id='female' name='gender' value='female' />
                 </div>

@@ -11,6 +11,7 @@
     },
     "rules": {
       "no-unused-vars": ["off", "always"],
-      "react-hooks/exhaustive-deps": "off"
+      "react-hooks/exhaustive-deps": "off",
+      "semi": ["error", "always"]
     }
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ShowIcon from '../components/user/ShowIcon';
 import DeleteAccount from '../components/user/DeleteAccount';
@@ -10,11 +10,12 @@ const Profile = () => {
   // Use complex user UID to avoid malice
   const { uid }  = useParams();
 
-
   // Data structure
-  // groups - Anime -   0    - discussions - 0    1     2   3    - subdis - 0   1   2   3  
-  //               - title  -             - content uid rating  -        - content uid rating
-
+  // groups - Anime -         content             - discussions - 0  1  2 - discussion - 0    1   2   3     - subdis - 0   1   2   3  
+  //                -  creator icon introduction  -            -  title  -             - content uid rating -        - content uid rating
+  
+  // user-info                                -  notif - 0 
+  // created-groups   created-discussion      -        - from: uid  content: what to do?
 
   return (
     <section className='profile-page'>
@@ -43,4 +44,4 @@ const Profile = () => {
   );
 };
 
-export default Profile
+export default Profile;

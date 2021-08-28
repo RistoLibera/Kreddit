@@ -1,6 +1,7 @@
 // Customize Firebase error message
 const handleFirebaseError = (error) => {
-  let message 
+  let message ;
+  
   switch (error.code){
     case 'auth/weak-password':
       message = 'Password should be 6 characters or more!';

@@ -29,6 +29,23 @@ const ShowInfo = (props) => {
     setNation(info.nation);
   };
 
+  const showGender = () => {
+    if(gender === 'male') {
+      return (
+        <FontAwesomeIcon icon={faMars} color="cornflowerblue" size="lg" />
+      );
+    } else if (gender === 'female') {
+      return (
+        <FontAwesomeIcon icon={faVenus} color="crimson" size="lg" />
+      );
+    } else {
+      return (
+        <div>
+        </div>
+      );
+    }
+  };
+
   // Load once
   useEffect(() => {
     getInfo();
@@ -36,11 +53,7 @@ const ShowInfo = (props) => {
 
   return (
     <div className='upper-info'>
-      {(gender === 'male') ?(
-        <FontAwesomeIcon icon={faMars} color="cornflowerblue" size="lg" />
-      ) : (
-        <FontAwesomeIcon icon={faVenus} color="crimson" size="lg" />
-      )}
+      {showGender()}
       <h2>{nickname}</h2>
       <ReactCountryFlag countryCode={nation} style={{ fontSize: '2rem' }} />
     </div>

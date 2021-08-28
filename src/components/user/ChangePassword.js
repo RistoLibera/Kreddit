@@ -36,7 +36,7 @@ const ChangePassword = (props) => {
         .updatePassword(password.value);
       setHidden(!hidden);
     } catch (error) {
-      console.log(error.code)
+      alert(error);
     }
   };
 
