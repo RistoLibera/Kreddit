@@ -4,6 +4,7 @@ import ReactCountryFlag from 'react-country-flag';
 import ShowIcon from '../components/user/ShowIcon';
 import DeleteAccount from '../components/user/DeleteAccount';
 import ChangePassword from '../components/user/ChangePassword';
+import ShowInfo from '../components/user/ShowInfo';
 import '../styles/css/profile.css';
 
 const Profile = () => {
@@ -15,7 +16,6 @@ const Profile = () => {
   // groups - Anime -   0    - discussions - 0    1     2   3    - subdis - 0   1   2   3  
   //               - title  -             - content uid rating  -        - content uid rating
 
-  // user info -  uid -  nickname gender nation
 
   return (
     <section className='profile-page'>
@@ -23,11 +23,7 @@ const Profile = () => {
           <ShowIcon uid = {uid} />
 
           <div className='info'>
-            <div className='upper-info'>
-              <h2>Gender</h2>
-              <h2>nickname</h2>
-              <ReactCountryFlag countryCode='GB' />
-            </div>
+            <ShowInfo uid = {uid} />
             <div className='lower-info'>
               <h3>what groups</h3>
               <h3>discussion number</h3>

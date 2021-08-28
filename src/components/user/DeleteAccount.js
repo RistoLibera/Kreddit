@@ -26,16 +26,6 @@ const DeleteAccount = (props) => {
     let confirmation = window.confirm('Are you serious?');
     if (!confirmation) return;
 
-    // Delete account
-    try {
-      await Firebase
-        .auth()
-        .currentUser
-        .delete();
-    } catch (error) {
-      alert(error);
-    }
-    
     // Delete icon
     try {
       await Firebase
@@ -53,6 +43,16 @@ const DeleteAccount = (props) => {
       .collection('user-info')
       .doc(uid)
       .delete();
+    } catch (error) {
+      alert(error);
+    }
+
+    // Delete account
+    try {
+      await Firebase
+        .auth()
+        .currentUser
+        .delete();
     } catch (error) {
       alert(error);
     }

@@ -10,7 +10,7 @@ const Signup = () => {
   const [errorMessage, setErrorMessage] = useState([]);
   const history = useHistory();
 
-  // // Update nickname, gender and nation to Firestore
+  // Update nickname, gender and nation to Firestore
   const updateFirestore = async (uid, nickname, gender, nation) => {
     try {
       await Firebase
