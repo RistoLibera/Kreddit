@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Redirect } from 'react-router-dom';
 import { AuthContext } from '../components/user/Auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMars, faVenus } from '@fortawesome/free-solid-svg-icons';
@@ -54,7 +54,9 @@ const Signup = () => {
   // Grant no access for logged-in-user even via URL 
   const controlAccess = () => {
     if (currentUser) {
-      history.push('/');
+      return (
+        <Redirect to="/blog" />
+      );
     } else {
       return (
         <div className='signup-page'>

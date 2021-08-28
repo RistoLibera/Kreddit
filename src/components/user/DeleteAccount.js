@@ -17,7 +17,7 @@ const DeleteAccount = (props) => {
         return true;
       }
     } else {
-      return false;
+        return false;
     }
   };
   
@@ -70,8 +70,7 @@ const DeleteAccount = (props) => {
     );
   } else {
     return (
-      <div classname='hidden'>
-
+      <div className='hidden'>
       </div>
     );
   }

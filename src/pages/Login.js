@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Redirect } from 'react-router-dom';
 import { AuthContext } from '../components/user/Auth';
 import Firebase from '../config/Firebase';
 import handleFirebaseError from '../components/error/FirebaseError';
@@ -28,7 +28,9 @@ const Login = () => {
   // Grant no access for logged-in-user even via URL 
   const controlAccess = () => {
     if (currentUser) {
-      history.push('/');
+      return (
+        <Redirect to="/blog" />
+      );
     } else {
       return (
         <div className='login-page'>
