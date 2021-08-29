@@ -1,39 +1,37 @@
 @use 'base';
 
 // Profile page
+.hidden {
+  display: none;
+}
 .profile-page {
-  @extend %flex-column-direction;
-
-  .upper-profile {
-    @extend %flex-row-direction;
-    justify-content: space-around;
-
-    .info {
-      @extend %flex-column-direction;
-
-      .upper-info {
-        @extend %flex-row-direction;
-      }
-
-      .lower-info {
-        @extend %flex-row-direction;
-      }
-    }
-
-    .registration {
-      .lock img {
-        height: 70px;
-        width: 70px;  
-      }
-
-      .hidden {
-        display: none;
-      }
-    }
-  }
-
-  .lower-profile {
+  .profile-container {
     @extend %flex-column-direction;
-
+  
+    .upper-profile {
+      @extend %flex-row-direction;
+      justify-content: space-around;
+  
+      .info {
+        @extend %flex-column-direction;
+  
+        .upper-info {
+          @extend %flex-row-direction;
+        }
+  
+        .lower-info {
+          @extend %flex-row-direction;
+        }
+      }
+  
+      .registration {
+        @extend %flex-column-direction;
+      }
+    }
+  
+    .lower-profile {
+      @extend %flex-column-direction;
+  
+    }
   }
 }

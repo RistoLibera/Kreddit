@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { AuthContext } from '../components/user/Auth';
+import { AuthContext } from '../components/loading/Auth';
 import Koin from '../assets/img/header-koin.png';
 import '../styles/css/header.css';
 import Signout from '../components/user/Signout';
@@ -61,13 +61,13 @@ const Header = () => {
 
       <div className='middle-bar'>
         <div>
-          <h2>Group</h2>
+          <h2>Discussion</h2>
         </div>
         <div id='icon' onClick={() => history.push('/')}>
           <img src={Koin} alt='Koin'></img>
         </div>
         <div>
-          <h2>Discussion</h2>
+          <h2>Group</h2>
         </div>
 
       </div>

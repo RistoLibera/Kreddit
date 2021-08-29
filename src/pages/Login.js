@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useHistory, Redirect } from 'react-router-dom';
-import { AuthContext } from '../components/user/Auth';
+import { AuthContext } from '../components/loading/Auth';
 import Firebase from '../config/Firebase';
 import handleFirebaseError from '../components/error/FirebaseError';
 
@@ -29,11 +29,11 @@ const Login = () => {
   const controlAccess = () => {
     if (currentUser) {
       return (
-        <Redirect to="/blog" />
+        <Redirect to="/" />
       );
     } else {
       return (
-        <div className='login-page'>
+        <div className='login-container'>
           <form onSubmit={handleLogin}>
             <fieldset className='user-auth'>
               <legend>Log in</legend>

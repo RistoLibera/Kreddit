@@ -1,33 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import Firebase from '../../config/Firebase';
+import React from 'react';
 import ReactCountryFlag from 'react-country-flag';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMars, faVenus } from '@fortawesome/free-solid-svg-icons';
 
 const ShowInfo = (props) => {
-  const { uid } = props;
-  const [nickname, setNickname] = useState("");
-  const [gender, setGender] = useState("");
-  const [nation, setNation] = useState("");
-  let info;
-
-  const getInfo = async () => {
-    try {
-      let cache = 
-        await Firebase
-          .firestore()
-          .collection('user-info')
-          .doc(uid)
-          .get();
-      info = cache.data();
-    } catch (error) {
-      alert(error);
-    }
-
-    setNickname(info.nickname);
-    setGender(info.gender);
-    setNation(info.nation);
-  };
+  const { nickname, gender, nation } = props;
 
   const showGender = () => {
     if(gender === 'male') {
@@ -45,11 +22,6 @@ const ShowInfo = (props) => {
       );
     }
   };
-
-  // Load once
-  useEffect(() => {
-    getInfo();
-  },[]);
 
   return (
     <div className='upper-info'>

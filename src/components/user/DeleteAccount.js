@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
-import { AuthContext } from './Auth';
+import { AuthContext } from '../loading/Auth';
 import Firebase from '../../config/Firebase';
 
 const DeleteAccount = (props) => {

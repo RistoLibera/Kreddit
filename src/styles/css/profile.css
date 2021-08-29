@@ -1,23 +1,20 @@
-.profile-page .upper-profile, .profile-page .upper-profile .info .upper-info, .profile-page .upper-profile .info .lower-info {
+.profile-page .profile-container .upper-profile, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile .info .lower-info {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.profile-page, .profile-page .upper-profile .info, .profile-page .lower-profile {
+.profile-page .profile-container, .profile-page .profile-container .upper-profile .info, .profile-page .profile-container .upper-profile .registration, .profile-page .profile-container .lower-profile {
   display: flex;
   flex-direction: column;
 }
 
-.profile-page .upper-profile {
-  justify-content: space-around;
-}
-.profile-page .upper-profile .registration .lock img {
-  height: 70px;
-  width: 70px;
-}
-.profile-page .upper-profile .registration .hidden {
+.hidden {
   display: none;
+}
+
+.profile-page .profile-container .upper-profile {
+  justify-content: space-around;
 }
 
 /*# sourceMappingURL=profile.css.map */

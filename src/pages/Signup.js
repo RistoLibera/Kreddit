@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useHistory, Redirect } from 'react-router-dom';
-import { AuthContext } from '../components/user/Auth';
+import { AuthContext } from '../components/loading/Auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMars, faVenus } from '@fortawesome/free-solid-svg-icons';
 import Firebase from '../config/Firebase';
@@ -55,11 +55,11 @@ const Signup = () => {
   const controlAccess = () => {
     if (currentUser) {
       return (
-        <Redirect to="/blog" />
+        <Redirect to="/" />
       );
     } else {
       return (
-        <div className='signup-page'>
+        <div className='signup-container'>
           <form onSubmit={handleSignup}>
             <fieldset className='user-auth'>
               <legend>Sign up</legend>

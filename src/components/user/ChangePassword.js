@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import Firebase from '../../config/Firebase';
-import { AuthContext } from './Auth';
+import { AuthContext } from '../loading/Auth';
 import Lock from '../../assets/img/lock.png';
 
 const ChangePassword = (props) => {
@@ -34,10 +34,13 @@ const ChangePassword = (props) => {
         .auth()
         .currentUser
         .updatePassword(password.value);
+      alert("success!");
       setHidden(!hidden);
     } catch (error) {
       alert(error);
     }
+
+    event.target.reset();
   };
 
   if(beCurrentUser()) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { AuthProvider } from './components/user/Auth';
+import { AuthProvider } from './components/loading/Auth';
 // Page components
 import Login from './pages/Login';
 import Signup from './pages/Signup';
