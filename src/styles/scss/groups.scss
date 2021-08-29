@@ -16,19 +16,6 @@
         @extend %flex-row-direction;
       }
   
-      .form-container {
-        
-        form fieldset {
-
-          #name {
-            text-transform: uppercase;
-          }
-
-          #name::placeholder {
-            text-transform: none;
-          }
-        }
-      }
   
     }
   

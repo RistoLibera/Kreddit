@@ -13,12 +13,6 @@
   display: none;
 }
 
-.groups-page .create-group-container .create-group .form-container form fieldset #name {
-  text-transform: uppercase;
-}
-.groups-page .create-group-container .create-group .form-container form fieldset #name::placeholder {
-  text-transform: none;
-}
 .groups-page .create-group-container .group-list ul {
   list-style-type: none;
 }

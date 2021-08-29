@@ -29,25 +29,36 @@ const Groups = () => {
   // Update two collections of Firestore and FireStorage
   const handleCreateGroup = async (event) => {
     event.preventDefault();
-    // event.target.reset();
     const { name, introduction, symbol } = event.target.elements;
     let uid = currentUser.uid;
     let createdGroups = [];
+    let nameValue = name.value;
+    let introductionValue = introduction.value;
 
+    console.log(name);
     setLoading('');
-    setContainerClass(hidden);
+    setContainerClass('hidden');
     switchHidden();
 
     try {
       await Firebase
         .firestore()
         .collection('groups')
-        .doc(name.value)
+        .doc(nameValue)
         .set({
-          name: name.value,
+          name: nameValue,
           creator: uid,
-          introduction: introduction.value
+          introduction: introductionValue
         });
+    } catch (error) {
+      alert(error);
+    }
+
+    try {
+      await Firebase
+        .storage()
+        .ref('group-symbol/' + nameValue + '/symbol.jpg')
+        .put(symbol.files[0]);
     } catch (error) {
       alert(error);
     }
@@ -60,9 +71,11 @@ const Groups = () => {
           .collection('groups')
           .where('creator', '==', uid)
           .get();
-      cache.forEach(doc => {
-        createdGroups.push(doc.data().name);
-      });
+      if(cache) {
+        cache.forEach(doc => {
+          createdGroups.push(doc.data().name);
+        });  
+      }
     } catch (error) {
       alert(error);
     }
@@ -79,15 +92,7 @@ const Groups = () => {
       alert(error);
     }
 
-    try {
-      await Firebase
-        .storage()
-        .ref('group-symbol/' + name.value + '/symbol.jpg')
-        .put(symbol.files[0]);
-    } catch (error) {
-      alert(error);
-    }
-
+    event.target.reset();
     setLoading('hidden');
     setContainerClass('create-group-container');
   };
@@ -96,7 +101,7 @@ const Groups = () => {
   //                -  creator symbol introduction  -            -  title  -             - content uid rating -        - content uid rating
   
   // user-info    -  notif - 0  - from: uid  content: what to do?
-  // user-info    -    created-groups   -   name
+  // user-info    -    created-groups   -   name array
   //              -     created-discussions    - database position
 
   return (
@@ -119,11 +124,11 @@ const Groups = () => {
             <form onSubmit={handleCreateGroup}>
               <fieldset>
                 <label htmlFor='name'>Introduction</label>
-                <input type='text' id='name' name='name' placeholder='Groups name'/><br></br>
+                <input type='text' id='name' name='name' placeholder='Groups name' required/><br></br>
                 <label htmlFor='introduction'>Introduction</label>
-                <textarea type='text' id='introduction' name='introduction' placeholder='What is this group for?'/><br></br>
+                <textarea type='text' id='introduction' name='introduction' placeholder='What is this group for?' required/><br></br>
                 <label htmlFor='symbol'>Symbol</label>
-                <input type='file' id='symbol' name='symbol' /><br></br>
+                <input type='file' id='symbol' name='symbol' required/><br></br>
                 <button className='submit' type='submit' value='Submit'>Create</button>
               </fieldset>
             </form>

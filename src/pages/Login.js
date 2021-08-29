@@ -38,9 +38,9 @@ const Login = () => {
             <fieldset className='user-auth'>
               <legend>Log in</legend>
               <label htmlFor='nickname'>Nickname</label>
-              <input type='text' id='nickname' name='nickname' placeholder='Nickname!'/><br></br>
+              <input type='text' id='nickname' name='nickname' placeholder='Nickname!' required/><br></br>
               <label htmlFor='password'>Password</label>
-              <input type='password' id='password' name='password' placeholder='Password'/><br></br>
+              <input type='password' id='password' name='password' placeholder='Password' required/><br></br>
               <div className='auth-buttons'>
                 <button className='reset' type='reset' value='Reset'>Clear</button>
                 <button className='submit' type='submit' value='Submit'>Log in</button>
