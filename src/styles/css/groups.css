@@ -1,3 +1,26 @@
+.groups-page .create-group-container .create-group header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
+.groups-page, .groups-page .create-group-container .create-group, .groups-page .create-group-container .group-list ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.hidden {
+  display: none;
+}
+
+.groups-page .create-group-container .create-group .form-container form fieldset #name {
+  text-transform: uppercase;
+}
+.groups-page .create-group-container .create-group .form-container form fieldset #name::placeholder {
+  text-transform: none;
+}
+.groups-page .create-group-container .group-list ul {
+  list-style-type: none;
+}
 
 /*# sourceMappingURL=groups.css.map */

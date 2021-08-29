@@ -3,6 +3,8 @@ import { useHistory } from 'react-router-dom';
 import { AuthContext } from '../loading/Auth';
 import Firebase from '../../config/Firebase';
 
+
+// This will be far far complicated
 const DeleteAccount = (props) => {
   const history = useHistory();
   const { uid } = props;

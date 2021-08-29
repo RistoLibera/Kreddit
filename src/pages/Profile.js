@@ -81,7 +81,8 @@ const Profile = () => {
           <div className='info'>
             <ShowInfo nickname={nickname} gender={gender} nation={nation} />
             <div className='lower-info'>
-              <h3>what groups</h3>
+              <h3>Creator of group</h3>
+              <h3>in what groups</h3>
               <h3>discussion number</h3>
             </div>
           </div>

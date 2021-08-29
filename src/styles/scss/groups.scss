@@ -1,1 +1,44 @@
+@use 'base';
+
 // Groups page
+.hidden {
+  display: none;
+}
+
+.groups-page {
+  @extend %flex-column-direction;
+
+  .create-group-container{
+    .create-group {
+      @extend %flex-column-direction;
+  
+      header {
+        @extend %flex-row-direction;
+      }
+  
+      .form-container {
+        
+        form fieldset {
+
+          #name {
+            text-transform: uppercase;
+          }
+
+          #name::placeholder {
+            text-transform: none;
+          }
+        }
+      }
+  
+    }
+  
+    .group-list{
+  
+      ul {
+        @extend %flex-column-direction;
+        list-style-type: none;
+      }
+    }
+
+  }
+}

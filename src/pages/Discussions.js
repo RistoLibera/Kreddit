@@ -6,9 +6,9 @@ const Discussions = () => {
 
 
   return (
-    <div>
+    <section className='discussions-page'>
       
-    </div>
+    </section>
   );
 };
 
