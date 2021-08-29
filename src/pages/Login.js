@@ -29,7 +29,7 @@ const Login = () => {
   const controlAccess = () => {
     if (currentUser) {
       return (
-        <Redirect to="/" />
+        <Redirect to='/' />
       );
     } else {
       return (

@@ -1,10 +1,9 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { AuthContext } from '../components/loading/Auth';
 import Firebase from '../config/Firebase';
 import Default from '../assets/img/default-icon.jpg';
-import { css } from "@emotion/react";
-import BarLoader from "react-spinners/BarLoader";
+import { css } from '@emotion/react';
+import BarLoader from 'react-spinners/BarLoader';
 // Components
 import handleFirebaseError from '../components/error/FirebaseError';
 import ShowIcon from '../components/user/ShowIcon';
@@ -15,26 +14,23 @@ import '../styles/css/profile.css';
 
 const Profile = () => {
   const { uid }  = useParams();
-  const { loading, setLoading } = useContext(AuthContext);
   const spinnerCSS = css`
   display: block;
   margin: 0 auto;
   border-color: red;
   `;
-  let reactiveClass;
-  let containerClass;
   let info;
-  const [nickname, setNickname] = useState("");
-  const [gender, setGender] = useState("");
-  const [nation, setNation] = useState("");
+  const [nickname, setNickname] = useState('');
+  const [gender, setGender] = useState('');
+  const [nation, setNation] = useState('');
   const [iconURL, setIconURL] = useState('');
   const [iconError, setIconError] = useState([]);
+  const [loading, setLoading] = useState('');
+  const [containerClass, setContainerClass] = useState('hidden');
 
   // Fetch data from Firestore and Firestorage
   const fetchData = async () => {
     let imgURL = Default;
-    // Start loading
-    setLoading(true);
 
     try {
       imgURL = 
@@ -64,33 +60,18 @@ const Profile = () => {
     setGender(info.gender);
     setNation(info.nation);
     // Stop loading
-    setLoading(false);
+    setContainerClass('profile-container');
+    setLoading('hidden');
   };
-
-  // Loading screen
-  if (loading) {
-    containerClass = "hidden";
-    reactiveClass = '';
-  } else {
-    containerClass = "profile-container";
-    reactiveClass = 'hidden';
-  }
 
   useEffect(() => {
     fetchData();
   }, []);
 
-  // Data structure
-  // groups - Anime -         content             - discussions - 0  1  2 - discussion - 0    1   2   3     - subdis - 0   1   2   3  
-  //                -  creator icon introduction  -            -  title  -             - content uid rating -        - content uid rating
-  
-  // user-info                                -  notif - 0 
-  // created-groups   created-discussion      -        - from: uid  content: what to do?
-
   return (
-    <section className="profile-page">
-      <div className={reactiveClass}>
-        <BarLoader color="#D5D736" css={spinnerCSS} size={150} />
+    <section className='profile-page'>
+      <div className={loading}>
+        <BarLoader color='#D5D736' css={spinnerCSS} size={150} />
       </div>
 
       <div className={containerClass}>

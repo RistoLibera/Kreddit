@@ -55,7 +55,7 @@ const Signup = () => {
   const controlAccess = () => {
     if (currentUser) {
       return (
-        <Redirect to="/" />
+        <Redirect to='/' />
       );
     } else {
       return (
@@ -70,11 +70,11 @@ const Signup = () => {
               <div className='info'>
                 <div className='gender'>
                   <label htmlFor='male'>
-                    <FontAwesomeIcon icon={faMars} color="cornflowerblue" size="lg" />
+                    <FontAwesomeIcon icon={faMars} color='cornflowerblue' size='lg' />
                   </label>
                   <input type='radio' id='male' name='gender' value='male' checked/>
                   <label htmlFor='female'>
-                    <FontAwesomeIcon icon={faVenus} color="crimson" size="lg" />
+                    <FontAwesomeIcon icon={faVenus} color='crimson' size='lg' />
                   </label>
                   <input type='radio' id='female' name='gender' value='female' />
                 </div>

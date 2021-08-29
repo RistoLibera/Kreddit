@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/css/discussion.css';
 
-const Discussion = () => {
+const Discussions = () => {
   // Can choose by group on round buttons.
 
 
@@ -12,4 +12,4 @@ const Discussion = () => {
   );
 };
 
-export default Discussion;
+export default Discussions;

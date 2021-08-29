@@ -60,13 +60,13 @@ const Header = () => {
       </div>
 
       <div className='middle-bar'>
-        <div>
+        <div onClick={() => history.push('/discussions')}className='discussions-bar'>
           <h2>Discussion</h2>
         </div>
-        <div id='icon' onClick={() => history.push('/')}>
+        <div id='icon' onClick={() => history.push('/')} >
           <img src={Koin} alt='Koin'></img>
         </div>
-        <div>
+        <div onClick={() => history.push('/groups')}className='groups-bar'>
           <h2>Group</h2>
         </div>
 

@@ -5,7 +5,7 @@ import { AuthProvider } from './components/loading/Auth';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Groups from './pages/Groups';
-import Discussion from './pages/Discussion';
+import Discussions from './pages/Discussions';
 import Header from './pages/Header';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
@@ -22,7 +22,7 @@ const Routes = () => {
           <Route exact path='/signup' component={Signup} />
           <Route exact path='/profile/:uid' component={Profile} />
           <Route exact path='/groups' component={Groups} />
-          <Route exact path='/discussion' component={Discussion} />
+          <Route exact path='/discussions' component={Discussions} />
           <Route exact path='/search' component={Search} />
           <Route path='/' component={Home} />
         </Switch>

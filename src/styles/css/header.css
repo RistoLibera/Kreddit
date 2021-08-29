@@ -4,9 +4,15 @@
   justify-content: space-between;
 }
 
+.app-header .middle-bar .discussions-bar {
+  cursor: pointer;
+}
 .app-header .middle-bar #icon img {
   height: 70px;
   width: 70px;
+  cursor: pointer;
+}
+.app-header .middle-bar .groups-bar {
   cursor: pointer;
 }
 

@@ -34,7 +34,7 @@ const ChangePassword = (props) => {
         .auth()
         .currentUser
         .updatePassword(password.value);
-      alert("success!");
+      alert('success!');
       setHidden(!hidden);
     } catch (error) {
       alert(error);

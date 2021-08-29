@@ -8,9 +8,17 @@
   .middle-bar {
     @extend %flex-row-direction;
 
+    .discussions-bar {
+      cursor: pointer;
+    }
+
     #icon img {
       height: 70px;
       width: 70px;
+      cursor: pointer;
+    }
+
+    .groups-bar {
       cursor: pointer;
     }
   }
