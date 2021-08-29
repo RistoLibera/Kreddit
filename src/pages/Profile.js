@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import { AuthContext } from '../components/loading/Auth';
 import Firebase from '../config/Firebase';
 import Default from '../assets/img/default-icon.jpg';
+import { css } from "@emotion/react";
+import BarLoader from "react-spinners/BarLoader";
 // Components
 import handleFirebaseError from '../components/error/FirebaseError';
 import ShowIcon from '../components/user/ShowIcon';
@@ -14,6 +16,11 @@ import '../styles/css/profile.css';
 const Profile = () => {
   const { uid }  = useParams();
   const { loading, setLoading } = useContext(AuthContext);
+  const spinnerCSS = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+  `;
   let reactiveClass;
   let containerClass;
   let info;
@@ -83,6 +90,7 @@ const Profile = () => {
   return (
     <section className="profile-page">
       <div className={reactiveClass}>
+        <BarLoader color="#D5D736" css={spinnerCSS} size={150} />
       </div>
 
       <div className={containerClass}>
