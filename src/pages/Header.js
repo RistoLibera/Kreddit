@@ -1,18 +1,21 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { AuthContext } from '../components/loading/Auth';
 import Koin from '../assets/img/header-koin.png';
+import { css } from '@emotion/react';
+import BarLoader from 'react-spinners/BarLoader';
 import Signout from '../components/user/Signout';
 import '../styles/css/header.css';
 
 const Header = () => {
   const { currentUser,pending } = useContext(AuthContext);
+  const spinnerCSS = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+  `;
   const history = useHistory();
-  const [pageLoading, setPageLoading] = useState('');
 
-
-  // Add loading!
-  console.log(pending);
   // Current profile
   const getProfileURL = () => {
     let profileURL;  
@@ -35,6 +38,12 @@ const Header = () => {
           <Link to={getProfileURL}>Profile</Link>
           <Signout />
           </div>
+        </div>
+      );
+    } else if (pending) {
+      return (
+        <div className='user-bar'>
+          <BarLoader color='#D5D736' css={spinnerCSS} size={150} />
         </div>
       );
     } else {
