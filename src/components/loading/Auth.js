@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import FirebasePack from '../../config/FirebasePack';
 
-// Set global currentness and loadingness
 export const AuthContext = React.createContext();
 
 export const AuthProvider = ({ children }) => {

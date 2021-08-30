@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../components/loading/Auth';
 import FirebasePack from '../config/FirebasePack';
-// Import directly to use field functions
 import firebase from 'firebase/app';
 import { css } from '@emotion/react';
 import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
@@ -107,7 +106,7 @@ const Groups = () => {
   //                -  creator symbol introduction  -            -  title  -             - content uid rating -        - content uid rating
   
   // user-info    -  notif - 0  - from: uid  content: what to do?
-  // user-info    -    created-groups   -   name array
+  // user-info    -    created-groups   -   name array creator
   //              -     created-discussions    - database position
 
   return (

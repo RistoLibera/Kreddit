@@ -1,14 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { AuthContext } from '../loading/Auth';
 import FirebasePack from '../../config/FirebasePack';
-import handleFirebaseError from '../error/FirebaseError';
+import firebase from 'firebase/app';
 
 // This will be far far complicated
 const DeleteAccount = (props) => {
   const history = useHistory();
   const { uid } = props;
   const { currentUser } = useContext(AuthContext);
+  const [formHidden, setFormHidden] = useState("hidden");
 
   const isCurrentUser = () => {
     let currentUID;
@@ -20,21 +21,6 @@ const DeleteAccount = (props) => {
     } else {
         return false;
     }
-  };
-
-  // Delete account
-  const deleteAccount = async () => {
-    let errorMessage;
-    try {
-      await FirebasePack
-        .auth()
-        .currentUser
-        .delete();
-    } catch (error) {
-      errorMessage = handleFirebaseError(error.code);
-      alert(error);
-    }
-    return errorMessage;
   };
 
   // Delete icon
@@ -61,23 +47,54 @@ const DeleteAccount = (props) => {
       alert(error);
     }
   };
+
+  // Delete account
+  const deleteAccount = async () => {
+    try {
+      await FirebasePack
+        .auth()
+        .currentUser
+        .delete();
+    } catch (error) {
+      alert(error);
+    }
+  };
   
   const handleDelete = async () => {
-    let errorMessage;
     // Prevent erroneous operation
     let confirmation = window.confirm('Are you serious? You may need re-login to delete');
     if (!confirmation) return;
 
-    errorMessage = await deleteAccount();
+    // currentUser.email = name.value + "@fake.com"
     await deleteIcon();
     await deleteInfo();  
+    setFormHidden('');
+
+  };
+
+  const identifyEntity = async (event) => {
+    event.preventDefault();
+    const { password } = event.target.elements;
+    const email = currentUser.email;
+    const credential = firebase.auth.EmailAuthProvider.credential(
+      email, 
+      password.value
+  );
+    FirebasePack.auth().currentUser.reauthenticateWithCredential(credential);
+    await deleteAccount();
     history.push('/');  
-    
   };
 
   if(isCurrentUser()) {
     return (
       <div className='delete-account'>
+        <div className={formHidden}>
+          <form onSubmit={identifyEntity}>
+              <label htmlFor='password'>Password</label>
+              <input type='password' id='password' name='password' placeholder='Password' required/><br></br>
+              <button className='submit' type='submit' value='Submit'>Identify</button>
+          </form>
+        </div>
         <button onClick={handleDelete} type='button'>
           Delete Account
         </button>

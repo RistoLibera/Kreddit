@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import FirebasePack from '../config/FirebasePack';
 import Default from '../assets/img/default-icon.jpg';
 import { css } from '@emotion/react';
@@ -19,6 +19,7 @@ const Profile = () => {
   margin: 0 auto;
   border-color: red;
   `;
+  const history = useHistory();
   let info;
   const [nickname, setNickname] = useState('');
   const [gender, setGender] = useState('');
@@ -55,10 +56,15 @@ const Profile = () => {
     } catch (error) {
       alert(error);
     }
+    
+    if (!info) {
+      history.push('/');
+    } else {
+      setNickname(info.nickname);
+      setGender(info.gender);
+      setNation(info.nation);  
+    }
 
-    setNickname(info.nickname);
-    setGender(info.gender);
-    setNation(info.nation);
     // Stop loading
     setContainerClass('profile-container');
     setPageLoading('hidden');
