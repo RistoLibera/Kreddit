@@ -65,11 +65,9 @@ const DeleteAccount = (props) => {
     let confirmation = window.confirm('Are you serious? You may need re-login to delete');
     if (!confirmation) return;
 
-    // currentUser.email = name.value + "@fake.com"
     await deleteIcon();
     await deleteInfo();  
     setFormHidden('');
-
   };
 
   const identifyEntity = async (event) => {
