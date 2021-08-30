@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { AuthContext } from '../loading/Auth';
 import FirebasePack from '../../config/FirebasePack';
-
+import handleFirebaseError from '../error/FirebaseError';
 
 // This will be far far complicated
 const DeleteAccount = (props) => {
@@ -12,7 +12,6 @@ const DeleteAccount = (props) => {
 
   const isCurrentUser = () => {
     let currentUID;
-
     if(currentUser) {
       currentUID = currentUser.uid;
       if(currentUID === uid) {
@@ -22,46 +21,58 @@ const DeleteAccount = (props) => {
         return false;
     }
   };
-  
-  const handleDelete = async () => {
-    // Prevent erroneous operation
-    let reloginError;
-    let confirmation = window.confirm('Are you serious?');
-    if (!confirmation) return;
 
-    // Delete account
+  // Delete account
+  const deleteAccount = async () => {
+    let errorMessage;
     try {
       await FirebasePack
         .auth()
         .currentUser
         .delete();
     } catch (error) {
+      errorMessage = handleFirebaseError(error.code);
       alert(error);
-      console.log(error.code);
     }
+    return errorMessage;
+  };
 
-    // Delete icon
-    // try {
-    //   await FirebasePack
-    //       .storage()
-    //       .ref('user-icon/' + uid + '/icon.jpg')
-    //       .delete();
-    // } catch (error) {
-    //   alert(error);
-    // }
+  // Delete icon
+  const deleteIcon = async () => {
+    try {
+      await FirebasePack
+          .storage()
+          .ref('user-icon/' + uid + '/icon.jpg')
+          .delete();
+    } catch (error) {
+      alert(error);
+    }
+  };
 
-    // // Delete Info
-    // try {
-    //   await FirebasePack
-    //   .firestore()
-    //   .collection('user-info')
-    //   .doc(uid)
-    //   .delete();
-    // } catch (error) {
-    //   alert(error);
-    // }
+  // Delete info
+  const deleteInfo = async () => {
+    try {
+      await FirebasePack
+      .firestore()
+      .collection('user-info')
+      .doc(uid)
+      .delete();
+    } catch (error) {
+      alert(error);
+    }
+  };
+  
+  const handleDelete = async () => {
+    let errorMessage;
+    // Prevent erroneous operation
+    let confirmation = window.confirm('Are you serious? You may need re-login to delete');
+    if (!confirmation) return;
 
-    history.push('/');
+    errorMessage = await deleteAccount();
+    await deleteIcon();
+    await deleteInfo();  
+    history.push('/');  
+    
   };
 
   if(isCurrentUser()) {

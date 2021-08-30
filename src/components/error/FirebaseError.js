@@ -18,7 +18,10 @@ const handleFirebaseError = (error) => {
     case 'storage/object-not-found':
       message = 'You should update to your own liking';
       break;
-    default:
+    case 'auth/requires-recent-login':
+      message = 'Need re-login';
+      break;
+      default:
       message = 'Uncharted error';
   }
 

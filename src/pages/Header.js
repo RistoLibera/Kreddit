@@ -56,6 +56,7 @@ const Header = () => {
         <div className='search-bar'>
           {/* Let's kreddit! */}
           <h3>Search?</h3>
+          <h2></h2>
         </div>
       </div>
 
