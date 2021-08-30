@@ -40,76 +40,63 @@ const Groups = () => {
     switchHidden();
 
     // Check contradiction
-    // try {
-    //   let interval = [];
-    //   let cache = 
-    //     await FirebasePack
-    //       .firestore()
-    //       .collection('groups')
-    //       .get();
-    //   cache.forEach((doc) => {
-    //     interval.push(doc.id);
-    //   });
-          
-    //   console.log(interval);
-    // } catch (error) {
-    //   alert(error);
-    // }
-
-    // Create new group
     try {
-      await FirebasePack
-        .firestore()
-        .collection('groups')
-        .doc(nameValue)
-        .set({
-          name: nameValue,
-          creator: uid,
-          introduction: introductionValue
-        });
+      let cache =
+        await FirebasePack
+          .firestore()
+          .collection('groups')
+          .get();
+        if (cache) {
+          cache.forEach((doc) => {
+            createdGroups.push(doc.id);
+          });    
+        }
     } catch (error) {
       alert(error);
     }
 
-    try {
-      await FirebasePack
-        .storage()
-        .ref('group-symbol/' + nameValue + '/symbol.jpg')
-        .put(symbol.files[0]);
-    } catch (error) {
-      alert(error);
+    if(createdGroups && createdGroups.some((existedName) => existedName = nameValue)) {
+      alert("Group already created!");
+      setPageLoading('hidden');
+      setContainerClass('create-group-container');
+      return;
+    } else {
+      // Create new group
+      try {
+        await FirebasePack
+          .firestore()
+          .collection('groups')
+          .doc(nameValue)
+          .set({
+            name: nameValue,
+            creator: uid,
+            introduction: introductionValue
+          });
+      } catch (error) {
+        alert(error);
+      }
+
+      try {
+        await FirebasePack
+          .storage()
+          .ref('group-symbol/' + nameValue + '/symbol.jpg')
+          .put(symbol.files[0]);
+      } catch (error) {
+        alert(error);
+      }
+
+      try {
+        await FirebasePack
+          .firestore()
+          .collection('user-info')
+          .doc(uid)
+          .update({
+            created_groups: firebase.firestore.FieldValue.arrayUnion(nameValue)
+          });
+      } catch (error) {
+        alert(error);
+      }
     }
-
-    try {
-      await FirebasePack
-        .firestore()
-        .collection('user-info')
-        .doc(uid)
-        .update({
-          created_groups: firebase.firestore.FieldValue.arrayUnion(nameValue)
-        });
-    } catch (error) {
-      alert(error);
-    }
-
-
-    // Get created groups array to user info
-    // try {
-    //   let cache = 
-    //     await FirebasePack
-    //       .firestore()
-    //       .collection('groups')
-    //       .where('creator', '==', uid)
-    //       .get();
-    //   if(cache) {
-    //     cache.forEach(doc => {
-    //       createdGroups.push(doc.data().name);
-    //     });  
-    //   }
-    // } catch (error) {
-    //   alert(error);
-    // }
-
 
     event.target.reset();
     setPageLoading('hidden');

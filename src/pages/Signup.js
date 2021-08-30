@@ -3,14 +3,31 @@ import { useHistory, Redirect } from 'react-router-dom';
 import { AuthContext } from '../components/loading/Auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMars, faVenus } from '@fortawesome/free-solid-svg-icons';
+import { css } from '@emotion/react';
+// Components
+import BarLoader from 'react-spinners/BarLoader';
 import FirebasePack from '../config/FirebasePack';
 import handleFirebaseError from '../components/error/FirebaseError';
 import SelectCountry from '../components/user/SelectCountry';
 
 const Signup = () => {
   const { currentUser } = useContext(AuthContext);
-  const [errorMessage, setErrorMessage] = useState([]);
   const history = useHistory();
+  const spinnerCSS = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+  `;
+  const [errorMessage, setErrorMessage] = useState([]);
+  const [pageLoading, setPageLoading] = useState('hidden');
+  const [containerClass, setContainerClass] = useState('signup-container');
+
+  const toggleLoading = () => {
+    if (pageLoading === 'hideen') {
+      setPageLoading('');
+      setContainerClass('hidden');  
+    }
+  };
 
   // Update nickname, gender and nation to Firestore
   const updateFirestore = async (uid, nickname, gender, nation) => {
@@ -32,6 +49,7 @@ const Signup = () => {
   // Input nickname but authenticate with a fake email address
   const handleSignup = async (event) => {
     event.preventDefault();
+    toggleLoading();
     const { nickname, password, gender, nation } = event.target.elements;
     const email = (nickname.value + '@fake.com').toString();
     let credential;
@@ -59,7 +77,7 @@ const Signup = () => {
       );
     } else {
       return (
-        <div className='signup-container'>
+        <div className={containerClass}>
           <form onSubmit={handleSignup}>
             <fieldset className='user-auth'>
               <legend>Sign up</legend>
@@ -97,6 +115,10 @@ const Signup = () => {
 
   return (
     <section className='signup-page'>
+      <div className={pageLoading}>
+        <BarLoader color='#D5D736' css={spinnerCSS} size={150} />
+      </div>
+
       {controlAccess()}
     </section>
   );

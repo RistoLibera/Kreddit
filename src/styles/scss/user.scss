@@ -1,3 +1,5 @@
+@use 'base';
+
 // Login page
 
 
@@ -7,3 +9,8 @@
 
 
 // Signup page
+.signup-page {
+  .signup-container form fieldset{
+    @extend %flex-column-direction;
+  }
+}

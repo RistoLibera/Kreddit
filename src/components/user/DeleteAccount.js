@@ -25,29 +25,9 @@ const DeleteAccount = (props) => {
   
   const handleDelete = async () => {
     // Prevent erroneous operation
+    let reloginError;
     let confirmation = window.confirm('Are you serious?');
     if (!confirmation) return;
-
-    // Delete icon
-    try {
-      await FirebasePack
-          .storage()
-          .ref('user-icon/' + uid + '/icon.jpg')
-          .delete();
-    } catch (error) {
-      alert(error);
-    }
-
-    // Delete Info
-    try {
-      await FirebasePack
-      .firestore()
-      .collection('user-info')
-      .doc(uid)
-      .delete();
-    } catch (error) {
-      alert(error);
-    }
 
     // Delete account
     try {
@@ -57,7 +37,29 @@ const DeleteAccount = (props) => {
         .delete();
     } catch (error) {
       alert(error);
+      console.log(error.code);
     }
+
+    // Delete icon
+    // try {
+    //   await FirebasePack
+    //       .storage()
+    //       .ref('user-icon/' + uid + '/icon.jpg')
+    //       .delete();
+    // } catch (error) {
+    //   alert(error);
+    // }
+
+    // // Delete Info
+    // try {
+    //   await FirebasePack
+    //   .firestore()
+    //   .collection('user-info')
+    //   .doc(uid)
+    //   .delete();
+    // } catch (error) {
+    //   alert(error);
+    // }
 
     history.push('/');
   };
