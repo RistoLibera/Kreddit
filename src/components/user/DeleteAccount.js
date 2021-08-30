@@ -9,7 +9,7 @@ const DeleteAccount = (props) => {
   const history = useHistory();
   const { uid } = props;
   const { currentUser } = useContext(AuthContext);
-  const [formHidden, setFormHidden] = useState("hidden");
+  const [divHidden, setDivHidden] = useState("hidden");
 
   const isCurrentUser = () => {
     let currentUID;
@@ -20,6 +20,14 @@ const DeleteAccount = (props) => {
       }
     } else {
         return false;
+    }
+  };
+
+  const switchHidden = () => {
+    if (divHidden === 'hidden') {
+      setDivHidden('');
+    } else {
+      setDivHidden('hidden');
     }
   };
 
@@ -60,42 +68,48 @@ const DeleteAccount = (props) => {
     }
   };
   
-  const handleDelete = async () => {
+  const handleChange = async (event) => {
+    event.preventDefault();
     // Prevent erroneous operation
-    let confirmation = window.confirm('Are you serious? You may need re-login to delete');
+    let confirmation = window.confirm('Are you serious?');
     if (!confirmation) return;
+    const { old_password } = event.target.elements;
+    const email = currentUser.email;
+
+    const credential = firebase.auth.EmailAuthProvider.credential(
+      email, 
+      old_password.value
+    );
+    FirebasePack.auth().currentUser.reauthenticateWithCredential(credential);
 
     await deleteIcon();
     await deleteInfo();  
-    setFormHidden('');
+    await deleteAccount();
+    setDivHidden('');
+
+    history.push('/');  
+
   };
 
   const identifyEntity = async (event) => {
-    event.preventDefault();
-    const { password } = event.target.elements;
-    const email = currentUser.email;
-    const credential = firebase.auth.EmailAuthProvider.credential(
-      email, 
-      password.value
-  );
-    FirebasePack.auth().currentUser.reauthenticateWithCredential(credential);
-    await deleteAccount();
-    history.push('/');  
   };
 
   if(isCurrentUser()) {
     return (
       <div className='delete-account'>
-        <div className={formHidden}>
-          <form onSubmit={identifyEntity}>
-              <label htmlFor='password'>Password</label>
-              <input type='password' id='password' name='password' placeholder='Password' required/><br></br>
-              <button className='submit' type='submit' value='Submit'>Identify</button>
-          </form>
-        </div>
-        <button onClick={handleDelete} type='button'>
-          Delete Account
-        </button>
+        <form onSubmit={handleChange}>
+          <fieldset>
+            <div className={divHidden}>
+              <input type='password' id='old-password' name='old_password' placeholder='Old Password' required/><br></br>
+              <button className='submit' type='submit' value='Submit'>
+                Confirm
+              </button>
+            </div>
+            <button onClick={switchHidden} type='button'>
+              Delete Account
+            </button>
+          </fieldset>
+        </form>
       </div>
     );
   } else {

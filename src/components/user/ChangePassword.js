@@ -61,7 +61,7 @@ const ChangePassword = (props) => {
   if(beCurrentUser()) {
     return (
       <div className="change-password">
-        <form onSubmit={handleChange} className='change-password'>
+        <form onSubmit={handleChange}>
           <fieldset>
             <div className={divHidden}>
               <input type='password' id='old-password' name='old_password' placeholder='Old Password' required/><br></br>
