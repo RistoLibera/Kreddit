@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../components/loading/Auth';
-import Firebase from '../config/Firebase';
+import FirebasePack from '../config/FirebasePack';
+// Import directly to use field functions
+import firebase from 'firebase/app';
 import { css } from '@emotion/react';
 import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
-
 import '../styles/css/groups.css';
 
 
@@ -14,19 +15,18 @@ const Groups = () => {
   margin: 0 auto;
   border-color: red;
   `;
-  const [hidden, setHidden] = useState("hidden");
-  const [loading, setLoading] = useState('hidden');
+  const [formHidden, setFormHidden] = useState("hidden");
+  const [pageLoading, setPageLoading] = useState('hidden');
   const [containerClass, setContainerClass] = useState('create-group-container');
 
   const switchHidden = () => {
-    if (hidden === 'hidden') {
-      setHidden('form-container');
+    if (formHidden === 'hidden') {
+      setFormHidden('form-container');
     } else {
-      setHidden('hidden');
+      setFormHidden('hidden');
     }
   };
 
-  // Update two collections of Firestore and FireStorage
   const handleCreateGroup = async (event) => {
     event.preventDefault();
     const { name, introduction, symbol } = event.target.elements;
@@ -35,13 +35,30 @@ const Groups = () => {
     let nameValue = name.value;
     let introductionValue = introduction.value;
 
-    console.log(name);
-    setLoading('');
+    setPageLoading('');
     setContainerClass('hidden');
     switchHidden();
 
+    // Check contradiction
+    // try {
+    //   let interval = [];
+    //   let cache = 
+    //     await FirebasePack
+    //       .firestore()
+    //       .collection('groups')
+    //       .get();
+    //   cache.forEach((doc) => {
+    //     interval.push(doc.id);
+    //   });
+          
+    //   console.log(interval);
+    // } catch (error) {
+    //   alert(error);
+    // }
+
+    // Create new group
     try {
-      await Firebase
+      await FirebasePack
         .firestore()
         .collection('groups')
         .doc(nameValue)
@@ -55,7 +72,7 @@ const Groups = () => {
     }
 
     try {
-      await Firebase
+      await FirebasePack
         .storage()
         .ref('group-symbol/' + nameValue + '/symbol.jpg')
         .put(symbol.files[0]);
@@ -63,37 +80,39 @@ const Groups = () => {
       alert(error);
     }
 
-    // Get created groups array
     try {
-      let cache = 
-        await Firebase
-          .firestore()
-          .collection('groups')
-          .where('creator', '==', uid)
-          .get();
-      if(cache) {
-        cache.forEach(doc => {
-          createdGroups.push(doc.data().name);
-        });  
-      }
-    } catch (error) {
-      alert(error);
-    }
-
-    try {
-      await Firebase
+      await FirebasePack
         .firestore()
         .collection('user-info')
         .doc(uid)
         .update({
-          created_groups: createdGroups,
+          created_groups: firebase.firestore.FieldValue.arrayUnion(nameValue)
         });
     } catch (error) {
       alert(error);
     }
 
+
+    // Get created groups array to user info
+    // try {
+    //   let cache = 
+    //     await FirebasePack
+    //       .firestore()
+    //       .collection('groups')
+    //       .where('creator', '==', uid)
+    //       .get();
+    //   if(cache) {
+    //     cache.forEach(doc => {
+    //       createdGroups.push(doc.data().name);
+    //     });  
+    //   }
+    // } catch (error) {
+    //   alert(error);
+    // }
+
+
     event.target.reset();
-    setLoading('hidden');
+    setPageLoading('hidden');
     setContainerClass('create-group-container');
   };
   // Data structure
@@ -106,7 +125,7 @@ const Groups = () => {
 
   return (
     <section className='groups-page'>
-      <div className={loading}>
+      <div className={pageLoading}>
         <ClimbingBoxLoader color='#D5D736' css={spinnerCSS} size={50} />
       </div>
 
@@ -120,7 +139,7 @@ const Groups = () => {
             }
           </header>
 
-          <div className={hidden}>
+          <div className={formHidden}>
             <form onSubmit={handleCreateGroup}>
               <fieldset>
                 <label htmlFor='name'>Introduction</label>

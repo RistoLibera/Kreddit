@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Firebase from '../../config/Firebase';
+import FirebasePack from '../../config/FirebasePack';
 
 const ShowIcon = (props) => {
   const [loading, setLoading] = useState(false);
@@ -10,7 +10,7 @@ const ShowIcon = (props) => {
     setLoading(true);
 
     try {
-      await Firebase
+      await FirebasePack
         .storage()
         .ref('user-icon/' + uid + '/icon.jpg')
         .put(file);

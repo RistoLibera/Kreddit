@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import Firebase from '../../config/Firebase';
+import FirebasePack from '../../config/FirebasePack';
 import { AuthContext } from '../loading/Auth';
 import Lock from '../../assets/img/lock.png';
 
@@ -30,7 +30,7 @@ const ChangePassword = (props) => {
     const { password } = event.target.elements;
 
     try {
-      await Firebase
+      await FirebasePack
         .auth()
         .currentUser
         .updatePassword(password.value);

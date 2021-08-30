@@ -20,6 +20,6 @@ let firebaseConfig = {
 };
 
 
-const Firebase = firebase.initializeApp(firebaseConfig);
+const FirebasePack = firebase.initializeApp(firebaseConfig);
 
-export default Firebase;
+export default FirebasePack;

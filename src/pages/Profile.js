@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Firebase from '../config/Firebase';
+import FirebasePack from '../config/FirebasePack';
 import Default from '../assets/img/default-icon.jpg';
 import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
@@ -25,7 +25,7 @@ const Profile = () => {
   const [nation, setNation] = useState('');
   const [iconURL, setIconURL] = useState('');
   const [iconError, setIconError] = useState([]);
-  const [loading, setLoading] = useState('');
+  const [pageLoading, setPageLoading] = useState('');
   const [containerClass, setContainerClass] = useState('hidden');
 
   // Fetch data from Firestore and Firestorage
@@ -34,7 +34,7 @@ const Profile = () => {
 
     try {
       imgURL = 
-        await Firebase
+        await FirebasePack
           .storage()
           .ref('user-icon/' + uid + '/icon.jpg')
           .getDownloadURL();
@@ -46,7 +46,7 @@ const Profile = () => {
 
     try {
       let cache = 
-        await Firebase
+        await FirebasePack
           .firestore()
           .collection('user-info')
           .doc(uid)
@@ -61,7 +61,7 @@ const Profile = () => {
     setNation(info.nation);
     // Stop loading
     setContainerClass('profile-container');
-    setLoading('hidden');
+    setPageLoading('hidden');
   };
 
   useEffect(() => {
@@ -70,7 +70,7 @@ const Profile = () => {
 
   return (
     <section className='profile-page'>
-      <div className={loading}>
+      <div className={pageLoading}>
         <BarLoader color='#D5D736' css={spinnerCSS} size={150} />
       </div>
 

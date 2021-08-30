@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useHistory, Redirect } from 'react-router-dom';
 import { AuthContext } from '../components/loading/Auth';
-import Firebase from '../config/Firebase';
+import FirebasePack from '../config/FirebasePack';
 import handleFirebaseError from '../components/error/FirebaseError';
 
 const Login = () => {
@@ -16,7 +16,7 @@ const Login = () => {
     const email = (nickname.value + '@fake.com').toString();
 
     try {
-      await Firebase
+      await FirebasePack
         .auth()
         .signInWithEmailAndPassword(email, password.value);
         history.push('/');

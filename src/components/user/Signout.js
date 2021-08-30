@@ -1,12 +1,12 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import Firebase from '../../config/Firebase';
+import FirebasePack from '../../config/FirebasePack';
 
 const Signout = () => {
   const history = useHistory();
 
   const proceedSignout = () => {
-    Firebase.auth().signOut();
+    FirebasePack.auth().signOut();
     history.push('/');
   };
 

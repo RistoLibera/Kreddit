@@ -3,7 +3,7 @@ import { useHistory, Redirect } from 'react-router-dom';
 import { AuthContext } from '../components/loading/Auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMars, faVenus } from '@fortawesome/free-solid-svg-icons';
-import Firebase from '../config/Firebase';
+import FirebasePack from '../config/FirebasePack';
 import handleFirebaseError from '../components/error/FirebaseError';
 import SelectCountry from '../components/user/SelectCountry';
 
@@ -15,7 +15,7 @@ const Signup = () => {
   // Update nickname, gender and nation to Firestore
   const updateFirestore = async (uid, nickname, gender, nation) => {
     try {
-      await Firebase
+      await FirebasePack
         .firestore()
         .collection('user-info')
         .doc(uid)
@@ -38,7 +38,7 @@ const Signup = () => {
 
     try {
       credential =
-        await Firebase
+        await FirebasePack
           .auth()
           .createUserWithEmailAndPassword(email, password.value);
         history.push('/');
