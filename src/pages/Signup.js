@@ -4,7 +4,6 @@ import { AuthContext } from '../components/loading/Auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMars, faVenus } from '@fortawesome/free-solid-svg-icons';
 import { css } from '@emotion/react';
-// Components
 import BarLoader from 'react-spinners/BarLoader';
 import FirebasePack from '../config/FirebasePack';
 import handleFirebaseError from '../components/error/FirebaseError';
@@ -23,10 +22,24 @@ const Signup = () => {
   const [containerClass, setContainerClass] = useState('signup-container');
 
   const toggleLoading = () => {
-    if (pageLoading === 'hideen') {
+    if (pageLoading === 'hidden') {
       setPageLoading('');
       setContainerClass('hidden');  
     }
+  };
+
+  // Create new account
+  const createNew = async (email, password) => {
+    let credential;
+    try {
+      credential = 
+      await FirebasePack
+        .auth()
+        .createUserWithEmailAndPassword(email, password);
+    } catch (error) {
+      setErrorMessage(handleFirebaseError(error));
+    }
+    return credential;
   };
 
   // Update nickname, gender and nation to Firestore
@@ -41,8 +54,9 @@ const Signup = () => {
           gender: gender,
           nation: nation
         });
+      history.push('/');
     } catch (error) {
-      alert(error);
+      console(error.code + ' ' + error.message);
     }
   };
 
@@ -52,20 +66,10 @@ const Signup = () => {
     toggleLoading();
     const { nickname, password, gender, nation } = event.target.elements;
     const email = (nickname.value + '@fake.com').toString();
-    let credential;
 
-    try {
-      credential =
-        await FirebasePack
-          .auth()
-          .createUserWithEmailAndPassword(email, password.value);
-        history.push('/');
-    } catch (error) {
-      setErrorMessage(handleFirebaseError(error));
-    }
-
+    let credential = await createNew(email, password.value);
     if(credential) {
-      updateFirestore(credential.user.uid, nickname.value, gender.value, nation.value);
+      await updateFirestore(credential.user.uid, nickname.value, gender.value, nation.value);
     }
   };
   

@@ -21,7 +21,7 @@
 
 ### By group
 
-- You can create group(5 for most).
+- You can create group(3 for most).
 - You can quit group.
 - You can change group intruduction if being creator.
 - You can delete group if being creator.
@@ -40,6 +40,25 @@
 
 - You can switch between light mode and dark mode.
 - You can discuss on smartphone comfortably.
+
+## Database structure
+
+### Firestore
+  Data structure
+  groups - Anime -         content             - discussions - 0  1  2 - discussion - 0    1   2   3     - subdis - 0   1   2   3  
+                  -  creator symbol introduction  -            -  title  -             - content uid rating -        - content uid rating
+
+  user-info    -  notif - 0  - from: uid  content: what to do?
+  user-info    -    created-groups   -   name array creator
+                -     created-discussions    - database position
+
+### Firestorage
+
+discussion-image
+
+group-symbol group-name
+
+user-icon  uid
 
 ## Initial Setup
 

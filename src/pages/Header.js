@@ -1,21 +1,26 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { AuthContext } from '../components/loading/Auth';
 import Koin from '../assets/img/header-koin.png';
-import '../styles/css/header.css';
 import Signout from '../components/user/Signout';
+import '../styles/css/header.css';
 
 const Header = () => {
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser,pending } = useContext(AuthContext);
   const history = useHistory();
-  let currentUID;
-  let profileURL;
+  const [pageLoading, setPageLoading] = useState('');
 
-  // Current info
-  if(currentUser) {
-    currentUID =  currentUser.uid;
-    profileURL = '/profile/' + currentUID;
-  }
+
+  // Add loading!
+  console.log(pending);
+  // Current profile
+  const getProfileURL = () => {
+    let profileURL;  
+    if(currentUser) {
+      profileURL = '/profile/' + currentUser.uid;
+    }
+    return profileURL;
+  };
 
   // Change registration interface
   const registrationBar = () => {
@@ -27,7 +32,7 @@ const Header = () => {
             <h2>notification</h2>
           </div>
           <div>
-          <Link to={profileURL}>Profile</Link>
+          <Link to={getProfileURL}>Profile</Link>
           <Signout />
           </div>
         </div>
@@ -54,8 +59,7 @@ const Header = () => {
     <header className='app-header'>
       <div className='left-bar'>
         <div className='search-bar'>
-          {/* Let's kreddit! */}
-          <h3>Search?</h3>
+          <h3>Search? Let's kreddit!</h3>
           <h2></h2>
         </div>
       </div>
@@ -70,7 +74,6 @@ const Header = () => {
         <div onClick={() => history.push('/groups')}className='groups-bar'>
           <h2>Group</h2>
         </div>
-
       </div>
 
       <div className='right-bar'>
@@ -79,7 +82,6 @@ const Header = () => {
           <h2>mode</h2>
         </div>
       </div>
-      
     </header>
   );
 };

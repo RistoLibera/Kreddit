@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import FirebasePack from '../config/FirebasePack';
 import Default from '../assets/img/default-icon.jpg';
 import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
-// Components
 import handleFirebaseError from '../components/error/FirebaseError';
 import ShowIcon from '../components/user/ShowIcon';
 import DeleteAccount from '../components/user/DeleteAccount';
@@ -19,8 +18,6 @@ const Profile = () => {
   margin: 0 auto;
   border-color: red;
   `;
-  const history = useHistory();
-  let info;
   const [nickname, setNickname] = useState('');
   const [gender, setGender] = useState('');
   const [nation, setNation] = useState('');
@@ -29,12 +26,21 @@ const Profile = () => {
   const [pageLoading, setPageLoading] = useState('');
   const [containerClass, setContainerClass] = useState('hidden');
 
-  // Fetch data from Firestore and Firestorage
-  const fetchData = async () => {
-    let imgURL = Default;
+  const toggleLoading = () => {
+    if (pageLoading === '') {
+      setPageLoading('hidden');
+      setContainerClass('profile-container');  
+    } else {
+      setPageLoading('');
+      setContainerClass('hidden');  
+    }
+  };
 
+  // get icon
+  const getIcon = async () => {
+    let icon = Default;
     try {
-      imgURL = 
+      icon = 
         await FirebasePack
           .storage()
           .ref('user-icon/' + uid + '/icon.jpg')
@@ -42,9 +48,11 @@ const Profile = () => {
     } catch (error) {
       setIconError(handleFirebaseError(error));
     }
+    setIconURL(icon);
+  };
 
-    setIconURL(imgURL);
-
+  // get info
+  const getInfo = async () => {
     try {
       let cache = 
         await FirebasePack
@@ -52,22 +60,20 @@ const Profile = () => {
           .collection('user-info')
           .doc(uid)
           .get();
-      info = cache.data();
-    } catch (error) {
-      alert(error);
-    }
-    
-    if (!info) {
-      history.push('/');
-    } else {
+      let info = cache.data();
       setNickname(info.nickname);
       setGender(info.gender);
       setNation(info.nation);  
+    } catch (error) {
+      alert(error);
     }
+  };
 
-    // Stop loading
-    setContainerClass('profile-container');
-    setPageLoading('hidden');
+  // Fetch data from Firestore and Firestorage
+  const fetchData = async () => {
+    await getIcon();
+    await getInfo();
+    toggleLoading();
   };
 
   useEffect(() => {
