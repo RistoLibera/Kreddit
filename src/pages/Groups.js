@@ -4,6 +4,7 @@ import FirebasePack from '../config/FirebasePack';
 import firebase from 'firebase/app';
 import { css } from '@emotion/react';
 import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
+import GroupList from '../components/groups/GroupList';
 
 const Groups = () => {
   const { currentUser } = useContext(AuthContext);
@@ -13,7 +14,8 @@ const Groups = () => {
   border-color: red;
   `;
   const [formHidden, setFormHidden] = useState("hidden");
-  const [pageLoading, setPageLoading] = useState(false);
+  const [pageLoading, setPageLoading] = useState(true);
+  const createdGroupsDoc = [];
 
   const switchHidden = () => {
     if (formHidden === 'hidden') {
@@ -23,24 +25,27 @@ const Groups = () => {
     }
   };
 
-  // Check if existed
-  const checkExistence = async () => {
-    let createdGroups = [];
+  // Store groups
+  const storeGroups = (cache) => {
+    if (cache) {
+      cache.forEach((doc) => {
+        createdGroupsDoc.push(doc);
+      });   
+    }
+  };
+  // Check if group existed
+  const fetchGroups = async () => {
     try {
       let cache =
         await FirebasePack
           .firestore()
           .collection('groups')
           .get();
-        if (cache) {
-          cache.forEach((doc) => {
-            createdGroups.push(doc.id);
-          });    
-        }
-    } catch (error) {
+        storeGroups(cache);
+        } catch (error) {
       console.log(error.code);
     }
-    return createdGroups;
+    setPageLoading(false);
   };
   
   // Create new group
@@ -49,7 +54,7 @@ const Groups = () => {
       await FirebasePack
         .firestore()
         .collection('groups')
-        .doc(name)
+        .doc()
         .set({
           name: name,
           creator: uid,
@@ -60,7 +65,7 @@ const Groups = () => {
     }
   };
 
-  // Update symbol
+  // Update group symbol
   const updateSymbol = async (name, symbol) => {
     try {
       await FirebasePack
@@ -73,14 +78,14 @@ const Groups = () => {
   };
 
   //  Update user info
-  const updateInfo = async (name, uid) => {
+  const updateInfo = async (groupName, uid) => {
     try {
       await FirebasePack
         .firestore()
         .collection('user-info')
         .doc(uid)
         .update({
-          created_groups: firebase.firestore.FieldValue.arrayUnion(name)
+          created_groups: firebase.firestore.FieldValue.arrayUnion(groupName)
         });
     } catch (error) {
       console.log(error.code);
@@ -95,10 +100,8 @@ const Groups = () => {
     let nameValue = name.value;
     let introductionValue = introduction.value;
     let symbolFile = symbol.files[0];
-    let createdGroups = [];
 
-    createdGroups = await checkExistence();
-    if(createdGroups && createdGroups.some((existedName) => existedName = nameValue)) {
+    if(createdGroupsDoc && createdGroupsDoc.some((groupDoc) => groupDoc.data().name  === nameValue)) {
       alert("Group already created!");
       setPageLoading(false);
       return;
@@ -106,11 +109,16 @@ const Groups = () => {
       // Create new group
       await createNew(nameValue, uid, introductionValue);
       await updateSymbol(nameValue, symbolFile);
-      await updateInfo(name, uid);
+      await updateInfo(nameValue, uid);
+      alert('success!');
     }
     event.target.reset();
     setPageLoading(false);
   };
+
+  useEffect(() => {
+    fetchGroups();
+  }, []);
 
   return (
     <section className='groups-page'>
@@ -133,7 +141,7 @@ const Groups = () => {
               <div className={formHidden}>
                 <form onSubmit={handleCreateGroup}>
                   <fieldset>
-                    <label htmlFor='name'>Introduction</label>
+                    <label htmlFor='name'>Creator</label>
                     <input type='text' id='name' name='name' placeholder='Groups name' required/><br></br>
                     <label htmlFor='introduction'>Introduction</label>
                     <textarea type='text' id='introduction' name='introduction' placeholder='What is this group for?' required/><br></br>
@@ -145,16 +153,7 @@ const Groups = () => {
               </div>
             </div>
 
-            <div className='group-list'>
-              <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-                <li>5</li>
-                <li>6</li>
-              </ul>
-            </div>
+            <GroupList document={createdGroupsDoc} />
           </div>
       }
     </section>

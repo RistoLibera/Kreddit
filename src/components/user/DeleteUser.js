@@ -8,6 +8,7 @@ import BarLoader from 'react-spinners/BarLoader';
 import handleFirebaseError from '../../components/error/handleFirebaseError';
 
 // This will be far far complicated
+// change group creator and attach default icon
 const DeleteUser = (props) => {
   const history = useHistory();
   const { uid } = props;
