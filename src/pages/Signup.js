@@ -28,7 +28,7 @@ const Signup = () => {
     }
   };
 
-  // Create new account
+  // Create new user
   const createNew = async (email, password) => {
     let credential;
     try {

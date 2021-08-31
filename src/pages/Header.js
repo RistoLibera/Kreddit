@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { AuthContext } from '../components/loading/Auth';
 import Koin from '../assets/img/header-koin.png';
 import { css } from '@emotion/react';
-import BarLoader from 'react-spinners/BarLoader';
+import CircleLoader from 'react-spinners/CircleLoader';
 import Signout from '../components/user/Signout';
 import '../styles/css/header.css';
 
@@ -43,7 +43,7 @@ const Header = () => {
     } else if (pending) {
       return (
         <div className='user-bar'>
-          <BarLoader color='#D5D736' css={spinnerCSS} size={150} />
+          <CircleLoader color='#D5D736' css={spinnerCSS} size={50} />
         </div>
       );
     } else {

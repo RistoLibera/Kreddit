@@ -4,7 +4,6 @@ import FirebasePack from '../../config/FirebasePack';
 
 const Signout = () => {
   const history = useHistory();
-
   const proceedSignout = () => {
     FirebasePack.auth().signOut();
     history.push('/');

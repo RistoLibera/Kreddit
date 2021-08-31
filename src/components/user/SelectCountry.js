@@ -2,7 +2,7 @@ import React from 'react';
 import CountryData from '../../assets/data/country-data';
 
 const SelectCountry = () => {
-  let optionTAB = [];
+  let optionTag = [];
 
   const createList = () => {
     let countryName;
@@ -13,12 +13,12 @@ const SelectCountry = () => {
       countryName = data['country_name'];
       countryCode = data['country_code'];
       option = <option key={index} value={countryCode}>{countryName}</option>;
-      optionTAB.push(option);    
+      optionTag.push(option);    
     });
 
     return (
       <select name='nation' id='nation'>
-        {optionTAB.map((option) => {
+        {optionTag.map((option) => {
           return (
             option
           );

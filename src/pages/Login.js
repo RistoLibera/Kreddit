@@ -25,7 +25,7 @@ const Login = () => {
     }
   };
 
-  // Login existed account
+  // Login existed user
   const loginExisted = async (email, password) => {
     try {
       await FirebasePack

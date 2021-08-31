@@ -6,7 +6,7 @@ import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
 import handleFirebaseError from '../components/error/FirebaseError';
 import ShowIcon from '../components/user/ShowIcon';
-import DeleteAccount from '../components/user/DeleteAccount';
+import DeleteUser from '../components/user/DeleteUser';
 import ChangePassword from '../components/user/ChangePassword';
 import ShowInfo from '../components/user/ShowInfo';
 import '../styles/css/profile.css';
@@ -23,18 +23,7 @@ const Profile = () => {
   const [nation, setNation] = useState('');
   const [iconURL, setIconURL] = useState('');
   const [iconError, setIconError] = useState([]);
-  const [pageLoading, setPageLoading] = useState('');
-  const [containerClass, setContainerClass] = useState('hidden');
-
-  const toggleLoading = () => {
-    if (pageLoading === '') {
-      setPageLoading('hidden');
-      setContainerClass('profile-container');  
-    } else {
-      setPageLoading('');
-      setContainerClass('hidden');  
-    }
-  };
+  const [pageLoading, setPageLoading] = useState(true);
 
   // get icon
   const getIcon = async () => {
@@ -73,7 +62,7 @@ const Profile = () => {
   const fetchData = async () => {
     await getIcon();
     await getInfo();
-    toggleLoading();
+    setPageLoading(false);
   };
 
   useEffect(() => {
@@ -82,34 +71,37 @@ const Profile = () => {
 
   return (
     <section className='profile-page'>
-      <div className={pageLoading}>
-        <BarLoader color='#D5D736' css={spinnerCSS} size={150} />
-      </div>
+      {pageLoading 
+        ?
+          <div className='page-loader'>
+            <BarLoader color='#D5D736' css={spinnerCSS} size={150} />
+          </div>
+        :
+          <div className='profile-container'>
+            <div className='upper-profile'>
+              <ShowIcon uid = {uid} iconURL={iconURL} iconError={iconError} />
 
-      <div className={containerClass}>
-        <div className='upper-profile'>
-          <ShowIcon uid = {uid} iconURL={iconURL} iconError={iconError} />
+              <div className='info'>
+                <ShowInfo nickname={nickname} gender={gender} nation={nation} />
+                <div className='lower-info'>
+                  <h3>Creator of group</h3>
+                  <h3>in what groups</h3>
+                  <h3>discussion number</h3>
+                </div>
+              </div>
 
-          <div className='info'>
-            <ShowInfo nickname={nickname} gender={gender} nation={nation} />
-            <div className='lower-info'>
-              <h3>Creator of group</h3>
-              <h3>in what groups</h3>
-              <h3>discussion number</h3>
+              <div className='registration'>
+                <DeleteUser uid = {uid} />
+                <ChangePassword uid = {uid} />
+              </div>
+            </div>
+
+            <div className='lower-profile'>
+              <h3>Your discussions</h3>
+              <h5>Expand all</h5>
             </div>
           </div>
-
-          <div className='registration'>
-            <DeleteAccount uid = {uid} />
-            <ChangePassword uid = {uid} />
-          </div>
-        </div>
-
-        <div className='lower-profile'>
-          <h3>Your discussions</h3>
-          <h5>Expand all</h5>
-        </div>
-      </div>
+      }
     </section>
   );
 };

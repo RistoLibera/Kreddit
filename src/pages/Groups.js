@@ -6,7 +6,6 @@ import { css } from '@emotion/react';
 import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
 import '../styles/css/groups.css';
 
-
 const Groups = () => {
   const { currentUser } = useContext(AuthContext);
   const spinnerCSS = css`
@@ -16,7 +15,17 @@ const Groups = () => {
   `;
   const [formHidden, setFormHidden] = useState("hidden");
   const [pageLoading, setPageLoading] = useState('hidden');
-  const [containerClass, setContainerClass] = useState('create-group-container');
+  const [containerClass, setContainerClass] = useState('group-container');
+
+  const toggleLoading = () => {
+    if (pageLoading === '') {
+      setPageLoading('hidden');
+      setContainerClass('group-container');  
+    } else {
+      setPageLoading('');
+      setContainerClass('hidden');  
+    }
+  };
 
   const switchHidden = () => {
     if (formHidden === 'hidden') {
@@ -26,19 +35,9 @@ const Groups = () => {
     }
   };
 
-  const handleCreateGroup = async (event) => {
-    event.preventDefault();
-    const { name, introduction, symbol } = event.target.elements;
-    let uid = currentUser.uid;
+  // Check if existed
+  const checkExistence = async () => {
     let createdGroups = [];
-    let nameValue = name.value;
-    let introductionValue = introduction.value;
-
-    setPageLoading('');
-    setContainerClass('hidden');
-    switchHidden();
-
-    // Check contradiction
     try {
       let cache =
         await FirebasePack
@@ -53,53 +52,76 @@ const Groups = () => {
     } catch (error) {
       alert(error);
     }
+    return createdGroups;
+  };
+  
+  // Create new group
+  const createNew = async (name, uid, introduction) => {
+    try {
+      await FirebasePack
+        .firestore()
+        .collection('groups')
+        .doc(name)
+        .set({
+          name: name,
+          creator: uid,
+          introduction: introduction
+        });
+    } catch (error) {
+      alert(error);
+    }
+  };
 
+  // Update symbol
+  const updateSymbol = async (name, symbol) => {
+    try {
+      await FirebasePack
+        .storage()
+        .ref('group-symbol/' + name + '/symbol.jpg')
+        .put(symbol);
+    } catch (error) {
+      alert(error);
+    }
+  };
+
+  //  Update user info
+  const updateInfo = async (name, uid) => {
+    try {
+      await FirebasePack
+        .firestore()
+        .collection('user-info')
+        .doc(uid)
+        .update({
+          created_groups: firebase.firestore.FieldValue.arrayUnion(name)
+        });
+    } catch (error) {
+      alert(error);
+    }
+  };
+
+  const handleCreateGroup = async (event) => {
+    event.preventDefault();
+    toggleLoading();
+    const { name, introduction, symbol } = event.target.elements;
+    let uid = currentUser.uid;
+    let nameValue = name.value;
+    let introductionValue = introduction.value;
+    let symbolFile = symbol.files[0];
+    let createdGroups = [];
+
+    createdGroups = await checkExistence();
     if(createdGroups && createdGroups.some((existedName) => existedName = nameValue)) {
       alert("Group already created!");
-      setPageLoading('hidden');
-      setContainerClass('create-group-container');
+      toggleLoading();
       return;
     } else {
       // Create new group
-      try {
-        await FirebasePack
-          .firestore()
-          .collection('groups')
-          .doc(nameValue)
-          .set({
-            name: nameValue,
-            creator: uid,
-            introduction: introductionValue
-          });
-      } catch (error) {
-        alert(error);
-      }
-
-      try {
-        await FirebasePack
-          .storage()
-          .ref('group-symbol/' + nameValue + '/symbol.jpg')
-          .put(symbol.files[0]);
-      } catch (error) {
-        alert(error);
-      }
-
-      try {
-        await FirebasePack
-          .firestore()
-          .collection('user-info')
-          .doc(uid)
-          .update({
-            created_groups: firebase.firestore.FieldValue.arrayUnion(nameValue)
-          });
-      } catch (error) {
-        alert(error);
-      }
+      await createNew(nameValue, uid, introductionValue);
+      await updateSymbol(nameValue, symbolFile);
+      await updateInfo(name, uid);
     }
-
     event.target.reset();
-    setPageLoading('hidden');
-    setContainerClass('create-group-container');
+    toggleLoading();
   };
 
   return (

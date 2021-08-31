@@ -11,14 +11,9 @@ const ShowInfo = (props) => {
       return (
         <FontAwesomeIcon icon={faMars} color='cornflowerblue' size='lg' />
       );
-    } else if (gender === 'female') {
-      return (
-        <FontAwesomeIcon icon={faVenus} color='crimson' size='lg' />
-      );
     } else {
       return (
-        <div>
-        </div>
+        <FontAwesomeIcon icon={faVenus} color='crimson' size='lg' />
       );
     }
   };

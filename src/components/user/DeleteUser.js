@@ -5,7 +5,7 @@ import FirebasePack from '../../config/FirebasePack';
 import firebase from 'firebase/app';
 
 // This will be far far complicated
-const DeleteAccount = (props) => {
+const DeleteUser = (props) => {
   const history = useHistory();
   const { uid } = props;
   const { currentUser } = useContext(AuthContext);
@@ -30,6 +30,15 @@ const DeleteAccount = (props) => {
       setDivHidden('hidden');
     }
   };
+
+  // Re-authenticate
+  const reAuthenticate = async (email, password) => {
+    const credential = firebase.auth.EmailAuthProvider.credential(
+      email, 
+      password
+    );
+    FirebasePack.auth().currentUser.reauthenticateWithCredential(credential);
+  };  
 
   // Delete icon
   const deleteIcon = async () => {
@@ -76,22 +85,12 @@ const DeleteAccount = (props) => {
     const { old_password } = event.target.elements;
     const email = currentUser.email;
 
-    const credential = firebase.auth.EmailAuthProvider.credential(
-      email, 
-      old_password.value
-    );
-    FirebasePack.auth().currentUser.reauthenticateWithCredential(credential);
-
+    await reAuthenticate(email, old_password.value);
     await deleteIcon();
     await deleteInfo();  
     await deleteAccount();
     setDivHidden('');
-
     history.push('/');  
-
-  };
-
-  const identifyEntity = async (event) => {
   };
 
   if(isCurrentUser()) {
@@ -106,7 +105,7 @@ const DeleteAccount = (props) => {
               </button>
             </div>
             <button onClick={switchHidden} type='button'>
-              Delete Account
+              Delete Account(up and down arrow)
             </button>
           </fieldset>
         </form>
@@ -120,4 +119,4 @@ const DeleteAccount = (props) => {
   }
 };
 
-export default DeleteAccount;
+export default DeleteUser;
