@@ -88,7 +88,7 @@ const Signup = () => {
               <label htmlFor='nickname'>Nickname</label>
               <input type='text' id='nickname' name='nickname' placeholder='Give yourself a cool nickname!' required/><br></br>
               <label htmlFor='password'>Password</label>
-              <input type='password' id='password' name='password' placeholder='No one will survive without a password' required/><br></br>
+              <input type='password' id='password' name='password' placeholder='No one will survive without a password' minLength="6" required/><br></br>
               <div className='info'>
                 <div className='gender'>
                   <label htmlFor='male'>

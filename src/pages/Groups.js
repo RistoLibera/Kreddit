@@ -50,7 +50,7 @@ const Groups = () => {
           });    
         }
     } catch (error) {
-      alert(error);
+      console.log(error.code);
     }
     return createdGroups;
   };
@@ -68,7 +68,7 @@ const Groups = () => {
           introduction: introduction
         });
     } catch (error) {
-      alert(error);
+      console.log(error.code);
     }
   };
 
@@ -80,7 +80,7 @@ const Groups = () => {
         .ref('group-symbol/' + name + '/symbol.jpg')
         .put(symbol);
     } catch (error) {
-      alert(error);
+      console.log(error.code);
     }
   };
 
@@ -95,7 +95,7 @@ const Groups = () => {
           created_groups: firebase.firestore.FieldValue.arrayUnion(name)
         });
     } catch (error) {
-      alert(error);
+      console.log(error.code);
     }
   };
 

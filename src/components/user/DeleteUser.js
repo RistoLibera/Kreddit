@@ -5,7 +5,7 @@ import FirebasePack from '../../config/FirebasePack';
 import firebase from 'firebase/app';
 import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
-
+import handleFirebaseError from '../error/FirebaseError';
 
 // This will be far far complicated
 const DeleteUser = (props) => {
@@ -42,11 +42,22 @@ const DeleteUser = (props) => {
 
   // Re-authenticate
   const reAuthenticate = async (email, password) => {
+    let errorMessage = '';
     const credential = firebase.auth.EmailAuthProvider.credential(
       email, 
       password
     );
-    FirebasePack.auth().currentUser.reauthenticateWithCredential(credential);
+    try {
+      await
+        FirebasePack
+        .auth()
+        .currentUser
+        .reauthenticateWithCredential(credential);
+    } catch (error) {
+      errorMessage = handleFirebaseError(error);
+      console.log(error.code);
+    }
+    return errorMessage;
   };  
 
   // Delete icon
@@ -57,7 +68,7 @@ const DeleteUser = (props) => {
           .ref('user-icon/' + uid + '/icon.jpg')
           .delete();
     } catch (error) {
-      alert(error);
+      console.log(error.code);
     }
   };
 
@@ -70,7 +81,7 @@ const DeleteUser = (props) => {
       .doc(uid)
       .delete();
     } catch (error) {
-      alert(error);
+      console.log(error.code);
     }
   };
 
@@ -82,27 +93,33 @@ const DeleteUser = (props) => {
         .currentUser
         .delete();
     } catch (error) {
-      alert(error);
+      console.log(error.code);
     }
   };
   
   const handleChange = async (event) => {
     event.preventDefault();
     setPageLoading(true);
+    switchHidden();
+    let errorMessage;
     // Prevent erroneous operation
     let confirmation = window.confirm('Are you serious?');
     if (!confirmation) return;
     const { old_password } = event.target.elements;
     const email = currentUser.email;
 
-    await reAuthenticate(email, old_password.value);
-    await deleteIcon();
-    await deleteInfo();  
-    await deleteAccount();
-    alert('success!');
-    switchHidden();
-    setPageLoading(false);
-    history.push('/');  
+    errorMessage = await reAuthenticate(email, old_password.value);
+    if (errorMessage) {
+      alert(errorMessage);
+      event.target.reset();
+      setPageLoading(false);  
+    } else {
+      await deleteIcon();
+      await deleteInfo();  
+      await deleteAccount();
+      alert('success!');
+      history.push('/');  
+    }
   };
 
   if(isCurrentUser()) {
@@ -118,7 +135,7 @@ const DeleteUser = (props) => {
               <form onSubmit={handleChange}>
                 <fieldset>
                   <div className={divHidden}>
-                    <input type='password' id='old-password' name='old_password' placeholder='Old Password' required/><br></br>
+                    <input type='password' id='old-password' name='old_password' placeholder='Old Password' minLength="6" required/><br></br>
                     <button className='submit' type='submit' value='Submit'>
                       Confirm
                     </button>

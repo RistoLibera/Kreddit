@@ -54,7 +54,7 @@ const Profile = () => {
       setGender(info.gender);
       setNation(info.nation);  
     } catch (error) {
-      alert(error);
+      console.log(error.code);
     }
   };
 

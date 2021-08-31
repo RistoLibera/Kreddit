@@ -5,6 +5,7 @@ import firebase from 'firebase/app';
 import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
 import Lock from '../../assets/img/lock.png';
+import handleFirebaseError from '../error/FirebaseError';
 
 const ChangePassword = (props) => {
   const { uid } = props;
@@ -39,6 +40,7 @@ const ChangePassword = (props) => {
 
   // Re-authenticate
   const reAuthenticate = async (email, password) => {
+    let errorMessage = '';
     const credential = firebase.auth.EmailAuthProvider.credential(
       email, 
       password
@@ -50,8 +52,10 @@ const ChangePassword = (props) => {
         .currentUser
         .reauthenticateWithCredential(credential);
     } catch (error) {
-      alert(error);
+      errorMessage = handleFirebaseError(error);
+      console.log(error.code);
     }
+    return errorMessage;
   };
 
   // Change password
@@ -62,21 +66,26 @@ const ChangePassword = (props) => {
         .currentUser
         .updatePassword(password);
     } catch (error) {
-      alert(error);
+      console.log(error.code);
     }
   };
 
   const handleChange = async (event) => {
     event.preventDefault();
     setPageLoading(true);
+    switchHidden();
+    let errorMessage;
     const { old_password, new_password } = event.target.elements;
     const email = currentUser.email;
 
-    await reAuthenticate(email, old_password.value);
-    await changePassword(new_password.value);
+    errorMessage = await reAuthenticate(email, old_password.value);
+    if (errorMessage) {
+      alert(errorMessage);
+    } else {
+      await changePassword(new_password.value);
+      alert('success!');  
+    }
     event.target.reset();
-    alert('success!');
-    switchHidden();
     setPageLoading(false);
   };
 
@@ -93,8 +102,8 @@ const ChangePassword = (props) => {
               <form onSubmit={handleChange}>
                 <fieldset>
                   <div className={divHidden}>
-                    <input type='password' id='old-password' name='old_password' placeholder='Old Password' required/><br></br>
-                    <input type='password' id='new-password' name='new_password' placeholder='New Password' required/><br></br>
+                    <input type='password' id='old-password' name='old_password' placeholder='Old Password' minLength="6" required/><br></br>
+                    <input type='password' id='new-password' name='new_password' placeholder='New Password' minLength="6" required/><br></br>
                     <button className='submit' type='submit' value='Submit'>
                       Confirm
                     </button>

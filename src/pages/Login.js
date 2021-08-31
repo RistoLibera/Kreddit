@@ -61,7 +61,7 @@ const Login = () => {
               <label htmlFor='nickname'>Nickname</label>
               <input type='text' id='nickname' name='nickname' placeholder='Nickname!' required/><br></br>
               <label htmlFor='password'>Password</label>
-              <input type='password' id='password' name='password' placeholder='Password' required/><br></br>
+              <input type='password' id='password' name='password' placeholder='Password' minLength="6" required/><br></br>
               <div className='auth-buttons'>
                 <button className='reset' type='reset' value='Reset'>Clear</button>
                 <button className='submit' type='submit' value='Submit'>Log in</button>

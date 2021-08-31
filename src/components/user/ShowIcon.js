@@ -21,7 +21,7 @@ const ShowIcon = (props) => {
         .ref('user-icon/' + uid + '/icon.jpg')
         .put(file);
     } catch (error) {
-      alert(error);
+      console.log(error.code);
     }
     setLoading(false);
   };

@@ -18,8 +18,11 @@ const handleFirebaseError = (error) => {
     case 'storage/object-not-found':
       message = 'You should update to your own liking';
       break;
-      default:
-      message = 'Uncharted error';
+    case  "auth/too-many-requests":
+      message = 'You tried too many times!';
+      break;  
+    default:
+    message = 'Uncharted error';
   }
 
   return message;
