@@ -1,0 +1,93 @@
+#search-result, .profile-page .profile-container .upper-profile .info .lower-info, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile, #homepage .content-switcher, .app-header .right-bar .user-bar, .app-header .right-bar, .app-header .middle-bar, .app-header, .groups-page .group-container .create-group header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.signup-page .signup-container form fieldset, .profile-page .profile-container .lower-profile, .profile-page .profile-container .upper-profile .registration, .profile-page .profile-container .upper-profile .info, .profile-page .profile-container, #homepage, .groups-page, .groups-page .group-container .create-group, .groups-page .group-container .group-list ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.hidden {
+  display: none;
+}
+
+.groups-page .group-container .group-list ul {
+  list-style-type: none;
+}
+
+#search-result, .profile-page .profile-container .upper-profile .info .lower-info, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile, #homepage .content-switcher, .groups-page .group-container .create-group header, .app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.signup-page .signup-container form fieldset, .profile-page .profile-container .lower-profile, .profile-page .profile-container .upper-profile .registration, .profile-page .profile-container .upper-profile .info, .profile-page .profile-container, #homepage, .groups-page, .groups-page .group-container .create-group, .groups-page .group-container .group-list ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header .middle-bar .discussions-bar {
+  cursor: pointer;
+}
+.app-header .middle-bar #icon img {
+  height: 70px;
+  width: 70px;
+  cursor: pointer;
+}
+.app-header .middle-bar .groups-bar {
+  cursor: pointer;
+}
+#search-result, .profile-page .profile-container .upper-profile .info .lower-info, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile, .groups-page .group-container .create-group header, .app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar, #homepage .content-switcher {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.signup-page .signup-container form fieldset, .profile-page .profile-container .lower-profile, .profile-page .profile-container .upper-profile .registration, .profile-page .profile-container .upper-profile .info, .profile-page .profile-container, .groups-page, .groups-page .group-container .create-group, .groups-page .group-container .group-list ul, #homepage {
+  display: flex;
+  flex-direction: column;
+}
+
+#search-result, .groups-page .group-container .create-group header, .app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar, #homepage .content-switcher, .profile-page .profile-container .upper-profile, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile .info .lower-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.signup-page .signup-container form fieldset, .groups-page, .groups-page .group-container .create-group, .groups-page .group-container .group-list ul, #homepage, .profile-page .profile-container, .profile-page .profile-container .upper-profile .info, .profile-page .profile-container .upper-profile .registration, .profile-page .profile-container .lower-profile {
+  display: flex;
+  flex-direction: column;
+}
+
+.hidden {
+  display: none;
+}
+
+.profile-page .profile-container .upper-profile {
+  justify-content: space-around;
+}
+.groups-page .group-container .create-group header, .app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar, #homepage .content-switcher, .profile-page .profile-container .upper-profile, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile .info .lower-info, #search-result {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.signup-page .signup-container form fieldset, .groups-page, .groups-page .group-container .create-group, .groups-page .group-container .group-list ul, #homepage, .profile-page .profile-container, .profile-page .profile-container .upper-profile .info, .profile-page .profile-container .upper-profile .registration, .profile-page .profile-container .lower-profile {
+  display: flex;
+  flex-direction: column;
+}
+
+.groups-page .group-container .create-group header, .app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar, #homepage .content-switcher, .profile-page .profile-container .upper-profile, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile .info .lower-info, #search-result {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.groups-page, .groups-page .group-container .create-group, .groups-page .group-container .group-list ul, #homepage, .profile-page .profile-container, .profile-page .profile-container .upper-profile .info, .profile-page .profile-container .upper-profile .registration, .profile-page .profile-container .lower-profile, .signup-page .signup-container form fieldset {
+  display: flex;
+  flex-direction: column;
+}
+
+/*# sourceMappingURL=main.css.map */

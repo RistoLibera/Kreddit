@@ -5,7 +5,7 @@ import FirebasePack from '../../config/FirebasePack';
 import firebase from 'firebase/app';
 import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
-import handleFirebaseError from '../../functions/error/handleFirebaseError';
+import handleFirebaseError from '../../components/error/handleFirebaseError';
 
 // This will be far far complicated
 const DeleteUser = (props) => {

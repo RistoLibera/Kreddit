@@ -6,7 +6,7 @@ import { faMars, faVenus } from '@fortawesome/free-solid-svg-icons';
 import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
 import FirebasePack from '../config/FirebasePack';
-import handleFirebaseError from '../functions/error/handleFirebaseError';
+import handleFirebaseError from '../components/error/handleFirebaseError';
 import SelectCountry from '../components/user/SelectCountry';
 
 const Signup = () => {

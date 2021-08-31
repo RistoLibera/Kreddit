@@ -4,12 +4,11 @@ import FirebasePack from '../config/FirebasePack';
 import Default from '../assets/img/default-icon.jpg';
 import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
-import handleFirebaseError from '../functions/error/handleFirebaseError';
+import handleFirebaseError from '../components/error/handleFirebaseError';
 import ShowIcon from '../components/user/ShowIcon';
 import DeleteUser from '../components/user/DeleteUser';
 import ChangePassword from '../components/user/ChangePassword';
 import ShowInfo from '../components/user/ShowInfo';
-import '../styles/css/profile.css';
 
 const Profile = () => {
   const { uid }  = useParams();

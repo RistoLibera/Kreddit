@@ -5,7 +5,7 @@ import firebase from 'firebase/app';
 import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
 import Lock from '../../assets/img/lock.png';
-import handleFirebaseError from '../../functions/error/handleFirebaseError';
+import handleFirebaseError from '../../components/error/handleFirebaseError';
 
 const ChangePassword = (props) => {
   const { uid } = props;

@@ -5,7 +5,6 @@ import Koin from '../assets/img/header-koin.png';
 import { css } from '@emotion/react';
 import CircleLoader from 'react-spinners/CircleLoader';
 import Signout from '../components/user/Signout';
-import '../styles/css/header.css';
 
 const Header = () => {
   const { currentUser,pending } = useContext(AuthContext);
