@@ -4,6 +4,7 @@ import FirebasePack from '../config/FirebasePack';
 import firebase from 'firebase/app';
 import { css } from '@emotion/react';
 import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
+import Default from '../assets/img/default-symbol.png';
 import GroupList from '../components/groups/GroupList';
 
 const Groups = () => {
@@ -16,6 +17,7 @@ const Groups = () => {
   const [formHidden, setFormHidden] = useState("hidden");
   const [pageLoading, setPageLoading] = useState(true);
   const [createdGroupsDoc, setCreatedGroupsDoc] = useState([]);
+  const [groupDetails, setGroupDetails] = useState([]);
 
   const switchHidden = () => {
     if (formHidden === 'hidden') {
@@ -27,15 +29,16 @@ const Groups = () => {
 
   // Store groups
   const storeGroups = (cache) => {
-    setCreatedGroupsDoc([]);
+    let container = [];
     if (cache) {
       cache.forEach((doc) => {
-        setCreatedGroupsDoc(oldArray => [...oldArray, doc]);
+        container.push(doc);
       });   
     }
+    setCreatedGroupsDoc(container);
   };
 
-  // Check if group existed
+  // Fetch newest group details
   const fetchGroups = async () => {
     try {
       let cache =
@@ -44,14 +47,14 @@ const Groups = () => {
           .collection('groups')
           .get();
         storeGroups(cache);
-        } catch (error) {
+    } catch (error) {
       console.log(error.code);
     }
     setPageLoading(false);
   };
   
   // Create new group
-  const createNew = async (name, uid, introduction) => {
+  const createNew = async (name, creator, introduction) => {
     try {
       await FirebasePack
         .firestore()
@@ -59,7 +62,7 @@ const Groups = () => {
         .doc()
         .set({
           name: name,
-          creator: uid,
+          creator: creator,
           introduction: introduction
         });
     } catch (error) {
@@ -97,12 +100,17 @@ const Groups = () => {
   const handleCreateGroup = async (event) => {
     event.preventDefault();
     setPageLoading(true);
+    await fetchGroups();
     const { name, introduction, symbol } = event.target.elements;
     let uid = currentUser.uid;
+    let creator = (currentUser.email).slice(0, -9);
     let nameValue = name.value;
     let introductionValue = introduction.value;
     let symbolFile = symbol.files[0];
 
+    // !!!!
+    // submit to show proper number
+    //  component to render only html 
     console.log(createdGroupsDoc);
     if(createdGroupsDoc && createdGroupsDoc.some((groupDoc) => groupDoc.data().name  === nameValue)) {
       alert("Group already created!");
@@ -114,7 +122,7 @@ const Groups = () => {
       return;
     } else {
       // Create new group
-      await createNew(nameValue, uid, introductionValue);
+      await createNew(nameValue, creator, introductionValue);
       await updateSymbol(nameValue, symbolFile);
       await updateInfo(nameValue, uid);
       alert('success!');
@@ -123,9 +131,52 @@ const Groups = () => {
     setPageLoading(false);
   };
 
+  // Get group symbol
+  const getSymbol = async (name) => {
+    let symbolURL = Default;
+    try {
+      symbolURL = 
+        await FirebasePack
+          .storage()
+          .ref('group-symbol/' + name + '/symbol.jpg')
+          .getDownloadURL();
+    } catch (error) {
+      console.log(error.code);
+    }
+    return symbolURL;
+  };
+
+
+  // Decypher group details
+  const decypherDetails = async () => {
+    // let name;
+    // let creator;
+    // let introduction;
+    // let symbolURL;
+    await fetchGroups();
+
+    console.log(createdGroupsDoc);
+
+    // try {
+    //   let symbolURL = 
+    //     await FirebasePack
+    //       .storage()
+    //       .ref('group-symbol')
+    //       .listAll() ;
+    //   console.log(symbolURL);
+    // } catch (error) {
+    //   console.log(error.code);
+    // }
+
+
+    // setGroupDetails();
+  };
+
+
   useEffect(() => {
     fetchGroups();
-  }, [createdGroupsDoc]);
+    decypherDetails();
+  },[]);
 
   return (
     <section className='groups-page'>
@@ -141,7 +192,7 @@ const Groups = () => {
                 {currentUser 
                 ? 
                   <div>
-                    <h2>You can own at most three groups</h2>
+                    <h2>You can create at most three groups</h2>
                     <button onClick={switchHidden}>Create a group</button>
                   </div>
                 : 
@@ -152,7 +203,7 @@ const Groups = () => {
               <div className={formHidden}>
                 <form onSubmit={handleCreateGroup}>
                   <fieldset>
-                    <label htmlFor='name'>Creator</label>
+                    <label htmlFor='name'>Name</label>
                     <input type='text' id='name' name='name' placeholder='Groups name' required/><br></br>
                     <label htmlFor='introduction'>Introduction</label>
                     <textarea type='text' id='introduction' name='introduction' placeholder='What is this group for?' required/><br></br>
@@ -164,7 +215,7 @@ const Groups = () => {
               </div>
             </div>
 
-            <GroupList document={createdGroupsDoc} />
+            {/* <GroupList documents={createdGroupsDoc} /> */}
           </div>
       }
     </section>

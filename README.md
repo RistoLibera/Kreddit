@@ -29,15 +29,17 @@
 
 ### For discussion
 
+- You can sort discussions by group.
 - You can create, edit, delete your own discussions.
 - You can upload images to discussions.
-- You can like or unlike discussions.
+- You can rate discussions.
 - You can create subdiscussions on any discussions.
-- You can receive notification about your discussions
+- You can receive notification about your discussions.
 - You can see when the discussions were created.
 
 ### Upon environment
 
+- You can log in as a human.
 - You can switch between light mode and dark mode.
 - You can discuss on smartphone comfortably.
 

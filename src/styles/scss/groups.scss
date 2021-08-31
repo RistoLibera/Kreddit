@@ -8,7 +8,7 @@
 .groups-page {
   @extend %flex-column-direction;
 
-  .group-container{
+  .group-container  {
     .create-group {
       @extend %flex-column-direction;
   
@@ -19,7 +19,7 @@
   
     }
   
-    .group-list{
+    .group-list {
   
       ul {
         @extend %flex-column-direction;
@@ -27,5 +27,10 @@
       }
     }
 
+    .all-groups {
+      ul li {
+        @extend %flex-row-direction;
+      }
+    }
   }
 }
