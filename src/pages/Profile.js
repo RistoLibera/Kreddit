@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import FirebasePack from '../config/FirebasePack';
 import Default from '../assets/img/default-icon.jpg';
@@ -40,7 +40,7 @@ const Profile = () => {
   };
 
   // get info
-  const getInfo = async () => {
+  const getInfo = async() => {
     try {
       let cache = 
         await FirebasePack
@@ -78,7 +78,7 @@ const Profile = () => {
         :
           <div className='profile-container'>
             <div className='upper-profile'>
-              <ShowIcon uid = {uid} iconURL={iconURL} iconError={iconError} />
+              <ShowIcon uid = {uid} iconURL={iconURL} iconError={iconError} update={getIcon} />
 
               <div className='info'>
                 <ShowInfo nickname={nickname} gender={gender} nation={nation} />

@@ -4,14 +4,13 @@ import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
 
 const ShowIcon = (props) => {
-  const { uid, iconURL, iconError } = props;
+  const { uid, iconURL, iconError, update } = props;
   const spinnerCSS = css`
   display: block;
   margin: 0 auto;
   border-color: red;
   `;
   const [loading, setLoading] = useState(false);
-
   const uploadIcon = async (event) => {
     const file = event.target.files[0];
     setLoading(true);
@@ -23,6 +22,7 @@ const ShowIcon = (props) => {
     } catch (error) {
       console.log(error.code);
     }
+    update();
     setLoading(false);
   };
   
