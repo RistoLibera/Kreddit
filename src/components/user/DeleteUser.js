@@ -104,7 +104,10 @@ const DeleteUser = (props) => {
     let errorMessage;
     // Prevent erroneous operation
     let confirmation = window.confirm('Are you serious?');
-    if (!confirmation) return;
+    if (!confirmation) {
+      setPageLoading(false);  
+      return;
+    }
     const { old_password } = event.target.elements;
     const email = currentUser.email;
 

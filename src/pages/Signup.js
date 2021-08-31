@@ -18,15 +18,14 @@ const Signup = () => {
   border-color: red;
   `;
   const [errorMessage, setErrorMessage] = useState([]);
-  const [pageLoading, setPageLoading] = useState('hidden');
-  const [containerClass, setContainerClass] = useState('signup-container');
+  const [pageLoading, setPageLoading] = useState(false);
 
-  const toggleLoading = () => {
-    if (pageLoading === 'hidden') {
-      setPageLoading('');
-      setContainerClass('hidden');  
-    }
-  };
+  // Grant no access for logged-in-user even via URL 
+  if (currentUser) {
+    return (
+      <Redirect to='/' />
+    );
+  }
 
   // Create new user
   const createNew = async (email, password) => {
@@ -63,7 +62,7 @@ const Signup = () => {
   // Input nickname but authenticate with a fake email address
   const handleSignup = async (event) => {
     event.preventDefault();
-    toggleLoading();
+    setPageLoading(true);
     const { nickname, password, gender, nation } = event.target.elements;
     const email = (nickname.value + '@fake.com').toString();
 
@@ -73,57 +72,47 @@ const Signup = () => {
     }
   };
   
-  // Grant no access for logged-in-user even via URL 
-  const controlAccess = () => {
-    if (currentUser) {
-      return (
-        <Redirect to='/' />
-      );
-    } else {
-      return (
-        <div className={containerClass}>
-          <form onSubmit={handleSignup}>
-            <fieldset className='user-auth'>
-              <legend>Sign up</legend>
-              <label htmlFor='nickname'>Nickname</label>
-              <input type='text' id='nickname' name='nickname' placeholder='Give yourself a cool nickname!' required/><br></br>
-              <label htmlFor='password'>Password</label>
-              <input type='password' id='password' name='password' placeholder='No one will survive without a password' minLength="6" required/><br></br>
-              <div className='info'>
-                <div className='gender'>
-                  <label htmlFor='male'>
-                    <FontAwesomeIcon icon={faMars} color='cornflowerblue' size='lg' />
-                  </label>
-                  <input type='radio' id='male' name='gender' value='male' checked onChange={e => {}}/>
-                  <label htmlFor='female'>
-                    <FontAwesomeIcon icon={faVenus} color='crimson' size='lg' />
-                  </label>
-                  <input type='radio' id='female' name='gender' value='female' />
-                </div>
-
-                <SelectCountry />
-              </div>
-              <div className='auth-buttons'>
-                <button className='reset' type='reset' value='Reset'>Clear</button>
-                <button className='submit' type='submit' value='Submit'>Sign up</button>
-              </div>
-            </fieldset>
-          </form>
-          <div className='error-message'>
-            <h2>{errorMessage}</h2>
-          </div>
-        </div>
-      );
-    }
-  };
-
   return (
     <section className='signup-page'>
-      <div className={pageLoading}>
-        <BarLoader color='#D5D736' css={spinnerCSS} size={150} />
-      </div>
+      {pageLoading
+        ?
+          <div className='page-loader'>
+            <BarLoader color='#D5D736' css={spinnerCSS} size={150} />
+          </div>
+        :
+          <div className='signup-container'>
+            <form onSubmit={handleSignup}>
+              <fieldset className='user-auth'>
+                <legend>Sign up</legend>
+                <label htmlFor='nickname'>Nickname</label>
+                <input type='text' id='nickname' name='nickname' placeholder='Give yourself a cool nickname!' required/><br></br>
+                <label htmlFor='password'>Password</label>
+                <input type='password' id='password' name='password' placeholder='6 or more characters!' minLength="6" required/><br></br>
+                <div className='info'>
+                  <div className='gender'>
+                    <label htmlFor='male'>
+                      <FontAwesomeIcon icon={faMars} color='cornflowerblue' size='lg' />
+                    </label>
+                    <input type='radio' id='male' name='gender' value='male' checked onChange={e => {}}/>
+                    <label htmlFor='female'>
+                      <FontAwesomeIcon icon={faVenus} color='crimson' size='lg' />
+                    </label>
+                    <input type='radio' id='female' name='gender' value='female' />
+                  </div>
 
-      {controlAccess()}
+                  <SelectCountry />
+                </div>
+                <div className='auth-buttons'>
+                  <button className='reset' type='reset' value='Reset'>Clear</button>
+                  <button className='submit' type='submit' value='Submit'>Sign up</button>
+                </div>
+              </fieldset>
+            </form>
+            <div className='error-message'>
+              <h2>{errorMessage}</h2>
+            </div>
+          </div>
+      }
     </section>
   );
 };
