@@ -4,7 +4,7 @@ import { AuthContext } from '../components/loading/Auth';
 import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
 import FirebasePack from '../config/FirebasePack';
-import handleFirebaseError from '../components/error/FirebaseError';
+import handleFirebaseError from '../functions/error/handleFirebaseError';
 
 const Login = () => {
   const { currentUser } = useContext(AuthContext);
