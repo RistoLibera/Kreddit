@@ -15,7 +15,7 @@ const Groups = () => {
   `;
   const [formHidden, setFormHidden] = useState("hidden");
   const [pageLoading, setPageLoading] = useState(true);
-  const createdGroupsDoc = [];
+  const [createdGroupsDoc, setCreatedGroupsDoc] = useState([]);
 
   const switchHidden = () => {
     if (formHidden === 'hidden') {
@@ -27,12 +27,14 @@ const Groups = () => {
 
   // Store groups
   const storeGroups = (cache) => {
+    setCreatedGroupsDoc([]);
     if (cache) {
       cache.forEach((doc) => {
-        createdGroupsDoc.push(doc);
+        setCreatedGroupsDoc(oldArray => [...oldArray, doc]);
       });   
     }
   };
+
   // Check if group existed
   const fetchGroups = async () => {
     try {
@@ -101,8 +103,13 @@ const Groups = () => {
     let introductionValue = introduction.value;
     let symbolFile = symbol.files[0];
 
+    console.log(createdGroupsDoc);
     if(createdGroupsDoc && createdGroupsDoc.some((groupDoc) => groupDoc.data().name  === nameValue)) {
       alert("Group already created!");
+      setPageLoading(false);
+      return;
+    } else if(createdGroupsDoc.length > 2) {
+      alert("Reach creation limit!");
       setPageLoading(false);
       return;
     } else {
@@ -118,7 +125,7 @@ const Groups = () => {
 
   useEffect(() => {
     fetchGroups();
-  }, []);
+  }, [createdGroupsDoc]);
 
   return (
     <section className='groups-page'>
@@ -131,10 +138,14 @@ const Groups = () => {
           <div className='group-container'>
             <div className='create-group'>
               <header>
-                <h2>You can own at most five groups</h2>
                 {currentUser 
-                ? <button onClick={switchHidden}>Create a group</button>
-                : <div></div>
+                ? 
+                  <div>
+                    <h2>You can own at most three groups</h2>
+                    <button onClick={switchHidden}>Create a group</button>
+                  </div>
+                : 
+                  <div></div>
                 }
               </header>
 

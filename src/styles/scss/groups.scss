@@ -12,7 +12,7 @@
     .create-group {
       @extend %flex-column-direction;
   
-      header {
+      header div{
         @extend %flex-row-direction;
       }
   

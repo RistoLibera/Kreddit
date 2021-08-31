@@ -1,4 +1,4 @@
-#search-result, .profile-page .profile-container .upper-profile .info .lower-info, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile, #homepage .content-switcher, .app-header .right-bar .user-bar, .app-header .right-bar, .app-header .middle-bar, .app-header, .groups-page .group-container .create-group header {
+#search-result, .profile-page .profile-container .upper-profile .info .lower-info, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile, #homepage .content-switcher, .app-header .right-bar .user-bar, .app-header .right-bar, .app-header .middle-bar, .app-header, .groups-page .group-container .create-group header div {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -17,7 +17,7 @@
   list-style-type: none;
 }
 
-#search-result, .profile-page .profile-container .upper-profile .info .lower-info, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile, #homepage .content-switcher, .groups-page .group-container .create-group header, .app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar {
+#search-result, .profile-page .profile-container .upper-profile .info .lower-info, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile, #homepage .content-switcher, .groups-page .group-container .create-group header div, .app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -39,7 +39,7 @@
 .app-header .middle-bar .groups-bar {
   cursor: pointer;
 }
-#search-result, .profile-page .profile-container .upper-profile .info .lower-info, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile, .groups-page .group-container .create-group header, .app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar, #homepage .content-switcher {
+#search-result, .profile-page .profile-container .upper-profile .info .lower-info, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile, .groups-page .group-container .create-group header div, .app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar, #homepage .content-switcher {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -50,7 +50,7 @@
   flex-direction: column;
 }
 
-#search-result, .groups-page .group-container .create-group header, .app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar, #homepage .content-switcher, .profile-page .profile-container .upper-profile, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile .info .lower-info {
+#search-result, .groups-page .group-container .create-group header div, .app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar, #homepage .content-switcher, .profile-page .profile-container .upper-profile, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile .info .lower-info {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -68,7 +68,7 @@
 .profile-page .profile-container .upper-profile {
   justify-content: space-around;
 }
-.groups-page .group-container .create-group header, .app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar, #homepage .content-switcher, .profile-page .profile-container .upper-profile, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile .info .lower-info, #search-result {
+.groups-page .group-container .create-group header div, .app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar, #homepage .content-switcher, .profile-page .profile-container .upper-profile, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile .info .lower-info, #search-result {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -79,7 +79,7 @@
   flex-direction: column;
 }
 
-.groups-page .group-container .create-group header, .app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar, #homepage .content-switcher, .profile-page .profile-container .upper-profile, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile .info .lower-info, #search-result {
+.groups-page .group-container .create-group header div, .app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar, #homepage .content-switcher, .profile-page .profile-container .upper-profile, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile .info .lower-info, #search-result {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
