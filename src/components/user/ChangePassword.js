@@ -15,18 +15,7 @@ const ChangePassword = (props) => {
   border-color: red;
   `;
   const [divHidden, setDivHidden] = useState("hidden");
-  const [pageLoading, setPageLoading] = useState('hidden');
-  const [containerClass, setContainerClass] = useState('change-container');
-
-  const toggleLoading = () => {
-    if (pageLoading === '') {
-      setPageLoading('hidden');
-      setContainerClass('change-container');  
-    } else { 
-      setPageLoading('');
-      setContainerClass('hidden');  
-    }
-  };
+  const [pageLoading, setPageLoading] = useState(false);
 
   const isCurrentUser = () => {
     let currentUID;
@@ -79,7 +68,7 @@ const ChangePassword = (props) => {
 
   const handleChange = async (event) => {
     event.preventDefault();
-    toggleLoading();
+    setPageLoading(true);
     const { old_password, new_password } = event.target.elements;
     const email = currentUser.email;
 
@@ -87,33 +76,36 @@ const ChangePassword = (props) => {
     await changePassword(new_password.value);
     event.target.reset();
     alert('success!');
-    toggleLoading();
     switchHidden();
+    setPageLoading(false);
   };
 
   if(isCurrentUser()) {
     return (
       <div className="change-password">
-        <div className={pageLoading}>
-          <BarLoader color='#D5D736' css={spinnerCSS} size={150} />
-        </div>
-
-        <div className={containerClass}>
-          <form onSubmit={handleChange}>
-            <fieldset>
-              <div className={divHidden}>
-                <input type='password' id='old-password' name='old_password' placeholder='Old Password' required/><br></br>
-                <input type='password' id='new-password' name='new_password' placeholder='New Password' required/><br></br>
-                <button className='submit' type='submit' value='Submit'>
-                  Confirm
-                </button>
-              </div>
-              <button onClick={switchHidden} type='button'>
-                Change password(up and down arrow)
-              </button>
-            </fieldset>
-          </form>
-        </div>
+        {pageLoading
+          ?
+            <div className='page-loader'>
+              <BarLoader color='#D5D736' css={spinnerCSS} size={150} />
+            </div>
+          :
+            <div className='change-container'>
+              <form onSubmit={handleChange}>
+                <fieldset>
+                  <div className={divHidden}>
+                    <input type='password' id='old-password' name='old_password' placeholder='Old Password' required/><br></br>
+                    <input type='password' id='new-password' name='new_password' placeholder='New Password' required/><br></br>
+                    <button className='submit' type='submit' value='Submit'>
+                      Confirm
+                    </button>
+                  </div>
+                  <button onClick={switchHidden} type='button'>
+                    Change password(up and down arrow)
+                  </button>
+                </fieldset>
+              </form>
+            </div>
+        }
       </div>
     );
   } else {

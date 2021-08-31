@@ -3,13 +3,22 @@ import { useHistory } from 'react-router-dom';
 import { AuthContext } from '../loading/Auth';
 import FirebasePack from '../../config/FirebasePack';
 import firebase from 'firebase/app';
+import { css } from '@emotion/react';
+import BarLoader from 'react-spinners/BarLoader';
+
 
 // This will be far far complicated
 const DeleteUser = (props) => {
   const history = useHistory();
   const { uid } = props;
   const { currentUser } = useContext(AuthContext);
+  const spinnerCSS = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+  `;
   const [divHidden, setDivHidden] = useState("hidden");
+  const [pageLoading, setPageLoading] = useState(false);
 
   const isCurrentUser = () => {
     let currentUID;
@@ -79,6 +88,7 @@ const DeleteUser = (props) => {
   
   const handleChange = async (event) => {
     event.preventDefault();
+    setPageLoading(true);
     // Prevent erroneous operation
     let confirmation = window.confirm('Are you serious?');
     if (!confirmation) return;
@@ -89,26 +99,37 @@ const DeleteUser = (props) => {
     await deleteIcon();
     await deleteInfo();  
     await deleteAccount();
-    setDivHidden('');
+    alert('success!');
+    switchHidden();
+    setPageLoading(false);
     history.push('/');  
   };
 
   if(isCurrentUser()) {
     return (
       <div className='delete-account'>
-        <form onSubmit={handleChange}>
-          <fieldset>
-            <div className={divHidden}>
-              <input type='password' id='old-password' name='old_password' placeholder='Old Password' required/><br></br>
-              <button className='submit' type='submit' value='Submit'>
-                Confirm
-              </button>
+        {pageLoading
+          ?
+            <div className='page-loader'>
+              <BarLoader color='#D5D736' css={spinnerCSS} size={150} />
             </div>
-            <button onClick={switchHidden} type='button'>
-              Delete Account(up and down arrow)
-            </button>
-          </fieldset>
-        </form>
+          :
+            <div className='delete-container'>
+              <form onSubmit={handleChange}>
+                <fieldset>
+                  <div className={divHidden}>
+                    <input type='password' id='old-password' name='old_password' placeholder='Old Password' required/><br></br>
+                    <button className='submit' type='submit' value='Submit'>
+                      Confirm
+                    </button>
+                  </div>
+                  <button onClick={switchHidden} type='button'>
+                    Delete Account(up and down arrow)
+                  </button>
+                </fieldset>
+              </form>
+            </div>
+        }
       </div>
     );
   } else {
