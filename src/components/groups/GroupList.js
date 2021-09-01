@@ -2,6 +2,7 @@ import React, { useState, useEffect} from 'react';
 import Default from '../../assets/img/default-symbol.png';
 import FirebasePack from '../../config/FirebasePack';
 
+//  change view matrix or line
 const GroupList = (props) => {
   const { documents } = props;
   const [listTags, setListTags] = useState([]);
@@ -20,6 +21,27 @@ const GroupList = (props) => {
     }
     return symbolURL;
   };
+
+  // Make one list HTML tag
+  const makeList = (name, creator, introduction, symbolURL, index) => {
+    return (
+      <li key={index} className='group-list'>
+        <div className='left-block'>
+          <img src={symbolURL} alt='icon' width='40px' />
+          <h2>{name}</h2>
+        </div>
+
+        <div className='middle-block'>
+          <p>Creator: {creator}</p>
+          <p>{introduction}</p>
+        </div>
+
+        <div className='right-block'>
+          <button>To discussion</button>
+        </div>
+      </li>
+    );
+  };
     
   const createList = async () => {
     let name;
@@ -27,35 +49,23 @@ const GroupList = (props) => {
     let introduction;
     let list;
     let container = [];
-    let symbolURL = await getSymbol(name);
+    let symbolURL;
 
-    documents.forEach((doc, index) => {
+    for (const [index, doc] of documents.entries()) {
       name = doc.data().name;
       creator = doc.data().creator;
       introduction = doc.data().introduction;
-      list =  <li key={index} className='group-list'>
-                <div className='left-block'>
-                  <img src={symbolURL} alt='icon' width='40px' />
-                  <h2>{name}</h2>
-                </div>
-
-                <div className='middle-block'>
-                  <p>{creator}</p>
-                  <p>{introduction}</p>
-                </div>
-
-                <div className='right-block'>
-                  <button>To discussion</button>
-                </div>
-              </li>;
+      symbolURL = await getSymbol(name);
+      
+      list =  makeList(name, creator, introduction, symbolURL, index);
       container.push(list);
-    });
+    }
     setListTags(container);
   };
 
   useEffect(() => {
     createList();
-  }, []);
+  }, [documents]);
 
   return (
     <div className='all-groups'>

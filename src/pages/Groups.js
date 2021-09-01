@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../components/loading/Auth';
 import FirebasePack from '../config/FirebasePack';
-import firebase from 'firebase/app';
 import { css } from '@emotion/react';
 import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
-import Default from '../assets/img/default-symbol.png';
 import CreateGroup from '../components/groups/CreateGroup';
 import GroupList from '../components/groups/GroupList';
 
@@ -18,7 +16,6 @@ const Groups = () => {
   const [formHidden, setFormHidden] = useState("hidden");
   const [pageLoading, setPageLoading] = useState(true);
   const [createdGroupsDoc, setCreatedGroupsDoc] = useState([]);
-  const [groupDetails, setGroupDetails] = useState([]);
 
   const switchHidden = () => {
     if (formHidden === 'hidden') {
@@ -36,6 +33,7 @@ const Groups = () => {
         container.push(doc);
       });   
     }
+    console.log(container);
     setCreatedGroupsDoc(container);
   };
 
@@ -53,48 +51,6 @@ const Groups = () => {
     }
     setPageLoading(false);
   };
-
-
-  // Get group symbol
-  const getSymbol = async (name) => {
-    let symbolURL = Default;
-    try {
-      symbolURL = 
-        await FirebasePack
-          .storage()
-          .ref('group-symbol/' + name + '/symbol.jpg')
-          .getDownloadURL();
-    } catch (error) {
-      console.log(error.code);
-    }
-    return symbolURL;
-  };
-
-
-  // Decypher group details
-  const decypherDetails = async () => {
-    // let name;
-    // let creator;
-    // let introduction;
-    // let symbolURL;
-    await fetchGroups();
-
-
-    // try {
-    //   let symbolURL = 
-    //     await FirebasePack
-    //       .storage()
-    //       .ref('group-symbol')
-    //       .listAll() ;
-    //   console.log(symbolURL);
-    // } catch (error) {
-    //   console.log(error.code);
-    // }
-
-
-    // setGroupDetails();
-  };
-
 
   useEffect(() => {
     fetchGroups();
@@ -116,6 +72,7 @@ const Groups = () => {
                   <div>
                     <h2>You can create at most three groups</h2>
                     <button onClick={switchHidden}>Create a group</button>
+                    <h1>Change view</h1>
                   </div>
                 : 
                   <div></div>
@@ -125,7 +82,7 @@ const Groups = () => {
               <CreateGroup document={createdGroupsDoc} user={currentUser} hidden={formHidden} update={fetchGroups} />
             </div>
 
-            {/* <GroupList documents={createdGroupsDoc} /> */}
+            <GroupList documents={createdGroupsDoc} />
           </div>
       }
     </section>
