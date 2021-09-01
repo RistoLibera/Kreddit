@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useCallback } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useParams, useHistory } from 'react-router-dom';
 import FirebasePack from '../config/FirebasePack';
 import Default from '../assets/img/default-icon.jpg';
 import { css } from '@emotion/react';
@@ -12,6 +12,7 @@ import ShowInfo from '../components/user/ShowInfo';
 
 const Profile = () => {
   const { uid }  = useParams();
+  const history = useHistory();
   const spinnerCSS = css`
   display: block;
   margin: 0 auto;
@@ -24,6 +25,17 @@ const Profile = () => {
   const [iconError, setIconError] = useState([]);
   const [pageLoading, setPageLoading] = useState(true);
 
+  // Check if real UID
+  const checkUID = async () => {
+    try {
+        await FirebasePack
+          .auth()
+          .getUser(uid);
+    } catch (error) {
+      alert("Non-existence!");
+      history.push('/');  
+    }
+  };
   // get icon
   const getIcon = async () => {
     let icon = Default;
@@ -65,6 +77,7 @@ const Profile = () => {
   };
 
   useEffect(() => {
+    checkUID();
     fetchData();
   }, []);
 
