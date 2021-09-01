@@ -37,6 +37,7 @@ const Signup = () => {
         .createUserWithEmailAndPassword(email, password);
     } catch (error) {
       setErrorMessage(handleFirebaseError(error));
+      setPageLoading(false);
     }
     return credential;
   };

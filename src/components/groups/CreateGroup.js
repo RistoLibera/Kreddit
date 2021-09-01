@@ -24,8 +24,10 @@ const CreateGroup = (props) => {
           .collection('user-info')
           .doc(uid)
           .get();
-      let info = cache.data().created_groups.length;
-      userLimit = info;
+      let info = cache.data().created_groups;
+      if (info) {
+        userLimit = info.length;
+      }
     } catch (error) {
       console.log(error.code);
     }
@@ -41,7 +43,8 @@ const CreateGroup = (props) => {
         .set({
           name: name,
           creator: creator,
-          introduction: introduction
+          introduction: introduction,
+          time: firebase.firestore.FieldValue.serverTimestamp()
         });
     } catch (error) {
       console.log(error.code);
@@ -86,7 +89,6 @@ const CreateGroup = (props) => {
     let introductionValue = introduction.value;
     let symbolFile = symbol.files[0];
 
-    console.log(userLimit);
     if(document && document.some((groupDoc) => groupDoc.data().name  === nameValue)) {
       alert("Group already created!");
       setPageLoading(false);

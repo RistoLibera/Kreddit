@@ -33,7 +33,6 @@ const Groups = () => {
         container.push(doc);
       });   
     }
-    console.log(container);
     setCreatedGroupsDoc(container);
   };
 
@@ -44,6 +43,7 @@ const Groups = () => {
         await FirebasePack
           .firestore()
           .collection('groups')
+          .orderBy("time", "asc")
           .get();
         storeGroups(cache);
     } catch (error) {

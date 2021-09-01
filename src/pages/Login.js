@@ -33,6 +33,7 @@ const Login = () => {
         history.push('/');
     } catch (error) {
       setErrorMessage(handleFirebaseError(error));
+      setPageLoading(false);
     }
   };
 
