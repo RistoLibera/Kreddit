@@ -7,7 +7,7 @@ const Home = () => {
   const showContent = () => {
     let windowWidth = window.innerWidth;
     let instruction = <p>This is a discussionn website imitating Reddit, 
-                          feel free to explore what this has!</p>;
+                          just feel free to explore what it presents!</p>;
     if (windowWidth < 600) {
       return (
         <div className="reactive-home">

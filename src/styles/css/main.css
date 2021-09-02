@@ -1,10 +1,26 @@
-#search-result, .profile-page .profile-container .upper-profile .info .lower-info, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile, .homepage .reactive-home .display-mode, .app-header .right-bar .user-bar, .app-header .right-bar, .app-header .middle-bar, .app-header, .groups-page .group-container .create-group header div, .groups-page .group-container .all-groups ul li {
+#search-result, .profile-page .profile-container .upper-profile .info .lower-info, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile, .homepage .reactive-home .display-mode, .app-header .right-bar .user-bar, .app-header .right-bar, .app-header .middle-bar, .app-header, .groups-page .group-container .all-groups ul li, .groups-page .group-container .create-group header div, .discussions-page .group-buttons ul, .discussions-page .discussions-list ul li, .discussions-page .discussions-list ul li .middle-area .upper-bar, .discussions-page .discussions-list ul li .middle-area .lower-bar, .discussions-page .discussions-list ul li .right-area {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.signup-page .signup-container form fieldset, .profile-page .profile-container .lower-profile, .profile-page .profile-container .upper-profile .registration, .profile-page .profile-container .upper-profile .info, .profile-page .profile-container, .homepage .reactive-home, .homepage, .groups-page, .groups-page .group-container .create-group, .groups-page .group-container .group-list ul {
+.signup-page .signup-container form fieldset, .profile-page .profile-container .lower-profile, .profile-page .profile-container .upper-profile .registration, .profile-page .profile-container .upper-profile .info, .profile-page .profile-container, .homepage .reactive-home, .homepage, .groups-page .group-container .group-list ul, .groups-page .group-container .create-group, .groups-page, .discussions-page, .discussions-page .discussions-list ul, .discussions-page .discussions-list ul li .left-area, .discussions-page .discussions-list ul li .middle-area {
+  display: flex;
+  flex-direction: column;
+}
+
+.discussions-page .group-buttons ul li {
+  list-style-type: none;
+  cursor: pointer;
+  border: 1px solid black;
+}
+#search-result, .profile-page .profile-container .upper-profile .info .lower-info, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile, .homepage .reactive-home .display-mode, .app-header .right-bar .user-bar, .app-header .right-bar, .app-header .middle-bar, .app-header, .discussions-page .group-buttons ul, .discussions-page .discussions-list ul li, .discussions-page .discussions-list ul li .middle-area .upper-bar, .discussions-page .discussions-list ul li .middle-area .lower-bar, .discussions-page .discussions-list ul li .right-area, .groups-page .group-container .create-group header div, .groups-page .group-container .all-groups ul li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.signup-page .signup-container form fieldset, .profile-page .profile-container .lower-profile, .profile-page .profile-container .upper-profile .registration, .profile-page .profile-container .upper-profile .info, .profile-page .profile-container, .homepage .reactive-home, .homepage, .discussions-page, .discussions-page .discussions-list ul, .discussions-page .discussions-list ul li .left-area, .discussions-page .discussions-list ul li .middle-area, .groups-page, .groups-page .group-container .create-group, .groups-page .group-container .group-list ul {
   display: flex;
   flex-direction: column;
 }
@@ -16,13 +32,13 @@
 .groups-page .group-container .group-list ul {
   list-style-type: none;
 }
-#search-result, .profile-page .profile-container .upper-profile .info .lower-info, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile, .homepage .reactive-home .display-mode, .groups-page .group-container .create-group header div, .groups-page .group-container .all-groups ul li, .app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar {
+#search-result, .profile-page .profile-container .upper-profile .info .lower-info, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile, .homepage .reactive-home .display-mode, .discussions-page .group-buttons ul, .discussions-page .discussions-list ul li, .discussions-page .discussions-list ul li .middle-area .upper-bar, .discussions-page .discussions-list ul li .middle-area .lower-bar, .discussions-page .discussions-list ul li .right-area, .groups-page .group-container .create-group header div, .groups-page .group-container .all-groups ul li, .app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.signup-page .signup-container form fieldset, .profile-page .profile-container .lower-profile, .profile-page .profile-container .upper-profile .registration, .profile-page .profile-container .upper-profile .info, .profile-page .profile-container, .homepage .reactive-home, .homepage, .groups-page, .groups-page .group-container .create-group, .groups-page .group-container .group-list ul {
+.signup-page .signup-container form fieldset, .profile-page .profile-container .lower-profile, .profile-page .profile-container .upper-profile .registration, .profile-page .profile-container .upper-profile .info, .profile-page .profile-container, .homepage .reactive-home, .homepage, .discussions-page, .discussions-page .discussions-list ul, .discussions-page .discussions-list ul li .left-area, .discussions-page .discussions-list ul li .middle-area, .groups-page, .groups-page .group-container .create-group, .groups-page .group-container .group-list ul {
   display: flex;
   flex-direction: column;
 }
@@ -38,24 +54,24 @@
 .app-header .middle-bar .groups-bar {
   cursor: pointer;
 }
-#search-result, .profile-page .profile-container .upper-profile .info .lower-info, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile, .groups-page .group-container .create-group header div, .groups-page .group-container .all-groups ul li, .app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar, .homepage .reactive-home .display-mode {
+#search-result, .profile-page .profile-container .upper-profile .info .lower-info, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile, .discussions-page .group-buttons ul, .discussions-page .discussions-list ul li, .discussions-page .discussions-list ul li .middle-area .upper-bar, .discussions-page .discussions-list ul li .middle-area .lower-bar, .discussions-page .discussions-list ul li .right-area, .groups-page .group-container .create-group header div, .groups-page .group-container .all-groups ul li, .app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar, .homepage .reactive-home .display-mode {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.signup-page .signup-container form fieldset, .profile-page .profile-container .lower-profile, .profile-page .profile-container .upper-profile .registration, .profile-page .profile-container .upper-profile .info, .profile-page .profile-container, .groups-page, .groups-page .group-container .create-group, .groups-page .group-container .group-list ul, .homepage, .homepage .reactive-home {
+.signup-page .signup-container form fieldset, .profile-page .profile-container .lower-profile, .profile-page .profile-container .upper-profile .registration, .profile-page .profile-container .upper-profile .info, .profile-page .profile-container, .discussions-page, .discussions-page .discussions-list ul, .discussions-page .discussions-list ul li .left-area, .discussions-page .discussions-list ul li .middle-area, .groups-page, .groups-page .group-container .create-group, .groups-page .group-container .group-list ul, .homepage, .homepage .reactive-home {
   display: flex;
   flex-direction: column;
 }
 
-#search-result, .groups-page .group-container .create-group header div, .groups-page .group-container .all-groups ul li, .app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar, .homepage .reactive-home .display-mode, .profile-page .profile-container .upper-profile, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile .info .lower-info {
+#search-result, .discussions-page .group-buttons ul, .discussions-page .discussions-list ul li, .discussions-page .discussions-list ul li .middle-area .upper-bar, .discussions-page .discussions-list ul li .middle-area .lower-bar, .discussions-page .discussions-list ul li .right-area, .groups-page .group-container .create-group header div, .groups-page .group-container .all-groups ul li, .app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar, .homepage .reactive-home .display-mode, .profile-page .profile-container .upper-profile, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile .info .lower-info {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.signup-page .signup-container form fieldset, .groups-page, .groups-page .group-container .create-group, .groups-page .group-container .group-list ul, .homepage, .homepage .reactive-home, .profile-page .profile-container, .profile-page .profile-container .upper-profile .info, .profile-page .profile-container .upper-profile .registration, .profile-page .profile-container .lower-profile {
+.signup-page .signup-container form fieldset, .discussions-page, .discussions-page .discussions-list ul, .discussions-page .discussions-list ul li .left-area, .discussions-page .discussions-list ul li .middle-area, .groups-page, .groups-page .group-container .create-group, .groups-page .group-container .group-list ul, .homepage, .homepage .reactive-home, .profile-page .profile-container, .profile-page .profile-container .upper-profile .info, .profile-page .profile-container .upper-profile .registration, .profile-page .profile-container .lower-profile {
   display: flex;
   flex-direction: column;
 }
@@ -67,24 +83,24 @@
 .profile-page .profile-container .upper-profile {
   justify-content: space-around;
 }
-.groups-page .group-container .create-group header div, .groups-page .group-container .all-groups ul li, .app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar, .homepage .reactive-home .display-mode, .profile-page .profile-container .upper-profile, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile .info .lower-info, #search-result {
+.discussions-page .group-buttons ul, .discussions-page .discussions-list ul li, .discussions-page .discussions-list ul li .middle-area .upper-bar, .discussions-page .discussions-list ul li .middle-area .lower-bar, .discussions-page .discussions-list ul li .right-area, .groups-page .group-container .create-group header div, .groups-page .group-container .all-groups ul li, .app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar, .homepage .reactive-home .display-mode, .profile-page .profile-container .upper-profile, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile .info .lower-info, #search-result {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.signup-page .signup-container form fieldset, .groups-page, .groups-page .group-container .create-group, .groups-page .group-container .group-list ul, .homepage, .homepage .reactive-home, .profile-page .profile-container, .profile-page .profile-container .upper-profile .info, .profile-page .profile-container .upper-profile .registration, .profile-page .profile-container .lower-profile {
+.signup-page .signup-container form fieldset, .discussions-page, .discussions-page .discussions-list ul, .discussions-page .discussions-list ul li .left-area, .discussions-page .discussions-list ul li .middle-area, .groups-page, .groups-page .group-container .create-group, .groups-page .group-container .group-list ul, .homepage, .homepage .reactive-home, .profile-page .profile-container, .profile-page .profile-container .upper-profile .info, .profile-page .profile-container .upper-profile .registration, .profile-page .profile-container .lower-profile {
   display: flex;
   flex-direction: column;
 }
 
-.groups-page .group-container .create-group header div, .groups-page .group-container .all-groups ul li, .app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar, .homepage .reactive-home .display-mode, .profile-page .profile-container .upper-profile, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile .info .lower-info, #search-result {
+.discussions-page .group-buttons ul, .discussions-page .discussions-list ul li, .discussions-page .discussions-list ul li .middle-area .upper-bar, .discussions-page .discussions-list ul li .middle-area .lower-bar, .discussions-page .discussions-list ul li .right-area, .groups-page .group-container .create-group header div, .groups-page .group-container .all-groups ul li, .app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar, .homepage .reactive-home .display-mode, .profile-page .profile-container .upper-profile, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile .info .lower-info, #search-result {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.groups-page, .groups-page .group-container .create-group, .groups-page .group-container .group-list ul, .homepage, .homepage .reactive-home, .profile-page .profile-container, .profile-page .profile-container .upper-profile .info, .profile-page .profile-container .upper-profile .registration, .profile-page .profile-container .lower-profile, .signup-page .signup-container form fieldset {
+.discussions-page, .discussions-page .discussions-list ul, .discussions-page .discussions-list ul li .left-area, .discussions-page .discussions-list ul li .middle-area, .groups-page, .groups-page .group-container .create-group, .groups-page .group-container .group-list ul, .homepage, .homepage .reactive-home, .profile-page .profile-container, .profile-page .profile-container .upper-profile .info, .profile-page .profile-container .upper-profile .registration, .profile-page .profile-container .lower-profile, .signup-page .signup-container form fieldset {
   display: flex;
   flex-direction: column;
 }
