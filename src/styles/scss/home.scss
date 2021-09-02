@@ -1,10 +1,15 @@
 @use 'base';
 
 // Default page
-#homepage {
+.homepage {
   @extend %flex-column-direction;
 
-  .content-switcher {
-    @extend %flex-row-direction;
+  .reactive-home {
+    @extend %flex-column-direction;
+
+    .display-mode {
+      @extend %flex-row-direction;
+
+    }
   }
 }
