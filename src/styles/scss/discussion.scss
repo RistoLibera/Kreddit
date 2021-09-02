@@ -4,15 +4,22 @@
 .discussions-page {
   @extend %flex-column-direction;
 
-  .group-buttons {
-    ul {
-      @extend %flex-row-direction;
-      li {
-        list-style-type: none;
-        cursor: pointer;
-        border: 1px solid black;
-      }
-    }  
+  header {
+    @extend %flex-row-direction;
+
+    .filter-buttons {
+      ul {
+        @extend %flex-row-direction;
+        li {
+          list-style-type: none;
+          cursor: pointer;
+          border: 1px solid black;
+        }
+      }  
+    }
+
+
+    
   }
 
   .discussions-list {

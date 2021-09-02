@@ -3,10 +3,10 @@ import Default from '../../assets/img/default-symbol.png';
 import FirebasePack from '../../config/FirebasePack';
 
 //  change view matrix or line
-const GroupButtons = () => {
+const FilterButtons = () => {
 
   return (
-    <div className="group-buttons">
+    <div className="filter-buttons">
       <ul>
         <li>All Discussion</li>
         <li>group one</li>
@@ -18,4 +18,4 @@ const GroupButtons = () => {
   );
 };
 
-export default GroupButtons;
+export default FilterButtons;

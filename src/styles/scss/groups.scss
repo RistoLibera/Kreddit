@@ -12,7 +12,7 @@
     .create-group {
       @extend %flex-column-direction;
   
-      header div{
+      header {
         @extend %flex-row-direction;
       }
   
@@ -28,8 +28,14 @@
     }
 
     .all-groups {
-      ul li {
-        @extend %flex-row-direction;
+
+      ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        li {
+          @extend %flex-row-direction;
+        }
+  
       }
     }
   }

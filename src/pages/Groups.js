@@ -67,14 +67,14 @@ const Groups = () => {
           <div className='group-container'>
             <div className='create-group'>
               <header>
-                  <div>
-                    <h2>You can create at most three groups</h2>
-                    {currentUser
-                      ? <button onClick={switchHidden}>Create a group</button>
-                      : <div></div>
-                    }
-                    <h1>Change view</h1>
-                  </div>
+                <div>
+                  <p>many-grid</p>
+                  <p>two-grid</p>
+                </div>
+                {currentUser
+                  ? <button onClick={switchHidden}>Create a group</button>
+                  : <div></div>
+                }
               </header>
 
               <CreateGroup document={createdGroupsDoc} user={currentUser} hidden={formHidden} update={fetchGroups} />

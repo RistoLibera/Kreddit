@@ -119,6 +119,7 @@ const CreateGroup = (props) => {
         :
           <form onSubmit={handleCreateGroup}>
             <fieldset>
+              <legend>You can create at most three groups</legend>
               <label htmlFor='name'>Name</label>
               <input type='text' id='name' name='name' placeholder='Groups name' required/><br></br>
               <label htmlFor='introduction'>Introduction</label>

@@ -1,4 +1,4 @@
-#search-result, .profile-page .profile-container .upper-profile .info .lower-info, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile, .homepage .reactive-home .display-mode, .app-header .right-bar .user-bar, .app-header .right-bar, .app-header .middle-bar, .app-header, .groups-page .group-container .all-groups ul li, .groups-page .group-container .create-group header div, .discussions-page .group-buttons ul, .discussions-page .discussions-list ul li, .discussions-page .discussions-list ul li .middle-area .upper-bar, .discussions-page .discussions-list ul li .middle-area .lower-bar, .discussions-page .discussions-list ul li .right-area {
+#search-result, .profile-page .profile-container .upper-profile .info .lower-info, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile, .homepage .reactive-home .display-mode, .app-header .right-bar .user-bar, .app-header .right-bar, .app-header .middle-bar, .app-header, .groups-page .group-container .all-groups ul li, .groups-page .group-container .create-group header, .discussions-page header, .discussions-page header .filter-buttons ul, .discussions-page .discussions-list ul li, .discussions-page .discussions-list ul li .middle-area .upper-bar, .discussions-page .discussions-list ul li .middle-area .lower-bar, .discussions-page .discussions-list ul li .right-area {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -9,12 +9,12 @@
   flex-direction: column;
 }
 
-.discussions-page .group-buttons ul li {
+.discussions-page header .filter-buttons ul li {
   list-style-type: none;
   cursor: pointer;
   border: 1px solid black;
 }
-#search-result, .profile-page .profile-container .upper-profile .info .lower-info, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile, .homepage .reactive-home .display-mode, .app-header .right-bar .user-bar, .app-header .right-bar, .app-header .middle-bar, .app-header, .discussions-page .group-buttons ul, .discussions-page .discussions-list ul li, .discussions-page .discussions-list ul li .middle-area .upper-bar, .discussions-page .discussions-list ul li .middle-area .lower-bar, .discussions-page .discussions-list ul li .right-area, .groups-page .group-container .create-group header div, .groups-page .group-container .all-groups ul li {
+#search-result, .profile-page .profile-container .upper-profile .info .lower-info, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile, .homepage .reactive-home .display-mode, .app-header .right-bar .user-bar, .app-header .right-bar, .app-header .middle-bar, .app-header, .discussions-page header, .discussions-page header .filter-buttons ul, .discussions-page .discussions-list ul li, .discussions-page .discussions-list ul li .middle-area .upper-bar, .discussions-page .discussions-list ul li .middle-area .lower-bar, .discussions-page .discussions-list ul li .right-area, .groups-page .group-container .create-group header, .groups-page .group-container .all-groups ul li {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -32,7 +32,11 @@
 .groups-page .group-container .group-list ul {
   list-style-type: none;
 }
-#search-result, .profile-page .profile-container .upper-profile .info .lower-info, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile, .homepage .reactive-home .display-mode, .discussions-page .group-buttons ul, .discussions-page .discussions-list ul li, .discussions-page .discussions-list ul li .middle-area .upper-bar, .discussions-page .discussions-list ul li .middle-area .lower-bar, .discussions-page .discussions-list ul li .right-area, .groups-page .group-container .create-group header div, .groups-page .group-container .all-groups ul li, .app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar {
+.groups-page .group-container .all-groups ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+#search-result, .profile-page .profile-container .upper-profile .info .lower-info, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile, .homepage .reactive-home .display-mode, .discussions-page header, .discussions-page header .filter-buttons ul, .discussions-page .discussions-list ul li, .discussions-page .discussions-list ul li .middle-area .upper-bar, .discussions-page .discussions-list ul li .middle-area .lower-bar, .discussions-page .discussions-list ul li .right-area, .groups-page .group-container .create-group header, .groups-page .group-container .all-groups ul li, .app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -54,7 +58,7 @@
 .app-header .middle-bar .groups-bar {
   cursor: pointer;
 }
-#search-result, .profile-page .profile-container .upper-profile .info .lower-info, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile, .discussions-page .group-buttons ul, .discussions-page .discussions-list ul li, .discussions-page .discussions-list ul li .middle-area .upper-bar, .discussions-page .discussions-list ul li .middle-area .lower-bar, .discussions-page .discussions-list ul li .right-area, .groups-page .group-container .create-group header div, .groups-page .group-container .all-groups ul li, .app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar, .homepage .reactive-home .display-mode {
+#search-result, .profile-page .profile-container .upper-profile .info .lower-info, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile, .discussions-page header, .discussions-page header .filter-buttons ul, .discussions-page .discussions-list ul li, .discussions-page .discussions-list ul li .middle-area .upper-bar, .discussions-page .discussions-list ul li .middle-area .lower-bar, .discussions-page .discussions-list ul li .right-area, .groups-page .group-container .create-group header, .groups-page .group-container .all-groups ul li, .app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar, .homepage .reactive-home .display-mode {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -65,7 +69,7 @@
   flex-direction: column;
 }
 
-#search-result, .discussions-page .group-buttons ul, .discussions-page .discussions-list ul li, .discussions-page .discussions-list ul li .middle-area .upper-bar, .discussions-page .discussions-list ul li .middle-area .lower-bar, .discussions-page .discussions-list ul li .right-area, .groups-page .group-container .create-group header div, .groups-page .group-container .all-groups ul li, .app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar, .homepage .reactive-home .display-mode, .profile-page .profile-container .upper-profile, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile .info .lower-info {
+#search-result, .discussions-page header, .discussions-page header .filter-buttons ul, .discussions-page .discussions-list ul li, .discussions-page .discussions-list ul li .middle-area .upper-bar, .discussions-page .discussions-list ul li .middle-area .lower-bar, .discussions-page .discussions-list ul li .right-area, .groups-page .group-container .create-group header, .groups-page .group-container .all-groups ul li, .app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar, .homepage .reactive-home .display-mode, .profile-page .profile-container .upper-profile, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile .info .lower-info {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -83,7 +87,7 @@
 .profile-page .profile-container .upper-profile {
   justify-content: space-around;
 }
-.discussions-page .group-buttons ul, .discussions-page .discussions-list ul li, .discussions-page .discussions-list ul li .middle-area .upper-bar, .discussions-page .discussions-list ul li .middle-area .lower-bar, .discussions-page .discussions-list ul li .right-area, .groups-page .group-container .create-group header div, .groups-page .group-container .all-groups ul li, .app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar, .homepage .reactive-home .display-mode, .profile-page .profile-container .upper-profile, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile .info .lower-info, #search-result {
+.discussions-page header, .discussions-page header .filter-buttons ul, .discussions-page .discussions-list ul li, .discussions-page .discussions-list ul li .middle-area .upper-bar, .discussions-page .discussions-list ul li .middle-area .lower-bar, .discussions-page .discussions-list ul li .right-area, .groups-page .group-container .create-group header, .groups-page .group-container .all-groups ul li, .app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar, .homepage .reactive-home .display-mode, .profile-page .profile-container .upper-profile, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile .info .lower-info, #search-result {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -94,7 +98,7 @@
   flex-direction: column;
 }
 
-.discussions-page .group-buttons ul, .discussions-page .discussions-list ul li, .discussions-page .discussions-list ul li .middle-area .upper-bar, .discussions-page .discussions-list ul li .middle-area .lower-bar, .discussions-page .discussions-list ul li .right-area, .groups-page .group-container .create-group header div, .groups-page .group-container .all-groups ul li, .app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar, .homepage .reactive-home .display-mode, .profile-page .profile-container .upper-profile, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile .info .lower-info, #search-result {
+.discussions-page header, .discussions-page header .filter-buttons ul, .discussions-page .discussions-list ul li, .discussions-page .discussions-list ul li .middle-area .upper-bar, .discussions-page .discussions-list ul li .middle-area .lower-bar, .discussions-page .discussions-list ul li .right-area, .groups-page .group-container .create-group header, .groups-page .group-container .all-groups ul li, .app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar, .homepage .reactive-home .display-mode, .profile-page .profile-container .upper-profile, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile .info .lower-info, #search-result {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
