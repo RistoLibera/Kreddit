@@ -25,17 +25,28 @@ const Profile = () => {
   const [iconError, setIconError] = useState([]);
   const [pageLoading, setPageLoading] = useState(true);
 
-  // Check if real UID
-  const checkUID = async () => {
+  // get info
+  const getInfo = async() => {
     try {
+      let cache = 
         await FirebasePack
-          .auth()
-          .getUser(uid);
+          .firestore()
+          .collection('user-info')
+          .doc(uid)
+          .get();
+      let info = cache.data();
+      if(!info) {
+        alert('Non-existence');
+        history.push('/');
+      }
+      setNickname(info.nickname);
+      setGender(info.gender);
+      setNation(info.nation);  
     } catch (error) {
-      alert("Non-existence!");
-      history.push('/');  
+      console.log(error.code);
     }
   };
+
   // get icon
   const getIcon = async () => {
     let icon = Default;
@@ -50,34 +61,15 @@ const Profile = () => {
     }
     setIconURL(icon);
   };
-
-  // get info
-  const getInfo = async() => {
-    try {
-      let cache = 
-        await FirebasePack
-          .firestore()
-          .collection('user-info')
-          .doc(uid)
-          .get();
-      let info = cache.data();
-      setNickname(info.nickname);
-      setGender(info.gender);
-      setNation(info.nation);  
-    } catch (error) {
-      console.log(error.code);
-    }
-  };
-
+  
   // Fetch data from Firestore and Firestorage
   const fetchData = async () => {
-    await getIcon();
     await getInfo();
+    await getIcon();
     setPageLoading(false);
   };
 
   useEffect(() => {
-    checkUID();
     fetchData();
   }, []);
 
