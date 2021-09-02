@@ -47,7 +47,7 @@ const Groups = () => {
           .get();
         storeGroups(cache);
     } catch (error) {
-      console.log(error.code);
+      console.log(error);
     }
     setPageLoading(false);
   };

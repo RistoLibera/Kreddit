@@ -86,9 +86,9 @@ const Signup = () => {
               <fieldset className='user-auth'>
                 <legend>Sign up</legend>
                 <label htmlFor='nickname'>Nickname</label>
-                <input type='text' id='nickname' name='nickname' placeholder='Give yourself a cool nickname!' required/><br></br>
+                <input type='text' id='nickname' name='nickname' placeholder='Give yourself a cool nickname(3 or more)!' minLength="3" required/><br></br>
                 <label htmlFor='password'>Password</label>
-                <input type='password' id='password' name='password' placeholder='6 or more characters!' minLength="6" required/><br></br>
+                <input type='password' id='password' name='password' placeholder='No one will survive without password(6 or more)!' minLength="6" required/><br></br>
                 <div className='info'>
                   <div className='gender'>
                     <label htmlFor='male'>

@@ -29,7 +29,7 @@ const CreateGroup = (props) => {
         userLimit = info.length;
       }
     } catch (error) {
-      console.log(error.code);
+      console.log(error);
     }
   };
   
@@ -47,7 +47,7 @@ const CreateGroup = (props) => {
           time: firebase.firestore.FieldValue.serverTimestamp()
         });
     } catch (error) {
-      console.log(error.code);
+      console.log(error);
     }
   };
 
@@ -59,7 +59,7 @@ const CreateGroup = (props) => {
         .ref('group-symbol/' + name + '/symbol.jpg')
         .put(symbol);
     } catch (error) {
-      console.log(error.code);
+      console.log(error);
     }
   };
 
@@ -74,7 +74,7 @@ const CreateGroup = (props) => {
           created_groups: firebase.firestore.FieldValue.arrayUnion(groupName)
         });
     } catch (error) {
-      console.log(error.code);
+      console.log(error);
     }
   };
 
@@ -122,7 +122,7 @@ const CreateGroup = (props) => {
               <label htmlFor='name'>Name</label>
               <input type='text' id='name' name='name' placeholder='Groups name' required/><br></br>
               <label htmlFor='introduction'>Introduction</label>
-              <textarea type='text' id='introduction' name='introduction' placeholder='What is this group for?' required/><br></br>
+              <textarea type='text' id='introduction' name='introduction' maxlength="80" placeholder='What is this group for?' required/><br></br>
               <label htmlFor='symbol'>Symbol</label>
               <input type='file' id='symbol' name='symbol' required/><br></br>
               <button className='submit' type='submit' value='Submit'>Create</button>

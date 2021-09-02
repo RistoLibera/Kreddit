@@ -8,19 +8,19 @@ const GroupList = (props) => {
   const [listTags, setListTags] = useState([]);
 
   // Get group symbol
-  const getSymbol = async (name) => {
+  async function getSymbol(name) {
     let symbolURL = Default;
     try {
-      symbolURL = 
+      symbolURL =
         await FirebasePack
           .storage()
           .ref('group-symbol/' + name + '/symbol.jpg')
           .getDownloadURL();
     } catch (error) {
-      console.log(error.code);
+      console.log(error);
     }
     return symbolURL;
-  };
+  }
 
   // Make one list HTML tag
   const makeList = (name, creator, introduction, symbolURL, index) => {
@@ -52,8 +52,8 @@ const GroupList = (props) => {
     let symbolURL;
 
     for (const [index, doc] of documents.entries()) {
-      name = doc.data().name;
       creator = doc.data().creator;
+      name = doc.data().name;
       introduction = doc.data().introduction;
       symbolURL = await getSymbol(name);
       

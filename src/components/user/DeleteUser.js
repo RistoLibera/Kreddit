@@ -56,7 +56,7 @@ const DeleteUser = (props) => {
         .reauthenticateWithCredential(credential);
     } catch (error) {
       errorMessage = handleFirebaseError(error);
-      console.log(error.code);
+      console.log(error);
     }
     return errorMessage;
   };  
@@ -69,7 +69,7 @@ const DeleteUser = (props) => {
           .ref('user-icon/' + uid + '/icon.jpg')
           .delete();
     } catch (error) {
-      console.log(error.code);
+      console.log(error);
     }
   };
 
@@ -82,8 +82,30 @@ const DeleteUser = (props) => {
       .doc(uid)
       .delete();
     } catch (error) {
-      console.log(error.code);
+      console.log(error);
     }
+  };
+
+  // Change owned groups name
+  const disownGroup = async (email) => {
+    let creator = (email).slice(0, -9);
+    try {
+      await FirebasePack
+        .firestore()
+        .collection('groups')
+        .where('creator', '==', creator)
+        .get()
+        .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            doc.ref.update({
+              creator: '(DELETE)'
+            });    
+          });
+        });
+    } catch (error) {
+      console.log(error);
+    }
+    setPageLoading(false);
   };
 
   // Delete account
@@ -94,7 +116,7 @@ const DeleteUser = (props) => {
         .currentUser
         .delete();
     } catch (error) {
-      console.log(error.code);
+      console.log(error);
     }
   };
   
@@ -118,6 +140,7 @@ const DeleteUser = (props) => {
       event.target.reset();
       setPageLoading(false);  
     } else {
+      await disownGroup(email);
       await deleteIcon();
       await deleteInfo();  
       await deleteAccount();

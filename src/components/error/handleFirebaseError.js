@@ -21,6 +21,9 @@ const handleFirebaseError = (error) => {
     case  "auth/too-many-requests":
       message = 'You tried too many times!';
       break;  
+    case "auth/invalid-email":
+      message = 'Sorry, only character or number';
+      break;
     default:
     message = 'Uncharted error';
   }

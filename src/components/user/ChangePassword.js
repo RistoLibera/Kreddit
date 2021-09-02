@@ -53,7 +53,7 @@ const ChangePassword = (props) => {
         .reauthenticateWithCredential(credential);
     } catch (error) {
       errorMessage = handleFirebaseError(error);
-      console.log(error.code);
+      console.log(error);
     }
     return errorMessage;
   };
@@ -66,7 +66,7 @@ const ChangePassword = (props) => {
         .currentUser
         .updatePassword(password);
     } catch (error) {
-      console.log(error.code);
+      console.log(error);
     }
   };
 
