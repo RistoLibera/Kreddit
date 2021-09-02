@@ -122,7 +122,7 @@ const CreateGroup = (props) => {
               <label htmlFor='name'>Name</label>
               <input type='text' id='name' name='name' placeholder='Groups name' required/><br></br>
               <label htmlFor='introduction'>Introduction</label>
-              <textarea type='text' id='introduction' name='introduction' maxlength="80" placeholder='What is this group for?' required/><br></br>
+              <textarea type='text' id='introduction' name='introduction' maxLength="80" placeholder='What is this group for?' required/><br></br>
               <label htmlFor='symbol'>Symbol</label>
               <input type='file' id='symbol' name='symbol' required/><br></br>
               <button className='submit' type='submit' value='Submit'>Create</button>

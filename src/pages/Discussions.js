@@ -6,7 +6,12 @@ const Discussions = () => {
 
   return (
     <section className='discussions-page'>
-      
+      <div>
+        <h2>groups buttons</h2>
+      </div>
+      <div>
+        <h2>content</h2>
+      </div>
     </section>
   );
 };
