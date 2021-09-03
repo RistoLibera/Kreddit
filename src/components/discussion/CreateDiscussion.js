@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import FirebasePack from '../../config/FirebasePack';
+import firebase from 'firebase/app';
 import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
 
@@ -48,14 +49,66 @@ const CreateDiscussion = (props) => {
     setOptionsTags(container);
   };
 
+  // Update Firestore
+  const addDiscussion = async (group, title, content, creator) => {
+    try {
+      await FirebasePack
+        .firestore()
+        .collection('groups')
+        .where('name', '==', group)
+        .get()
+        .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            doc.ref.collection('discussions').doc().set({
+              title: title,
+              content: content,
+              creator: creator,
+              rating: 0,
+              subdiscussions: 0,
+              created_time: firebase.firestore.FieldValue.serverTimestamp()
+            });    
+          });
+        });
+    } catch (error) {
+      console.log(error);
+    }
+    setPageLoading(false);
+  };
+
+  // Update FireStorage
+  const addImg = async (title, attachment) => {
+    try {
+      await FirebasePack
+        .storage()
+        .ref('group-symbol/' + title + '/symbol.jpg')
+        .put(attachment);
+    } catch (error) {
+      console.log(error);
+    }
+
+  };
+
   // Fill selective button
   const fillButton = async () => {
     let groups = await checkGroup(user);
     makeOption(groups);
   };
 
-  const handleCreation = async () => {
+  const handleCreation = async (event) => {
+    event.preventDefault();
+    setPageLoading(true);
+    const { group, title, content, attachment} = event.target.elements;
+    let groupValue = group.value;
+    let titleValue = title.value;
+    let contentValue = content.value;
+    let attachmentValue = attachment.files[0];
 
+    // 
+
+
+    event.target.reset();
+    setPageLoading(false);
+    // update();
   };
 
   useEffect(() => {
