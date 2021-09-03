@@ -47,7 +47,7 @@
 
 ### Firestore
   Data structure
-  groups - Anime -         content             - discussions - 0  1  2 - discussion - 0  1   2   3     - subdis - 0   1   2   3  
+  groups - Anime -         content             - discussions - 0  1  2    - subdis - 0   1   2   3  
   -  creator symbol introduction time  -            -  title time  -             - content uid rating -        - content uid rating
 
   user-info    -  notif - 0  - from: uid  content: what to do?

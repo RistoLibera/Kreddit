@@ -15,7 +15,7 @@ const Groups = () => {
   `;
   const [formHidden, setFormHidden] = useState("hidden");
   const [pageLoading, setPageLoading] = useState(true);
-  const [createdGroupsDoc, setCreatedGroupsDoc] = useState([]);
+  const [GroupsDoc, setGroupsDoc] = useState([]);
 
   const switchHidden = () => {
     if (formHidden === 'hidden') {
@@ -33,7 +33,7 @@ const Groups = () => {
         container.push(doc);
       });   
     }
-    setCreatedGroupsDoc(container);
+    setGroupsDoc(container);
   };
 
   // Fetch newest group details
@@ -76,9 +76,9 @@ const Groups = () => {
                   : <div></div>
                 }
               </div>
-              <CreateGroup document={createdGroupsDoc} user={currentUser} hidden={formHidden} update={fetchGroups} />
+              <CreateGroup documents={GroupsDoc} user={currentUser} hidden={formHidden} update={fetchGroups} />
             </header>
-            <GroupList documents={createdGroupsDoc} user={currentUser} />
+            <GroupList documents={GroupsDoc} user={currentUser} />
           </div>
       }
     </section>

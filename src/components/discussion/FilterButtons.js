@@ -9,6 +9,7 @@ const FilterButtons = () => {
     <div className="filter-buttons">
       <ul>
         <li>All Discussion</li>
+        {/* OR */}
         <li>group one</li>
         <li>group two</li>
 

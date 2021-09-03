@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../components/loading/Auth';
 import FirebasePack from '../config/FirebasePack';
+import firebase from 'firebase/app';
 import { css } from '@emotion/react';
 import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
 import FilterButtons from '../components/discussion/FilterButtons';
@@ -15,8 +16,8 @@ const Discussions = () => {
   border-color: red;
   `;
   const [formHidden, setFormHidden] = useState("hidden");
-  const [pageLoading, setPageLoading] = useState(false);
-  const [CreatedTitles, setCreatedTitles] = useState([]);
+  const [pageLoading, setPageLoading] = useState(true);
+  const [discussionsDocs, setDiscussionsDocs] = useState([]);
 
   const switchHidden = () => {
     if (formHidden === 'hidden') {
@@ -25,6 +26,39 @@ const Discussions = () => {
       setFormHidden('hidden');
     }
   };
+
+  // Store discussions
+  const storeDiscussions = async (groupCache) => {
+    let container = [];
+    for (const doc of groupCache.docs) {
+      console.log(doc.data().name);
+      let discussionCache = await doc.ref.collection('discussions').doc().get();    
+      container.push(discussionCache);
+    }
+    setDiscussionsDocs(container);
+  };
+
+  // push button => refresh and refetch
+  //  update(name array)
+  // Fetch newest discussion details
+  const fetchDiscussions = async () => {
+    try {
+      let groupCache =
+        await FirebasePack
+          .firestore()
+          .collection('groups')
+          .orderBy("created_time", "asc")
+          .get();
+      storeDiscussions(groupCache);
+    } catch (error) {
+      console.log(error);
+    }
+    setPageLoading(false);
+  };
+  
+  useEffect(() => {
+    fetchDiscussions();
+  },[]);
 
   return (
     <section className='discussions-page'>
@@ -43,9 +77,9 @@ const Discussions = () => {
                   : <div></div>
               }
             </div>
-            <CreateDiscussion user={currentUser} hidden={formHidden} />
+            <CreateDiscussion user={currentUser} hidden={formHidden} update={fetchDiscussions}/>
           </header>
-          <DiscussionList />
+          <DiscussionList document={discussionsDocs} user={currentUser}/>
         </div>
       }
     </section>

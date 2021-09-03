@@ -1,8 +1,16 @@
 import React, { useState, useEffect} from 'react';
+import Default from '../../assets/img/default-symbol.png';
 import FirebasePack from '../../config/FirebasePack';
 
-//  change view matrix or line
-const DiscussionList = () => {
+const DiscussionList = (props) => {
+  const { documents, user } = props;
+  const [listTags, setListTags] = useState([]);
+
+
+
+
+
+
 
   return (
     <div className='discussions-list'>

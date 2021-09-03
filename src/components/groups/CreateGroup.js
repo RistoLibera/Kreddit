@@ -5,7 +5,7 @@ import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
 
 const CreateGroup = (props) => {
-  const { document, user ,hidden, update } = props;
+  const { documents, user ,hidden, update } = props;
   const spinnerCSS = css`
   display: block;
   margin: 0 auto;
@@ -90,7 +90,7 @@ const CreateGroup = (props) => {
     let introductionValue = introduction.value;
     let symbolFile = symbol.files[0];
 
-    if(document && document.some((groupDoc) => groupDoc.data().name  === nameValue)) {
+    if(documents && documents.some((groupDoc) => groupDoc.data().name  === nameValue)) {
       alert("Group already created!");
       setPageLoading(false);
       return;

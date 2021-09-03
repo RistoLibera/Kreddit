@@ -6,7 +6,7 @@ import BarLoader from 'react-spinners/BarLoader';
 
 //  change view matrix or line
 const CreateDiscussion = (props) => {
-  const { user, hidden } = props;
+  const { user, hidden, update } = props;
   const spinnerCSS = css`
   display: block;
   margin: 0 auto;
@@ -64,8 +64,11 @@ const CreateDiscussion = (props) => {
               title: title,
               content: content,
               creator: creator,
-              rating: 0,
+              rating_up: [],
+              rating_down: [],
               subdiscussions: 0,
+              layer: 0,
+              layer_structure: 0,
               created_time: firebase.firestore.FieldValue.serverTimestamp()
             });    
           });
@@ -108,7 +111,7 @@ const CreateDiscussion = (props) => {
     alert('success!');
     event.target.reset();
     setPageLoading(false);
-    // update();
+    update();
   };
 
   useEffect(() => {
@@ -141,7 +144,7 @@ const CreateDiscussion = (props) => {
               <label htmlFor='content'>Content</label>
               <textarea type='text' id='content' name='content' maxLength="200" placeholder='Content' required/><br></br>
               <label htmlFor='attachment'>Attachment</label>
-              <input type='file' id='attachment' name='attachment' required/><br></br>
+              <input type='file' id='attachment' name='attachment'/><br></br>
               <button className='submit' type='submit' value='Submit' disabled={disabledButton}>Create</button>
             </fieldset>
           </form>
