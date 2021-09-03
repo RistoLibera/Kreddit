@@ -50,7 +50,8 @@ const CreateDiscussion = (props) => {
   };
 
   // Update Firestore
-  const addDiscussion = async (group, title, content, creator) => {
+  const addDiscussion = async (group, title, content, user) => {
+    let creator = (user.email).slice(0, -9);
     try {
       await FirebasePack
         .firestore()
@@ -80,7 +81,7 @@ const CreateDiscussion = (props) => {
     try {
       await FirebasePack
         .storage()
-        .ref('group-symbol/' + title + '/symbol.jpg')
+        .ref('discussion-image/' + title + '/img.jpg')
         .put(attachment);
     } catch (error) {
       console.log(error);
@@ -102,10 +103,9 @@ const CreateDiscussion = (props) => {
     let titleValue = title.value;
     let contentValue = content.value;
     let attachmentValue = attachment.files[0];
-
-    // 
-
-
+    await addDiscussion(groupValue, titleValue, contentValue, user);
+    await addImg(titleValue, attachmentValue);
+    alert('success!');
     event.target.reset();
     setPageLoading(false);
     // update();
