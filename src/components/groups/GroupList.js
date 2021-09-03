@@ -4,18 +4,18 @@ import FirebasePack from '../../config/FirebasePack';
 import firebase from 'firebase/app';
 
 const GroupList = (props) => {
-  const { documents, uid } = props;
+  const { documents, user } = props;
   const [listTags, setListTags] = useState([]);
 
   // Check current user enrollment
-  const checkGroup = async (name, uid) => {
+  const checkGroup = async (name, user) => {
     let buttonState = false;
     try {
       let cache = 
         await FirebasePack
           .firestore()
           .collection('user-info')
-          .doc(uid)
+          .doc(user.uid)
           .get();
       let info = cache.data().joined_groups;
       if (info) {
@@ -28,12 +28,12 @@ const GroupList = (props) => {
   };
   
   //  Join group
-  const joinGroup = async (groupName, uid) => {
+  const joinGroup = async (groupName, user) => {
     try {
       await FirebasePack
         .firestore()
         .collection('user-info')
-        .doc(uid)
+        .doc(user.uid)
         .update({
           joined_groups: firebase.firestore.FieldValue.arrayUnion(groupName)
         });
@@ -73,7 +73,7 @@ const GroupList = (props) => {
         </div>
 
         <div className='right-block'>
-          <button onClick={() => joinGroup(name, uid)} disabled={buttonState}>Join</button>
+          <button onClick={() => joinGroup(name, user)} disabled={buttonState}>Join</button>
           <button>To discussion by auto select group button</button>
         </div>
       </li>
@@ -94,7 +94,7 @@ const GroupList = (props) => {
       name = doc.data().name;
       introduction = doc.data().introduction;
       symbolURL = await getSymbol(name);
-      buttonState = await checkGroup(name, uid);
+      buttonState = await checkGroup(name, user);
       list =  makeList(name, creator, introduction, symbolURL, index, buttonState);
       container.push(list);
     }

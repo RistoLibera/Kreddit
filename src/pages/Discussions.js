@@ -43,7 +43,7 @@ const Discussions = () => {
                   : <div></div>
               }
             </div>
-            <CreateDiscussion hidden={formHidden} />
+            <CreateDiscussion user={currentUser} hidden={formHidden} />
           </header>
           <DiscussionList />
         </div>

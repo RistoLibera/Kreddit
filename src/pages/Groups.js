@@ -78,7 +78,7 @@ const Groups = () => {
               </div>
               <CreateGroup document={createdGroupsDoc} user={currentUser} hidden={formHidden} update={fetchGroups} />
             </header>
-            <GroupList documents={createdGroupsDoc} uid={currentUser.uid} />
+            <GroupList documents={createdGroupsDoc} user={currentUser} />
           </div>
       }
     </section>
