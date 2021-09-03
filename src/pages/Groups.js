@@ -43,7 +43,7 @@ const Groups = () => {
         await FirebasePack
           .firestore()
           .collection('groups')
-          .orderBy("time", "asc")
+          .orderBy("created_time", "asc")
           .get();
         storeGroups(cache);
     } catch (error) {
@@ -65,8 +65,8 @@ const Groups = () => {
           </div>
         :
           <div className='group-container'>
-            <div className='create-group'>
-              <header>
+            <header>
+              <div className='group-controller'>
                 <div>
                   <p>many-grid</p>
                   <p>two-grid</p>
@@ -75,12 +75,10 @@ const Groups = () => {
                   ? <button onClick={switchHidden}>Create a group</button>
                   : <div></div>
                 }
-              </header>
-
+              </div>
               <CreateGroup document={createdGroupsDoc} user={currentUser} hidden={formHidden} update={fetchGroups} />
-            </div>
-
-            <GroupList documents={createdGroupsDoc} />
+            </header>
+            <GroupList documents={createdGroupsDoc} uid={currentUser.uid} />
           </div>
       }
     </section>

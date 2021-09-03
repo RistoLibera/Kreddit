@@ -9,16 +9,18 @@
   @extend %flex-column-direction;
 
   .group-container  {
-    .create-group {
+    @extend %flex-column-direction;
+    
+    header {
       @extend %flex-column-direction;
-  
-      header {
+
+      .group-controller {
         @extend %flex-row-direction;
+    
       }
   
-  
     }
-  
+    
     .group-list {
   
       ul {

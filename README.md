@@ -52,6 +52,7 @@
 
   user-info    -  notif - 0  - from: uid  content: what to do?
   user-info    -    created-groups   -   name array creator
+  user-info    -    joined-groups   -   
                 -     created-discussions    - database position
 
 ### Firestorage

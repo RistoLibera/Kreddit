@@ -4,54 +4,60 @@
 .discussions-page {
   @extend %flex-column-direction;
 
-  header {
-    @extend %flex-row-direction;
-
-    .filter-buttons {
-      ul {
-        @extend %flex-row-direction;
-        li {
-          list-style-type: none;
-          cursor: pointer;
-          border: 1px solid black;
-        }
-      }  
-    }
-
-
+  .discussions-container  {
+    @extend %flex-column-direction;
     
-  }
-
-  .discussions-list {
-    ul{
+    header {
       @extend %flex-column-direction;
 
-      li {
+      .discussions-controller {
         @extend %flex-row-direction;
 
-        .left-area {
-          @extend %flex-column-direction;
-        }
-
-        .middle-area {
-          @extend %flex-column-direction;
-
-          .upper-bar {
+        .filter-buttons {
+          ul {
             @extend %flex-row-direction;
-          }
-
-          .lower-bar {
-            @extend %flex-row-direction;
-          }
-        }
-
-        .right-area {
-          @extend %flex-row-direction;
+            li {
+              list-style-type: none;
+              cursor: pointer;
+              border: 1px solid black;
+            }
+          }  
         }
       }
     }
+
+    .discussions-list {
+      ul{
+        @extend %flex-column-direction;
+  
+        li {
+          @extend %flex-row-direction;
+  
+          .left-area {
+            @extend %flex-column-direction;
+          }
+  
+          .middle-area {
+            @extend %flex-column-direction;
+  
+            .upper-bar {
+              @extend %flex-row-direction;
+            }
+  
+            .lower-bar {
+              @extend %flex-row-direction;
+            }
+          }
+  
+          .right-area {
+            @extend %flex-row-direction;
+          }
+        }
+      }
+    }
+  }  
   }
-}
+
 
 
 

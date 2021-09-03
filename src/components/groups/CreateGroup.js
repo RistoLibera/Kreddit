@@ -11,11 +11,11 @@ const CreateGroup = (props) => {
   margin: 0 auto;
   border-color: red;
   `;
-  let userLimit;
   const [pageLoading, setPageLoading] = useState(false);
 
   // Check current user creation
   const checkCreation = async () => {
+    let userLimit = 0;
     let uid = user.uid;
     try {
       let cache = 
@@ -31,6 +31,7 @@ const CreateGroup = (props) => {
     } catch (error) {
       console.log(error);
     }
+    return userLimit;
   };
   
   // Create new group
@@ -44,7 +45,7 @@ const CreateGroup = (props) => {
           name: name,
           creator: creator,
           introduction: introduction,
-          time: firebase.firestore.FieldValue.serverTimestamp()
+          created_time: firebase.firestore.FieldValue.serverTimestamp()
         });
     } catch (error) {
       console.log(error);
@@ -78,10 +79,10 @@ const CreateGroup = (props) => {
     }
   };
 
-  const handleCreateGroup = async (event) => {
+  const handleCreation = async (event) => {
     event.preventDefault();
     setPageLoading(true);
-    await checkCreation();
+    let userLimit = await checkCreation();
     const { name, introduction, symbol } = event.target.elements;
     let uid = user.uid;
     let creator = (user.email).slice(0, -9);
@@ -117,7 +118,7 @@ const CreateGroup = (props) => {
             <BarLoader color='#D5D736' css={spinnerCSS} size={150} />
           </div>
         :
-          <form onSubmit={handleCreateGroup}>
+          <form onSubmit={handleCreation}>
             <fieldset>
               <legend>You can create at most three groups</legend>
               <label htmlFor='name'>Name</label>
