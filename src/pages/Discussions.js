@@ -31,9 +31,12 @@ const Discussions = () => {
   const storeDiscussions = async (groupCache) => {
     let container = [];
     for (const doc of groupCache.docs) {
-      console.log(doc.data().name);
-      let discussionCache = await doc.ref.collection('discussions').doc().get();    
-      container.push(discussionCache);
+      let discussionCache = await doc.ref.collection('discussions').get();    
+      if (discussionCache) {
+        discussionCache.forEach((doc) => {
+          container.push(doc);
+        });   
+      }
     }
     setDiscussionsDocs(container);
   };
@@ -53,6 +56,7 @@ const Discussions = () => {
     } catch (error) {
       console.log(error);
     }
+    switchHidden();
     setPageLoading(false);
   };
   
@@ -79,7 +83,7 @@ const Discussions = () => {
             </div>
             <CreateDiscussion user={currentUser} hidden={formHidden} update={fetchDiscussions}/>
           </header>
-          <DiscussionList document={discussionsDocs} user={currentUser}/>
+          <DiscussionList documents={discussionsDocs}/>
         </div>
       }
     </section>

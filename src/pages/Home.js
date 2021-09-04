@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDesktop, faLaptop, faMars, faMobileAlt, faVenus } from '@fortawesome/free-solid-svg-icons';
+import { faDesktop, faLaptop, faMobileAlt } from '@fortawesome/free-solid-svg-icons';
 
 const Home = () => {
   // Responsive content

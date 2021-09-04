@@ -81,21 +81,16 @@ const GroupList = (props) => {
   };
     
   const createList = async () => {
-    let name;
-    let creator;
-    let introduction;
-    let list;
     let container = [];
-    let symbolURL;
-    let buttonState;
+    if(documents.length === 0) return;
 
     for (const [index, doc] of documents.entries()) {
-      creator = doc.data().creator;
-      name = doc.data().name;
-      introduction = doc.data().introduction;
-      symbolURL = await getSymbol(name);
-      buttonState = await checkGroup(name, user);
-      list =  makeList(name, creator, introduction, symbolURL, index, buttonState);
+      let creator = doc.data().creator;
+      let name = doc.data().name;
+      let introduction = doc.data().introduction;
+      let symbolURL = await getSymbol(name);
+      let buttonState = await checkGroup(name, user);
+      let list =  makeList(name, creator, introduction, symbolURL, index, buttonState);
       container.push(list);
     }
     setListTags(container);

@@ -52,6 +52,7 @@ const CreateDiscussion = (props) => {
   // Update Firestore
   const addDiscussion = async (group, title, content, user) => {
     let creator = (user.email).slice(0, -9);
+    let uid = user.uid;
     try {
       await FirebasePack
         .firestore()
@@ -61,15 +62,17 @@ const CreateDiscussion = (props) => {
         .then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
             doc.ref.collection('discussions').doc().set({
+              creator_name: creator,
+              creator_uid: uid,
+              group: group,
               title: title,
               content: content,
-              creator: creator,
+              subdiscussions: 0,
               rating_up: [],
               rating_down: [],
-              subdiscussions: 0,
+              created_time: firebase.firestore.FieldValue.serverTimestamp(),
               layer: 0,
-              layer_structure: 0,
-              created_time: firebase.firestore.FieldValue.serverTimestamp()
+              layer_structure: 0
             });    
           });
         });
