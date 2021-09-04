@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComments } from '@fortawesome/free-solid-svg-icons';
 
 const DiscussionList = (props) => {
-  const { documents } = props;
+  const { documents, selectedGroups } = props;
   const [listTags, setListTags] = useState([]);
 
   // Get creator icon
@@ -60,10 +60,11 @@ const DiscussionList = (props) => {
     if(documents.length === 0) return;
 
     for (const [index, doc] of documents.entries()) {
+      let group = doc.data().group;
+      if (!selectedGroups.some((groupName) => groupName === group)) continue;
       let creator = doc.data().creator_name;
       let uid = doc.data().creator_uid;
       let iconURL = await getIcon(uid);
-      let group = doc.data().group;
       let title = doc.data().title;
       let subdiscussions = doc.data().subdiscussions;
       let rating = (doc.data().rating_up - doc.data().rating_down);
@@ -76,7 +77,7 @@ const DiscussionList = (props) => {
 
   useEffect(() => {
     createList();
-  }, [documents]);
+  }, [documents, selectedGroups]);
 
   return (
     <div className='discussions-list'>

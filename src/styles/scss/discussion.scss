@@ -18,9 +18,18 @@
             @extend %flex-row-direction;
             
             li {
+              margin: 0 10px;
               list-style-type: none;
               cursor: pointer;
               border: 1px solid black;
+            }
+
+            .active {
+              color: red;
+            }
+            
+            .inactive {
+              color: black;
             }
           }  
         }

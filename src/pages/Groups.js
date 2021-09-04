@@ -45,7 +45,7 @@ const Groups = () => {
           .collection('groups')
           .orderBy("created_time", "asc")
           .get();
-        storeGroups(cache);
+      storeGroups(cache);
     } catch (error) {
       console.log(error);
     }

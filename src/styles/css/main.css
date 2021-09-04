@@ -10,9 +10,16 @@
 }
 
 .discussions-page .discussions-container header .discussions-controller .filter-buttons ul li {
+  margin: 0 10px;
   list-style-type: none;
   cursor: pointer;
   border: 1px solid black;
+}
+.discussions-page .discussions-container header .discussions-controller .filter-buttons ul .active {
+  color: red;
+}
+.discussions-page .discussions-container header .discussions-controller .filter-buttons ul .inactive {
+  color: black;
 }
 #search-result, .profile-page .profile-container .upper-profile .info .lower-info, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile, .homepage .reactive-home .display-mode, .app-header .right-bar .user-bar, .app-header .right-bar, .app-header .middle-bar, .app-header, .discussions-page .discussions-container header .discussions-controller, .discussions-page .discussions-container header .discussions-controller .filter-buttons ul, .discussions-page .discussions-container .discussions-list ul li, .discussions-page .discussions-container .discussions-list ul li .middle-area .upper-bar, .discussions-page .discussions-container .discussions-list ul li .middle-area .lower-bar, .discussions-page .discussions-container .discussions-list ul li .right-area, .groups-page .group-container header .group-controller, .groups-page .group-container .all-groups ul li {
   display: flex;

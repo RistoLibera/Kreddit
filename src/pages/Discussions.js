@@ -17,7 +17,9 @@ const Discussions = () => {
   `;
   const [formHidden, setFormHidden] = useState("hidden");
   const [pageLoading, setPageLoading] = useState(true);
+  const [GroupsDoc, setGroupsDoc] = useState([]);
   const [discussionsDocs, setDiscussionsDocs] = useState([]);
+  const [selectedGroups, setSelectedGroups] = useState([]);
 
   const switchHidden = () => {
     if (formHidden === 'hidden') {
@@ -25,6 +27,29 @@ const Discussions = () => {
     } else {
       setFormHidden('hidden');
     }
+  };
+
+  // Selection by group
+  const updateSelection = (groupName) => {
+    setSelectedGroups(preArray => [...preArray, groupName]);
+  };
+
+  // Cancel selection
+  const cancelSelection = (groupName) => {
+    let index = selectedGroups.indexOf(groupName);
+    let reselection = selectedGroups.splice(index, 1);
+    setSelectedGroups(reselection);
+  };  
+
+  // Store groups
+  const storeGroups = (cache) => {
+    let container = [];
+    if (cache) {
+      cache.forEach((doc) => {
+        container.push(doc);
+      });   
+    }
+    setGroupsDoc(container);
   };
 
   // Store discussions
@@ -41,9 +66,6 @@ const Discussions = () => {
     setDiscussionsDocs(container);
   };
 
-  // push button => refresh and refetch
-  //  update(name array)
-  // Fetch newest discussion details
   const fetchDiscussions = async () => {
     try {
       let groupCache =
@@ -52,6 +74,7 @@ const Discussions = () => {
           .collection('groups')
           .orderBy("created_time", "asc")
           .get();
+      storeGroups(groupCache);
       storeDiscussions(groupCache);
     } catch (error) {
       console.log(error);
@@ -75,15 +98,15 @@ const Discussions = () => {
         <div className='discussions-container'>
           <header>
             <div className='discussions-controller'>
-              <FilterButtons />
+              <FilterButtons documents={GroupsDoc}  updateSelection={updateSelection} cancelSelection={cancelSelection}/>
               {currentUser
                   ? <button onClick={switchHidden}>Create a discussion</button>
                   : <div></div>
               }
             </div>
-            <CreateDiscussion user={currentUser} hidden={formHidden} update={fetchDiscussions}/>
+            <CreateDiscussion user={currentUser} hidden={formHidden} update={fetchDiscussions} />
           </header>
-          <DiscussionList documents={discussionsDocs}/>
+          <DiscussionList documents={discussionsDocs} selectedGroups={selectedGroups} />
         </div>
       }
     </section>

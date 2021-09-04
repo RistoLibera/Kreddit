@@ -44,7 +44,7 @@ const GroupList = (props) => {
   };
   
   // Get group symbol
-  async function getSymbol(name) {
+  const getSymbol = async (name) => {
     let symbolURL = Default;
     try {
       symbolURL =
@@ -56,7 +56,7 @@ const GroupList = (props) => {
       console.log(error);
     }
     return symbolURL;
-  }
+  };
 
   // Make one list HTML tag
   const makeList = (name, creator, introduction, symbolURL, index, buttonState) => {
