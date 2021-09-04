@@ -8,9 +8,13 @@ const FilterButtons = (props) => {
 
   // Show discussion by group
   const selectGroup = (event, name) => {
+    let allButtons = event.target.parentNode.childNodes;
     let element = event.target;
     if (name === '00') {
       if (element.className === 'inactive') {
+        allButtons.forEach((li) => {
+          li.className = 'inactive';
+        });
         setAllActive('active');
         allSelection();
       } else {

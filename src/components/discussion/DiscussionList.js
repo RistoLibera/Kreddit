@@ -58,7 +58,7 @@ const DiscussionList = (props) => {
   const createList = async () => {
     let container = [];
     if(documents.length === 0) return;
-    console.log(selectedGroups);
+
     for (const [index, doc] of documents.entries()) {
       let group = doc.data().group;
       if (!selectedGroups.some((groupName) => groupName === group) && selectedGroups.length !== 0) continue;
