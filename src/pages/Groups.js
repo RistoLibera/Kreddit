@@ -49,7 +49,6 @@ const Groups = () => {
     } catch (error) {
       console.log(error);
     }
-    switchHidden();
     setPageLoading(false);
   };
 

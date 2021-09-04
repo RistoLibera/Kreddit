@@ -9,9 +9,13 @@ const FilterButtons = (props) => {
   // Show discussion by group
   const selectGroup = (event, name) => {
     let element = event.target;
-    if(name === '00') {
-      setAllActive('active');
-      allSelection();
+    if (name === '00') {
+      if (element.className === 'inactive') {
+        setAllActive('active');
+        allSelection();
+      } else {
+        alert('You have select all!');
+      }
     } else {
       setAllActive('inactive');
       if (element.className === 'inactive') {
@@ -33,7 +37,7 @@ const FilterButtons = (props) => {
     );
   };
   
-  const createList = async () => {
+  const createList = () => {
     let container = [];
     if(documents.length === 0) return;
 

@@ -15,7 +15,7 @@ const Discussions = () => {
   margin: 0 auto;
   border-color: red;
   `;
-  const [formHidden, setFormHidden] = useState("hidden");
+  const [formHidden, setFormHidden] = useState('hidden');
   const [pageLoading, setPageLoading] = useState(true);
   const [GroupsDoc, setGroupsDoc] = useState([]);
   const [discussionsDocs, setDiscussionsDocs] = useState([]);
@@ -70,6 +70,7 @@ const Discussions = () => {
   };
 
   const fetchDiscussions = async () => {
+    setPageLoading(true);
     try {
       let groupCache =
         await FirebasePack
@@ -82,7 +83,6 @@ const Discussions = () => {
     } catch (error) {
       console.log(error);
     }
-    switchHidden();
     setPageLoading(false);
   };
   

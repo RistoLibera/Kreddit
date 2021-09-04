@@ -140,7 +140,6 @@ const CreateDiscussion = (props) => {
                     option
                   );
                 })}
-                <option>choose a group</option>
               </select>
               <label htmlFor='title'>Title</label>
               <input type='text' id='title' name='title' placeholder='Title' required/><br></br>
