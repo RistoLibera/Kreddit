@@ -122,7 +122,7 @@ const CreateGroup = (props) => {
             <fieldset>
               <legend>You can create at most three groups</legend>
               <label htmlFor='name'>Name</label>
-              <input type='text' id='name' name='name' placeholder='Groups name' required/><br></br>
+              <input type='text' id='name' name='name' placeholder='Groups name' minLength='3' required/><br></br>
               <label htmlFor='introduction'>Introduction</label>
               <textarea type='text' id='introduction' name='introduction' maxLength="80" placeholder='What is this group for?' required/><br></br>
               <label htmlFor='symbol'>Symbol</label>

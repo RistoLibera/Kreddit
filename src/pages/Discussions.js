@@ -29,6 +29,11 @@ const Discussions = () => {
     }
   };
 
+  // Selection to all by default
+  const allSelection = () => {
+    setSelectedGroups([]);
+  };
+
   // Selection by group
   const updateSelection = (groupName) => {
     setSelectedGroups(preArray => [...preArray, groupName]);
@@ -36,9 +41,7 @@ const Discussions = () => {
 
   // Cancel selection
   const cancelSelection = (groupName) => {
-    let index = selectedGroups.indexOf(groupName);
-    let reselection = selectedGroups.splice(index, 1);
-    setSelectedGroups(reselection);
+    setSelectedGroups(preArray => preArray.filter((name) => name !== groupName));
   };  
 
   // Store groups
@@ -98,7 +101,7 @@ const Discussions = () => {
         <div className='discussions-container'>
           <header>
             <div className='discussions-controller'>
-              <FilterButtons documents={GroupsDoc}  updateSelection={updateSelection} cancelSelection={cancelSelection}/>
+              <FilterButtons documents={GroupsDoc}  updateSelection={updateSelection} cancelSelection={cancelSelection} allSelection={allSelection} />
               {currentUser
                   ? <button onClick={switchHidden}>Create a discussion</button>
                   : <div></div>

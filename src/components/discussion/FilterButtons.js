@@ -2,20 +2,25 @@ import React, { useState, useEffect} from 'react';
 
 //  change view matrix or line
 const FilterButtons = (props) => {
-  const { documents, updateSelection, cancelSelection } = props;
+  const { documents, updateSelection, cancelSelection, allSelection } = props;
   const [listTags, setListTags] = useState([]);
   const [allActive, setAllActive] = useState('active');
 
   // Show discussion by group
   const selectGroup = (event, name) => {
     let element = event.target;
-    setAllActive('inactive');
-    if (element.className === 'inactive') {
-      element.className = 'active';
-      updateSelection(name);
+    if(name === '00') {
+      setAllActive('active');
+      allSelection();
     } else {
-      element.className = 'inactive';
-      cancelSelection(name);
+      setAllActive('inactive');
+      if (element.className === 'inactive') {
+        element.className = 'active';
+        updateSelection(name);
+      } else {
+        element.className = 'inactive';
+        cancelSelection(name);
+      }
     }
   };
 
@@ -47,7 +52,7 @@ const FilterButtons = (props) => {
   return (
     <div className="filter-buttons">
       <ul>
-        <li onClick={(event) => selectGroup(event, 'all')} key='0' className={allActive}>
+        <li onClick={(event) => selectGroup(event, '00')} key='0' className={allActive}>
           All
         </li>
         {listTags.map((li) => {
