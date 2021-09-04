@@ -1,4 +1,5 @@
 import React, { useState, useEffect} from 'react';
+import { Link } from 'react-router-dom';
 import Default from '../../assets/img/default-symbol.png';
 import FirebasePack from '../../config/FirebasePack';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -24,7 +25,7 @@ const DiscussionList = (props) => {
   }
 
   // Make one list HTML tag
-  const makeList = (iconURL, creator, group, title, subdiscussions, rating, created_time, index) => {
+  const makeList = (uid, iconURL, creator, group, title, subdiscussions, rating, created_time, index) => {
     return (
       <li key={index} className='discussion-list'>
       <div className='left-area'>
@@ -49,7 +50,7 @@ const DiscussionList = (props) => {
       </div>
 
       <div className='right-area'>
-        <button>Entry</button>
+        <Link to={'/discussions/' + uid}>Entry</Link>
       </div>
     </li>
     );
@@ -60,16 +61,17 @@ const DiscussionList = (props) => {
     if(documents.length === 0) return;
 
     for (const [index, doc] of documents.entries()) {
-      let group = doc.data().group;
-      if (!selectedGroups.some((groupName) => groupName === group) && selectedGroups.length !== 0) continue;
-      let creator = doc.data().creator_name;
-      let uid = doc.data().creator_uid;
-      let iconURL = await getIcon(uid);
+      let discussion_uid = doc.id;
+      let group_name = doc.data().group;
+      if (!selectedGroups.some((groupName) => groupName === group_name) && selectedGroups.length !== 0) continue;
+      let creator_name = doc.data().creator_name;
+      let creator_uid = doc.data().creator_uid;
+      let iconURL = await getIcon(creator_uid);
       let title = doc.data().title;
       let subdiscussions = doc.data().subdiscussions;
       let rating = (doc.data().rating_up - doc.data().rating_down);
       let created_time = doc.data().created_time;
-      let list =  makeList(iconURL, creator, group, title, subdiscussions, rating, created_time, index);
+      let list =  makeList(discussion_uid, iconURL, creator_name, group_name, title, subdiscussions, rating, created_time, index);
       container.push(list);
     }
     setListTags(container);

@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Groups from './pages/Groups';
 import Discussions from './pages/Discussions';
+import Discussion from './pages/Discussion';
 import Header from './pages/Header';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
@@ -23,6 +24,7 @@ const Routes = () => {
           <Route exact path='/profile/:uid' component={Profile} />
           <Route exact path='/groups' component={Groups} />
           <Route exact path='/discussions' component={Discussions} />
+          <Route exact path='/discussions/:uid' component={Discussion} />
           <Route exact path='/search' component={Search} />
           <Route path='/' component={Home} />
         </Switch>

@@ -87,7 +87,7 @@ const CreateDiscussion = (props) => {
     try {
       await FirebasePack
         .storage()
-        .ref('discussion-image/' + title + '/img.jpg')
+        .ref('discussion-title-image/' + title + '/img.jpg')
         .put(attachment);
     } catch (error) {
       console.log(error);

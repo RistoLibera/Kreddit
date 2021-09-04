@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../components/loading/Auth';
 import FirebasePack from '../config/FirebasePack';
-import firebase from 'firebase/app';
 import { css } from '@emotion/react';
 import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
-import FilterButtons from '../components/discussion/FilterButtons';
-import CreateDiscussion from '../components/discussion/CreateDiscussion';
-import DiscussionList from '../components/discussion/DiscussionList';
+import FilterButtons from '../components/discussions/FilterButtons';
+import CreateDiscussion from '../components/discussions/CreateDiscussion';
+import DiscussionList from '../components/discussions/DiscussionList';
 
 const Discussions = () => {
   const { currentUser } = useContext(AuthContext);
