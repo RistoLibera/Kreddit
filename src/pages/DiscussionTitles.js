@@ -107,7 +107,12 @@ const DiscussionTitles = () => {
                   : <div></div>
               }
             </div>
-            <CreateDiscussion user={currentUser} hidden={formHidden} update={fetchDiscussions} />
+            {currentUser
+              ?
+                <CreateDiscussion user={currentUser} hidden={formHidden} update={fetchDiscussions} />
+              :
+                <div></div>
+            }
           </header>
           <DiscussionsList documents={discussionsDocs} selectedGroups={selectedGroups} />
         </div>

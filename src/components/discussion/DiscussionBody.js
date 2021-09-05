@@ -93,7 +93,7 @@ const DiscussionBody = (props) => {
 
             <div className='title-content'>
               <img src={imgURL} alt='img' width='70px' />
-              {editShow 
+              {editShow
                 ?
                   <EditForm groupUID={groupUID} content={content} title={title} document={document} rootUpdate={rootUpdate} toggleEdit={toggleEdit} />
                 :
@@ -103,8 +103,15 @@ const DiscussionBody = (props) => {
 
             <div className='title-buttons'>
               <button>Reply</button>
-              <button onClick={toggleEdit}>Edit</button>
-              <button>Delete?</button>
+              {currentUser && currentUser.id === document.data().creator_uid
+                ?
+                  <div className='controller'>
+                    <button onClick={toggleEdit}>Edit</button>
+                    <button>Delete?</button>
+                  </div>
+                :
+                  <div></div>
+              }
             </div>
           </div>
         </div>
