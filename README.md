@@ -42,6 +42,7 @@
 - You can log in as a human.
 - You can switch between light mode and dark mode.
 - You can discuss on smartphone comfortably.
+- You can discuss on various browsers.
 
 ## Database structure
 

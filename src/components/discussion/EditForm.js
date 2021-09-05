@@ -41,7 +41,6 @@ const EditForm = (props) => {
     }
   };
 
-
   const handleEdit = async (event) => {
     event.preventDefault();
     setPageLoading(true);

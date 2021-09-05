@@ -1,14 +1,17 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../loading/Auth';
 import FirebasePack from '../../config/FirebasePack';
-import Default from '../../assets/img/default-icon.jpg';
+import DefaultIcon from '../../assets/img/default-icon.jpg';
+import DefaultSymbol from '../../assets/img/default-symbol.png';
 import Content from './Content';
 import EditForm from './EditForm';
+import Delete from './Delete';
 
 const DiscussionBody = (props) => {
   const { currentUser } = useContext(AuthContext);
   const { groupUID, document, rootUpdate } = props;
   const [group, setGroup] = useState('');
+  const [symbolURL, setSymbolURL] = useState('');
   const [iconURL, setIconURL] = useState('');
   const [title, setTitle] = useState('');
   const [imgURL, setImgURL] = useState('');
@@ -22,9 +25,24 @@ const DiscussionBody = (props) => {
     setEditShow(!editShow);
   };
 
+  // Get group symbol
+  const getSymbol = async (group) => {
+    let URL = DefaultSymbol;
+    try {
+      URL =
+        await FirebasePack
+          .storage()
+          .ref('group-symbol/' + group + '/symbol.jpg')
+          .getDownloadURL();
+    } catch (error) {
+      console.log(error);
+    }
+    setSymbolURL(URL);
+  };
+
   // Fetch creator icon
   const getIcon = async (uid) => {
-    let URL = Default;
+    let URL = DefaultIcon;
     try {
       URL = 
         await FirebasePack
@@ -34,12 +52,12 @@ const DiscussionBody = (props) => {
     } catch (error) {
       console.log(error);
     }
-    return URL;
+    setIconURL(URL);
   };
 
   // Fetch title content img
   const getImg = async (title) => {
-    let URL = Default;
+    let URL;
     try {
       URL = 
         await FirebasePack
@@ -49,15 +67,14 @@ const DiscussionBody = (props) => {
     } catch (error) {
       console.log(error);
     }
-    return URL;
+    setImgURL(URL);
   };
   
   const fetchTitleContent = async () => {
     let data = document.data();
-    let URL = await getIcon(data.creator_uid);
-    setIconURL(URL);
-    URL = await getImg(data.title);
-    setImgURL(URL);
+    await getIcon(data.creator_uid);
+    await getImg(data.title);
+    await getSymbol(data.group);
     setTitle(data.title);
     setCreator(data.creator_name); 
     setTime(data.created_time.toDate().toString());
@@ -71,17 +88,21 @@ const DiscussionBody = (props) => {
 
   return (
     <div className='discussion-content'>
-      <div>
-        <h2>{group}</h2>
-      </div>
 
       <div className='discussion-container'>
         <div className='title'>
-          <div className='title-rating'>
-            <p>Up</p>
-            <p>Rating</p>
-            <p>Down</p>
-          </div>
+          <header className='title-header'>
+            <div className='title-group'>
+              <h2>{group}</h2>
+              <img src={symbolURL} alt='symbol' width='40px' height='40px'/>
+            </div>
+
+            <div className='title-rating'>
+              <p>Up</p>
+              <p>Rating</p>
+              <p>Down</p>
+            </div>
+          </header>
 
           <div className='title-body'>
             <header className='title-header'>
@@ -102,15 +123,17 @@ const DiscussionBody = (props) => {
             </div>
 
             <div className='title-buttons'>
-              <button>Reply</button>
-              {currentUser && currentUser.id === document.data().creator_uid
+              {(currentUser && currentUser.uid === document.data().creator_uid)
                 ?
                   <div className='controller'>
+                    <button>Reply</button>
                     <button onClick={toggleEdit}>Edit</button>
-                    <button>Delete?</button>
+                    <Delete groupUID={groupUID} document={document} rootUpdate={rootUpdate} />
                   </div>
                 :
-                  <div></div>
+                  <div className='controller'>
+                    <button>Reply</button>
+                  </div>
               }
             </div>
           </div>

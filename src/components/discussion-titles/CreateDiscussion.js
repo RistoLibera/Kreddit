@@ -121,8 +121,6 @@ const CreateDiscussion = (props) => {
     fillButton();
   }, []);
 
-  // Zero group = You must enter a group to discuss!
-
   return (
     <div className={hidden}>
       {pageLoading
