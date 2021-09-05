@@ -7,7 +7,8 @@ import EditForm from './EditForm';
 
 const DiscussionBody = (props) => {
   const { currentUser } = useContext(AuthContext);
-  const { document } = props;
+  const { groupUID, document, rootUpdate } = props;
+  const [group, setGroup] = useState('');
   const [iconURL, setIconURL] = useState('');
   const [title, setTitle] = useState('');
   const [imgURL, setImgURL] = useState('');
@@ -61,52 +62,58 @@ const DiscussionBody = (props) => {
     setCreator(data.creator_name); 
     setTime(data.created_time.toDate().toString());
     setContent(data.content);
+    setGroup(data.group);
   };
 
   useEffect(() => {
     fetchTitleContent();
-  }, []);
+  }, [document]);
 
   return (
-    <div className='discussion-container'>
-      <div className='title'>
-        <div className='title-rating'>
-          <p>Up</p>
-          <p>Rating</p>
-          <p>Down</p>
-        </div>
-
-        <div className='title-body'>
-          <header className='title-header'>
-            <img src={iconURL} alt='icon' width='30px' height='30px'/>
-            <h1>{creator}</h1>
-            <h1>{title}</h1>
-            <h1>{time}</h1>
-          </header>
-
-          <div className='title-content'>
-            <img src={imgURL} alt='img' width='70px' />
-            {editShow 
-              ?
-                <EditForm content={content} />
-              :
-                <Content content={content} />
-            }
-          </div>
-
-          <div className='title-buttons'>
-            <button>Reply</button>
-            <button onClick={toggleEdit}>Edit</button>
-            <button>Delete?</button>
-          </div>
-        </div>
+    <div className='discussion-content'>
+      <div>
+        <h2>{group}</h2>
       </div>
 
-      <div className='subdiscussions'>
-        {/* Component */}
+      <div className='discussion-container'>
+        <div className='title'>
+          <div className='title-rating'>
+            <p>Up</p>
+            <p>Rating</p>
+            <p>Down</p>
+          </div>
+
+          <div className='title-body'>
+            <header className='title-header'>
+              <img src={iconURL} alt='icon' width='30px' height='30px'/>
+              <h1>{creator}</h1>
+              <h1>{title}</h1>
+              <h1>{time}</h1>
+            </header>
+
+            <div className='title-content'>
+              <img src={imgURL} alt='img' width='70px' />
+              {editShow 
+                ?
+                  <EditForm groupUID={groupUID} content={content} title={title} document={document} rootUpdate={rootUpdate} toggleEdit={toggleEdit} />
+                :
+                  <Content content={content} />
+              }
+            </div>
+
+            <div className='title-buttons'>
+              <button>Reply</button>
+              <button onClick={toggleEdit}>Edit</button>
+              <button>Delete?</button>
+            </div>
+          </div>
+        </div>
+
+        <div className='subdiscussions'>
+          {/* Component */}
+        </div>
       </div>
     </div>
-
   );
 };
 

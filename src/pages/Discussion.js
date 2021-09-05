@@ -6,8 +6,6 @@ import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
 import DiscussionBody from '../components/discussion/DiscussionBody';
 import '../styles/css/discussion.css';
 
-//  embed uid into reply and rate
-
 const Discussion = () => {
   const { group, uid }  = useParams();
   const spinnerCSS = css`
@@ -17,6 +15,7 @@ const Discussion = () => {
   `;
   const [pageLoading, setPageLoading] = useState(true);
   const [discussionDoc, setDiscussionDoc] = useState([]);
+  const [groupUID, setGroupUID] = useState('');
 
   // Store one discussion
   const storeThisDiscussion = async (groupDoc) => {
@@ -24,9 +23,14 @@ const Discussion = () => {
     setDiscussionDoc(thisDiscussionDoc);
   };
 
+  // Store group UID
+  const storeUID = (groupDoc)=> {
+    setGroupUID(groupDoc.id);
+
+  };
+
   const fetchThisDiscussion = async () => {
     let groupDoc;
-    setPageLoading(true);
     try {
       await FirebasePack
         .firestore()
@@ -36,6 +40,7 @@ const Discussion = () => {
         .then((querySnapshot) => {
           groupDoc = querySnapshot.docs[0];
         });
+      storeUID(groupDoc);
       await storeThisDiscussion(groupDoc)  ;
       } catch (error) {
       console.log(error);
@@ -45,7 +50,7 @@ const Discussion = () => {
   
   useEffect(() => {
     fetchThisDiscussion();
-  },[]);
+  }, []);
 
   return (
     <section className='discussion-page'>
@@ -55,12 +60,7 @@ const Discussion = () => {
             <ClimbingBoxLoader color='#D5D736' css={spinnerCSS} size={50} />
           </div>
         :
-        <div className='discussion-content'>
-          <div>
-            <h2>Group info</h2>
-          </div>
-          <DiscussionBody document={discussionDoc} />
-        </div>
+        <DiscussionBody groupUID={groupUID} document={discussionDoc} rootUpdate={fetchThisDiscussion} />
       }
     </section>
   );
