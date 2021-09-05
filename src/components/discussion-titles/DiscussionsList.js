@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
-import Default from '../../assets/img/default-symbol.png';
+import Default from '../../assets/img/default-icon.jpg';
 import FirebasePack from '../../config/FirebasePack';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComments } from '@fortawesome/free-solid-svg-icons';

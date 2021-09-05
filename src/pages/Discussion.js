@@ -57,7 +57,12 @@ const Discussion = () => {
             <ClimbingBoxLoader color='#D5D736' css={spinnerCSS} size={50} />
           </div>
         :
+        <div className='discussion-content'>
+          <div>
+            <h2>Group info</h2>
+          </div>
           <DiscussionBody document={discussionDoc} />
+        </div>
       }
     </section>
   );
