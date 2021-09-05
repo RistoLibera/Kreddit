@@ -1,73 +1,27 @@
 @use 'base';
 
-// Discussion page
-.discussions-page {
-  @extend %flex-column-direction;
+// One discussion page
+.discussion-page {
+  .discussion-container {
+    .title {
+      @extend %flex-row-direction;
+      justify-content: space-around;
 
-  .discussions-container  {
-    @extend %flex-column-direction;
-    
-    header {
-      @extend %flex-column-direction;
-
-      .discussions-controller {
-        @extend %flex-row-direction;
-
-        .filter-buttons {
-          ul {
-            @extend %flex-row-direction;
-            
-            li {
-              margin: 0 10px;
-              list-style-type: none;
-              cursor: pointer;
-              border: 1px solid black;
-            }
-
-            .active {
-              color: red;
-            }
-            
-            .inactive {
-              color: black;
-            }
-          }  
-        }
-      }
-    }
-
-    .discussions-list {
-      ul{
+      .title-body {
         @extend %flex-column-direction;
-  
-        li {
+
+        .title-header {
           @extend %flex-row-direction;
-  
-          .left-area {
-            @extend %flex-column-direction;
-          }
-  
-          .middle-area {
-            @extend %flex-column-direction;
-  
-            .upper-bar {
-              @extend %flex-row-direction;
-            }
-  
-            .lower-bar {
-              @extend %flex-row-direction;
-            }
-          }
-  
-          .right-area {
-            @extend %flex-row-direction;
-          }
+        }
+
+        .title-content {
+          @extend %flex-row-direction;
+        }
+
+        .title-buttons {
+          @extend %flex-row-direction;
         }
       }
     }
-  }  
+  }
 }
-
-
-
-

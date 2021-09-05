@@ -1,0 +1,24 @@
+.groups-page .group-container header .group-controller, .groups-page .group-container .all-groups ul li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.groups-page, .groups-page .group-container, .groups-page .group-container header, .groups-page .group-container .group-list ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.hidden {
+  display: none;
+}
+
+.groups-page .group-container .group-list ul {
+  list-style-type: none;
+}
+.groups-page .group-container .all-groups ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/*# sourceMappingURL=groups.css.map */

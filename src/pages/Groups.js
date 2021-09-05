@@ -5,6 +5,7 @@ import { css } from '@emotion/react';
 import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
 import CreateGroup from '../components/groups/CreateGroup';
 import GroupList from '../components/groups/GroupList';
+import '../styles/css/groups.css';
 
 const Groups = () => {
   const { currentUser } = useContext(AuthContext);

@@ -4,14 +4,13 @@ import { AuthProvider } from './components/loading/Auth';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Groups from './pages/Groups';
-import Discussions from './pages/Discussions';
+import DiscussionTitles from './pages/DiscussionTitles';
 import Discussion from './pages/Discussion';
 import Header from './pages/Header';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Search from './pages/Search';
 // import './styles/css/reset.css';
-import './styles/css/main.css';
 
 const Routes = () => {
   return (
@@ -23,8 +22,8 @@ const Routes = () => {
           <Route exact path='/signup' component={Signup} />
           <Route exact path='/profile/:uid' component={Profile} />
           <Route exact path='/groups' component={Groups} />
-          <Route exact path='/discussions' component={Discussions} />
-          <Route exact path='/discussions/:uid' component={Discussion} />
+          <Route exact path='/discussions' component={DiscussionTitles} />
+          <Route exact path='/discussions/:group/:uid' component={Discussion} />
           <Route exact path='/search' component={Search} />
           <Route path='/' component={Home} />
         </Switch>

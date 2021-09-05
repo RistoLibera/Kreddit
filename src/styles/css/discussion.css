@@ -1,0 +1,16 @@
+.discussion-page .discussion-container .title, .discussion-page .discussion-container .title .title-body .title-header, .discussion-page .discussion-container .title .title-body .title-content, .discussion-page .discussion-container .title .title-body .title-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.discussion-page .discussion-container .title .title-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.discussion-page .discussion-container .title {
+  justify-content: space-around;
+}
+
+/*# sourceMappingURL=discussion.css.map */

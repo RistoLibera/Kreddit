@@ -8,6 +8,7 @@ import BarLoader from 'react-spinners/BarLoader';
 import FirebasePack from '../config/FirebasePack';
 import handleFirebaseError from '../components/error/handleFirebaseError';
 import SelectCountry from '../components/user/SelectCountry';
+import '../styles/css/user.css';
 
 const Signup = () => {
   const { currentUser } = useContext(AuthContext);

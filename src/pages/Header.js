@@ -3,6 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { AuthContext } from '../components/loading/Auth';
 import Koin from '../assets/img/header-koin.png';
 import Signout from '../components/user/Signout';
+import '../styles/css/header.css';
 
 const Header = () => {
   const { currentUser } = useContext(AuthContext);

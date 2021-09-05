@@ -5,6 +5,7 @@ import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
 import FirebasePack from '../config/FirebasePack';
 import handleFirebaseError from '../components/error/handleFirebaseError';
+import '../styles/css/user.css';
 
 const Login = () => {
   const { currentUser } = useContext(AuthContext);

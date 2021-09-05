@@ -1,0 +1,20 @@
+.profile-page .profile-container .upper-profile, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile .info .lower-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.profile-page .profile-container, .profile-page .profile-container .upper-profile .info, .profile-page .profile-container .upper-profile .registration, .profile-page .profile-container .lower-profile {
+  display: flex;
+  flex-direction: column;
+}
+
+.hidden {
+  display: none;
+}
+
+.profile-page .profile-container .upper-profile {
+  justify-content: space-around;
+}
+
+/*# sourceMappingURL=profile.css.map */

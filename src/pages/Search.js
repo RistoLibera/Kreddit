@@ -1,4 +1,6 @@
 import React from 'react';
+// import './styles/css/reset.css';
+import '../styles/css/search.css';
 
 const Search = () => {
 

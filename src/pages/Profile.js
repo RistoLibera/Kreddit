@@ -9,6 +9,7 @@ import ShowIcon from '../components/user/ShowIcon';
 import DeleteUser from '../components/user/DeleteUser';
 import ChangePassword from '../components/user/ChangePassword';
 import ShowInfo from '../components/user/ShowInfo';
+import '../styles/css/profile.css';
 
 const Profile = () => {
   const { uid }  = useParams();

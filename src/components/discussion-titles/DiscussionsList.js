@@ -5,7 +5,7 @@ import FirebasePack from '../../config/FirebasePack';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComments } from '@fortawesome/free-solid-svg-icons';
 
-const DiscussionList = (props) => {
+const DiscussionsList = (props) => {
   const { documents, selectedGroups } = props;
   const [listTags, setListTags] = useState([]);
 
@@ -50,7 +50,7 @@ const DiscussionList = (props) => {
       </div>
 
       <div className='right-area'>
-        <Link to={'/discussions/' + uid}>Entry</Link>
+        <Link to={'/discussions/' + group + '/' +uid}>Entry</Link>
       </div>
     </li>
     );
@@ -94,4 +94,4 @@ const DiscussionList = (props) => {
   );
 };
 
-export default DiscussionList;
+export default DiscussionsList;

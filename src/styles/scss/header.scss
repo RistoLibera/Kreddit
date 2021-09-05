@@ -3,6 +3,8 @@
 // Omnipresent header 
 .app-header {
   @extend %flex-row-direction;
+  justify-content: space-between;
+
   // position: fixed;
   
   .middle-bar {

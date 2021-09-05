@@ -1,0 +1,12 @@
+.homepage .reactive-home .display-mode {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.homepage, .homepage .reactive-home {
+  display: flex;
+  flex-direction: column;
+}
+
+/*# sourceMappingURL=home.css.map */

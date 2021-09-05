@@ -3,11 +3,12 @@ import { AuthContext } from '../components/loading/Auth';
 import FirebasePack from '../config/FirebasePack';
 import { css } from '@emotion/react';
 import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
-import FilterButtons from '../components/discussions/FilterButtons';
-import CreateDiscussion from '../components/discussions/CreateDiscussion';
-import DiscussionList from '../components/discussions/DiscussionList';
+import FilterButtons from '../components/discussion-titles/FilterButtons';
+import CreateDiscussion from '../components/discussion-titles/CreateDiscussion';
+import DiscussionsList from '../components/discussion-titles/DiscussionsList';
+import '../styles/css/discussion-titles.css';
 
-const Discussions = () => {
+const DiscussionTitles = () => {
   const { currentUser } = useContext(AuthContext);
   const spinnerCSS = css`
   display: block;
@@ -78,7 +79,7 @@ const Discussions = () => {
           .orderBy("created_time", "asc")
           .get();
       storeGroups(groupCache);
-      storeDiscussions(groupCache);
+      await storeDiscussions(groupCache);
     } catch (error) {
       console.log(error);
     }
@@ -108,11 +109,11 @@ const Discussions = () => {
             </div>
             <CreateDiscussion user={currentUser} hidden={formHidden} update={fetchDiscussions} />
           </header>
-          <DiscussionList documents={discussionsDocs} selectedGroups={selectedGroups} />
+          <DiscussionsList documents={discussionsDocs} selectedGroups={selectedGroups} />
         </div>
       }
     </section>
   );
 };
 
-export default Discussions;
+export default DiscussionTitles;
