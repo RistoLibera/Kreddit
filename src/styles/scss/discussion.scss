@@ -16,7 +16,7 @@
           }
   
           .title-content {
-            @extend %flex-row-direction;
+            @extend %flex-column-direction;
           }
   
           .title-buttons {

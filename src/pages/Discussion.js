@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { AuthContext } from '../components/loading/Auth';
 import FirebasePack from '../config/FirebasePack';
 import { css } from '@emotion/react';
 import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
@@ -11,7 +10,6 @@ import '../styles/css/discussion.css';
 
 const Discussion = () => {
   const { group, uid }  = useParams();
-  const { currentUser } = useContext(AuthContext);
   const spinnerCSS = css`
   display: block;
   margin: 0 auto;
