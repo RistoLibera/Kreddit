@@ -8,12 +8,13 @@ const Home = () => {
     let windowWidth = window.innerWidth;
     let instruction = <p>This is a discussionn website imitating Reddit, 
                           just feel free to explore what it presents!</p>;
+
     if (windowWidth < 600) {
       return (
         <div className="reactive-home">
           <div className="display-mode">
             <FontAwesomeIcon icon={faMobileAlt} color='' size='lg' />
-            <h1>Smartphone view</h1>
+            <h1><dfn><abbr title='Width is less than 600px'>Smartphone view</abbr></dfn></h1>
           </div>
             {instruction}
           <h2>Let's kreddit!</h2>
@@ -24,7 +25,7 @@ const Home = () => {
         <div className="reactive-home">
           <div className="display-mode">
             <FontAwesomeIcon icon={faLaptop} color='' size='lg' />
-            <h1>SmallScreen view</h1>
+            <h1><dfn><abbr title='Width is less than 850px'>SmallScreen view</abbr></dfn></h1>
           </div>
             {instruction}
           <h2>Let's kreddit!</h2>
@@ -35,7 +36,7 @@ const Home = () => {
         <div className="reactive-home">
           <div className="display-mode">
             <FontAwesomeIcon icon={faDesktop} color='' size='lg' />
-            <h1>Desktop view</h1>
+            <h1><dfn><abbr title='Width is more than 850px'>Desktop view</abbr></dfn></h1>
           </div>
             {instruction}
           <h2>Let's kreddit!</h2>
