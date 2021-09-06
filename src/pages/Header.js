@@ -61,7 +61,7 @@ const Header = () => {
       </div>
 
       <div className='middle-bar'>
-        <div onClick={() => history.push('/discussions')}className='discussions-bar'>
+        <div onClick={() => history.push('/discussions/00')}className='discussions-bar'>
           <h2>Discussion</h2>
         </div>
         <div id='icon' onClick={() => history.push('/')} >

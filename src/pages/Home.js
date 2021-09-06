@@ -7,7 +7,7 @@ const Home = () => {
   // Responsive content
   const showContent = () => {
     let windowWidth = window.innerWidth;
-    let instruction = <p>This is a discussionn website imitating Reddit, 
+    let instruction = <p>This is a discussion website imitating Reddit, 
                           just feel free to explore what it presents!</p>;
 
     if (windowWidth < 600) {

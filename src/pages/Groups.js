@@ -50,6 +50,7 @@ const Groups = () => {
     } catch (error) {
       console.log(error);
     }
+    setFormHidden('hidden');
     setPageLoading(false);
   };
 

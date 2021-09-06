@@ -21,7 +21,16 @@ const DiscussionTitles = () => {
   const [pageLoading, setPageLoading] = useState(true);
   const [GroupsDoc, setGroupsDoc] = useState([]);
   const [discussionsDocs, setDiscussionsDocs] = useState([]);
-  const [selectedGroups, setSelectedGroups] = useState([optionalGroup]);
+  const [selectedGroups, setSelectedGroups] = useState([]);
+
+  // Check if jumped from groups page
+  const checkParam = () => {
+    if (optionalGroup === '00') {
+      setSelectedGroups([]);
+    } else {
+      setSelectedGroups([optionalGroup]);
+    }
+  };
 
   const switchHidden = () => {
     if (formHidden === 'hidden') {
@@ -85,10 +94,12 @@ const DiscussionTitles = () => {
     } catch (error) {
       console.log(error);
     }
+    setFormHidden('hidden');
     setPageLoading(false);
   };
   
   useEffect(() => {
+    checkParam();
     fetchDiscussions();
   },[]);
 
