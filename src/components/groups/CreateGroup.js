@@ -13,9 +13,9 @@ const CreateGroup = (props) => {
   `;
   const [pageLoading, setPageLoading] = useState(false);
 
-  // Check current user creation
+  // Check current groups creation
   const checkCreation = async () => {
-    let userLimit = 0;
+    let amount = 0;
     let uid = user.uid;
     try {
       let cache = 
@@ -26,12 +26,12 @@ const CreateGroup = (props) => {
           .get();
       let info = cache.data().created_groups;
       if (info) {
-        userLimit = info.length;
+        amount = info.length;
       }
     } catch (error) {
       console.log(error);
     }
-    return userLimit;
+    return amount;
   };
   
   // Create new group
@@ -82,7 +82,7 @@ const CreateGroup = (props) => {
   const handleCreation = async (event) => {
     event.preventDefault();
     setPageLoading(true);
-    let userLimit = await checkCreation();
+    let amount = await checkCreation();
     const { name, introduction, symbol } = event.target.elements;
     let uid = user.uid;
     let creator = (user.email).slice(0, -9);
@@ -94,7 +94,7 @@ const CreateGroup = (props) => {
       alert("Group already created!");
       setPageLoading(false);
       return;
-    } else if(userLimit > 2) {
+    } else if(amount > 2) {
       alert("Reach creation limit!");
       setPageLoading(false);
       return;

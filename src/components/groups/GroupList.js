@@ -3,7 +3,6 @@ import { useHistory } from 'react-router-dom';
 import { DateTime, Interval } from "luxon";
 import Default from '../../assets/img/default-symbol.png';
 import FirebasePack from '../../config/FirebasePack';
-import firebase from 'firebase/app';
 
 const GroupList = (props) => {
   const history = useHistory();
@@ -14,16 +13,21 @@ const GroupList = (props) => {
   const checkGroup = async (name, user) => {
     if (!user) return;
     let buttonState = false;
+    let groupNames = [];
     try {
-      let cache = 
-        await FirebasePack
-          .firestore()
-          .collection('user-info')
-          .doc(user.uid)
-          .get();
-      let info = cache.data().joined_groups;
-      if (info) {
-        buttonState = info.some((groupName) => groupName === name);
+      await FirebasePack
+        .firestore()
+        .collection('user-info')
+        .doc(user.uid)
+        .collection('joined-groups')
+        .get()
+        .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            groupNames.push(doc.data().group_name);
+          });
+        });
+      if (groupNames) {
+        buttonState = groupNames.some((groupName) => groupName === name);
       }
     } catch (error) {
       console.log(error);
@@ -38,9 +42,11 @@ const GroupList = (props) => {
         .firestore()
         .collection('user-info')
         .doc(user.uid)
-        .update({
-          joined_groups: firebase.firestore.FieldValue.arrayUnion(groupName),
-          joined_groups_UID: firebase.firestore.FieldValue.arrayUnion(groupUID)
+        .collection('joined-groups')
+        .doc(groupName)
+        .set({
+          group_name: groupName,
+          group_UID: groupUID
         });
       alert('success!');
     } catch (error) {
