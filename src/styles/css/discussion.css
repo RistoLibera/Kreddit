@@ -1,16 +1,16 @@
-.discussion-page .discussion-content .discussion-container .title, .discussion-page .discussion-content .discussion-container .title .title-body .title-header, .discussion-page .discussion-content .discussion-container .title .title-body .title-buttons {
+.discussion-page .discussion-content .group, .discussion-page .discussion-content .title, .discussion-page .discussion-content .title .title-body .body-header, .discussion-page .discussion-content .title .title-body .title-buttons {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.discussion-page .discussion-content .discussion-container .title .title-body, .discussion-page .discussion-content .discussion-container .title .title-body .title-content {
+.discussion-page .discussion-content .title .title-rating, .discussion-page .discussion-content .title .title-body, .discussion-page .discussion-content .title .title-body .title-content {
   display: flex;
   flex-direction: column;
 }
 
-.discussion-page .discussion-content .discussion-container .title {
-  justify-content: space-around;
+.discussion-page .discussion-content .title {
+  justify-content: space-evenly;
 }
 
 /*# sourceMappingURL=discussion.css.map */

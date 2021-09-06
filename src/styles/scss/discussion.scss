@@ -3,29 +3,35 @@
 // One discussion page
 .discussion-page {
   .discussion-content{
-    .discussion-container {
-      .title {
-        @extend %flex-row-direction;
-        justify-content: space-around;
-  
-        .title-body {
+    .group {
+      @extend %flex-row-direction;
+
+    }
+
+    .title {
+      @extend %flex-row-direction;
+      justify-content: space-evenly;
+      .title-rating {
+        @extend %flex-column-direction;
+
+      }
+
+      .title-body {
+        @extend %flex-column-direction;
+        .body-header {
+          @extend %flex-row-direction;
+        }
+
+        .title-content {
           @extend %flex-column-direction;
-  
-          .title-header {
-            @extend %flex-row-direction;
-          }
-  
-          .title-content {
-            @extend %flex-column-direction;
-          }
-  
-          .title-buttons {
-            @extend %flex-row-direction;
-          }
+        }
+
+        .title-buttons {
+          @extend %flex-row-direction;
         }
       }
-    } 
-     
+    }
+
 
   }
 }

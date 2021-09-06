@@ -4,7 +4,7 @@ import FirebasePack from '../../config/FirebasePack';
 
 const Search = (props) => {
   const history = useHistory();
-  const { groupUID, document } = props;
+  const { groupUID, id } = props;
 
   const deleteDiscussion = async () => {
     let confirmation = window.confirm('This action will wipe out everything in this discussion, proceed carefully!');
@@ -18,9 +18,9 @@ const Search = (props) => {
         .collection('groups')
         .doc(groupUID)
         .collection('discussions')
-        .doc(document.id)
+        .doc(id)
         .delete();
-      } catch (error) {
+    } catch (error) {
       console.log(error);
     }
     alert('success!');

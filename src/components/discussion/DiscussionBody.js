@@ -4,12 +4,16 @@ import { DateTime, Interval } from "luxon";
 import FirebasePack from '../../config/FirebasePack';
 import DefaultIcon from '../../assets/img/default-icon.jpg';
 import DefaultSymbol from '../../assets/img/default-symbol.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCaretSquareDown, faCaretSquareUp } from '@fortawesome/free-solid-svg-icons';
 import EditForm from './EditForm';
 import Delete from './Delete';
+import RatingButtons from './RatingButtons';
 
 const DiscussionBody = (props) => {
   const { currentUser } = useContext(AuthContext);
   const { groupUID, document, rootUpdate } = props;
+  const [editShow, setEditShow] = useState(false);
   const [group, setGroup] = useState('');
   const [symbolURL, setSymbolURL] = useState('');
   const [iconURL, setIconURL] = useState('');
@@ -18,8 +22,8 @@ const DiscussionBody = (props) => {
   const [creator, setCreator] = useState('');
   const [time, setTime] = useState('');
   const [content, setContent] = useState('');
-  const [editShow, setEditShow] = useState(false);
-  
+  const [rating, setRating] = useState(0);
+
   // Toggle edit form
   const toggleEdit = () => {
     setEditShow(!editShow);
@@ -100,6 +104,7 @@ const DiscussionBody = (props) => {
     setCreator(data.creator_name); 
     setContent(data.content);
     setGroup(data.group);
+    setRating(data.rating_up.length - data.rating_down.length);
   };
 
   useEffect(() => {
@@ -108,24 +113,17 @@ const DiscussionBody = (props) => {
 
   return (
     <div className='discussion-content'>
-
       <div className='discussion-container'>
+        <div className='group'>
+          <img src={symbolURL} alt='symbol' width='40px' height='40px'/>
+          <h2>{group}</h2>
+        </div>
+        
         <div className='title'>
-          <header className='title-header'>
-            <div className='title-group'>
-              <h2>{group}</h2>
-              <img src={symbolURL} alt='symbol' width='40px' height='40px'/>
-            </div>
-
-            <div className='title-rating'>
-              <p>Up</p>
-              <p>Rating</p>
-              <p>Down</p>
-            </div>
-          </header>
+          <RatingButtons rating={rating} currentUser={currentUser} groupUID={groupUID} id={document.id} rootUpdate={rootUpdate}/>
 
           <div className='title-body'>
-            <header className='title-header'>
+            <header className='body-header'>
               <img src={iconURL} alt='icon' width='30px' height='30px'/>
               <h1>{creator}</h1>
               <h1>{title}</h1>
@@ -136,7 +134,7 @@ const DiscussionBody = (props) => {
               <img src={imgURL} alt='img' width='70px' />
               {editShow
                 ?
-                  <EditForm groupUID={groupUID} content={content} title={title} document={document} rootUpdate={rootUpdate} toggleEdit={toggleEdit} />
+                  <EditForm groupUID={groupUID} content={content} title={title} id={document.id} rootUpdate={rootUpdate} toggleEdit={toggleEdit} />
                 :
                 <h2>{content}</h2>
               }
@@ -148,12 +146,18 @@ const DiscussionBody = (props) => {
                   <div className='controller'>
                     <button>Reply</button>
                     <button onClick={toggleEdit}>Edit</button>
-                    <Delete groupUID={groupUID} document={document} rootUpdate={rootUpdate} />
+                    <Delete groupUID={groupUID} id={document.id} rootUpdate={rootUpdate} />
                   </div>
                 :
-                  <div className='controller'>
-                    <button>Reply</button>
-                  </div>
+                  (currentUser) 
+                    ?
+                      <div className='controller'>
+                        <button>Reply</button>
+                      </div>
+                    :
+                      <div className='warning'>
+                        <p>Log in to see more content</p>
+                      </div>
               }
             </div>
           </div>

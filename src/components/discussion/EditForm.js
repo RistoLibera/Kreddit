@@ -4,7 +4,7 @@ import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
 
 const EditForm = (props) => {
-  const { groupUID, content, title, document, rootUpdate, toggleEdit } = props;
+  const { groupUID, content, title, id, rootUpdate, toggleEdit } = props;
   const spinnerCSS = css`
   display: block;
   margin: 0 auto;
@@ -20,7 +20,7 @@ const EditForm = (props) => {
         .collection('groups')
         .doc(groupUID)
         .collection('discussions')
-        .doc(document.id)
+        .doc(id)
         .update({
           content: content
         });
