@@ -9,6 +9,8 @@ import ShowIcon from '../components/user/ShowIcon';
 import DeleteUser from '../components/user/DeleteUser';
 import ChangePassword from '../components/user/ChangePassword';
 import ShowInfo from '../components/user/ShowInfo';
+import Titles from '../components/user/Titles';
+import ShowStatistic from '../components/user/ShowStatistic';
 import '../styles/css/profile.css';
 
 const Profile = () => {
@@ -88,11 +90,7 @@ const Profile = () => {
 
               <div className='info'>
                 <ShowInfo nickname={nickname} gender={gender} nation={nation} />
-                <div className='lower-info'>
-                  <h3>Creator of group</h3>
-                  <h3>in what groups</h3>
-                  <h3>discussion number</h3>
-                </div>
+                <ShowStatistic />
               </div>
 
               <div className='registration'>
@@ -102,8 +100,7 @@ const Profile = () => {
             </div>
 
             <div className='lower-profile'>
-              <h3>Your discussions</h3>
-              <h5>Expand all</h5>
+              <Titles />
             </div>
           </div>
       }
