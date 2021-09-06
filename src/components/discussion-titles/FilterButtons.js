@@ -34,15 +34,20 @@ const FilterButtons = (props) => {
 
   // Make one list HTML tag
   const makeList = (name, index) => {
+    let preChoice = 'inactive';
+    if (optionalGroup === name) {
+      preChoice = 'active';
+      setAllActive('inactive');
+    }
+    
     return (
-      <li onClick={(event) => selectGroup(event, name)} key={index + 1} className='inactive'>
+      <li onClick={(event) => selectGroup(event, name)} key={index + 1} className={preChoice}>
         {name}
       </li>
     );
   };
   
   const createList = () => {
-    console.log(optionalGroup);
     let container = [];
     if(documents.length === 0) return;
 

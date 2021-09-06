@@ -21,7 +21,7 @@ const DiscussionTitles = () => {
   const [pageLoading, setPageLoading] = useState(true);
   const [GroupsDoc, setGroupsDoc] = useState([]);
   const [discussionsDocs, setDiscussionsDocs] = useState([]);
-  const [selectedGroups, setSelectedGroups] = useState([]);
+  const [selectedGroups, setSelectedGroups] = useState([optionalGroup]);
 
   const switchHidden = () => {
     if (formHidden === 'hidden') {
@@ -103,7 +103,7 @@ const DiscussionTitles = () => {
         <div className='discussions-container'>
           <header>
             <div className='discussions-controller'>
-              <FilterButtons documents={GroupsDoc}  updateSelection={updateSelection} cancelSelection={cancelSelection} allSelection={allSelection} optionalGroup={optionalGroup}/>
+              <FilterButtons documents={GroupsDoc}  updateSelection={updateSelection} cancelSelection={cancelSelection} allSelection={allSelection} optionalGroup={optionalGroup} />
               {currentUser
                   ? <button onClick={switchHidden}>Create a discussion</button>
                   : <div></div>
