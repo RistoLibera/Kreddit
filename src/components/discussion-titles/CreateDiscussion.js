@@ -49,6 +49,12 @@ const CreateDiscussion = (props) => {
     setOptionsTags(container);
   };
 
+  // Fill selective button
+  const fillButton = async () => {
+    let groups = await checkGroup(user);
+    makeOption(groups);
+  };
+
   // Update Firestore
   const addDiscussion = async (group, title, content, user) => {
     let creator = (user.email).slice(0, -9);
@@ -95,12 +101,21 @@ const CreateDiscussion = (props) => {
 
   };
 
-  // Fill selective button
-  const fillButton = async () => {
-    let groups = await checkGroup(user);
-    makeOption(groups);
+  //  Update user info
+  const updateInfo = async (group, title, uid) => {
+    try {
+      await FirebasePack
+        .firestore()
+        .collection('user-info')
+        .doc(uid)
+        .update({
+          created_titles: firebase.firestore.FieldValue.arrayUnion([group, title])
+        });
+    } catch (error) {
+      console.log(error);
+    }
   };
-
+  
   const handleCreation = async (event) => {
     event.preventDefault();
     setPageLoading(true);
@@ -111,6 +126,7 @@ const CreateDiscussion = (props) => {
     let attachmentValue = attachment.files[0];
     await addDiscussion(groupValue, titleValue, contentValue, user);
     await addImg(titleValue, attachmentValue);
+    await updateInfo(groupValue, titleValue, user.uid);
     alert('success!');
     event.target.reset();
     setPageLoading(false);

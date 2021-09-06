@@ -42,6 +42,7 @@
   
         li {
           @extend %flex-column-direction;
+          cursor: pointer;
           border: 1px solid black;
           margin: 10px;
   

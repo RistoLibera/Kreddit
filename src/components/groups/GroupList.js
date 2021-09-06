@@ -32,14 +32,15 @@ const GroupList = (props) => {
   };
   
   //  Join group
-  const joinGroup = async (groupName, user) => {
+  const joinGroup = async (groupName, groupUID, user) => {
     try {
       await FirebasePack
         .firestore()
         .collection('user-info')
         .doc(user.uid)
         .update({
-          joined_groups: firebase.firestore.FieldValue.arrayUnion(groupName)
+          joined_groups: firebase.firestore.FieldValue.arrayUnion(groupName),
+          joined_groups_UID: firebase.firestore.FieldValue.arrayUnion(groupUID)
         });
       alert('success!');
     } catch (error) {
@@ -85,12 +86,12 @@ const GroupList = (props) => {
   };
 
   // Make one list HTML tag
-  const makeList = (name, creator, introduction, time, symbolURL, index, buttonState) => {
+  const makeList = (groupName, groupUID, creator, introduction, time, symbolURL, index, buttonState) => {
     return (
       <li key={index} className='group-list'>
         <div className='left-block'>
           <img src={symbolURL} alt='icon' width='40px' />
-          <h2>{name}</h2>
+          <h2>{groupName}</h2>
         </div>
 
         <div className='middle-block'>
@@ -102,11 +103,11 @@ const GroupList = (props) => {
         <div className='right-block'>
           {user 
             ? 
-              <button onClick={() => joinGroup(name, user)} disabled={buttonState}>Join</button>
+              <button onClick={() => joinGroup(groupName, groupUID, user)} disabled={buttonState}>Join</button>
             :
               <button>Join</button>
           }
-          <button onClick={() => history.push('/discussions/' + name)} >To discussion by auto select group button</button>
+          <button onClick={() => history.push('/discussions/' + groupName)} >To discussion by auto select group button</button>
         </div>
       </li>
     );
@@ -117,14 +118,15 @@ const GroupList = (props) => {
     if(documents.length === 0) return;
 
     for (const [index, doc] of documents.entries()) {
+      let groupUID = doc.id;
       let data = doc.data();
       let creator = data.creator;
-      let name = data.name;
+      let groupName = data.name;
       let introduction = data.introduction;
       let time = calculateTime(data);
-      let symbolURL = await getSymbol(name);
-      let buttonState = await checkGroup(name, user);
-      let list =  makeList(name, creator, introduction, time, symbolURL, index, buttonState);
+      let symbolURL = await getSymbol(groupName);
+      let buttonState = await checkGroup(groupName, user);
+      let list =  makeList(groupName, groupUID, creator, introduction, time, symbolURL, index, buttonState);
       container.push(list);
     }
     setListTags(container);
