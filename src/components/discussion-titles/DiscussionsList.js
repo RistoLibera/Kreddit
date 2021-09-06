@@ -1,14 +1,30 @@
 import React, { useState, useEffect} from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { DateTime, Interval } from "luxon";
 import Default from '../../assets/img/default-icon.jpg';
 import FirebasePack from '../../config/FirebasePack';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faComments } from '@fortawesome/free-solid-svg-icons';
+import { faComments, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
 
 const DiscussionsList = (props) => {
+  const history = useHistory();
   const { documents, selectedGroups } = props;
   const [listTags, setListTags] = useState([]);
+
+  // Fetch title content img
+  const getImg = async (title) => {
+    let URL;
+    try {
+      URL = 
+        await FirebasePack
+          .storage()
+          .ref('discussion-title-image/' + title + '/img.jpg')
+          .getDownloadURL();
+    } catch (error) {
+      console.log(error);
+    }
+    return URL;
+  };
 
   // Get creator icon
   async function getIcon(uid) {
@@ -48,34 +64,40 @@ const DiscussionsList = (props) => {
   };  
 
   // Make one list HTML tag
-  const makeList = (uid, iconURL, creator, group, title, subdiscussions, rating, time, index) => {
+  const makeList = (uid, iconURL, creator, group, title, content, imgURL, subdiscussions, rating, time, index) => {
     return (
-      <li key={index} className='discussion-list'>
-      <div className='left-area'>
-        <img src={iconURL} alt='icon' width='40px' />
-        <h2>{creator}</h2>
-      </div>
+      <li key={index} className='discussion-list' onClick={() => history.push('/discussions/' + group + '/' + uid)}>
+        <div className='first-area'>
+          <div className='creator'>
+            <img src={iconURL} alt='icon' width='40px' />
+            <h2>{creator}</h2>
+          </div>
 
-      <div className='middle-area'>
-        <div className='upper-bar'>
-          <h2>{group}</h2>
-          <h1>{title}</h1>
+          <div className='group'>
+            <h2>{group}</h2>
+            <h1>{title}</h1>
+          </div>
         </div>
 
-        <div className='lower-bar'>
+        <div className='second-area'>
+          <img src={imgURL} alt='img' width='100px' />
+          <p>{content}</p>
+        </div>
+
+        <div className='third-area'>
           <div className="amount">
             <p>{subdiscussions}</p>
             <FontAwesomeIcon icon={faComments} color='' size='lg' />
           </div>
-          <p>{rating}</p>
+
+          <div className='rating'>
+            <p>{rating}</p>
+            <FontAwesomeIcon icon={faStarHalfAlt} color='' size='lg' />
+          </div>
+
           <p>{time}</p>
         </div>
-      </div>
-
-      <div className='right-area'>
-        <Link to={'/discussions/' + group + '/' +uid}>Entry</Link>
-      </div>
-    </li>
+      </li>
     );
   };
 
@@ -92,10 +114,12 @@ const DiscussionsList = (props) => {
       let creator_uid = data.creator_uid;
       let iconURL = await getIcon(creator_uid);
       let title = data.title;
+      let content = data.content;
+      let imgURL = await getImg(title);
       let subdiscussions = data.subdiscussions;
       let rating = (data.rating_up.length - data.rating_down.length);
       let time = calculateTime(data);
-      let list =  makeList(discussion_uid, iconURL, creator_name, group_name, title, subdiscussions, rating, time, index);
+      let list =  makeList(discussion_uid, iconURL, creator_name, group_name, title, content, imgURL, subdiscussions, rating, time, index);
       container.push(list);
     }
     setListTags(container);

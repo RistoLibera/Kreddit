@@ -41,26 +41,23 @@
         @extend %flex-column-direction;
   
         li {
-          @extend %flex-row-direction;
+          @extend %flex-column-direction;
+          border: 1px solid black;
+          margin: 10px;
   
-          .left-area {
-            @extend %flex-column-direction;
-          }
-  
-          .middle-area {
-            @extend %flex-column-direction;
-  
-            .upper-bar {
-              @extend %flex-row-direction;
-            }
-  
-            .lower-bar {
-              @extend %flex-row-direction;
-            }
-          }
-  
-          .right-area {
+          .first-area {
             @extend %flex-row-direction;
+
+          }
+
+          .second-area {
+            @extend %flex-column-direction;
+
+          }
+          
+          .third-area {
+            @extend %flex-row-direction;
+
           }
         }
       }

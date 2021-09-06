@@ -1,10 +1,10 @@
-.discussions-page .discussions-container header .discussions-controller, .discussions-page .discussions-container header .discussions-controller .filter-buttons ul, .discussions-page .discussions-container .discussions-list ul li, .discussions-page .discussions-container .discussions-list ul li .middle-area .upper-bar, .discussions-page .discussions-container .discussions-list ul li .middle-area .lower-bar, .discussions-page .discussions-container .discussions-list ul li .right-area {
+.discussions-page .discussions-container header .discussions-controller, .discussions-page .discussions-container header .discussions-controller .filter-buttons ul, .discussions-page .discussions-container .discussions-list ul li .first-area, .discussions-page .discussions-container .discussions-list ul li .third-area {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.discussions-page, .discussions-page .discussions-container, .discussions-page .discussions-container header, .discussions-page .discussions-container .discussions-list ul, .discussions-page .discussions-container .discussions-list ul li .left-area, .discussions-page .discussions-container .discussions-list ul li .middle-area {
+.discussions-page, .discussions-page .discussions-container, .discussions-page .discussions-container header, .discussions-page .discussions-container .discussions-list ul, .discussions-page .discussions-container .discussions-list ul li, .discussions-page .discussions-container .discussions-list ul li .second-area {
   display: flex;
   flex-direction: column;
 }
@@ -20,6 +20,10 @@
 }
 .discussions-page .discussions-container header .discussions-controller .filter-buttons ul .inactive {
   color: black;
+}
+.discussions-page .discussions-container .discussions-list ul li {
+  border: 1px solid black;
+  margin: 10px;
 }
 
 /*# sourceMappingURL=discussion-titles.css.map */
