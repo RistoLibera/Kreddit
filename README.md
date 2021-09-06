@@ -14,17 +14,16 @@
 
 - You can create user by nickname(immutable) and password.
 - You can choose nation and gender.
-- You can edit your password.
-- You can upload image to change icon.
+- You can change your icon.
 - You can search for what you like.
+- You can edit your password.
 - You can delete your account.
 
 ### By group
 
+- You can join in groups.
 - You can create group(3 for most).
-- You can quit group.
-- You can change group intruduction if being creator.
-- You can delete group if being creator.
+- You can upload group symbol.
 - You can see when the group were created.
 
 ### For discussion

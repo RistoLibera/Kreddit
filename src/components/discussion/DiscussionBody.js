@@ -9,6 +9,7 @@ import { faCaretSquareDown, faCaretSquareUp } from '@fortawesome/free-solid-svg-
 import EditForm from './EditForm';
 import Delete from './Delete';
 import RatingButtons from './RatingButtons';
+import SubDiscussionBody from './SubDiscussionBody';
 
 const DiscussionBody = (props) => {
   const { currentUser } = useContext(AuthContext);
@@ -163,9 +164,7 @@ const DiscussionBody = (props) => {
           </div>
         </div>
 
-        <div className='subdiscussions'>
-          {/* Component */}
-        </div>
+        <SubDiscussionBody />
       </div>
     </div>
   );

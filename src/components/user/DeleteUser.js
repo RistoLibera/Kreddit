@@ -7,8 +7,7 @@ import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
 import handleFirebaseError from '../../components/error/handleFirebaseError';
 
-// This will be far far complicated
-// change group creator and attach default icon
+// change discussions creator to (DELETED)
 const DeleteUser = (props) => {
   const history = useHistory();
   const { uid } = props;
@@ -86,7 +85,7 @@ const DeleteUser = (props) => {
     }
   };
 
-  // Change owned groups name
+  // Change owned groups creator
   const disownGroup = async (email) => {
     let creator = (email).slice(0, -9);
     try {

@@ -48,8 +48,7 @@ const DiscussionsList = (props) => {
   };  
 
   // Make one list HTML tag
-  const makeList = (uid, iconURL, creator, group, title, subdiscussions, rating, data, index) => {
-    let time = calculateTime(data);
+  const makeList = (uid, iconURL, creator, group, title, subdiscussions, rating, time, index) => {
     return (
       <li key={index} className='discussion-list'>
       <div className='left-area'>
@@ -95,7 +94,8 @@ const DiscussionsList = (props) => {
       let title = data.title;
       let subdiscussions = data.subdiscussions;
       let rating = (data.rating_up - data.rating_down);
-      let list =  makeList(discussion_uid, iconURL, creator_name, group_name, title, subdiscussions, rating, data, index);
+      let time = calculateTime(data);
+      let list =  makeList(discussion_uid, iconURL, creator_name, group_name, title, subdiscussions, rating, time, index);
       container.push(list);
     }
     setListTags(container);

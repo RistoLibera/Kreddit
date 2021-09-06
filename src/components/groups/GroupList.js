@@ -1,4 +1,5 @@
 import React, { useState, useEffect} from 'react';
+import { DateTime, Interval } from "luxon";
 import Default from '../../assets/img/default-symbol.png';
 import FirebasePack from '../../config/FirebasePack';
 import firebase from 'firebase/app';
@@ -43,6 +44,28 @@ const GroupList = (props) => {
     }
   };
   
+  // Calculate when was the discussion created
+  const calculateTime = (data) => {
+    let time;
+    let now = DateTime.now();
+    let createdTime = DateTime.fromSeconds(data.created_time.seconds);
+    let interval = Interval.fromDateTimes(createdTime, now);
+    if (interval.length('years') > 1) {
+      time = (Math.floor(interval.length('years')) + 'Y ago');
+    } else if (interval.length('months') > 1) {
+      time = (Math.floor(interval.length('months')) + 'M ago');
+    } else if (interval.length('days') > 1) {
+      time = (Math.floor(interval.length('days')) + 'D ago');
+    } else if (interval.length('hours') > 1) {
+      time = (Math.floor(interval.length('hours')) + 'H ago');
+    } else if (interval.length('minutes') > 1) {
+      time = (Math.floor(interval.length('minutes')) + 'M ago');
+    } else {
+      time = (Math.floor(interval.length('seconds')) + 'S ago');
+    }
+    return time;
+  };  
+
   // Get group symbol
   const getSymbol = async (name) => {
     let symbolURL = Default;
@@ -59,7 +82,7 @@ const GroupList = (props) => {
   };
 
   // Make one list HTML tag
-  const makeList = (name, creator, introduction, symbolURL, index, buttonState) => {
+  const makeList = (name, creator, introduction, time, symbolURL, index, buttonState) => {
     return (
       <li key={index} className='group-list'>
         <div className='left-block'>
@@ -70,6 +93,7 @@ const GroupList = (props) => {
         <div className='middle-block'>
           <p>Creator: {creator}</p>
           <p>{introduction}</p>
+          <p>{time}</p>
         </div>
 
         <div className='right-block'>
@@ -85,12 +109,14 @@ const GroupList = (props) => {
     if(documents.length === 0) return;
 
     for (const [index, doc] of documents.entries()) {
-      let creator = doc.data().creator;
-      let name = doc.data().name;
-      let introduction = doc.data().introduction;
+      let data = doc.data();
+      let creator = data.creator;
+      let name = data.name;
+      let introduction = data.introduction;
+      let time = calculateTime(data);
       let symbolURL = await getSymbol(name);
       let buttonState = await checkGroup(name, user);
-      let list =  makeList(name, creator, introduction, symbolURL, index, buttonState);
+      let list =  makeList(name, creator, introduction, time, symbolURL, index, buttonState);
       container.push(list);
     }
     setListTags(container);
