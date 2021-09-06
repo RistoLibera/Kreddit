@@ -2,7 +2,7 @@
 const handleFirebaseError = (error) => {
   let message ;
   
-  switch (error.code){
+  switch (error.code) {
     case 'auth/weak-password':
       message = 'Password should be 6 characters or more!';
       break;

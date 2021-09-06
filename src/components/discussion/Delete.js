@@ -4,7 +4,7 @@ import FirebasePack from '../../config/FirebasePack';
 
 const Search = (props) => {
   const history = useHistory();
-  const { groupUID, document, rootUpdate } = props;
+  const { groupUID, document } = props;
 
   const deleteDiscussion = async () => {
     let confirmation = window.confirm('This action will wipe out everything in this discussion, proceed carefully!');
@@ -27,8 +27,6 @@ const Search = (props) => {
     history.push('/discussions');
   };
   
-
-  // Search results
   return (
     <button onClick={deleteDiscussion}>Delete</button>
   );

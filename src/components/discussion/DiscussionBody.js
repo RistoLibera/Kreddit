@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../loading/Auth';
+import { DateTime, Interval } from "luxon";
 import FirebasePack from '../../config/FirebasePack';
 import DefaultIcon from '../../assets/img/default-icon.jpg';
 import DefaultSymbol from '../../assets/img/default-symbol.png';
-import Content from './Content';
 import EditForm from './EditForm';
 import Delete from './Delete';
 
@@ -23,6 +23,26 @@ const DiscussionBody = (props) => {
   // Toggle edit form
   const toggleEdit = () => {
     setEditShow(!editShow);
+  };
+
+  // Calculate when was the discussion created
+  const calculateTime = (data) => {
+    let now = DateTime.now();
+    let createdTime = DateTime.fromSeconds(data.created_time.seconds);
+    let interval = Interval.fromDateTimes(createdTime, now);
+    if (interval.length('years') > 1) {
+      setTime(Math.floor(interval.length('years')) + 'Y ago');
+    } else if (interval.length('months') > 1) {
+      setTime(Math.floor(interval.length('months')) + 'M ago');
+    } else if (interval.length('days') > 1) {
+      setTime(Math.floor(interval.length('days')) + 'D ago');
+    } else if (interval.length('hours') > 1) {
+      setTime(Math.floor(interval.length('hours')) + 'H ago');
+    } else if (interval.length('minutes') > 1) {
+      setTime(Math.floor(interval.length('minutes')) + 'M ago');
+    } else {
+      setTime(Math.floor(interval.length('seconds')) + 'S ago');
+    }
   };
 
   // Get group symbol
@@ -72,12 +92,12 @@ const DiscussionBody = (props) => {
   
   const fetchTitleContent = async () => {
     let data = document.data();
+    calculateTime(data);
     await getIcon(data.creator_uid);
     await getImg(data.title);
     await getSymbol(data.group);
     setTitle(data.title);
     setCreator(data.creator_name); 
-    setTime(data.created_time.toDate().toString());
     setContent(data.content);
     setGroup(data.group);
   };
@@ -118,7 +138,7 @@ const DiscussionBody = (props) => {
                 ?
                   <EditForm groupUID={groupUID} content={content} title={title} document={document} rootUpdate={rootUpdate} toggleEdit={toggleEdit} />
                 :
-                  <Content content={content} />
+                <h2>{content}</h2>
               }
             </div>
 
