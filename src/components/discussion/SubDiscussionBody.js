@@ -7,6 +7,8 @@ import { faCaretSquareDown, faCaretSquareUp } from '@fortawesome/free-solid-svg-
 const SubDiscussionBody = () => {
  
   // Remember to transfer title uid
+
+  // subdiscussion--image/
   return (
     <div className='subdiscussions'>
       <h1>SubDiscussionBody</h1>

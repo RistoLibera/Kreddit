@@ -6,7 +6,7 @@ import FirebasePack from '../../config/FirebasePack';
 
 const GroupList = (props) => {
   const history = useHistory();
-  const { documents, user } = props;
+  const { documents, user, update } = props;
   const [listTags, setListTags] = useState([]);
 
   // Check current user enrollment
@@ -52,6 +52,7 @@ const GroupList = (props) => {
     } catch (error) {
       console.log(error);
     }
+    update();
   };
   
   // Calculate when was the discussion created

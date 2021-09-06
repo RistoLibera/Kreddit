@@ -80,7 +80,7 @@ const Groups = () => {
               </div>
               <CreateGroup documents={GroupsDoc} user={currentUser} hidden={formHidden} update={fetchGroups} />
             </header>
-            <GroupList documents={GroupsDoc} user={currentUser} />
+            <GroupList documents={GroupsDoc} user={currentUser} update={fetchGroups}/>
           </div>
       }
     </section>

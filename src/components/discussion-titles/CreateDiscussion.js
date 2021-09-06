@@ -137,7 +137,7 @@ const CreateDiscussion = (props) => {
     event.preventDefault();
     setPageLoading(true);
     const { group, title, content, attachment} = event.target.elements;
-    let groupValue = group.textContent;
+    let groupValue = group.options[group.selectedIndex].text;
     let groupUID = group.value;
     let titleValue = title.value;
     let contentValue = content.value;
