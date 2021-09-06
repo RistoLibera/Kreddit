@@ -28,8 +28,8 @@
 
 ### For discussion
 
-- You can sort discussions by group.
 - You can create, edit, delete your own discussions.
+- You can sort discussions by group.
 - You can upload images to discussions.
 - You can rate discussions.
 - You can create subdiscussions on any discussions.

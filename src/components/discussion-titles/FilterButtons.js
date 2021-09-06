@@ -2,7 +2,7 @@ import React, { useState, useEffect} from 'react';
 
 //  change view matrix or line
 const FilterButtons = (props) => {
-  const { documents, updateSelection, cancelSelection, allSelection } = props;
+  const { documents, updateSelection, cancelSelection, allSelection, optionalGroup } = props;
   const [listTags, setListTags] = useState([]);
   const [allActive, setAllActive] = useState('active');
 
@@ -42,6 +42,7 @@ const FilterButtons = (props) => {
   };
   
   const createList = () => {
+    console.log(optionalGroup);
     let container = [];
     if(documents.length === 0) return;
 

@@ -1,15 +1,18 @@
 import React, { useState, useEffect} from 'react';
+import { useHistory } from 'react-router-dom';
 import { DateTime, Interval } from "luxon";
 import Default from '../../assets/img/default-symbol.png';
 import FirebasePack from '../../config/FirebasePack';
 import firebase from 'firebase/app';
 
 const GroupList = (props) => {
+  const history = useHistory();
   const { documents, user } = props;
   const [listTags, setListTags] = useState([]);
 
   // Check current user enrollment
   const checkGroup = async (name, user) => {
+    if (!user) return;
     let buttonState = false;
     try {
       let cache = 
@@ -97,8 +100,13 @@ const GroupList = (props) => {
         </div>
 
         <div className='right-block'>
-          <button onClick={() => joinGroup(name, user)} disabled={buttonState}>Join</button>
-          <button>To discussion by auto select group button</button>
+          {user 
+            ? 
+              <button onClick={() => joinGroup(name, user)} disabled={buttonState}>Join</button>
+            :
+              <button>Join</button>
+          }
+          <button onClick={() => history.push('/discussions/' + name)} >To discussion by auto select group button</button>
         </div>
       </li>
     );

@@ -22,7 +22,7 @@ const Routes = () => {
           <Route exact path='/signup' component={Signup} />
           <Route exact path='/profile/:uid' component={Profile} />
           <Route exact path='/groups' component={Groups} />
-          <Route exact path='/discussions' component={DiscussionTitles} />
+          <Route exact path='/discussions/:optionalGroup' component={DiscussionTitles} />
           <Route exact path='/discussions/:group/:uid' component={Discussion} />
           <Route exact path='/search' component={Search} />
           <Route path='/' component={Home} />

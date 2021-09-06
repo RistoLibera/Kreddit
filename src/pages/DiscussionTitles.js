@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { useParams } from 'react-router-dom';
 import { AuthContext } from '../components/loading/Auth';
 import FirebasePack from '../config/FirebasePack';
 import { css } from '@emotion/react';
@@ -9,6 +10,7 @@ import DiscussionsList from '../components/discussion-titles/DiscussionsList';
 import '../styles/css/discussion-titles.css';
 
 const DiscussionTitles = () => {
+  const { optionalGroup }  = useParams();
   const { currentUser } = useContext(AuthContext);
   const spinnerCSS = css`
   display: block;
@@ -101,7 +103,7 @@ const DiscussionTitles = () => {
         <div className='discussions-container'>
           <header>
             <div className='discussions-controller'>
-              <FilterButtons documents={GroupsDoc}  updateSelection={updateSelection} cancelSelection={cancelSelection} allSelection={allSelection} />
+              <FilterButtons documents={GroupsDoc}  updateSelection={updateSelection} cancelSelection={cancelSelection} allSelection={allSelection} optionalGroup={optionalGroup}/>
               {currentUser
                   ? <button onClick={switchHidden}>Create a discussion</button>
                   : <div></div>
