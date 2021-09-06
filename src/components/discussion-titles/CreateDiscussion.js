@@ -18,31 +18,39 @@ const CreateDiscussion = (props) => {
 
   // Check current user enrollment
   const checkGroup = async (user) => {
-    let groups;
+    let groupInfos = [];
     try {
-      let cache = 
-        await FirebasePack
-          .firestore()
-          .collection('user-info')
-          .doc(user.uid)
-          .get();
-      groups = cache.data().joined_groups;
+      await FirebasePack
+        .firestore()
+        .collection('user-info')
+        .doc(user.uid)
+        .collection('joined-groups')
+        .get()
+        .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            let info = {
+              name: doc.data().group_name,
+              uid: doc.data().group_uid
+            };
+            groupInfos.push(info);
+          });
+        });
     } catch (error) {
       console.log(error);
     }
-    return groups;
+    return groupInfos;
   };
 
   // Make one option HTML tag
-  const makeOption = (groups) => {
+  const makeOption = (groupInfos) => {
     let container = [];
-    if (groups.length === 0 ) {
+    if (groupInfos.length === 0 ) {
       let warningTag = <option key='0' value='0'>You need a group!</option>;
       setOptionsTags(warningTag);
       setDisabledButton(true);
     } else {
-      groups.forEach((group, index) => {
-        let tag = <option key={index} value={group}>{group}</option>;
+      groupInfos.forEach((info, index) => {
+        let tag = <option key={index} value={info.uid}>{info.name}</option>;
         container.push(tag);
       });  
     }
@@ -51,14 +59,15 @@ const CreateDiscussion = (props) => {
 
   // Fill selective button
   const fillButton = async () => {
-    let groups = await checkGroup(user);
-    makeOption(groups);
+    let groupInfos = await checkGroup(user);
+    makeOption(groupInfos);
   };
 
   // Update Firestore
-  const addDiscussion = async (group, title, content, user) => {
+  const addDiscussion = async (groupUID, group, title, content, user) => {
     let creator = (user.email).slice(0, -9);
     let uid = user.uid;
+    let randomUID;
     try {
       await FirebasePack
         .firestore()
@@ -67,10 +76,13 @@ const CreateDiscussion = (props) => {
         .get()
         .then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
-            doc.ref.collection('discussions').doc().set({
+            const randomDoc = doc.ref.collection('discussions').doc();
+            randomUID = randomDoc.id;
+            randomDoc.set({
               creator_name: creator,
               creator_uid: uid,
-              group: group,
+              group_name: group,
+              group_uid: groupUID,
               title: title,
               content: content,
               subdiscussions: 0,
@@ -86,6 +98,7 @@ const CreateDiscussion = (props) => {
       console.log(error);
     }
     setPageLoading(false);
+    return randomUID;
   };
 
   // Update FireStorage
@@ -102,14 +115,18 @@ const CreateDiscussion = (props) => {
   };
 
   //  Update user info
-  const updateInfo = async (group, title, uid) => {
+  const updateInfo = async (groupUID, groupName, discussionUID, uid) => {
     try {
       await FirebasePack
         .firestore()
         .collection('user-info')
         .doc(uid)
-        .update({
-          created_titles: firebase.firestore.FieldValue.arrayUnion([group, title])
+        .collection('created-discussions')
+        .doc(discussionUID)
+        .set({
+          group_uid: groupUID,
+          group_name: groupName,
+          discussion_uid: discussionUID
         });
     } catch (error) {
       console.log(error);
@@ -120,13 +137,14 @@ const CreateDiscussion = (props) => {
     event.preventDefault();
     setPageLoading(true);
     const { group, title, content, attachment} = event.target.elements;
-    let groupValue = group.value;
+    let groupValue = group.textContent;
+    let groupUID = group.value;
     let titleValue = title.value;
     let contentValue = content.value;
     let attachmentValue = attachment.files[0];
-    await addDiscussion(groupValue, titleValue, contentValue, user);
+    let discussionUID = await addDiscussion(groupUID, groupValue, titleValue, contentValue, user);
     await addImg(titleValue, attachmentValue);
-    await updateInfo(groupValue, titleValue, user.uid);
+    await updateInfo(groupUID, groupValue, discussionUID, user.uid);
     alert('success!');
     event.target.reset();
     setPageLoading(false);

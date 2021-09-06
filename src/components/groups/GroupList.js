@@ -46,7 +46,7 @@ const GroupList = (props) => {
         .doc(groupName)
         .set({
           group_name: groupName,
-          group_UID: groupUID
+          group_uid: groupUID
         });
       alert('success!');
     } catch (error) {
