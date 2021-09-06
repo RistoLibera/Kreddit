@@ -5,17 +5,27 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretSquareDown, faCaretSquareUp } from '@fortawesome/free-solid-svg-icons';
 
 const RatingButtons = (props) => {
-  const { rating, currentUser, groupUID, id, rootUpdate } = props;
+  const { rating, currentUser, groupUID, id, document, rootUpdate } = props;
   const [disableUp, setDisableUp] = useState(false);
   const [disableDown, setDisableDown] = useState(false);
+
   // Trigger warning when not logged in
   const triggerWarning = () => {
     alert('Please log in!');
   };
 
+  // Check if rated
+  const checkRated = async () => {
+    let currentUID = currentUser.uid;
+    let data = document.data();
+    let hasRatingUp = data.rating_up.some((uid) => uid === currentUID);
+    let hasRatingDown = data.rating_down.some((uid) => uid === currentUID);
+    if (hasRatingUp) setDisableUp(true);
+    if (hasRatingDown) setDisableDown(true);
+  };
+
   // Update rating
   const triggerRating = async (fondness) => {
-
     if (fondness) {
       try {
         await FirebasePack
@@ -70,6 +80,10 @@ const RatingButtons = (props) => {
       triggerWarning();
     }
   };
+
+  useEffect(() => {
+    checkRated();
+  }, []);
 
   return (
     <div className='title-rating'>

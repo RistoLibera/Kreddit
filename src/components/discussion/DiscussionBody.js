@@ -4,8 +4,6 @@ import { DateTime, Interval } from "luxon";
 import FirebasePack from '../../config/FirebasePack';
 import DefaultIcon from '../../assets/img/default-icon.jpg';
 import DefaultSymbol from '../../assets/img/default-symbol.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCaretSquareDown, faCaretSquareUp } from '@fortawesome/free-solid-svg-icons';
 import EditForm from './EditForm';
 import Delete from './Delete';
 import RatingButtons from './RatingButtons';
@@ -121,7 +119,7 @@ const DiscussionBody = (props) => {
         </div>
         
         <div className='title'>
-          <RatingButtons rating={rating} currentUser={currentUser} groupUID={groupUID} id={document.id} rootUpdate={rootUpdate}/>
+          <RatingButtons rating={rating} currentUser={currentUser} groupUID={groupUID} id={document.id} document={document} rootUpdate={rootUpdate}/>
 
           <div className='title-body'>
             <header className='body-header'>

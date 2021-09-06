@@ -93,7 +93,7 @@ const DiscussionsList = (props) => {
       let iconURL = await getIcon(creator_uid);
       let title = data.title;
       let subdiscussions = data.subdiscussions;
-      let rating = (data.rating_up - data.rating_down);
+      let rating = (data.rating_up.length - data.rating_down.length);
       let time = calculateTime(data);
       let list =  makeList(discussion_uid, iconURL, creator_name, group_name, title, subdiscussions, rating, time, index);
       container.push(list);
