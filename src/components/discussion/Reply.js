@@ -5,11 +5,13 @@
 //  replied by   reply to
 import React from 'react';
 
-const Search = () => {
+const Reply = () => {
 
   return (
-    <div></div>
+    <div className='reply-block'>
+      <button>Reply</button>
+    </div>
   );
 };
 
-export default Search;
+export default Reply;

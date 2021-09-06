@@ -4,6 +4,7 @@ import { DateTime, Interval } from "luxon";
 import FirebasePack from '../../config/FirebasePack';
 import DefaultIcon from '../../assets/img/default-icon.jpg';
 import DefaultSymbol from '../../assets/img/default-symbol.png';
+import Reply from './Reply';
 import EditForm from './EditForm';
 import Delete from './Delete';
 import RatingButtons from './RatingButtons';
@@ -140,23 +141,24 @@ const DiscussionBody = (props) => {
             </div>
 
             <div className='title-buttons'>
-              {(currentUser && currentUser.uid === document.data().creator_uid)
+              {currentUser
                 ?
-                  <div className='controller'>
-                    <button>Reply</button>
-                    <button onClick={toggleEdit}>Edit</button>
-                    <Delete groupUID={groupUID} id={document.id} rootUpdate={rootUpdate} />
+                  <div className='interaction'>
+                    <Reply />
+                    {currentUser.uid === document.data().creator_uid
+                      ?
+                        <div className='current-interaction'>
+                          <button onClick={toggleEdit}>Edit</button>
+                          <Delete groupUID={groupUID} id={document.id} rootUpdate={rootUpdate} />
+                        </div>
+                      :
+                        <div></div>
+                    }
                   </div>
                 :
-                  (currentUser) 
-                    ?
-                      <div className='controller'>
-                        <button>Reply</button>
-                      </div>
-                    :
-                      <div className='warning'>
-                        <p>Log in to see more content</p>
-                      </div>
+                  <div className='warning'>
+                    <p>Log in to see more content</p>
+                  </div>
               }
             </div>
           </div>
