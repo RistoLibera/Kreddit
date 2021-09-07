@@ -114,7 +114,7 @@ const CreateDiscussion = (props) => {
   };
 
   //  Update user info
-  const updateInfo = async (groupUID, groupName, discussionUID, uid) => {
+  const updateInfo = async (groupUID, groupName, discussionUID, title , uid) => {
     try {
       await FirebasePack
         .firestore()
@@ -125,7 +125,8 @@ const CreateDiscussion = (props) => {
         .set({
           group_uid: groupUID,
           group_name: groupName,
-          discussion_uid: discussionUID
+          discussion_uid: discussionUID,
+          title: title
         });
     } catch (error) {
       console.log(error);
@@ -143,7 +144,7 @@ const CreateDiscussion = (props) => {
     let attachmentValue = attachment.files[0];
     let discussionUID = await addDiscussion(groupUID, groupValue, titleValue, contentValue, user);
     await addImg(titleValue, attachmentValue);
-    await updateInfo(groupUID, groupValue, discussionUID, user.uid);
+    await updateInfo(groupUID, groupValue, discussionUID, titleValue, user.uid);
     alert('success!');
     event.target.reset();
     setPageLoading(false);

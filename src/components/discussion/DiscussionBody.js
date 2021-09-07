@@ -149,7 +149,7 @@ const DiscussionBody = (props) => {
                       ?
                         <div className='current-interaction'>
                           <button onClick={toggleEdit}>Edit</button>
-                          <Delete groupUID={groupUID} id={document.id} rootUpdate={rootUpdate} />
+                          <Delete groupUID={groupUID} id={document.id} currentUser={currentUser} />
                         </div>
                       :
                         <div></div>

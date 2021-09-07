@@ -1,4 +1,4 @@
-.profile-page .profile-container .upper-profile, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile .info .lower-info, .profile-page .profile-container .upper-profile .info .lower-info .as-creator, .profile-page .profile-container .upper-profile .info .lower-info .as-creator ul, .profile-page .profile-container .upper-profile .info .lower-info .as-member, .profile-page .profile-container .upper-profile .info .lower-info .as-member ul, .profile-page .profile-container .upper-profile .info .lower-info .as-participant {
+.profile-page .profile-container .upper-profile, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile .info .lower-info, .profile-page .profile-container .upper-profile .info .lower-info .as-creator, .profile-page .profile-container .upper-profile .info .lower-info .as-creator ul, .profile-page .profile-container .upper-profile .info .lower-info .as-member, .profile-page .profile-container .upper-profile .info .lower-info .as-member ul, .profile-page .profile-container .upper-profile .info .lower-info .as-participant, .profile-page .profile-container .lower-profile .title-blocks {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -21,6 +21,18 @@
 }
 .profile-page .profile-container .upper-profile .info .lower-info .as-member ul li {
   list-style: none;
+}
+.profile-page .profile-container .lower-profile .title-blocks .entry .fa-door-closed {
+  display: block;
+}
+.profile-page .profile-container .lower-profile .title-blocks .entry .fa-door-open {
+  display: none;
+}
+.profile-page .profile-container .lower-profile .title-blocks .entry:hover .fa-door-closed {
+  display: none;
+}
+.profile-page .profile-container .lower-profile .title-blocks .entry:hover .fa-door-open {
+  display: block;
 }
 
 /*# sourceMappingURL=profile.css.map */

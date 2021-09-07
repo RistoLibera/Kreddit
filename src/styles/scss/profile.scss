@@ -63,6 +63,29 @@
   
     .lower-profile {
       @extend %flex-column-direction;
+
+      .title-blocks {
+        @extend %flex-row-direction;
+
+        .entry {
+          .fa-door-closed {
+            display: block;
+          }
+
+          .fa-door-open {
+            display: none;
+          }
+        }
+        .entry:hover {
+          .fa-door-closed {
+            display: none;
+          }
+
+          .fa-door-open {
+            display: block;
+          }
+        }
+      }
     }
   }
 }
