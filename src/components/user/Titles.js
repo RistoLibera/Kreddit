@@ -8,9 +8,9 @@ const Titles = (props) => {
   const { discussionGroupURLs, discussionInfos } = props;
   const [listTags, setListTags] = useState([]);
 
-  const makeList = (symbolURL, title, linkURL) => {
+  const makeList = (symbolURL, title, linkURL, index) => {
     return (
-      <li>
+      <li key={index}>
         <div className='img'>
           <img src={symbolURL} alt='symbol' width='30px' />
         </div>
@@ -37,7 +37,7 @@ const Titles = (props) => {
       let groupName = discussionInfos[i].groupName;
       let discussionURL = discussionInfos[i].uid;
       let linkURL = '/discussions/' + groupName + '/' + discussionURL;
-      let list = makeList(symbolURL, title, linkURL);
+      let list = makeList(symbolURL, title, linkURL, i);
       container.push(list);
     }
     setListTags(container);

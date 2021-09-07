@@ -12,6 +12,7 @@ import ShowInfo from '../components/user/ShowInfo';
 import Titles from '../components/user/Titles';
 import ShowStatistic from '../components/user/ShowStatistic';
 import '../styles/css/profile.css';
+import firebase from 'firebase/app';
 
 const Profile = () => {
   const { uid }  = useParams();
@@ -32,42 +33,6 @@ const Profile = () => {
   const [amount, setAmount] = useState(0);
   const [discussionGroupURLs, setDiscussonGroupURLs] = useState([]);
   const [discussionInfos, setDiscussionInfos] = useState([]);
-  // Get info
-  const getInfo = async() => {
-    try {
-      let cache = 
-        await FirebasePack
-          .firestore()
-          .collection('user-info')
-          .doc(uid)
-          .get();
-      let info = cache.data();
-      if(!info) {
-        alert('Non-existence');
-        history.push('/');
-      }
-      setNickname(info.nickname);
-      setGender(info.gender);
-      setNation(info.nation);  
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  // Get icon
-  const getIcon = async () => {
-    let icon = Default;
-    try {
-      icon = 
-        await FirebasePack
-          .storage()
-          .ref('user-icon/' + uid + '/icon.jpg')
-          .getDownloadURL();
-    } catch (error) {
-      setIconError(handleFirebaseError(error));
-    }
-    setIconURL(icon);
-  };
 
   // Get picture
   const getStorage = async (groupArray, code) => {
@@ -99,9 +64,9 @@ const Profile = () => {
     }
   };
 
-  // Get created groups
-  const getCreated = async () => {
-    let groupArray = [];
+  // Get info
+  const getInfo = async() => {
+    let groupArray;
     try {
       let cache = 
         await FirebasePack
@@ -110,96 +75,133 @@ const Profile = () => {
           .doc(uid)
           .get();
       let info = cache.data();
-      if(info) {
-        groupArray = info.created_groups;
+      if(!info) {
+        alert('Non-existence');
+        history.push('/');
       }
+      setNickname(info.nickname);
+      setGender(info.gender);
+      setNation(info.nation);  
+      // Get created groups
+      groupArray = info.created_groups;      
     } catch (error) {
       console.log(error);
     }
+    // Get created groups URL
     await getStorage(groupArray, 1);
   };
 
+  // Get icon
+  const getIcon = async () => {
+    let icon = Default;
+    try {
+      icon = 
+        await FirebasePack
+          .storage()
+          .ref('user-icon/' + uid + '/icon.jpg')
+          .getDownloadURL();
+    } catch (error) {
+      setIconError(handleFirebaseError(error));
+    }
+    setIconURL(icon);
+  };
+
   // Get joined groups
-  const getJoined = async () => {
+  const getJoined = async (doc) => {
     let groupArray = [];
     try {
-      await FirebasePack
-        .firestore()
-        .collection('user-info')
-        .doc(uid)
-        .collection('joined-groups')
-        .get()
-        .then((querySnapshot) => {
-          querySnapshot.forEach((doc) => {
-            let groupName = doc.data().group_name;
-            groupArray.push(groupName);
-          });
-        });  
+      await doc
+      .ref
+      .collection('joined-groups')
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          let groupName = doc.data().group_name;
+          groupArray.push(groupName);
+        });
+      }); 
     } catch (error) {
       console.log(error);
-    }
+    }   
     await getStorage(groupArray, 2);
   };
 
-  // Get subdiscussions info
-  const getSubInfo = async (amount) => {
-    let sum = 0;
+  // Get discussions info
+  const getDiscussions = async (doc) => {
+    let groupArray = [];
+    let container = [];
+    let amount = 0;
     try {
-      await FirebasePack
-        .firestore()
-        .collection('user-info')
-        .doc(uid)
-        .collection('created-subdiscussions')
-        .get()
-        .then((querySnapshot) => {
-          sum = amount + querySnapshot.size;
-        });  
-    } catch (error) {
-      console.log(error);
-    }
-    return sum;
+      await doc
+    .ref
+    .collection('created-discussions')
+    .get()
+    .then((querySnapshot) => {
+      amount = querySnapshot.size;
+      querySnapshot.forEach((doc) => {
+        let info = {
+          groupName: doc.data().group_name,
+          uid: doc.data().discussion_uid,
+          title: doc.data().title
+        };
+        groupArray.push(doc.data().group_name);
+        container.push(info);
+      });
+    });  
+  } catch (error) {
+    console.log(error);
+  }   
+  setDiscussionInfos(container);
+    await getStorage(groupArray, 3);
+    return amount;
   };
 
-  // Get discussions info
-  const getDiscussionInfo = async () => {
-    let groupArray = [];
+  // Get subdiscussions info
+  const getSub = async (doc) => {
     let amount = 0;
-    let container = [];
     try {
-      await FirebasePack
-        .firestore()
-        .collection('user-info')
-        .doc(uid)
-        .collection('created-discussions')
-        .get()
-        .then((querySnapshot) => {
-          amount = querySnapshot.size;
-          querySnapshot.forEach((doc) => {
-            let info = {
-              groupName: doc.data().group_name,
-              uid: doc.data().discussion_uid,
-              title: doc.data().title
-            };
-            groupArray.push(doc.data().group_name);
-            container.push(info);
-          });
-        });  
+      await doc
+    .ref
+    .collection('created-subdiscussions')
+    .get()
+    .then((querySnapshot) => {
+      amount = querySnapshot.size;
+    });  
+  } catch (error) {
+    console.log(error);
+  }   
+  return amount;
+  };
+
+  // Get data
+  const getData = async () => {
+    let container = [];
+    let groupArray = [];
+    let sum = 0;
+    try {
+      let userDoc = 
+        await FirebasePack
+          .firestore()
+          .collection('user-info')
+          .doc(uid)
+          .get();
+
+      await getJoined(userDoc);
+      sum = await getDiscussions(userDoc);
+      sum += await getSub(userDoc);
+
+      setAmount(sum);
     } catch (error) {
       console.log(error);
     }
-    let sum = await getSubInfo(amount);
-    setAmount(sum);
-    setDiscussionInfos(container);
-    await getStorage(groupArray, 3);
   };
+
 
   // Fetch data from Firestore and Firestorage
   const fetchData = async () => {
     await getInfo();
     await getIcon();
-    await getCreated();
-    await getJoined();
-    await getDiscussionInfo();
+    await getData();
     setPageLoading(false);
   };
 
