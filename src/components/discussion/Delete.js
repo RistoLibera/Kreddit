@@ -4,39 +4,55 @@ import FirebasePack from '../../config/FirebasePack';
 
 const Search = (props) => {
   const history = useHistory();
-  const { groupUID, id, currentUser, parentLayer } = props;
+  const { document, currentUser, parentLayer } = props;
 
-  // Check if subdiscussion
+  // Delete discussion or subdiscussion
+  const deleteRecord = async () => {
+    try {
+      await document
+        .ref
+        .delete();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // Delete info
+  const deleteInfo = async () => {
+    if (parentLayer === 0 ) {
+      try {
+        await FirebasePack
+          .firestore()
+          .collection('user-info')
+          .doc(currentUser.uid)
+          .collection('created-discussions')
+          .doc(document.id)
+          .delete();
+      } catch (error) {
+        console.log(error);
+      }  
+    } else {
+      try {
+        await FirebasePack
+          .firestore()
+          .collection('user-info')
+          .doc(currentUser.uid)
+          .collection('created-subdiscussions')
+          .doc(document.id)
+          .delete();
+      } catch (error) {
+        console.log(error);
+      }  
+    }
+  };
+
   const deleteThis = async () => {
     let confirmation = window.confirm('This action will wipe out everything in this discussion, proceed carefully!');
     if (!confirmation) {
       return;
     }
-
-    try {
-      await FirebasePack
-        .firestore()
-        .collection('groups')
-        .doc(groupUID)
-        .collection('discussions')
-        .doc(id)
-        .delete();
-    } catch (error) {
-      console.log(error);
-    }
-
-    try {
-      await FirebasePack
-        .firestore()
-        .collection('user-info')
-        .doc(currentUser.uid)
-        .collection('created-discussions')
-        .doc(id)
-        .delete();
-    } catch (error) {
-      console.log(error);
-    }
-
+    await deleteRecord();
+    await deleteInfo();
     alert('success!');
     history.push('/discussions/00');
   };

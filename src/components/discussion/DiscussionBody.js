@@ -165,7 +165,7 @@ const DiscussionBody = (props) => {
                       ?
                         <div className='current-interaction'>
                           <button onClick={toggleEdit}>Edit</button>
-                          <Delete groupUID={groupUID} id={document.id} currentUser={currentUser} parentLayer={layer}/>
+                          <Delete document={document} currentUser={currentUser} parentLayer={layer}/>
                         </div>
                       :
                         <div></div>
