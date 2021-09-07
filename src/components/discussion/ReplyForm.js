@@ -16,7 +16,7 @@ const ReplyForm = (props) => {
 
   // Adjust block width
   const makeLayerClass = () => {
-    let className = 'edit-layer-' + parentLayer; 
+    let className = 'reply-layer-' + parentLayer; 
     setLayerClass(className);
   };
 

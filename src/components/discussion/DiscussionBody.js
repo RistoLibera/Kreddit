@@ -147,7 +147,7 @@ const DiscussionBody = (props) => {
               <img src={imgURL} alt='img' width='70px' />
               {editShow
                 ? 
-                  <EditForm groupUID={groupUID} content={content} title={title} id={document.id} parentLayer={layer} rootUpdate={rootUpdate} toggleEdit={toggleEdit} />
+                  <EditForm content={content} title={title} document={document} parentLayer={layer} rootUpdate={rootUpdate} toggleEdit={toggleEdit} />
                   
                 :
                 <h2>{content}</h2>
