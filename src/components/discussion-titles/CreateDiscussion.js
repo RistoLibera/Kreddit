@@ -64,7 +64,7 @@ const CreateDiscussion = (props) => {
   };
 
   // Update Firestore
-  const addDiscussion = async (groupUID, group, title, content, user) => {
+  const addDiscussion = async (groupUID, group, title, content) => {
     let creator = (user.email).slice(0, -9);
     let uid = user.uid;
     let randomUID;
@@ -97,7 +97,6 @@ const CreateDiscussion = (props) => {
     } catch (error) {
       console.log(error);
     }
-    setPageLoading(false);
     return randomUID;
   };
 
@@ -142,7 +141,7 @@ const CreateDiscussion = (props) => {
     let titleValue = title.value;
     let contentValue = content.value;
     let attachmentValue = attachment.files[0];
-    let discussionUID = await addDiscussion(groupUID, groupValue, titleValue, contentValue, user);
+    let discussionUID = await addDiscussion(groupUID, groupValue, titleValue, contentValue);
     await addImg(titleValue, attachmentValue);
     await updateInfo(groupUID, groupValue, discussionUID, titleValue, user.uid);
     alert('success!');

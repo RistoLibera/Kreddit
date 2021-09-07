@@ -7,7 +7,6 @@ import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
 import handleFirebaseError from '../../components/error/handleFirebaseError';
 
-// change discussions creator to (DELETED)
 const DeleteUser = (props) => {
   const history = useHistory();
   const { uid } = props;

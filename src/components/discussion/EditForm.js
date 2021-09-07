@@ -4,7 +4,7 @@ import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
 
 const EditForm = (props) => {
-  const { groupUID, content, title, id, rootUpdate, toggleEdit } = props;
+  const { groupUID, content, title, id, parentLayer, rootUpdate, toggleEdit } = props;
   const spinnerCSS = css`
   display: block;
   margin: 0 auto;
@@ -49,7 +49,7 @@ const EditForm = (props) => {
     let contentValue = content.value;
     let attachmentValue = attachment.files[0];
     if (contentValue !== content) await updateContent(contentValue);
-    if (attachmentValue) await updateImg(attachmentValue);
+    if (attachmentValue === undefined) await updateImg(attachmentValue);
     toggleEdit();
     setPageLoading(false);
     rootUpdate();

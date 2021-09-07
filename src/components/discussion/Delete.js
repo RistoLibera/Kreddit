@@ -4,7 +4,7 @@ import FirebasePack from '../../config/FirebasePack';
 
 const Search = (props) => {
   const history = useHistory();
-  const { groupUID, id, currentUser } = props;
+  const { groupUID, id, currentUser, parentLayer } = props;
 
   // Check if subdiscussion
   const deleteThis = async () => {

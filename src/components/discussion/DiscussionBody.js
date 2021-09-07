@@ -116,6 +116,8 @@ const DiscussionBody = (props) => {
     setContent(data.content);
     setGroup(data.group);
     setRating(data.rating_up.length - data.rating_down.length);
+    setLayer(data.layer);
+    setLayerStructure(data.layer_structure);
   };
 
   useEffect(() => {
@@ -144,9 +146,9 @@ const DiscussionBody = (props) => {
             <div className='title-content'>
               <img src={imgURL} alt='img' width='70px' />
               {editShow
-                ? <div className='edit-layer-0'>
-                    <EditForm groupUID={groupUID} content={content} title={title} id={document.id} rootUpdate={rootUpdate} toggleEdit={toggleEdit} />
-                  </div>
+                ? 
+                  <EditForm groupUID={groupUID} content={content} title={title} id={document.id} parentLayer={layer} rootUpdate={rootUpdate} toggleEdit={toggleEdit} />
+                  
                 :
                 <h2>{content}</h2>
               }
@@ -163,7 +165,7 @@ const DiscussionBody = (props) => {
                       ?
                         <div className='current-interaction'>
                           <button onClick={toggleEdit}>Edit</button>
-                          <Delete groupUID={groupUID} id={document.id} currentUser={currentUser} />
+                          <Delete groupUID={groupUID} id={document.id} currentUser={currentUser} parentLayer={layer}/>
                         </div>
                       :
                         <div></div>
@@ -177,11 +179,8 @@ const DiscussionBody = (props) => {
             </div>
           </div>
         </div>
-
-        <div className='reply-layer-0'>
-          <ReplyForm user={currentUser} hidden={formHidden} document={document} rootUpdate={rootUpdate}/>
-        </div>
-        
+        <ReplyForm user={currentUser} hidden={formHidden} document={document} parentLayer={layer} layerStructure={layerStructure} rootUpdate={rootUpdate} switchHidden={switchHidden} />
+      
         <SubDiscussionBody />
       </div>
     </div>
