@@ -25,7 +25,7 @@ const handleFirebaseError = (error) => {
       message = 'Sorry, only character or number';
       break;
     default:
-    message = 'Uncharted error';
+      message = 'Uncharted error';
   }
 
   return message;

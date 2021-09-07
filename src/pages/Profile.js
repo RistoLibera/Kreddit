@@ -30,7 +30,8 @@ const Profile = () => {
   const [createdGroups, setCreatedGroups] = useState([]);
   const [joinedGroups, setJoinedGroups] = useState([]);
   const [amount, setAmount] = useState(0);
-
+  const [discussionGrouops, setDiscussonGroups] = useState([]);
+  const [discussionInfos, setDiscussionInfos] = useState([]);
   // Get info
   const getInfo = async() => {
     try {
@@ -68,8 +69,8 @@ const Profile = () => {
     setIconURL(icon);
   };
 
-  // Get created symbol
-  const getCreatedSymbol = async (groupArray) => {
+  // Get picture
+  const getStorage = async (groupArray, code) => {
     let container = [];
     for (const groupName of groupArray) {
       try {
@@ -83,7 +84,19 @@ const Profile = () => {
         console.log(error);
       }
     }
-    setCreatedGroups(container);
+    switch (code) {
+      case 1:
+        setCreatedGroups(container);
+        break;
+      case 2:
+        setJoinedGroups(container);
+        break;
+      case 3:
+        setDiscussonGroups(container);
+        break;
+      default:
+        console.log('Can not get pictures');
+    }
   };
 
   // Get created groups
@@ -103,25 +116,7 @@ const Profile = () => {
     } catch (error) {
       console.log(error);
     }
-    await getCreatedSymbol(groupArray);
-  };
-
-  // Get joined symbol
-  const getJoinedSymbol = async (groupArray) => {
-    let container = [];
-    for (const groupName of groupArray) {
-      try {
-        let url = 
-          await FirebasePack
-            .storage()
-            .ref('group-symbol/' + groupName + '/symbol.jpg')
-            .getDownloadURL();
-        container.push(url);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    setJoinedGroups(container);
+    await getStorage(groupArray, 1);
   };
 
   // Get joined groups
@@ -143,12 +138,33 @@ const Profile = () => {
     } catch (error) {
       console.log(error);
     }
-    await getJoinedSymbol(groupArray);
+    await getStorage(groupArray, 2);
   };
 
-  // Get posted amount
-  const getDiscussionAmount = async () => {
+  // Get subdiscussions info
+  const getSubInfo = async (amount) => {
+    let sum = 0;
+    try {
+      await FirebasePack
+        .firestore()
+        .collection('user-info')
+        .doc(uid)
+        .collection('created-subdiscussions')
+        .get()
+        .then((querySnapshot) => {
+          sum = amount + querySnapshot.size;
+        });  
+    } catch (error) {
+      console.log(error);
+    }
+    return sum;
+  };
+
+  // Get discussions info
+  const getDiscussionInfo = async () => {
+    let groupArray = [];
     let amount = 0;
+    let container = [];
     try {
       await FirebasePack
         .firestore()
@@ -158,25 +174,22 @@ const Profile = () => {
         .get()
         .then((querySnapshot) => {
           amount = querySnapshot.size;
+          querySnapshot.forEach((doc) => {
+            let info = {
+              uid: doc.data().discussion_uid,
+              title: doc.data().title
+            };
+            groupArray.push(doc.data().group_name);
+            container.push(info);
+          });
         });  
     } catch (error) {
       console.log(error);
     }
-
-    try {
-      await FirebasePack
-        .firestore()
-        .collection('user-info')
-        .doc(uid)
-        .collection('created-subdiscussions')
-        .get()
-        .then((querySnapshot) => {
-          amount += querySnapshot.size;
-        });  
-    } catch (error) {
-      console.log(error);
-    }
-    setAmount(amount);
+    let sum = await getSubInfo(amount);
+    setAmount(sum);
+    setDiscussionInfos(container);
+    await getStorage(groupArray, 3);
   };
 
   // Fetch data from Firestore and Firestorage
@@ -185,7 +198,7 @@ const Profile = () => {
     await getIcon();
     await getCreated();
     await getJoined();
-    await getDiscussionAmount();
+    await getDiscussionInfo();
     setPageLoading(false);
   };
 
@@ -217,7 +230,7 @@ const Profile = () => {
             </div>
 
             <div className='lower-profile'>
-              <Titles />
+              <Titles discussionGrouops={discussionGrouops} discussionInfos={discussionInfos} />
             </div>
           </div>
       }
