@@ -27,10 +27,10 @@ const Profile = () => {
   const [iconURL, setIconURL] = useState('');
   const [iconError, setIconError] = useState([]);
   const [pageLoading, setPageLoading] = useState(true);
-  const [createdGroups, setCreatedGroups] = useState([]);
-  const [joinedGroups, setJoinedGroups] = useState([]);
+  const [createdURLs, setCreatedURLs] = useState([]);
+  const [joinedURLs, setJoinedURLs] = useState([]);
   const [amount, setAmount] = useState(0);
-  const [discussionGrouops, setDiscussonGroups] = useState([]);
+  const [discussionGroupURLs, setDiscussonGroupURLs] = useState([]);
   const [discussionInfos, setDiscussionInfos] = useState([]);
   // Get info
   const getInfo = async() => {
@@ -86,13 +86,13 @@ const Profile = () => {
     }
     switch (code) {
       case 1:
-        setCreatedGroups(container);
+        setCreatedURLs(container);
         break;
       case 2:
-        setJoinedGroups(container);
+        setJoinedURLs(container);
         break;
       case 3:
-        setDiscussonGroups(container);
+        setDiscussonGroupURLs(container);
         break;
       default:
         console.log('Can not get pictures');
@@ -176,6 +176,7 @@ const Profile = () => {
           amount = querySnapshot.size;
           querySnapshot.forEach((doc) => {
             let info = {
+              groupName: doc.data().group_name,
               uid: doc.data().discussion_uid,
               title: doc.data().title
             };
@@ -220,7 +221,7 @@ const Profile = () => {
 
               <div className='info'>
                 <ShowInfo nickname={nickname} gender={gender} nation={nation} />
-                <ShowStatistic createdGroups={createdGroups} joinedGroups={joinedGroups} amount={amount} />
+                <ShowStatistic createdURLs={createdURLs} joinedURLs={joinedURLs} amount={amount} />
               </div>
 
               <div className='registration'>
@@ -230,7 +231,7 @@ const Profile = () => {
             </div>
 
             <div className='lower-profile'>
-              <Titles discussionGrouops={discussionGrouops} discussionInfos={discussionInfos} />
+              <Titles discussionGroupURLs={discussionGroupURLs} discussionInfos={discussionInfos} />
             </div>
           </div>
       }

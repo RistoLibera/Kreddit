@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCommentDots } from '@fortawesome/free-solid-svg-icons';
 
 const ShowStatistic = (props) => {
-  const { createdGroups, joinedGroups, amount } = props;
+  const { createdURLs, joinedURLs, amount } = props;
   const [createdList, setCreatedList] = useState([]);
   const [createdRemnant, setCreatedRemnant] = useState(0);
   const [joinedList, setjoinedList] = useState([]);
@@ -19,14 +19,14 @@ const ShowStatistic = (props) => {
   };
   
   const showCreated = () => {
-    const length = createdGroups.length;
+    const length = createdURLs.length;
     if (length === 0) return;
     if (length > 3) setCreatedRemnant(length - 3);
     let iterator = (length < 4 ? length : 3);
 
     let container = [];
     for (let i = 0; i < iterator; i++) {
-      let url = createdGroups[i];
+      let url = createdURLs[i];
       let list = makeList(url, i);
       container.push(list);
     }
@@ -34,14 +34,14 @@ const ShowStatistic = (props) => {
   };
 
   const showJoined = () => {
-    const length = joinedGroups.length;
+    const length = joinedURLs.length;
     if (length === 0) return;
     if (length > 3) setjoinedRemnant(length - 3);
     let iterator = (length < 4 ? length : 3);
 
     let container = [];
     for (let i = 0; i < iterator; i++) {
-      let url = joinedGroups[i];
+      let url = joinedURLs[i];
       let list = makeList(url, i);
       container.push(list);
     }

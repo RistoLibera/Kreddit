@@ -64,7 +64,7 @@
     .lower-profile {
       @extend %flex-column-direction;
 
-      .title-blocks {
+      .title-blocks ul li{
         @extend %flex-row-direction;
 
         .entry {
