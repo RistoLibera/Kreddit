@@ -29,7 +29,8 @@ const Profile = () => {
   const [pageLoading, setPageLoading] = useState(true);
   const [createdGroups, setCreatedGroups] = useState([]);
   const [joinedGroups, setJoinedGroups] = useState([]);
-  
+  const [amount, setAmount] = useState(0);
+
   // Get info
   const getInfo = async() => {
     try {
@@ -145,12 +146,46 @@ const Profile = () => {
     await getJoinedSymbol(groupArray);
   };
 
+  // Get posted amount
+  const getDiscussionAmount = async () => {
+    let amount = 0;
+    try {
+      await FirebasePack
+        .firestore()
+        .collection('user-info')
+        .doc(uid)
+        .collection('created-discussions')
+        .get()
+        .then((querySnapshot) => {
+          amount = querySnapshot.size;
+        });  
+    } catch (error) {
+      console.log(error);
+    }
+
+    try {
+      await FirebasePack
+        .firestore()
+        .collection('user-info')
+        .doc(uid)
+        .collection('created-subdiscussions')
+        .get()
+        .then((querySnapshot) => {
+          amount += querySnapshot.size;
+        });  
+    } catch (error) {
+      console.log(error);
+    }
+    setAmount(amount);
+  };
+
   // Fetch data from Firestore and Firestorage
   const fetchData = async () => {
     await getInfo();
     await getIcon();
     await getCreated();
     await getJoined();
+    await getDiscussionAmount();
     setPageLoading(false);
   };
 
@@ -172,7 +207,7 @@ const Profile = () => {
 
               <div className='info'>
                 <ShowInfo nickname={nickname} gender={gender} nation={nation} />
-                <ShowStatistic createdGroups={createdGroups} joinedGroups={joinedGroups} />
+                <ShowStatistic createdGroups={createdGroups} joinedGroups={joinedGroups} amount={amount} />
               </div>
 
               <div className='registration'>

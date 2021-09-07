@@ -47,6 +47,12 @@
             }
 
           }
+          
+          .as-participant {
+            @extend %flex-row-direction;
+
+          }
+
         }
       }
   

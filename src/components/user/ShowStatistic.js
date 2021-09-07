@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCommentDots } from '@fortawesome/free-solid-svg-icons';
 
 const ShowStatistic = (props) => {
-  const { createdGroups, joinedGroups } = props;
+  const { createdGroups, joinedGroups, amount } = props;
   const [createdList, setCreatedList] = useState([]);
   const [createdRemnant, setCreatedRemnant] = useState(0);
   const [joinedList, setjoinedList] = useState([]);
@@ -76,7 +78,8 @@ const ShowStatistic = (props) => {
       </div>
 
       <div className='as-participant'>
-        <p>number</p>
+        <FontAwesomeIcon icon={faCommentDots} color='' size='2x' />
+        <p>{amount}</p>
       </div>
     </div>
   );
