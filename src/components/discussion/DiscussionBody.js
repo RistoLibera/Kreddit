@@ -4,7 +4,7 @@ import { DateTime, Interval } from "luxon";
 import FirebasePack from '../../config/FirebasePack';
 import DefaultIcon from '../../assets/img/default-icon.jpg';
 import DefaultSymbol from '../../assets/img/default-symbol.png';
-import Reply from './Reply';
+import ReplyForm from './ReplyForm';
 import EditForm from './EditForm';
 import Delete from './Delete';
 import RatingButtons from './RatingButtons';
@@ -14,6 +14,7 @@ const DiscussionBody = (props) => {
   const { currentUser } = useContext(AuthContext);
   const { groupUID, document, rootUpdate } = props;
   const [editShow, setEditShow] = useState(false);
+  const [formHidden, setFormHidden] = useState('hidden');
   const [group, setGroup] = useState('');
   const [symbolURL, setSymbolURL] = useState('');
   const [iconURL, setIconURL] = useState('');
@@ -24,6 +25,14 @@ const DiscussionBody = (props) => {
   const [content, setContent] = useState('');
   const [rating, setRating] = useState(0);
 
+  const switchHidden = () => {
+    if (formHidden === 'hidden') {
+      setFormHidden('form-container');
+    } else {
+      setFormHidden('hidden');
+    }
+  };
+  
   // Toggle edit form
   const toggleEdit = () => {
     setEditShow(!editShow);
@@ -99,7 +108,7 @@ const DiscussionBody = (props) => {
     calculateTime(data);
     await getIcon(data.creator_uid);
     await getImg(data.title);
-    await getSymbol(data.group);
+    await getSymbol(data.group_name);
     setTitle(data.title);
     setCreator(data.creator_name); 
     setContent(data.content);
@@ -144,7 +153,9 @@ const DiscussionBody = (props) => {
               {currentUser
                 ?
                   <div className='interaction'>
-                    <Reply />
+                    <div className='reply-block'>
+                      <button onClick={switchHidden}>Reply</button>
+                    </div>
                     {currentUser.uid === document.data().creator_uid
                       ?
                         <div className='current-interaction'>
@@ -163,7 +174,7 @@ const DiscussionBody = (props) => {
             </div>
           </div>
         </div>
-
+        <ReplyForm user={currentUser} hidden={formHidden} rootUpdate={rootUpdate}/>
         <SubDiscussionBody />
       </div>
     </div>

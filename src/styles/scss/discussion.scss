@@ -28,6 +28,11 @@
 
         .title-buttons {
           @extend %flex-row-direction;
+
+          .interaction {
+          @extend %flex-row-direction;
+
+          }
         }
       }
     }

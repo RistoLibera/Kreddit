@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import FirebasePack from '../../config/FirebasePack';
 import firebase from 'firebase/app';
 import { css } from '@emotion/react';

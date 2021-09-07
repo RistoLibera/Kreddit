@@ -1,4 +1,4 @@
-.discussion-page .discussion-content .group, .discussion-page .discussion-content .title, .discussion-page .discussion-content .title .title-body .body-header, .discussion-page .discussion-content .title .title-body .title-buttons {
+.discussion-page .discussion-content .group, .discussion-page .discussion-content .title, .discussion-page .discussion-content .title .title-body .body-header, .discussion-page .discussion-content .title .title-body .title-buttons, .discussion-page .discussion-content .title .title-body .title-buttons .interaction {
   display: flex;
   flex-direction: row;
   justify-content: space-between;

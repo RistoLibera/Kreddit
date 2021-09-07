@@ -114,7 +114,7 @@ const GroupList = (props) => {
             :
               <button>Join</button>
           }
-          <button onClick={() => history.push('/discussions/' + groupName)} >To discussion by auto select group button</button>
+          <button onClick={() => history.push('/discussions/' + groupName)} >To discussion</button>
         </div>
       </li>
     );
