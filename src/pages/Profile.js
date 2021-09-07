@@ -133,21 +133,21 @@ const Profile = () => {
     let amount = 0;
     try {
       await doc
-    .ref
-    .collection('created-discussions')
-    .get()
-    .then((querySnapshot) => {
-      amount = querySnapshot.size;
-      querySnapshot.forEach((doc) => {
-        let info = {
-          groupName: doc.data().group_name,
-          uid: doc.data().discussion_uid,
-          title: doc.data().title
-        };
-        groupArray.push(doc.data().group_name);
-        container.push(info);
-      });
-    });  
+      .ref
+      .collection('created-discussions')
+      .get()
+      .then((querySnapshot) => {
+        amount = querySnapshot.size;
+        querySnapshot.forEach((doc) => {
+          let info = {
+            groupName: doc.data().group_name,
+            uid: doc.data().discussion_uid,
+            title: doc.data().title
+          };
+          groupArray.push(doc.data().group_name);
+          container.push(info);
+        });
+      });  
   } catch (error) {
     console.log(error);
   }   
@@ -161,12 +161,12 @@ const Profile = () => {
     let amount = 0;
     try {
       await doc
-    .ref
-    .collection('created-subdiscussions')
-    .get()
-    .then((querySnapshot) => {
-      amount = querySnapshot.size;
-    });  
+      .ref
+      .collection('created-subdiscussions')
+      .get()
+      .then((querySnapshot) => {
+        amount = querySnapshot.size;
+      });  
   } catch (error) {
     console.log(error);
   }   

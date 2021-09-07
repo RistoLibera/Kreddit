@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretSquareDown, faCaretSquareUp } from '@fortawesome/free-solid-svg-icons';
 
 const RatingButtons = (props) => {
-  const { rating, currentUser, groupUID, id, document, rootUpdate } = props;
+  const { rating, currentUser, groupUID, document, rootUpdate } = props;
   const [disableUp, setDisableUp] = useState(false);
   const [disableDown, setDisableDown] = useState(false);
 
@@ -16,6 +16,11 @@ const RatingButtons = (props) => {
 
   // Check if rated
   const checkRated = async () => {
+    if (!currentUser) {
+      setDisableUp(true);
+      setDisableDown(true);
+      return;
+    }
     let currentUID = currentUser.uid;
     let data = document.data();
     let hasRatingUp = data.rating_up.some((uid) => uid === currentUID);
@@ -33,7 +38,7 @@ const RatingButtons = (props) => {
           .collection('groups')
           .doc(groupUID)
           .collection('discussions')
-          .doc(id)
+          .doc(document.id)
           .update({
             rating_up: firebase.firestore.FieldValue.arrayUnion(currentUser.uid),
             rating_down: firebase.firestore.FieldValue.arrayRemove(currentUser.uid)
@@ -48,7 +53,7 @@ const RatingButtons = (props) => {
           .collection('groups')
           .doc(groupUID)
           .collection('discussions')
-          .doc(id)
+          .doc(document.id)
           .update({
             rating_down: firebase.firestore.FieldValue.arrayUnion(currentUser.uid),
             rating_up: firebase.firestore.FieldValue.arrayRemove(currentUser.uid)

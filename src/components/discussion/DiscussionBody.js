@@ -24,6 +24,8 @@ const DiscussionBody = (props) => {
   const [time, setTime] = useState('');
   const [content, setContent] = useState('');
   const [rating, setRating] = useState(0);
+  const [layer, setLayer] = useState(0);
+  const [layerStructure, setLayerStructure] = useState(0);
 
   const switchHidden = () => {
     if (formHidden === 'hidden') {
@@ -129,7 +131,7 @@ const DiscussionBody = (props) => {
         </div>
         
         <div className='title'>
-          <RatingButtons rating={rating} currentUser={currentUser} groupUID={groupUID} id={document.id} document={document} rootUpdate={rootUpdate}/>
+          <RatingButtons rating={rating} currentUser={currentUser} groupUID={groupUID} document={document} rootUpdate={rootUpdate}/>
 
           <div className='title-body'>
             <header className='body-header'>
@@ -142,8 +144,9 @@ const DiscussionBody = (props) => {
             <div className='title-content'>
               <img src={imgURL} alt='img' width='70px' />
               {editShow
-                ?
-                  <EditForm groupUID={groupUID} content={content} title={title} id={document.id} rootUpdate={rootUpdate} toggleEdit={toggleEdit} />
+                ? <div className='edit-layer-0'>
+                    <EditForm groupUID={groupUID} content={content} title={title} id={document.id} rootUpdate={rootUpdate} toggleEdit={toggleEdit} />
+                  </div>
                 :
                 <h2>{content}</h2>
               }
@@ -174,7 +177,11 @@ const DiscussionBody = (props) => {
             </div>
           </div>
         </div>
-        <ReplyForm user={currentUser} hidden={formHidden} rootUpdate={rootUpdate}/>
+
+        <div className='reply-layer-0'>
+          <ReplyForm user={currentUser} hidden={formHidden} document={document} rootUpdate={rootUpdate}/>
+        </div>
+        
         <SubDiscussionBody />
       </div>
     </div>

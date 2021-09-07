@@ -3,13 +3,14 @@ import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
 
 const ReplyForm = (props) => {
-  const { user, hidden, rootUpdate } = props;
+  const { user, hidden, document, rootUpdate } = props;
   const spinnerCSS = css`
   display: block;
   margin: 0 auto;
   border-color: red;
   `;
   const [pageLoading, setPageLoading] = useState(false);
+  // Check if subdiscussion
 
 //  layer-structure  subdiscussions
 //  replied by  layer + 1  by uid

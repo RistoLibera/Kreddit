@@ -11,6 +11,7 @@ const EditForm = (props) => {
   border-color: red;
   `;
   const [pageLoading, setPageLoading] = useState(false);
+  // Check if subdiscussion
 
   // Update content
   const updateContent = async (content) => {

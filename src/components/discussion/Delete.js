@@ -6,7 +6,8 @@ const Search = (props) => {
   const history = useHistory();
   const { groupUID, id, currentUser } = props;
 
-  const deleteDiscussion = async () => {
+  // Check if subdiscussion
+  const deleteThis = async () => {
     let confirmation = window.confirm('This action will wipe out everything in this discussion, proceed carefully!');
     if (!confirmation) {
       return;
@@ -41,7 +42,7 @@ const Search = (props) => {
   };
   
   return (
-    <button onClick={deleteDiscussion}>Delete</button>
+    <button onClick={deleteThis}>Delete</button>
   );
 };
 

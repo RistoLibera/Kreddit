@@ -70,7 +70,7 @@ const DiscussionTitles = () => {
   const storeDiscussions = async (groupCache) => {
     let container = [];
     for (const doc of groupCache.docs) {
-      let discussionCache = await doc.ref.collection('discussions').orderBy("created_time", "desc").get();    
+      let discussionCache = await doc.ref.collection('discussions').orderBy("created_time", "asc").get();    
       if (discussionCache) {
         discussionCache.forEach((doc) => {
           container.push(doc);
@@ -87,7 +87,7 @@ const DiscussionTitles = () => {
         await FirebasePack
           .firestore()
           .collection('groups')
-          .orderBy("created_time", "desc")
+          .orderBy("created_time", "asc")
           .get();
       storeGroups(groupCache);
       await storeDiscussions(groupCache);
