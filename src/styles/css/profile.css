@@ -1,4 +1,4 @@
-.profile-page .profile-container .upper-profile, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile .info .lower-info {
+.profile-page .profile-container .upper-profile, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile .info .lower-info, .profile-page .profile-container .upper-profile .info .lower-info .as-creator, .profile-page .profile-container .upper-profile .info .lower-info .as-creator ul, .profile-page .profile-container .upper-profile .info .lower-info .as-member, .profile-page .profile-container .upper-profile .info .lower-info .as-member ul {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -15,6 +15,12 @@
 
 .profile-page .profile-container .upper-profile {
   justify-content: space-around;
+}
+.profile-page .profile-container .upper-profile .info .lower-info .as-creator ul li {
+  list-style: none;
+}
+.profile-page .profile-container .upper-profile .info .lower-info .as-member ul li {
+  list-style: none;
 }
 
 /*# sourceMappingURL=profile.css.map */

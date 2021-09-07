@@ -111,7 +111,6 @@ const CreateDiscussion = (props) => {
     } catch (error) {
       console.log(error);
     }
-
   };
 
   //  Update user info

@@ -94,7 +94,7 @@ const CreateGroup = (props) => {
       alert("Group already created!");
       setPageLoading(false);
       return;
-    } else if(amount > 2) {
+    } else if(amount > 3) {
       alert("Reach creation limit!");
       setPageLoading(false);
       return;
@@ -120,7 +120,7 @@ const CreateGroup = (props) => {
         :
           <form onSubmit={handleCreation}>
             <fieldset>
-              <legend>You can create at most three groups</legend>
+              <legend>You can create at most four groups</legend>
               <label htmlFor='name'>Name</label>
               <input type='text' id='name' name='name' placeholder='3 or more characters!' minLength='3' maxLength='20' required/><br></br>
               <label htmlFor='introduction'>Introduction</label>

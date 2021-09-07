@@ -22,6 +22,31 @@
   
         .lower-info {
           @extend %flex-row-direction;
+
+          .as-creator {
+            @extend %flex-row-direction;
+
+            ul{
+              @extend %flex-row-direction;
+
+              li {
+                list-style: none;
+              }
+            }
+          }
+
+          .as-member {
+            @extend %flex-row-direction;
+
+            ul{
+              @extend %flex-row-direction;
+
+              li {
+                list-style: none;
+              }
+            }
+
+          }
         }
       }
   

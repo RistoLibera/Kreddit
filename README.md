@@ -22,7 +22,7 @@
 ### By group
 
 - You can join in groups.
-- You can create group(3 for most).
+- You can create group(4 for most).
 - You can upload group symbol.
 - You can see when the group were created.
 - You can jump to certain group's discussions.

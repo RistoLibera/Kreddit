@@ -27,8 +27,10 @@ const Profile = () => {
   const [iconURL, setIconURL] = useState('');
   const [iconError, setIconError] = useState([]);
   const [pageLoading, setPageLoading] = useState(true);
-
-  // get info
+  const [createdGroups, setCreatedGroups] = useState([]);
+  const [joinedGroups, setJoinedGroups] = useState([]);
+  
+  // Get info
   const getInfo = async() => {
     try {
       let cache = 
@@ -50,7 +52,7 @@ const Profile = () => {
     }
   };
 
-  // get icon
+  // Get icon
   const getIcon = async () => {
     let icon = Default;
     try {
@@ -64,11 +66,91 @@ const Profile = () => {
     }
     setIconURL(icon);
   };
-  
+
+  // Get created symbol
+  const getCreatedSymbol = async (groupArray) => {
+    let container = [];
+    for (const groupName of groupArray) {
+      try {
+        let url = 
+          await FirebasePack
+            .storage()
+            .ref('group-symbol/' + groupName + '/symbol.jpg')
+            .getDownloadURL();
+        container.push(url);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    setCreatedGroups(container);
+  };
+
+  // Get created groups
+  const getCreated = async () => {
+    let groupArray = [];
+    try {
+      let cache = 
+        await FirebasePack
+          .firestore()
+          .collection('user-info')
+          .doc(uid)
+          .get();
+      let info = cache.data();
+      if(info) {
+        groupArray = info.created_groups;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+    await getCreatedSymbol(groupArray);
+  };
+
+  // Get joined symbol
+  const getJoinedSymbol = async (groupArray) => {
+    let container = [];
+    for (const groupName of groupArray) {
+      try {
+        let url = 
+          await FirebasePack
+            .storage()
+            .ref('group-symbol/' + groupName + '/symbol.jpg')
+            .getDownloadURL();
+        container.push(url);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    setJoinedGroups(container);
+  };
+
+  // Get joined groups
+  const getJoined = async () => {
+    let groupArray = [];
+    try {
+      await FirebasePack
+        .firestore()
+        .collection('user-info')
+        .doc(uid)
+        .collection('joined-groups')
+        .get()
+        .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            let groupName = doc.data().group_name;
+            groupArray.push(groupName);
+          });
+        });  
+    } catch (error) {
+      console.log(error);
+    }
+    await getJoinedSymbol(groupArray);
+  };
+
   // Fetch data from Firestore and Firestorage
   const fetchData = async () => {
     await getInfo();
     await getIcon();
+    await getCreated();
+    await getJoined();
     setPageLoading(false);
   };
 
@@ -90,7 +172,7 @@ const Profile = () => {
 
               <div className='info'>
                 <ShowInfo nickname={nickname} gender={gender} nation={nation} />
-                <ShowStatistic />
+                <ShowStatistic createdGroups={createdGroups} joinedGroups={joinedGroups} />
               </div>
 
               <div className='registration'>
