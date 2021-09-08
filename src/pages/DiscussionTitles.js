@@ -70,7 +70,7 @@ const DiscussionTitles = () => {
   const storeDiscussions = async (groupCache) => {
     let container = [];
     for (const doc of groupCache.docs) {
-      let discussionCache = await doc.ref.collection('discussions').orderBy("created_time", "asc").get();    
+      let discussionCache = await doc.ref.collection('discussions').orderBy("created_time", "desc").get();    
       if (discussionCache) {
         discussionCache.forEach((doc) => {
           container.push(doc);

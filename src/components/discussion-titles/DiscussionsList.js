@@ -115,6 +115,7 @@ const DiscussionsList = (props) => {
       let data = doc.data();
       let discussion_uid = doc.id;
       let group_name = data.group_name;
+      // For Filterbuttons component
       if (!selectedGroups.some((groupName) => groupName === group_name) && selectedGroups.length !== 0) continue;
       let creator_name = data.creator_name;
       let creator_uid = data.creator_uid;

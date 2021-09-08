@@ -133,7 +133,7 @@ const DiscussionBody = (props) => {
       await document
         .ref
         .collection('subdiscussions')
-        .orderBy("created_time", "asc")
+        .orderBy("created_time", "desc")
         .get()
         .then((querySnapshot) => {
           querySnapshot.forEach((doc) => {

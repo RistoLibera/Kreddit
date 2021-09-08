@@ -3,7 +3,8 @@ import ReplyForm from './ReplyForm';
 import EditForm from './EditForm';
 import Delete from './Delete';
 
-const OneSubdiscussion = () => {
+const OneSubdiscussion = (props) => {
+  const { layer } = props;
   const [editShow, setEditShow] = useState(false);
   const [formHidden, setFormHidden] = useState('hidden');
 
