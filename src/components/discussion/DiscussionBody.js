@@ -179,7 +179,7 @@ const DiscussionBody = (props) => {
             </div>
           </div>
         </div>
-        <ReplyForm user={currentUser} hidden={formHidden} document={document} parentLayer={layer} layerStructure={layerStructure} rootUpdate={rootUpdate} switchHidden={switchHidden} />
+        <ReplyForm currentUser={currentUser} hidden={formHidden} document={document} parentLayer={layer} layerStructure={layerStructure} rootUpdate={rootUpdate} switchHidden={switchHidden} />
       
         <SubDiscussionBody />
       </div>

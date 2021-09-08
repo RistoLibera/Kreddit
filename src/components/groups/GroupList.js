@@ -6,7 +6,7 @@ import FirebasePack from '../../config/FirebasePack';
 
 const GroupList = (props) => {
   const history = useHistory();
-  const { documents, user, update } = props;
+  const { documents, currentUser, update } = props;
   const [listTags, setListTags] = useState([]);
 
   // Check current user enrollment
@@ -108,9 +108,9 @@ const GroupList = (props) => {
         </div>
 
         <div className='right-block'>
-          {user 
+          {currentUser 
             ? 
-              <button onClick={() => joinGroup(groupName, groupUID, user)} disabled={buttonState}>Join</button>
+              <button onClick={() => joinGroup(groupName, groupUID, currentUser)} disabled={buttonState}>Join</button>
             :
               <button>Join</button>
           }
@@ -132,7 +132,7 @@ const GroupList = (props) => {
       let introduction = data.introduction;
       let time = calculateTime(data);
       let symbolURL = await getSymbol(groupName);
-      let buttonState = await checkGroup(groupName, user);
+      let buttonState = await checkGroup(groupName, currentUser);
       let list =  makeList(groupName, groupUID, creator, introduction, time, symbolURL, index, buttonState);
       container.push(list);
     }

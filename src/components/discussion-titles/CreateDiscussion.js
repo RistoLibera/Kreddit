@@ -6,7 +6,7 @@ import BarLoader from 'react-spinners/BarLoader';
 
 //  change view matrix or line
 const CreateDiscussion = (props) => {
-  const { user, hidden, update } = props;
+  const { currentUser, hidden, update } = props;
   const spinnerCSS = css`
   display: block;
   margin: 0 auto;
@@ -60,14 +60,14 @@ const CreateDiscussion = (props) => {
 
   // Fill selective button
   const fillButton = async () => {
-    let groupInfos = await checkGroup(user);
+    let groupInfos = await checkGroup(currentUser);
     makeOption(groupInfos);
   };
 
   // Update Firestore
   const addDiscussion = async (groupUID, group, title, content) => {
-    let creator = (user.email).slice(0, -9);
-    let uid = user.uid;
+    let creator = (currentUser.email).slice(0, -9);
+    let uid = currentUser.uid;
     let randomUID;
     try {
       await FirebasePack
@@ -145,7 +145,7 @@ const CreateDiscussion = (props) => {
     let attachmentValue = attachment.files[0];
     let discussionUID = await addDiscussion(groupUID, groupValue, titleValue, contentValue);
     await addImg(titleValue, attachmentValue);
-    await updateInfo(groupUID, groupValue, discussionUID, titleValue, user.uid);
+    await updateInfo(groupUID, groupValue, discussionUID, titleValue, currentUser.uid);
     alert('success!');
     event.target.reset();
     setPageLoading(false);

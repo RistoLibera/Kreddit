@@ -5,7 +5,7 @@ import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
 
 const CreateGroup = (props) => {
-  const { documents, user ,hidden, update } = props;
+  const { documents, currentUser ,hidden, update } = props;
   const spinnerCSS = css`
   display: block;
   margin: 0 auto;
@@ -16,7 +16,7 @@ const CreateGroup = (props) => {
   // Check current groups creation
   const checkCreation = async () => {
     let amount = 0;
-    let uid = user.uid;
+    let uid = currentUser.uid;
     try {
       let cache = 
         await FirebasePack
@@ -84,8 +84,8 @@ const CreateGroup = (props) => {
     setPageLoading(true);
     let amount = await checkCreation();
     const { name, introduction, symbol } = event.target.elements;
-    let uid = user.uid;
-    let creator = (user.email).slice(0, -9);
+    let uid = currentUser.uid;
+    let creator = (currentUser.email).slice(0, -9);
     let nameValue = name.value;
     let introductionValue = introduction.value;
     let symbolFile = symbol.files[0];

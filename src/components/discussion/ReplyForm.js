@@ -5,7 +5,7 @@ import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
 
 const ReplyForm = (props) => {
-  const { user, hidden, document, parentLayer, layerStructure, rootUpdate, switchHidden } = props;
+  const { currentUser, hidden, document, parentLayer, layerStructure, rootUpdate, switchHidden } = props;
   const spinnerCSS = css`
   display: block;
   margin: 0 auto;
@@ -22,8 +22,8 @@ const ReplyForm = (props) => {
 
   // Add subdiscussion
   const addSub = async (content, layer) => {
-    let creator = (user.email).slice(0, -9);
-    let uid = user.uid;
+    let creator = (currentUser.email).slice(0, -9);
+    let uid = currentUser.uid;
     let randomUID;
 
     if (parentLayer === 0) {
@@ -148,8 +148,8 @@ const ReplyForm = (props) => {
   // Send notification
   const sendNotif = async () => {
     let creator_uid = document.data().creator_uid;
-    if (user.uid === creator_uid) return;
-    let sender = (user.email).slice(0, -9);
+    if (currentUser.uid === creator_uid) return;
+    let sender = (currentUser.email).slice(0, -9);
     let url = '/discussions/' + document.data().group_name + '/' + document.data().discussion_uid;
     try {
       await FirebasePack
@@ -176,8 +176,8 @@ const ReplyForm = (props) => {
     let subUID = await addSub(contentValue, layer);
     await updateReplied(subUID);
     await updateCount();
-    await updateInfo(subUID, user.uid);
-    await sendNotif(user.uid);
+    await updateInfo(subUID, currentUser.uid);
+    await sendNotif(currentUser.uid);
     alert('success!');
     event.target.reset();
     switchHidden();
