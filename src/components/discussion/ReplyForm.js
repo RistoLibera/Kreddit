@@ -119,6 +119,7 @@ const ReplyForm = (props) => {
         await document
         .ref
         .parent
+        .parent
         .update({
           subdiscussions: firebase.firestore.FieldValue.increment(1)
         });
