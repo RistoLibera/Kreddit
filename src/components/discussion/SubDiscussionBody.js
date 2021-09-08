@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import FirebasePack from '../../config/FirebasePack';
 import firebase from 'firebase/app';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCaretSquareDown, faCaretSquareUp } from '@fortawesome/free-solid-svg-icons';
 
-const SubDiscussionBody = () => {
- 
-  // Remember to transfer title uid
+const SubDiscussionBody = (props) => {
+  const { currentUser, rootDocument } = props;
 
-  // subdiscussion--image/
+  // icon name && content   4 kinds of buttons\
+
+  // Get all sub recursively
   return (
-    <div className='subdiscussions'>
+    <div className='subdiscussion-container'>
       <h1>SubDiscussionBody</h1>
     </div>
   );

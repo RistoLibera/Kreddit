@@ -48,17 +48,23 @@ const DiscussionsList = (props) => {
     let createdTime = DateTime.fromSeconds(data.created_time.seconds);
     let interval = Interval.fromDateTimes(createdTime, now);
     if (interval.length('years') > 1) {
-      time = (Math.floor(interval.length('years')) + 'Y ago');
+      let grammar = interval.length('years') >= 2 ? 'years ago' : 'year ago';
+      time = (Math.floor(interval.length('years')) + grammar);
     } else if (interval.length('months') > 1) {
-      time = (Math.floor(interval.length('months')) + 'M ago');
+      let grammar = interval.length('months') >= 2 ? 'months ago' : 'month ago';
+      time = (Math.floor(interval.length('months')) + grammar);
     } else if (interval.length('days') > 1) {
-      time = (Math.floor(interval.length('days')) + 'D ago');
+      let grammar = interval.length('days') >= 2 ? 'days ago' : 'day ago';
+      time = (Math.floor(interval.length('days')) + grammar);
     } else if (interval.length('hours') > 1) {
-      time = (Math.floor(interval.length('hours')) + 'H ago');
+      let grammar = interval.length('hours') >= 2 ? 'hours ago' : 'hour ago';
+      time = (Math.floor(interval.length('hours')) + grammar);
     } else if (interval.length('minutes') > 1) {
-      time = (Math.floor(interval.length('minutes')) + 'M ago');
+      let grammar = interval.length('minutes') >= 2 ? 'minutes ago' : 'minute ago';
+      time = (Math.floor(interval.length('minutes')) + grammar);
     } else {
-      time = (Math.floor(interval.length('seconds')) + 'S ago');
+      let grammar = interval.length('seconds') >= 2 ? 'seconds ago' : 'second ago';
+      time = (Math.floor(interval.length('seconds')) + grammar);
     }
     return time;
   };  

@@ -46,17 +46,23 @@ const DiscussionBody = (props) => {
     let createdTime = DateTime.fromSeconds(data.created_time.seconds);
     let interval = Interval.fromDateTimes(createdTime, now);
     if (interval.length('years') > 1) {
-      setTime(Math.floor(interval.length('years')) + 'Y ago');
+      let grammar = interval.length('years') >= 2 ? 'years ago' : 'year ago';
+      setTime(Math.floor(interval.length('years')) + grammar);
     } else if (interval.length('months') > 1) {
-      setTime(Math.floor(interval.length('months')) + 'M ago');
+      let grammar = interval.length('months') >= 2 ? 'months ago' : 'month ago';
+      setTime(Math.floor(interval.length('months')) + grammar);
     } else if (interval.length('days') > 1) {
-      setTime(Math.floor(interval.length('days')) + 'D ago');
+      let grammar = interval.length('days') >= 2 ? 'days ago' : 'day ago';
+      setTime(Math.floor(interval.length('days')) + grammar);
     } else if (interval.length('hours') > 1) {
-      setTime(Math.floor(interval.length('hours')) + 'H ago');
+      let grammar = interval.length('hours') >= 2 ? 'hours ago' : 'hour ago';
+      setTime(Math.floor(interval.length('hours')) + grammar);
     } else if (interval.length('minutes') > 1) {
-      setTime(Math.floor(interval.length('minutes')) + 'M ago');
+      let grammar = interval.length('minutes') >= 2 ? 'minutes ago' : 'minute ago';
+      setTime(Math.floor(interval.length('minutes')) + grammar);
     } else {
-      setTime(Math.floor(interval.length('seconds')) + 'S ago');
+      let grammar = interval.length('seconds') >= 2 ? 'seconds ago' : 'second ago';
+      setTime(Math.floor(interval.length('seconds')) + grammar);
     }
   };
 
@@ -109,8 +115,8 @@ const DiscussionBody = (props) => {
     let data = document.data();
     calculateTime(data);
     await getIcon(data.creator_uid);
-    await getImg(data.title);
     await getSymbol(data.group_name);
+    await getImg(data.title);
     setTitle(data.title);
     setCreator(data.creator_name); 
     setContent(data.content);
@@ -181,7 +187,7 @@ const DiscussionBody = (props) => {
         </div>
         <ReplyForm currentUser={currentUser} hidden={formHidden} document={document} parentLayer={layer} layerStructure={layerStructure} rootUpdate={rootUpdate} switchHidden={switchHidden} />
       
-        <SubDiscussionBody />
+        <SubDiscussionBody currentUser={currentUser} rootDocument={document} />
       </div>
     </div>
   );
