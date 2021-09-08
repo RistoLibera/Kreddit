@@ -37,7 +37,7 @@ const ReplyForm = (props) => {
           .set({
             creator_name: creator,
             creator_uid: uid,
-            group_name: document.group_name,
+            group_name: document.data().group_name,
             discussion_uid: document.id,
             content: content,
             rating_up: [],
@@ -60,8 +60,8 @@ const ReplyForm = (props) => {
             .set({
               creator_name: creator,
               creator_uid: uid,
-              group_name: document.group_name,
-              discussion_uid: document.discussion_uid,
+              group_name: document.data().group_name,
+              discussion_uid: document.data().discussion_uid,
               content: content,
               rating_up: [],
               rating_down: [],
@@ -146,22 +146,25 @@ const ReplyForm = (props) => {
   };
 
   // Send notification
-  const sendNotif = async (uid) => {
+  const sendNotif = async () => {
+    let creator_uid = document.data().creator_uid;
+    if (user.uid === creator_uid) return;
+    let sender = (user.email).slice(0, -9);
+    let url = '/discussions/' + document.data().group_name + '/' + document.data().discussion_uid;
     try {
       await FirebasePack
         .firestore()
         .collection('user-info')
-        .doc(uid)
+        .doc(creator_uid)
         .collection('notifications')
         .doc()
         .set({
-          group_name: document.group_name,
-          discussion_uid: document.discussion_uid
+          url: url,
+          sender: sender
         });
     } catch (error) {
       console.log(error);
     }
-
   };
 
   const handleReply = async (event) => {
