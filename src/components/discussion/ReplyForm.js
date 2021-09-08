@@ -145,8 +145,22 @@ const ReplyForm = (props) => {
     }
   };
 
-  // Send notificationn
-  const sendNotif = async () => {
+  // Send notification
+  const sendNotif = async (uid) => {
+    try {
+      await FirebasePack
+        .firestore()
+        .collection('user-info')
+        .doc(uid)
+        .collection('notifications')
+        .doc()
+        .set({
+          group_name: document.group_name,
+          discussion_uid: document.discussion_uid
+        });
+    } catch (error) {
+      console.log(error);
+    }
 
   };
 
@@ -160,6 +174,7 @@ const ReplyForm = (props) => {
     await updateReplied(subUID);
     await updateCount();
     await updateInfo(subUID, user.uid);
+    await sendNotif(user.uid);
     alert('success!');
     event.target.reset();
     switchHidden();

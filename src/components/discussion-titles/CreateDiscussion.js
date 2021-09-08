@@ -84,6 +84,7 @@ const CreateDiscussion = (props) => {
               creator_uid: uid,
               group_name: group,
               group_uid: groupUID,
+              discussion_uid: randomUID,
               title: title,
               content: content,
               subdiscussions: 0,

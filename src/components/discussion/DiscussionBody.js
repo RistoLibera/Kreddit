@@ -114,7 +114,7 @@ const DiscussionBody = (props) => {
     setTitle(data.title);
     setCreator(data.creator_name); 
     setContent(data.content);
-    setGroup(data.group);
+    setGroup(data.group_name);
     setRating(data.rating_up.length - data.rating_down.length);
     setLayer(data.layer);
     setLayerStructure(data.layer_structure);
