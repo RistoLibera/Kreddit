@@ -1,57 +1,49 @@
 import React, { useState, useEffect } from 'react';
-import FirebasePack from '../../config/FirebasePack';
-import firebase from 'firebase/app';
+import OneSubdiscussion from './OneSubdiscussion';
 
 const SubDiscussionBody = (props) => {
   const { currentUser, documents, rootUpdate } = props;
-  const [divGroups, setDivGroups] = useState([]);
+  const [rearrangedDoc, setRearrangedDoc] = useState([]);
 
   // Get all subdiscussions recursively
-  const getAllLayers = (upperInfo, allInfos, container = [upperInfo]) => {
-    let response = upperInfo.replied_by;
+  const getAllLayers = (upperDoc, allDocs, container = [upperDoc]) => {
+    let response = upperDoc.data().replied_by;
     if (response) {
-      let lowerInfos = allInfos.filter((info) => response.some((uid) => uid === info.discussion_uid));
-      for (let info of lowerInfos) {
-        container.push(info);
-        getAllLayers(info, allInfos ,container);
+      let lowerDocs = allDocs.filter((doc) => response.some((uid) => uid === doc.data().discussion_uid));
+      for (let doc of lowerDocs) {
+        container.push(doc);
+        getAllLayers(doc, allDocs ,container);
       }
     }
     return container;
   };
 
   // Map divs
-  const mapDivs = (docInfos) => {
+  const mapDivs = (docArray) => {
     let container = [];
-    let topLayerInfo = docInfos.filter((info) => info.layer === 1);
-    let otherLayerInfo = docInfos.filter((info) => info.layer > 1);
+    let topLayerDoc = docArray.filter((doc) => doc.data().layer === 1);
+    let otherLayerDoc= docArray.filter((doc) => doc.data().layer > 1);
 
-    topLayerInfo.forEach((info) => {
-      let structure = getAllLayers(info, otherLayerInfo);
+    topLayerDoc.forEach((doc) => {
+      let structure = getAllLayers(doc, otherLayerDoc);
       container.push(structure);
     });
     container = container.flat(1);
-    setDivGroups(container);
+    setRearrangedDoc(container);
   };
 
-  // Get subdiscussions info
-  const getInfo = (documents) => {
+  // Get subdiscussion documents Array
+  const getDocArray = (documents) => {
     let container = [];
     documents.forEach((doc) => {
-      let info = {
-        discussion_uid: doc.data().discussion_uid,
-        content: doc.data().content,
-        creator: doc.data().creator_name,
-        layer: doc.data().layer,
-        replied_by: doc.data().replied_by
-      };
-      container.push(info);
+      container.push(doc);
     });
     return container;
   };
 
   const showContent = () => {
-    let docInfos = getInfo(documents);
-    mapDivs(docInfos);
+    let docArray = getDocArray(documents);
+    mapDivs(docArray);
   };
   
   useEffect(() => {
@@ -60,7 +52,11 @@ const SubDiscussionBody = (props) => {
 
   return (
     <div className='subdiscussion-container'>
-      <h1>SubDiscussionBody</h1>
+      {rearrangedDoc.map((doc, index) => {
+        return (
+          <OneSubdiscussion currentUser={currentUser} document={doc} rootUpdate={rootUpdate} key={index}/>
+        );
+      })}
     </div>
   );
 };

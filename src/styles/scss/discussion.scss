@@ -37,6 +37,31 @@
       }
     }
 
+    .subdiscussion-container {
+      @extend %flex-column-direction;
 
+      div[class^="content-layer"] {
+        @extend %flex-column-direction;
+        margin: 20px 0;
+        border: 1px solid black;
+        
+        .subdiscussion-header {
+          @extend %flex-row-direction;
+        }
+
+        .subdiscussion-content {
+          @extend %flex-row-direction;
+        }
+
+        .subdiscussion-buttons {
+          @extend %flex-row-direction;
+
+          .interaction {
+            @extend %flex-row-direction;
+
+          }
+        }
+      }
+    }
   }
 }

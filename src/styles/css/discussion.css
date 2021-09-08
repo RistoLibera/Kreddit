@@ -1,16 +1,20 @@
-.discussion-page .discussion-content .group, .discussion-page .discussion-content .title, .discussion-page .discussion-content .title .title-body .body-header, .discussion-page .discussion-content .title .title-body .title-buttons, .discussion-page .discussion-content .title .title-body .title-buttons .interaction {
+.discussion-page .discussion-content .group, .discussion-page .discussion-content .title, .discussion-page .discussion-content .title .title-body .body-header, .discussion-page .discussion-content .title .title-body .title-buttons, .discussion-page .discussion-content .title .title-body .title-buttons .interaction, .discussion-page .discussion-content .subdiscussion-container div[class^=content-layer] .subdiscussion-header, .discussion-page .discussion-content .subdiscussion-container div[class^=content-layer] .subdiscussion-content, .discussion-page .discussion-content .subdiscussion-container div[class^=content-layer] .subdiscussion-buttons, .discussion-page .discussion-content .subdiscussion-container div[class^=content-layer] .subdiscussion-buttons .interaction {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.discussion-page .discussion-content .title .title-rating, .discussion-page .discussion-content .title .title-body, .discussion-page .discussion-content .title .title-body .title-content {
+.discussion-page .discussion-content .title .title-rating, .discussion-page .discussion-content .title .title-body, .discussion-page .discussion-content .title .title-body .title-content, .discussion-page .discussion-content .subdiscussion-container, .discussion-page .discussion-content .subdiscussion-container div[class^=content-layer] {
   display: flex;
   flex-direction: column;
 }
 
 .discussion-page .discussion-content .title {
   justify-content: space-evenly;
+}
+.discussion-page .discussion-content .subdiscussion-container div[class^=content-layer] {
+  margin: 20px 0;
+  border: 1px solid black;
 }
 
 /*# sourceMappingURL=discussion.css.map */

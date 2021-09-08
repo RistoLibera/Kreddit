@@ -52,7 +52,7 @@ const EditForm = (props) => {
       let contentValue = content.value;
       let attachmentValue = attachment.files[0];
       if (contentValue !== content) await updateContent(contentValue);
-      if (attachmentValue === undefined) await updateImg(attachmentValue);  
+      if (attachmentValue !== undefined && parentLayer === 0) await updateImg(attachmentValue);  
     } else {
       const { content } = event.target.elements;
       let contentValue = content.value;

@@ -1,13 +1,31 @@
 import React, { useState, useEffect }  from 'react';
+import { DateTime, Interval } from "luxon";
+import FirebasePack from '../../config/FirebasePack';
+import DefaultIcon from '../../assets/img/default-icon.jpg';
 import ReplyForm from './ReplyForm';
 import EditForm from './EditForm';
 import Delete from './Delete';
+import RatingButtons from './RatingButtons';
 
 const OneSubdiscussion = (props) => {
-  const { layer } = props;
+  const { currentUser, document, rootUpdate } = props;
+  const title = '';
+  const [layerClass, setLayerClass] =useState('');
   const [editShow, setEditShow] = useState(false);
   const [formHidden, setFormHidden] = useState('hidden');
+  const [iconURL, setIconURL] = useState('');
+  const [creator, setCreator] = useState('');
+  const [time, setTime] = useState('');
+  const [content, setContent] = useState('');
+  const [rating, setRating] = useState(0);
+  const [layer, setLayer] = useState(0);
+  const [layerStructure, setLayerStructure] = useState(0);
 
+  // Adjust block width
+  const makeLayerClass = () => {
+    let className = 'content-layer-' + document.data().layer; 
+    setLayerClass(className);
+  };
 
   const switchHidden = () => {
     if (formHidden === 'hidden') {
@@ -22,8 +40,66 @@ const OneSubdiscussion = (props) => {
     setEditShow(!editShow);
   };
 
+  // Fetch creator icon
+  const getIcon = async (uid) => {
+    let URL = DefaultIcon;
+    try {
+      URL = 
+        await FirebasePack
+          .storage()
+          .ref('user-icon/' + uid + '/icon.jpg')
+          .getDownloadURL();
+    } catch (error) {
+      console.log(error);
+    }
+    setIconURL(URL);
+  };
+
+  // Calculate when was the discussion created
+  const calculateTime = (data) => {
+    let now = DateTime.now();
+    let createdTime = DateTime.fromSeconds(data.created_time.seconds);
+    let interval = Interval.fromDateTimes(createdTime, now);
+    if (interval.length('years') > 1) {
+      let grammar = interval.length('years') >= 2 ? 'years ago' : 'year ago';
+      setTime(Math.floor(interval.length('years')) + grammar);
+    } else if (interval.length('months') > 1) {
+      let grammar = interval.length('months') >= 2 ? 'months ago' : 'month ago';
+      setTime(Math.floor(interval.length('months')) + grammar);
+    } else if (interval.length('days') > 1) {
+      let grammar = interval.length('days') >= 2 ? 'days ago' : 'day ago';
+      setTime(Math.floor(interval.length('days')) + grammar);
+    } else if (interval.length('hours') > 1) {
+      let grammar = interval.length('hours') >= 2 ? 'hours ago' : 'hour ago';
+      setTime(Math.floor(interval.length('hours')) + grammar);
+    } else if (interval.length('minutes') > 1) {
+      let grammar = interval.length('minutes') >= 2 ? 'minutes ago' : 'minute ago';
+      setTime(Math.floor(interval.length('minutes')) + grammar);
+    } else {
+      let grammar = interval.length('seconds') >= 2 ? 'seconds ago' : 'second ago';
+      setTime(Math.floor(interval.length('seconds')) + grammar);
+    }
+  };
+
+  const decypherDocument = async () => {
+    let data = document.data();
+    await getIcon(data.creator_uid);
+    setCreator(data.creator_name);
+    calculateTime(data);
+    setContent(data.content);
+    setRating(data.rating_up.length - data.rating_down.length);
+    setLayer(data.layer);
+    setLayerStructure(data.layer_structure);
+  };
+
+  useEffect(() => {
+    makeLayerClass();
+    decypherDocument();
+  }, [document]);
+
+
   return (
-    <div className='sub-layer-?'>
+    <div className={layerClass}>
       <header className='subdiscussion-header'>
         <img src={iconURL} alt='icon' width='30px' height='30px'/>
         <h1>{creator}</h1>
