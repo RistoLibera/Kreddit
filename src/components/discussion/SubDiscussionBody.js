@@ -9,7 +9,7 @@ const SubDiscussionBody = (props) => {
   const getAllLayers = (upperDoc, allDocs, container = [upperDoc]) => {
     let response = upperDoc.data().replied_by;
     if (response) {
-      let lowerDocs = allDocs.filter((doc) => response.some((uid) => uid === doc.data().discussion_uid));
+      let lowerDocs = allDocs.filter((doc) => response.some((uid) => uid === doc.id));
       for (let doc of lowerDocs) {
         container.push(doc);
         getAllLayers(doc, allDocs ,container);
@@ -22,8 +22,7 @@ const SubDiscussionBody = (props) => {
   const mapDivs = (docArray) => {
     let container = [];
     let topLayerDoc = docArray.filter((doc) => doc.data().layer === 1);
-    let otherLayerDoc= docArray.filter((doc) => doc.data().layer > 1);
-
+    let otherLayerDoc = docArray.filter((doc) => doc.data().layer > 1);
     topLayerDoc.forEach((doc) => {
       let structure = getAllLayers(doc, otherLayerDoc);
       container.push(structure);

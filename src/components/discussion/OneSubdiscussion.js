@@ -19,7 +19,6 @@ const OneSubdiscussion = (props) => {
   const [content, setContent] = useState('');
   const [rating, setRating] = useState(0);
   const [layer, setLayer] = useState(0);
-  const [layerStructure, setLayerStructure] = useState(0);
 
   // Adjust block width
   const makeLayerClass = () => {
@@ -89,7 +88,6 @@ const OneSubdiscussion = (props) => {
     setContent(data.content);
     setRating(data.rating_up.length - data.rating_down.length);
     setLayer(data.layer);
-    setLayerStructure(data.layer_structure);
   };
 
   useEffect(() => {
@@ -139,7 +137,7 @@ const OneSubdiscussion = (props) => {
             </div>
         }
       </div>
-      <ReplyForm currentUser={currentUser} hidden={formHidden} document={document} parentLayer={layer} layerStructure={layerStructure} rootUpdate={rootUpdate} switchHidden={switchHidden} />
+      <ReplyForm currentUser={currentUser} hidden={formHidden} document={document} parentLayer={layer} rootUpdate={rootUpdate} switchHidden={switchHidden} />
     </div>
   );
 };

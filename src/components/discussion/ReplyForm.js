@@ -5,7 +5,7 @@ import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
 
 const ReplyForm = (props) => {
-  const { currentUser, hidden, document, parentLayer, layerStructure, rootUpdate, switchHidden } = props;
+  const { currentUser, hidden, document, parentLayer, rootUpdate, switchHidden } = props;
   const spinnerCSS = css`
   display: block;
   margin: 0 auto;
@@ -78,28 +78,15 @@ const ReplyForm = (props) => {
 
   // Update replied by
   const updateReplied = async (uid) => {
-    if (parentLayer === 0) {
-      try {
-        await document
-        .ref
-        .update({
-          replied_by: firebase.firestore.FieldValue.arrayUnion(uid),
-          layer_structure: ((parentLayer + 1 > layerStructure) ?  layerStructure + 1 : layerStructure)
-        });
-      } catch (error) {
-        console.log(error);
-      }
-    } else {
-      try {
-        await document
-        .ref
-        .update({
-          replied_by: firebase.firestore.FieldValue.arrayUnion(uid)
-        });
-      } catch (error) {
-        console.log(error);
-      }
-    }
+    try {
+      await document
+      .ref
+      .update({
+        replied_by: firebase.firestore.FieldValue.arrayUnion(uid),
+      });
+    } catch (error) {
+      console.log(error);
+    }    
   };
 
   // Updater subdicussion count

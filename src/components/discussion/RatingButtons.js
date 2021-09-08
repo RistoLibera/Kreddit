@@ -59,7 +59,7 @@ const RatingButtons = (props) => {
   // Send notification
   const sendNotif = async () => {
     let creator_uid = document.data().creator_uid;
-    // if (currentUser.uid === creator_uid) return;
+    if (currentUser.uid === creator_uid) return;
     let sender = (currentUser.email).slice(0, -9);
     let url = '/discussions/' + document.data().group_name + '/' + document.data().discussion_uid;
     try {

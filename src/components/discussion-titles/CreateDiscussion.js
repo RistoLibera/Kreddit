@@ -45,7 +45,7 @@ const CreateDiscussion = (props) => {
   const makeOption = (groupInfos) => {
     let container = [];
     if (groupInfos.length === 0 ) {
-      let warningTag = <option key='0' value='0'>You need a group!</option>;
+      let warningTag = <option key='0' value='0'>You need join a group!</option>;
       container.push(warningTag);
       setOptionsTags(container);
       setDisabledButton(true);
@@ -91,8 +91,7 @@ const CreateDiscussion = (props) => {
               rating_up: [],
               rating_down: [],
               created_time: firebase.firestore.FieldValue.serverTimestamp(),
-              layer: 0,
-              layer_structure: 0
+              layer: 0
             });    
           });
         });

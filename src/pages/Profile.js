@@ -175,8 +175,6 @@ const Profile = () => {
 
   // Get data
   const getData = async () => {
-    let container = [];
-    let groupArray = [];
     let sum = 0;
     try {
       let userDoc = 
