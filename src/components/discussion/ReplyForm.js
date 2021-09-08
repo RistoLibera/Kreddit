@@ -157,11 +157,12 @@ const ReplyForm = (props) => {
         .collection('user-info')
         .doc(creator_uid)
         .collection('notifications')
-        .doc()
+        .doc(sender)
         .set({
+          reply: true,
           url: url,
           sender: sender
-        });
+        }, {merge: true});
     } catch (error) {
       console.log(error);
     }
