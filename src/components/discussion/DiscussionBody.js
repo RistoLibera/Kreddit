@@ -26,6 +26,7 @@ const DiscussionBody = (props) => {
   const [rating, setRating] = useState(0);
   const [layer, setLayer] = useState(0);
   const [layerStructure, setLayerStructure] = useState(0);
+  const [subDocs, setSubDocs] = useState([]);
 
   const switchHidden = () => {
     if (formHidden === 'hidden') {
@@ -126,8 +127,28 @@ const DiscussionBody = (props) => {
     setLayerStructure(data.layer_structure);
   };
 
+  const fetchSubdiscussionInfos = async () => {
+    let container = [];
+    try {
+      await document
+        .ref
+        .collection('subdiscussions')
+        .orderBy("created_time", "asc")
+        .get()
+        .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            container.push(doc);
+          });
+        });
+    } catch (error) {
+      console.log(error);
+    }
+    setSubDocs(container);
+  };
+
   useEffect(() => {
     fetchTitleContent();
+    fetchSubdiscussionInfos();
   }, [document]);
 
   return (
@@ -178,8 +199,7 @@ const DiscussionBody = (props) => {
                     }
                   </div>
                 :
-                  <div className='warning'>
-                    <p>Log in to see more content</p>
+                  <div>
                   </div>
               }
             </div>
@@ -187,7 +207,7 @@ const DiscussionBody = (props) => {
         </div>
         <ReplyForm currentUser={currentUser} hidden={formHidden} document={document} parentLayer={layer} layerStructure={layerStructure} rootUpdate={rootUpdate} switchHidden={switchHidden} />
       
-        <SubDiscussionBody currentUser={currentUser} rootDocument={document} />
+        <SubDiscussionBody currentUser={currentUser} documents={subDocs} rootUpdate={rootUpdate} />
       </div>
     </div>
   );
