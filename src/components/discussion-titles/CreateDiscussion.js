@@ -46,7 +46,8 @@ const CreateDiscussion = (props) => {
     let container = [];
     if (groupInfos.length === 0 ) {
       let warningTag = <option key='0' value='0'>You need a group!</option>;
-      setOptionsTags(warningTag);
+      container.push(warningTag);
+      setOptionsTags(container);
       setDisabledButton(true);
     } else {
       groupInfos.forEach((info, index) => {

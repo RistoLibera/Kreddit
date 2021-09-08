@@ -15,18 +15,11 @@ const Discussion = () => {
   `;
   const [pageLoading, setPageLoading] = useState(true);
   const [discussionDoc, setDiscussionDoc] = useState([]);
-  const [groupUID, setGroupUID] = useState('');
 
   // Store one discussion
   const storeThisDiscussion = async (groupDoc) => {
     let thisDiscussionDoc = await groupDoc.ref.collection('discussions').doc(uid).get(); 
     setDiscussionDoc(thisDiscussionDoc);
-  };
-
-  // Store group UID
-  const storeUID = (groupDoc)=> {
-    setGroupUID(groupDoc.id);
-
   };
 
   const fetchThisDiscussion = async () => {
@@ -40,7 +33,6 @@ const Discussion = () => {
         .then((querySnapshot) => {
           groupDoc = querySnapshot.docs[0];
         });
-      storeUID(groupDoc);
       await storeThisDiscussion(groupDoc)  ;
       } catch (error) {
       console.log(error);
@@ -60,7 +52,7 @@ const Discussion = () => {
             <ClimbingBoxLoader color='#D5D736' css={spinnerCSS} size={50} />
           </div>
         :
-        <DiscussionBody groupUID={groupUID} document={discussionDoc} rootUpdate={fetchThisDiscussion} />
+        <DiscussionBody document={discussionDoc} rootUpdate={fetchThisDiscussion} />
       }
     </section>
   );

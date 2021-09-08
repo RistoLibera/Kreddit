@@ -37,6 +37,8 @@ const ReplyForm = (props) => {
           .set({
             creator_name: creator,
             creator_uid: uid,
+            group_name: document.group_name,
+            discussion_uid: document.id,
             content: content,
             rating_up: [],
             rating_down: [],
@@ -58,6 +60,8 @@ const ReplyForm = (props) => {
             .set({
               creator_name: creator,
               creator_uid: uid,
+              group_name: document.group_name,
+              discussion_uid: document.discussion_uid,
               content: content,
               rating_up: [],
               rating_down: [],
@@ -80,7 +84,7 @@ const ReplyForm = (props) => {
         .ref
         .update({
           replied_by: firebase.firestore.FieldValue.arrayUnion(uid),
-          layerStructure: ((parentLayer + 1 > layerStructure) ?  layerStructure + 1 : layerStructure)
+          layer_structure: ((parentLayer + 1 > layerStructure) ?  layerStructure + 1 : layerStructure)
         });
       } catch (error) {
         console.log(error);
@@ -98,6 +102,32 @@ const ReplyForm = (props) => {
     }
   };
 
+  // Updater subdicussion count
+  const updateCount = async () => {
+    if (parentLayer === 0) {
+      try {
+        await document
+        .ref
+        .update({
+          subdiscussions: firebase.firestore.FieldValue.increment(1)
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      try {
+        await document
+        .ref
+        .parent
+        .update({
+          subdiscussions: firebase.firestore.FieldValue.increment(1)
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
+
   // Update user info
   const updateInfo = async (subUID, uid) => {
     try {
@@ -108,11 +138,16 @@ const ReplyForm = (props) => {
         .collection('created-subdiscussions')
         .doc(subUID)
         .set({
-          discussion_uid: subUID,
+          subdiscussion_uid: subUID,
         });
     } catch (error) {
       console.log(error);
     }
+  };
+
+  // Send notificationn
+  const sendNotif = async () => {
+
   };
 
   const handleReply = async (event) => {
@@ -123,6 +158,7 @@ const ReplyForm = (props) => {
     let layer = parentLayer + 1;
     let subUID = await addSub(contentValue, layer);
     await updateReplied(subUID);
+    await updateCount();
     await updateInfo(subUID, user.uid);
     alert('success!');
     event.target.reset();

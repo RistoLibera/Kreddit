@@ -88,7 +88,7 @@ const Profile = () => {
       console.log(error);
     }
     // Get created groups URL
-    await getStorage(groupArray, 1);
+    if(groupArray) await getStorage(groupArray, 1);
   };
 
   // Get icon
@@ -152,8 +152,8 @@ const Profile = () => {
     console.log(error);
   }   
   setDiscussionInfos(container);
-    await getStorage(groupArray, 3);
-    return amount;
+  await getStorage(groupArray, 3);
+  return amount;
   };
 
   // Get subdiscussions info

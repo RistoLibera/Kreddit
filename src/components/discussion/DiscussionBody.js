@@ -12,7 +12,7 @@ import SubDiscussionBody from './SubDiscussionBody';
 
 const DiscussionBody = (props) => {
   const { currentUser } = useContext(AuthContext);
-  const { groupUID, document, rootUpdate } = props;
+  const { document, rootUpdate } = props;
   const [editShow, setEditShow] = useState(false);
   const [formHidden, setFormHidden] = useState('hidden');
   const [group, setGroup] = useState('');
@@ -133,7 +133,7 @@ const DiscussionBody = (props) => {
         </div>
         
         <div className='title'>
-          <RatingButtons rating={rating} currentUser={currentUser} groupUID={groupUID} document={document} rootUpdate={rootUpdate}/>
+          <RatingButtons rating={rating} currentUser={currentUser} document={document} rootUpdate={rootUpdate}/>
 
           <div className='title-body'>
             <header className='body-header'>

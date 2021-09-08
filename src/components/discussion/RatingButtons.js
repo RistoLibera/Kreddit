@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretSquareDown, faCaretSquareUp } from '@fortawesome/free-solid-svg-icons';
 
 const RatingButtons = (props) => {
-  const { rating, currentUser, groupUID, document, rootUpdate } = props;
+  const { rating, currentUser, document, rootUpdate } = props;
   const [disableUp, setDisableUp] = useState(false);
   const [disableDown, setDisableDown] = useState(false);
 
@@ -33,12 +33,8 @@ const RatingButtons = (props) => {
   const triggerRating = async (fondness) => {
     if (fondness) {
       try {
-        await FirebasePack
-          .firestore()
-          .collection('groups')
-          .doc(groupUID)
-          .collection('discussions')
-          .doc(document.id)
+        await document
+          .ref
           .update({
             rating_up: firebase.firestore.FieldValue.arrayUnion(currentUser.uid),
             rating_down: firebase.firestore.FieldValue.arrayRemove(currentUser.uid)
@@ -48,12 +44,8 @@ const RatingButtons = (props) => {
       }
     } else {
       try {
-        await FirebasePack
-          .firestore()
-          .collection('groups')
-          .doc(groupUID)
-          .collection('discussions')
-          .doc(document.id)
+        await document
+          .ref
           .update({
             rating_down: firebase.firestore.FieldValue.arrayUnion(currentUser.uid),
             rating_up: firebase.firestore.FieldValue.arrayRemove(currentUser.uid)
