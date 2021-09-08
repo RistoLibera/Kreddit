@@ -10,6 +10,7 @@ import RatingButtons from './RatingButtons';
 const OneSubdiscussion = (props) => {
   const { currentUser, document, rootUpdate } = props;
   const title = '';
+  const [beEditor, setBeEditor] = useState(false);
   const [layerClass, setLayerClass] =useState('');
   const [editShow, setEditShow] = useState(false);
   const [formHidden, setFormHidden] = useState('hidden');
@@ -19,6 +20,11 @@ const OneSubdiscussion = (props) => {
   const [content, setContent] = useState('');
   const [rating, setRating] = useState(0);
   const [layer, setLayer] = useState(0);
+
+  const checkCurrentEditor = () => {
+    let beCurrentEditor = currentUser.uid === document.data().creator_uid;
+    setBeEditor(beCurrentEditor);
+  };
 
   // Adjust block width
   const makeLayerClass = () => {
@@ -36,6 +42,10 @@ const OneSubdiscussion = (props) => {
   
   // Toggle edit form
   const toggleEdit = () => {
+    if(currentUser.uid !== document.data().creator_uid) {
+      alert("You can't");
+      return;
+    }
     setEditShow(!editShow);
   };
 
@@ -91,6 +101,7 @@ const OneSubdiscussion = (props) => {
   };
 
   useEffect(() => {
+    checkCurrentEditor();
     makeLayerClass();
     decypherDocument();
   }, [document]);
@@ -119,23 +130,17 @@ const OneSubdiscussion = (props) => {
         {currentUser
           ?
             <div className='interaction'>
-              <div className='reply-block'>
-                <button onClick={switchHidden}>Reply</button>
-              </div>
-              {currentUser.uid === document.data().creator_uid
-                ?
-                  <div className='current-interaction'>
-                    <button onClick={toggleEdit}>Edit</button>
-                    <Delete document={document} currentUser={currentUser} parentLayer={layer}/>
-                  </div>
-                :
-                  <div></div>
-              }
+              <button className='reply-discussion' onClick={switchHidden}>Reply</button>
+              <button className='edit-discussion' onClick={toggleEdit} >Edit</button>
+              <Delete document={document} currentUser={currentUser} parentLayer={layer} beEditor={beEditor} />
             </div>
           :
-            <div>
+            <div className='interaction'>
+              <button className='reply-discussion'>Reply</button>
+              <button className='edit-discussion'>Edit</button>
+              <button className='delete-discussion'>Delete</button>
             </div>
-        }
+          }
       </div>
       <ReplyForm currentUser={currentUser} hidden={formHidden} document={document} parentLayer={layer} rootUpdate={rootUpdate} switchHidden={switchHidden} />
     </div>

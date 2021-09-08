@@ -37,6 +37,11 @@ const GroupList = (props) => {
   
   //  Join group
   const joinGroup = async (groupName, groupUID, user) => {
+    if (!user) {
+      alert('Please log in!');
+      return;
+    }
+    
     try {
       await FirebasePack
         .firestore()

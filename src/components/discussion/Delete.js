@@ -4,7 +4,7 @@ import FirebasePack from '../../config/FirebasePack';
 
 const Search = (props) => {
   const history = useHistory();
-  const { document, currentUser, parentLayer } = props;
+  const { document, currentUser, parentLayer, beEditor } = props;
 
   // Delete discussion or subdiscussion
   const deleteRecord = async () => {
@@ -47,6 +47,10 @@ const Search = (props) => {
   };
 
   const deleteThis = async () => {
+    if(!beEditor) {
+      alert("You can't");
+      return;
+    }
     let confirmation = window.confirm('This action will wipe out everything in this discussion, proceed carefully!');
     if (!confirmation) {
       return;
@@ -58,7 +62,7 @@ const Search = (props) => {
   };
   
   return (
-    <button onClick={deleteThis}>Delete</button>
+    <button className='delete-discussion' onClick={deleteThis}>Delete</button>
   );
 };
 

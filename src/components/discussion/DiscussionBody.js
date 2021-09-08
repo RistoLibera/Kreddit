@@ -13,6 +13,7 @@ import SubDiscussionBody from './SubDiscussionBody';
 const DiscussionBody = (props) => {
   const { currentUser } = useContext(AuthContext);
   const { document, rootUpdate } = props;
+  const [beEditor, setBeEditor] = useState(false);
   const [editShow, setEditShow] = useState(false);
   const [formHidden, setFormHidden] = useState('hidden');
   const [group, setGroup] = useState('');
@@ -27,6 +28,11 @@ const DiscussionBody = (props) => {
   const [layer, setLayer] = useState(0);
   const [subDocs, setSubDocs] = useState([]);
 
+  const checkCurrentEditor = () => {
+    let beCurrentEditor = currentUser.uid === document.data().creator_uid;
+    setBeEditor(beCurrentEditor);
+  };
+
   const switchHidden = () => {
     if (formHidden === 'hidden') {
       setFormHidden('form-container');
@@ -37,6 +43,10 @@ const DiscussionBody = (props) => {
   
   // Toggle edit form
   const toggleEdit = () => {
+    if(currentUser.uid !== document.data().creator_uid) {
+      alert("You can't");
+      return;
+    }
     setEditShow(!editShow);
   };
 
@@ -145,6 +155,7 @@ const DiscussionBody = (props) => {
   };
 
   useEffect(() => {
+    checkCurrentEditor();
     fetchTitleContent();
     fetchSubdiscussionInfos();
   }, [document]);
@@ -183,21 +194,15 @@ const DiscussionBody = (props) => {
               {currentUser
                 ?
                   <div className='interaction'>
-                    <div className='reply-block'>
-                      <button onClick={switchHidden}>Reply</button>
-                    </div>
-                    {currentUser.uid === document.data().creator_uid
-                      ?
-                        <div className='current-interaction'>
-                          <button onClick={toggleEdit}>Edit</button>
-                          <Delete document={document} currentUser={currentUser} parentLayer={layer}/>
-                        </div>
-                      :
-                        <div></div>
-                    }
+                    <button className='reply-discussion' onClick={switchHidden}>Reply</button>
+                    <button className='edit-discussion' onClick={toggleEdit} >Edit</button>
+                    <Delete document={document} currentUser={currentUser} parentLayer={layer} beEditor={beEditor} />
                   </div>
                 :
-                  <div>
+                  <div className='interaction'>
+                    <button className='reply-discussion'>Reply</button>
+                    <button className='edit-discussion'>Edit</button>
+                    <button className='delete-discussion'>Delete</button>
                   </div>
               }
             </div>
