@@ -152,8 +152,8 @@ const DiscussionBody = (props) => {
   }, [document]);
 
   return (
-    <div className='discussion-content'>
-      <div className='discussion-container'>
+    <div className='discussion-container'>
+      <div className='discussion-content'>
         <div className='group'>
           <img src={symbolURL} alt='symbol' width='40px' height='40px'/>
           <h2>{group}</h2>
