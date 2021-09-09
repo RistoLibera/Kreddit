@@ -1,12 +1,22 @@
-.search-result-page, .search-result-page .search-history ul li {
+.search-result-page, .search-result-page .search-history ul li, .search-result-page .titles ul li, .search-result-page .users ul li {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.search-result-page .search-history ul {
+.search-result-page .search-history ul, .search-result-page .titles ul, .search-result-page .users ul {
   display: flex;
   flex-direction: column;
+}
+
+.search-result-page .search-history ul li {
+  list-style: none;
+}
+.search-result-page .titles ul li {
+  list-style: none;
+}
+.search-result-page .users ul li {
+  list-style: none;
 }
 
 /*# sourceMappingURL=search.css.map */

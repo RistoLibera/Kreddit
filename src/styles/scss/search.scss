@@ -9,6 +9,29 @@
       @extend %flex-column-direction;
       li {
         @extend %flex-row-direction;
+        list-style: none;
+
+      }
+    }
+  }
+
+  .titles {
+    ul {
+      @extend %flex-column-direction;
+      li {
+        @extend %flex-row-direction;
+        list-style: none;
+
+      }
+    }
+  }
+
+  .users {
+    ul {
+      @extend %flex-column-direction;
+      li {
+        @extend %flex-row-direction;
+        list-style: none;
 
       }
     }

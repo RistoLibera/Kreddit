@@ -102,7 +102,7 @@ const Search = () => {
     );
   };
 
-  // Get users
+  // Get users result
   const createUserList = async () => {
     let userInfos = await getUserData();
     let result = userInfos.filter((info) => info.name.includes(keyword));
@@ -115,16 +115,75 @@ const Search = () => {
     setUserListTags(container);
   };
 
-
-  // Get titles  group title uid
-  const createTitleList = async () => {
-
+  // Get titles groups
+  const getTitleGroup = async () => {
+    let groupDocs = [];
+    try {
+      await FirebasePack
+        .firestore()
+        .collection('groups')
+        .get()
+        .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            groupDocs.push(doc);
+          });
+        });
+      } catch (error) {
+      console.log(error);
+    }
+    return groupDocs;
   };
 
+  // Get titles data
+  const getTitleData = async (groupDocs) => {
+    console.log(groupDocs);
+    let discussionDocs = [];
+    for (const [index, doc] of groupDocs.entries()) {
+      try {
+        await doc
+          .ref
+          .collection('discussions')
+          .get()
+          .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+              discussionDocs.push(doc);
+            });
+          });
+        } catch (error) {
+        console.log(error);
+      }
+    }
+    return discussionDocs;
+  };
+
+  // Make one title list HTML tag
+  const makeTitleList = (title, group, uid, index) => {
+    return (
+      <li key={index}>
+        <Link to={"/discussions/" + group + '/' + uid}>{title} in {group}</Link>
+      </li>
+    );
+  };
+
+  // Get titles result
+  const createTitleList = async () => {
+    let groupDocs = await getTitleGroup();
+    let discussionDocs = await getTitleData(groupDocs);
+    let result = discussionDocs.filter((doc) => doc.data().title.includes(keyword));
+    let container = [];
+
+    result.forEach((doc, index) => {
+      let data = doc.data();
+      let list =  makeTitleList(data.title, data.group_name, data.discussion_uid, index);
+      container.push(list);
+    });
+    setTitleListTags(container);
+  };
 
   useEffect(() => {
     createSearchList();
     createUserList();
+    createTitleList();
   }, [keyword]);
 
   return (
@@ -149,7 +208,7 @@ const Search = () => {
         </ul>
       </div>
 
-      <div className="user">
+      <div className="users">
         <ul>
           {titleListTags.map((li) => {
               return (
