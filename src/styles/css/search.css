@@ -1,7 +1,12 @@
-.search-result-page {
+.search-result-page, .search-result-page .search-history ul li {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.search-result-page .search-history ul {
+  display: flex;
+  flex-direction: column;
 }
 
 /*# sourceMappingURL=search.css.map */

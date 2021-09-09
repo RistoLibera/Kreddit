@@ -4,5 +4,14 @@
 .search-result-page {
   @extend %flex-row-direction;
 
+  .search-history {
+    ul {
+      @extend %flex-column-direction;
+      li {
+        @extend %flex-row-direction;
+
+      }
+    }
+  }
   
 }

@@ -6,8 +6,9 @@ import '../styles/css/search.css';
 // Search results
 const Search = () => {
   const { keyword }  = useParams();
-  const [listTags, setListTags] = useState([]);
+  const [searchListTags, setSearchListTags] = useState([]);
 
+  // Record on localstorage
   const runLocalstorage = () => {
     if (localStorage.length === 0) {
       let searchHistory = [];
@@ -28,17 +29,28 @@ const Search = () => {
     }
   };
 
+  // Get words array
   const getOldSearch = () => {
     let array = JSON.parse(localStorage.getItem('search-history'));
     array.reverse();
     return array;
   };
 
+  // Delete one search result
+  const deleteThis = (result, index) => {
+    let searchHistory = JSON.parse(localStorage.getItem('search-history'));
+    let newArray = searchHistory.filter((word) => word !== result);
+    localStorage.setItem('search-history', JSON.stringify(newArray));  
+    let list = document.getElementById(index);
+    list.remove();
+  };
+
   // Make one list HTML tag
   const makeList = (result, index) => {
     return (
-      <li key={index}>
+      <li key={index} id={index}>
         <Link to={"/search/" + result}>{result}</Link>
+        <button onClick={() => deleteThis(result, index)}>X</button>
       </li>
     );
   };
@@ -52,7 +64,7 @@ const Search = () => {
       let list =  makeList(result, index);
       container.push(list);
     });
-    setListTags(container);
+    setSearchListTags(container);
   };
 
 
@@ -64,7 +76,7 @@ const Search = () => {
     <section className='search-result-page'>
       <div className='search-history'>
         <ul>
-          {listTags.map((li) => {
+          {searchListTags.map((li) => {
             return (
               li
             );
