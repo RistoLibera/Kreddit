@@ -4,6 +4,7 @@ import { AuthContext } from '../components/loading/Auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle, faMoon, faUserCog } from '@fortawesome/free-solid-svg-icons';
 import Koin from '../assets/img/header-koin.png';
+import ShowNotif from '../components/notification/ShowNotif';
 import Signout from '../components/user/Signout';
 import '../styles/css/header.css';
 
@@ -44,10 +45,7 @@ const Header = () => {
     if (currentUser) {
       return (
         <div className='user-bar'>
-          <div>
-            <h2>notification</h2>
-          </div>
-
+          <ShowNotif />
           <div className="dropdown">
             <button onClick={togglebutton} className="dropbtn">
               <FontAwesomeIcon icon={faUserCog} color='' size='2x' />

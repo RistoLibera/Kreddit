@@ -4,7 +4,7 @@ import FirebasePack from '../../config/FirebasePack';
 
 const Search = (props) => {
   const history = useHistory();
-  const { document, currentUser, parentLayer, beEditor } = props;
+  const { document, currentUser, parentLayer, beEditor, rootUpdate } = props;
 
   // Delete discussion or subdiscussion
   const deleteRecord = async () => {
@@ -58,7 +58,8 @@ const Search = (props) => {
     await deleteRecord();
     await deleteInfo();
     alert('success!');
-    history.push('/discussions/00');
+    rootUpdate();
+    // history.push('/discussions/00');
   };
   
   return (

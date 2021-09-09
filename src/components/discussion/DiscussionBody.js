@@ -196,7 +196,7 @@ const DiscussionBody = (props) => {
                   <div className='interaction'>
                     <button className='reply-discussion' onClick={switchHidden}>Reply</button>
                     <button className='edit-discussion' onClick={toggleEdit} >Edit</button>
-                    <Delete document={document} currentUser={currentUser} parentLayer={layer} beEditor={beEditor} />
+                    <Delete document={document} currentUser={currentUser} parentLayer={layer} beEditor={beEditor}  rootUpdate={rootUpdate}/>
                   </div>
                 :
                   <div className='interaction'>
