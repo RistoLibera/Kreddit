@@ -12,7 +12,6 @@ import ShowInfo from '../components/user/ShowInfo';
 import Titles from '../components/user/Titles';
 import ShowStatistic from '../components/user/ShowStatistic';
 import '../styles/css/profile.css';
-import firebase from 'firebase/app';
 
 const Profile = () => {
   const { uid }  = useParams();
