@@ -5,13 +5,19 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 // Search results
 const Search = () => {
+  const history = useHistory();
 
+  const jumpToSearchPage = (event) => {
+    event.preventDefault();
+    const { keyword } = event.target.elements;
+    history.push('/search/' + keyword.value);
+  };
 
   return (
     <section className='search-bar'>
-      <form>
+      <form onSubmit={jumpToSearchPage}>
         <FontAwesomeIcon icon={faSearch} color='' size='2x' />
-        <input type='text' placeholder="Let's kreddit!"></input>
+        <input type='text' id='keyword' name='keyword' placeholder="Let's kreddit!"></input>
         <button type='submit' value='Submit'>Search</button>
       </form>
     </section>

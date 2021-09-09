@@ -1,30 +1,17 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import FirebasePack from '../config/FirebasePack';
 import '../styles/css/search.css';
 
 // Search results
 const Search = () => {
+  const { keyword }  = useParams();
   const [indicator, setIndicator] = useState(1);
   
-  const screw = () => {
-    setIndicator(2);
-  };
-
-  const test = () => {
-    return(
-      <div className='test'>
-        <h1>{indicator}</h1>
-      </div>
-    );
-  };
-
-  useEffect(() => {
-    screw();
-  }, []);
 
   return (
     <section className='search-result-page'>
-      {test()}
+      <h2>letttt</h2>
     </section>
   );
 };

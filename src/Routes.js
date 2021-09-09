@@ -24,7 +24,7 @@ const Routes = () => {
           <Route exact path='/groups' component={Groups} />
           <Route exact path='/discussions/:optionalGroup' component={DiscussionTitles} />
           <Route exact path='/discussions/:group/:uid' component={Discussion} />
-          <Route exact path='/search' component={Search} />
+          <Route exact path='/search/:keyword' component={Search} />
           <Route path='/' component={Home} />
         </Switch>
       </Router>
