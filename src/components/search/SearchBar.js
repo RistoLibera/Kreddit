@@ -17,7 +17,7 @@ const Search = () => {
     <section className='search-bar'>
       <form onSubmit={jumpToSearchPage}>
         <FontAwesomeIcon icon={faSearch} color='' size='2x' />
-        <input type='text' id='keyword' name='keyword' placeholder="Let's kreddit!"></input>
+        <input type='text' id='keyword' name='keyword' placeholder="Let's kreddit!" maxLength='15'></input>
         <button type='submit' value='Submit'>Search</button>
       </form>
     </section>

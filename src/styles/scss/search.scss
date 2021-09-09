@@ -1,7 +1,7 @@
 @use 'base';
 
 // Search result page
-#search-result {
+.search-result-page {
   @extend %flex-row-direction;
 
   

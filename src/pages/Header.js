@@ -4,7 +4,8 @@ import { AuthContext } from '../components/loading/Auth';
 import FirebasePack from '../config/FirebasePack';
 import Default from '../assets/img/default-icon.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircle, faMoon } from '@fortawesome/free-solid-svg-icons';
+import { faLightbulb as fasLightbulb } from '@fortawesome/free-solid-svg-icons';
+import { faLightbulb as farLightbulb } from '@fortawesome/free-regular-svg-icons';
 import Koin from '../assets/img/header-koin.png';
 import SearchBar from '../components/search/SearchBar';
 import ShowNotif from '../components/notification/ShowNotif';
@@ -149,8 +150,8 @@ const Header = () => {
             </div>
           }
         <div className='mode-bar'>
-          <FontAwesomeIcon icon={faMoon} color='' size='2x' />
-          <FontAwesomeIcon icon={faCircle} color='' size='2x' />
+          <FontAwesomeIcon icon={fasLightbulb} color='' size='2x' />
+          <FontAwesomeIcon icon={farLightbulb} color='' size='2x' />
         </div>
       </div>
     </header>

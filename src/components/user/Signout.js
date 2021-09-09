@@ -8,6 +8,8 @@ const Signout = () => {
   const history = useHistory();
   const proceedSignout = () => {
     FirebasePack.auth().signOut();
+    // Clear search result
+    localStorage.clear();
     history.push('/');
   };
 
