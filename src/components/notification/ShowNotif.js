@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBell, faBellSlash } from '@fortawesome/free-solid-svg-icons';
 
 const ShowNotif = (props) => {
   const { documents } = props;
   const [listTags, setListTags] = useState([]);
+  const [showUL, setShowUL] = useState('hidden');
 
   // Make one list HTML tag
   const makeNotifList = (rate, reply, sender, url , index) => {
@@ -50,8 +53,14 @@ const ShowNotif = (props) => {
   }, [documents]);
 
   return (
-    <div className='notification-center'>
-      <ul>
+    <div className='notification-center' onMouseEnter={() => setShowUL('show')} onMouseLeave={() => setShowUL('hidden')}>
+      {documents.length === 0
+        ?
+          <FontAwesomeIcon icon={faBellSlash} color='' size='2x' />
+        :
+          <FontAwesomeIcon icon={faBell} color='' size='2x' />
+      }
+      <ul className={showUL}>
         {listTags.map((li) => {
             return (
               li

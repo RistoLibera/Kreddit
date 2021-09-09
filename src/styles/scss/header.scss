@@ -32,9 +32,23 @@
       @extend %flex-row-direction;
 
       .notification-center {
-        ul li {
-          @extend %flex-row-direction;
-          list-style: none;
+        position: relative;
+
+        ul {
+          position: absolute;
+
+          .hidden {
+            display: none;
+          }
+  
+          .show {
+            @extend %flex-column-direction;
+          }
+
+          li {
+            @extend %flex-row-direction;
+            list-style: none;  
+          }
         }
       }
 
