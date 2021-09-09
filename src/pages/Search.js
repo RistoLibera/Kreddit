@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import FirebasePack from '../config/FirebasePack';
 import '../styles/css/search.css';
+
 // Search results
 const Search = () => {
   const [indicator, setIndicator] = useState(1);

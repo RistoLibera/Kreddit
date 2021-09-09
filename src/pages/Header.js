@@ -6,6 +6,7 @@ import Default from '../assets/img/default-icon.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle, faMoon } from '@fortawesome/free-solid-svg-icons';
 import Koin from '../assets/img/header-koin.png';
+import SearchBar from '../components/search/SearchBar';
 import ShowNotif from '../components/notification/ShowNotif';
 import Signout from '../components/user/Signout';
 import '../styles/css/header.css';
@@ -70,6 +71,7 @@ const Header = () => {
         .collection('user-info')
         .doc(currentUser.uid)
         .collection('notifications')
+        .orderBy("created_time", "desc")
         .get()
         .then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
@@ -100,10 +102,7 @@ const Header = () => {
   return (
     <header className='app-header'>
       <div className='left-bar'>
-        <div className='search-bar'>
-          <h3>Search? Let's kreddit!</h3>
-          <h2></h2>
-        </div>
+        <SearchBar />
       </div>
 
       <div className='middle-bar'>
@@ -122,7 +121,7 @@ const Header = () => {
         {currentUser
           ?
             <div className='user-bar'>
-              <ShowNotif documents={notifDocs} />
+              <ShowNotif documents={notifDocs} currentUser={currentUser} update={getData} />
               <div className="dropdown">
                 <button onClick={togglebutton} className="dropbtn">
                   <img src={iconURL} alt='icon' width='30px' />

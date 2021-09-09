@@ -149,7 +149,8 @@ const ReplyForm = (props) => {
         .set({
           reply: true,
           url: url,
-          sender: sender
+          sender: sender,
+          created_time: firebase.firestore.FieldValue.serverTimestamp()
         }, {merge: true});
     } catch (error) {
       console.log(error);

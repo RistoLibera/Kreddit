@@ -1,12 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import FirebasePack from '../../config/FirebasePack';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell, faBellSlash } from '@fortawesome/free-solid-svg-icons';
 
 const ShowNotif = (props) => {
-  const { documents } = props;
+  const { documents, currentUser, update } = props;
   const [listTags, setListTags] = useState([]);
   const [showUL, setShowUL] = useState('hidden');
+
+  // Clear all notifications
+  const clearNotif = async () => {
+    try {
+      await FirebasePack
+        .firestore()
+        .collection('user-info')
+        .doc(currentUser.uid)
+        .collection('notifications')
+        .get()
+        .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            doc.ref.delete();
+          });
+        });
+    } catch (error) {
+      console.log(error);
+    }
+    setListTags([]);
+    alert('success');
+    update();
+  };
 
   // Make one list HTML tag
   const makeNotifList = (rate, reply, sender, url , index) => {
@@ -45,6 +68,9 @@ const ShowNotif = (props) => {
       list = makeNotifList(rate, reply, sender, url , index);
       container.push(list);
     }
+    let clearOption = <li id='clear-all' key={container.length} onClick={clearNotif}>Clear all</li>;
+    container.push(clearOption);
+    container.reverse();
     setListTags(container);
   };
   

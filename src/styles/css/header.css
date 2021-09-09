@@ -28,6 +28,11 @@
 }
 .app-header .right-bar .user-bar .notification-center ul {
   position: absolute;
+  right: 10px;
+}
+.app-header .right-bar .user-bar .notification-center ul #clear-all {
+  background-color: turquoise;
+  cursor: pointer;
 }
 .app-header .right-bar .user-bar .notification-center ul .hidden {
   display: none;

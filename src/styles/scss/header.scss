@@ -36,6 +36,12 @@
 
         ul {
           position: absolute;
+          right: 10px;
+          
+          #clear-all {
+            background-color: turquoise;
+            cursor: pointer;
+          }
 
           .hidden {
             display: none;
