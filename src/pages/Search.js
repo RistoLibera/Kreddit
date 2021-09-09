@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import FirebasePack from '../config/FirebasePack';
 import { useParams } from 'react-router-dom';
 import '../styles/css/search.css';
 
@@ -7,6 +8,8 @@ import '../styles/css/search.css';
 const Search = () => {
   const { keyword }  = useParams();
   const [searchListTags, setSearchListTags] = useState([]);
+  const [userListTags, setUserListTags] = useState([]);
+  const [titleListTags, setTitleListTags] = useState([]);
 
   // Record on localstorage
   const runLocalstorage = () => {
@@ -45,8 +48,8 @@ const Search = () => {
     list.remove();
   };
 
-  // Make one list HTML tag
-  const makeList = (result, index) => {
+  // Make one search list HTML tag
+  const makeSearchList = (result, index) => {
     return (
       <li key={index} id={index}>
         <Link to={"/search/" + result}>{result}</Link>
@@ -55,21 +58,73 @@ const Search = () => {
     );
   };
 
-  const createList = async () => {
+  const createSearchList = () => {
     runLocalstorage();
     let array = getOldSearch();
     let container = [];
 
     array.forEach((result, index) => {
-      let list =  makeList(result, index);
+      let list =  makeSearchList(result, index);
       container.push(list);
     });
     setSearchListTags(container);
   };
 
+  // Get users data
+  const getUserData = async () => {
+    let userInfos = [];
+    try {
+      await FirebasePack
+        .firestore()
+        .collection('user-info')
+        .get()
+        .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            let info = {
+              name: doc.data().nickname,
+              uid: doc.id         
+            };
+            userInfos.push(info);
+          });
+        });
+      } catch (error) {
+      console.log(error);
+    }
+    return userInfos;
+  };
+
+  // Make one user list HTML tag
+  const makeUserList = (name, uid, index) => {
+    return (
+      <li key={index}>
+        <Link to={"/profile/" + uid}>{name}</Link>
+      </li>
+    );
+  };
+
+  // Get users
+  const createUserList = async () => {
+    let userInfos = await getUserData();
+    let result = userInfos.filter((info) => info.name.includes(keyword));
+    let container = [];
+
+    result.forEach((info, index) => {
+      let list =  makeUserList(info.name, info.uid, index);
+      container.push(list);
+    });
+    setUserListTags(container);
+  };
+
+
+  // Get titles  group title uid
+  const createTitleList = async () => {
+
+  };
+
 
   useEffect(() => {
-    createList();
+    createSearchList();
+    createUserList();
   }, [keyword]);
 
   return (
@@ -85,11 +140,23 @@ const Search = () => {
       </div>
 
       <div className="titles">
-        <h1>Title</h1>
+        <ul>
+          {userListTags.map((li) => {
+              return (
+                li
+              );
+          })}
+        </ul>
       </div>
 
       <div className="user">
-        <h1>User</h1>
+        <ul>
+          {titleListTags.map((li) => {
+              return (
+                li
+              );
+          })}
+        </ul>
       </div>
     </section>
   );
