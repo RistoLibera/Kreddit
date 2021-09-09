@@ -1,10 +1,10 @@
-.app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar {
+.app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar, .app-header .right-bar .user-bar .notification-center ul li {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.app-header .right-bar .dropdown .show {
+.app-header .right-bar .user-bar .dropdown .show {
   display: flex;
   flex-direction: column;
 }
@@ -23,16 +23,19 @@
 .app-header .middle-bar .groups-bar {
   cursor: pointer;
 }
-.app-header .right-bar .dropdown {
+.app-header .right-bar .user-bar .notification-center ul li {
+  list-style: none;
+}
+.app-header .right-bar .user-bar .dropdown {
   position: relative;
 }
-.app-header .right-bar .dropdown #dropdown-menu {
+.app-header .right-bar .user-bar .dropdown #dropdown-menu {
   position: absolute;
 }
-.app-header .right-bar .dropdown #dropdown-menu .dropdown-items {
+.app-header .right-bar .user-bar .dropdown #dropdown-menu .dropdown-items {
   margin: 5px;
 }
-.app-header .right-bar .dropdown .hidden {
+.app-header .right-bar .user-bar .dropdown .hidden {
   display: none;
 }
 
