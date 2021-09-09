@@ -31,5 +31,25 @@
     .user-bar {
       @extend %flex-row-direction;
     }
+
+    .dropdown {
+      position: relative;
+
+      #dropdown-menu {
+        position: absolute;
+
+        .dropdown-items {
+          margin: 5px;
+        }
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .show {
+        @extend %flex-column-direction;
+      }
+    }
   }
 }

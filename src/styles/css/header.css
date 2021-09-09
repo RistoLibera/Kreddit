@@ -4,6 +4,11 @@
   justify-content: space-between;
 }
 
+.app-header .right-bar .dropdown .show {
+  display: flex;
+  flex-direction: column;
+}
+
 .app-header {
   justify-content: space-between;
 }
@@ -17,6 +22,18 @@
 }
 .app-header .middle-bar .groups-bar {
   cursor: pointer;
+}
+.app-header .right-bar .dropdown {
+  position: relative;
+}
+.app-header .right-bar .dropdown #dropdown-menu {
+  position: absolute;
+}
+.app-header .right-bar .dropdown #dropdown-menu .dropdown-items {
+  margin: 5px;
+}
+.app-header .right-bar .dropdown .hidden {
+  display: none;
 }
 
 /*# sourceMappingURL=header.css.map */

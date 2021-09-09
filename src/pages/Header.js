@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { AuthContext } from '../components/loading/Auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,6 +11,24 @@ import '../styles/css/header.css';
 const Header = () => {
   const { currentUser } = useContext(AuthContext);
   const history = useHistory();
+  const [showMenu, setShowMenu] = useState('hidden');
+
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function(event) {
+    const menu = document.querySelector('#dropdown-menu');
+    if (menu.className === 'show' && (!event.target.closest('button') || (event.target.closest('button') && !event.target.closest('button').matches('.dropbtn')))) {
+      setShowMenu('hidden');
+    }
+  };
+  
+  // Toggle button
+  const togglebutton = () => {
+    if (showMenu === 'show') {
+      setShowMenu('hidden');
+    } else {
+      setShowMenu('show');
+    }
+  };
 
   // Current profile
   const getProfileURL = () => {
@@ -30,11 +48,15 @@ const Header = () => {
             <h2>notification</h2>
           </div>
 
-          <div>
-          <FontAwesomeIcon icon={faUserCog} color='' size='2x' />
-          <Link to={getProfileURL}>Profile</Link>
-          <button>Language</button>
-          <Signout />
+          <div className="dropdown">
+            <button onClick={togglebutton} className="dropbtn">
+              <FontAwesomeIcon icon={faUserCog} color='' size='2x' />
+            </button>
+            <div id="dropdown-menu" className={showMenu}>
+              <Link className="dropdown-items" to={getProfileURL}>Profile</Link>
+              <button className="dropdown-items">Language</button>
+              <Signout />
+            </div>
           </div>
         </div>
       );

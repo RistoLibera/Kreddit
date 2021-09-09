@@ -10,7 +10,7 @@ const Signout = () => {
   };
 
   return (
-    <button id='signout' onClick={proceedSignout}  type='button'>
+    <button id='signout' className="dropdown-items" onClick={proceedSignout}  type='button'>
       Sign out
     </button>
   );
