@@ -56,6 +56,7 @@ const ShowStatistic = (props) => {
   return (
     <div className='lower-info'>
       <div className='as-creator'>
+        <h5>create</h5>
         <ul>
           {createdList.map((li) => {
             return (
@@ -67,6 +68,7 @@ const ShowStatistic = (props) => {
       </div>
 
       <div className='as-member'>
+        <h5>join</h5>
         <ul>
           {joinedList.map((li) => {
             return (

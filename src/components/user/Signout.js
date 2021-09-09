@@ -10,11 +10,9 @@ const Signout = () => {
   };
 
   return (
-    <div id='signout'>
-      <button onClick={proceedSignout}  type='button'>
-        Sign out
-      </button>
-    </div>
+    <button id='signout' onClick={proceedSignout}  type='button'>
+      Sign out
+    </button>
   );
 };
 

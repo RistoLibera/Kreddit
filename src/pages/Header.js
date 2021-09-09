@@ -1,9 +1,12 @@
 import React, { useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { AuthContext } from '../components/loading/Auth';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircle, faMoon, faUserCog } from '@fortawesome/free-solid-svg-icons';
 import Koin from '../assets/img/header-koin.png';
 import Signout from '../components/user/Signout';
 import '../styles/css/header.css';
+
 
 const Header = () => {
   const { currentUser } = useContext(AuthContext);
@@ -16,19 +19,21 @@ const Header = () => {
       profileURL = '/profile/' + currentUser.uid;
     }
     return profileURL;
-  };
+  };  
 
   // Change registration interface
-  const registrationBar = () => {
+  const makeRegistration = () => {
     if (currentUser) {
       return (
-        // converge into one setting block later
         <div className='user-bar'>
           <div>
             <h2>notification</h2>
           </div>
+
           <div>
+          <FontAwesomeIcon icon={faUserCog} color='' size='2x' />
           <Link to={getProfileURL}>Profile</Link>
+          <button>Language</button>
           <Signout />
           </div>
         </div>
@@ -73,9 +78,10 @@ const Header = () => {
       </div>
 
       <div className='right-bar'>
-        {registrationBar()}
+        {makeRegistration()}
         <div className='mode-bar'>
-          <h2>mode</h2>
+          <FontAwesomeIcon icon={faMoon} color='' size='2x' />
+          <FontAwesomeIcon icon={faCircle} color='' size='2x' />
         </div>
       </div>
     </header>

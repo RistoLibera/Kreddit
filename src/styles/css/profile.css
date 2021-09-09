@@ -16,8 +16,16 @@
 .profile-page .profile-container .upper-profile {
   justify-content: space-around;
 }
+.profile-page .profile-container .upper-profile .info .lower-info .as-creator h5 {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
 .profile-page .profile-container .upper-profile .info .lower-info .as-creator ul li {
   list-style: none;
+}
+.profile-page .profile-container .upper-profile .info .lower-info .as-member h5 {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
 }
 .profile-page .profile-container .upper-profile .info .lower-info .as-member ul li {
   list-style: none;

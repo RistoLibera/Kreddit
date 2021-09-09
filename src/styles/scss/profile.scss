@@ -26,6 +26,11 @@
           .as-creator {
             @extend %flex-row-direction;
 
+            h5 {
+              writing-mode: vertical-rl;
+              text-orientation: upright;
+            }
+
             ul{
               @extend %flex-row-direction;
 
@@ -37,6 +42,11 @@
 
           .as-member {
             @extend %flex-row-direction;
+
+            h5 {
+              writing-mode: vertical-rl;
+              text-orientation: upright;
+            }
 
             ul{
               @extend %flex-row-direction;
