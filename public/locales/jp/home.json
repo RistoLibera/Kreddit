@@ -1,0 +1,13 @@
+{
+  "title": "ホーム",
+  "content": {
+    "slogan": "さあ、行こう！",
+    "instruction": "これはRedditを模倣した話し合いサービスです。ご自由にやってみよう！",
+    "smartphone": "スマートフォンモード",
+    "smartphone-title": "幅が600px未満",
+    "smallscreen": "小画面モード",
+    "smallscreen-title": "幅が850px未満",
+    "desktop": "デスクトップモード",
+    "desktop-title": "幅が850px以上"
+  }
+}

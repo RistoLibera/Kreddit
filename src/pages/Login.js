@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useHistory, Redirect } from 'react-router-dom';
 import { AuthContext } from '../components/loading/Auth';
+import { useTranslation } from "react-i18next";
 import Recaptcha from 'react-recaptcha';
 import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
@@ -9,6 +10,7 @@ import handleFirebaseError from '../components/error/handleFirebaseError';
 import '../styles/css/user.css';
 
 const Login = () => {
+  const { t } = useTranslation('login');
   const { currentUser } = useContext(AuthContext);
   const history = useHistory();
   const spinnerCSS = css`
@@ -72,11 +74,11 @@ const Login = () => {
           <div className='login-container'>
             <form onSubmit={handleLogin}>
               <fieldset className='user-auth'>
-                <legend>Log in</legend>
-                <label htmlFor='nickname'>Nickname</label>
-                <input type='text' id='nickname' name='nickname' placeholder='Nickname!' required/><br></br>
-                <label htmlFor='password'>Password</label>
-                <input type='password' id='password' name='password' placeholder='Password' minLength="6" required/><br></br>
+                <legend>{t('content.login')}</legend>
+                <label htmlFor='nickname'>{t('content.nickname')}</label>
+                <input type='text' id='nickname' name='nickname' placeholder={t('content.nickname') + '!'} required/><br></br>
+                <label htmlFor='password'>{t('content.password')}</label>
+                <input type='password' id='password' name='password' placeholder={t('content.password') + '!'} minLength="6" required/><br></br>
                 <Recaptcha
                   className='verification'
                   sitekey="6Le3UlgcAAAAAGDSykaEb3RRHHttIUXqM_d9iHhB"
@@ -85,8 +87,8 @@ const Login = () => {
                   verifyCallback={verifyIfHuman}
                 />
                 <div className='auth-buttons'>
-                  <button className='reset' type='reset' value='Reset'>Clear</button>
-                  <button className='submit' type='submit' value='Submit' disabled={!isVerified}>Log in</button>
+                  <button className='reset' type='reset' value='Reset'>{t('content.clear')}</button>
+                  <button className='submit' type='submit' value='Submit' disabled={!isVerified}>{t('content.login')}</button>
                 </div>
               </fieldset>
             </form>

@@ -1,0 +1,11 @@
+{
+  "title": "サインアップ",
+  "content": {
+    "nickname": "ニックネーム",
+    "nickname-holder": "３チャラ以上！",
+    "password": "パスワード",
+    "password-holder": "３チャラ以上！",
+    "clear": "クリア",
+    "signup": "サインアップ"
+  }
+}

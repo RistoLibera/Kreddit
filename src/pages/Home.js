@@ -1,24 +1,26 @@
 import React, { useEffect } from 'react';
+import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDesktop, faLaptop, faMobileAlt } from '@fortawesome/free-solid-svg-icons';
 import '../styles/css/home.css';
 
 const Home = () => {
+  const { t } = useTranslation('home');
+
   // Responsive content
   const showContent = () => {
     let windowWidth = window.innerWidth;
-    let instruction = <p>This is a discussion website imitating Reddit, 
-                          just feel free to explore what it presents!</p>;
+    let instruction = <p>{t('content.instruction')}</p>;
 
     if (windowWidth < 600) {
       return (
         <div className="reactive-home">
           <div className="display-mode">
             <FontAwesomeIcon icon={faMobileAlt} color='' size='lg' />
-            <h1><dfn><abbr title='Width is less than 600px'>Smartphone view</abbr></dfn></h1>
+            <h1><dfn><abbr title={t('content.smartphone-title')}>{t('content.smartphone')}</abbr></dfn></h1>
           </div>
             {instruction}
-          <h2>Let's kreddit!</h2>
+          <h2>{t('content.slogan')}</h2>
         </div>
       );
     } else if (windowWidth < 850) {
@@ -26,10 +28,10 @@ const Home = () => {
         <div className="reactive-home">
           <div className="display-mode">
             <FontAwesomeIcon icon={faLaptop} color='' size='lg' />
-            <h1><dfn><abbr title='Width is less than 850px'>SmallScreen view</abbr></dfn></h1>
+            <h1><dfn><abbr title={t('content.smallscreen-title')}>{t('content.smallscreen')}</abbr></dfn></h1>
           </div>
             {instruction}
-          <h2>Let's kreddit!</h2>
+          <h2>{t('content.slogan')}</h2>
         </div>
       );
     } else {
@@ -37,10 +39,10 @@ const Home = () => {
         <div className="reactive-home">
           <div className="display-mode">
             <FontAwesomeIcon icon={faDesktop} color='' size='lg' />
-            <h1><dfn><abbr title='Width is more than 850px'>Desktop view</abbr></dfn></h1>
+            <h1><dfn><abbr title={t('content.desktop-title')}>{t('content.desktop')}</abbr></dfn></h1>
           </div>
             {instruction}
-          <h2>Let's kreddit!</h2>
+          <h2>{t('content.slogan')}</h2>
         </div>
       );
     }
@@ -48,7 +50,7 @@ const Home = () => {
 
   useEffect(() => {
     showContent();
-  }, []);
+  }, [t]);
 
   return (
     <section className='homepage'>

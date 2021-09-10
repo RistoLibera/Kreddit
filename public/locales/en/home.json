@@ -1,0 +1,13 @@
+{
+  "title": "home",
+  "content": {
+    "slogan": "Let's kreddit!",
+    "instruction": "This is a discussion website imitating Reddit, just feel free to explore what it presents!",
+    "smartphone": "Smartphone view",
+    "smartphone-title": "Width is less than 600px",
+    "smallscreen": "SmallScreen view",
+    "smallscreen-title": "Width is less than 850px",
+    "desktop": "Desktop view",
+    "desktop-title": "Width is more than 850px"
+  }
+}

@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useHistory, Redirect } from 'react-router-dom';
 import { AuthContext } from '../components/loading/Auth';
+import { useTranslation } from "react-i18next";
 import Recaptcha from 'react-recaptcha';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMars, faVenus } from '@fortawesome/free-solid-svg-icons';
@@ -12,6 +13,7 @@ import SelectCountry from '../components/user/SelectCountry';
 import '../styles/css/user.css';
 
 const Signup = () => {
+  const { t } = useTranslation('signup');
   const { currentUser } = useContext(AuthContext);
   const history = useHistory();
   const spinnerCSS = css`
@@ -99,11 +101,11 @@ const Signup = () => {
           <div className='signup-container'>
             <form onSubmit={handleSignup}>
               <fieldset className='user-auth'>
-                <legend>Sign up</legend>
-                <label htmlFor='nickname'>Nickname</label>
-                <input type='text' id='nickname' name='nickname' placeholder='Give yourself a cool nickname(3 or more)!' minLength="3" required/><br></br>
-                <label htmlFor='password'>Password</label>
-                <input type='password' id='password' name='password' placeholder='No one will survive without password(6 or more)!' minLength="6" required/><br></br>
+                <legend>{t('content.signup')}</legend>
+                <label htmlFor='nickname'>{t('content.nickname')}</label>
+                <input type='text' id='nickname' name='nickname' placeholder={t('content.nickname-holder')} minLength="3" required/><br></br>
+                <label htmlFor='password'>{t('content.password')}</label>
+                <input type='password' id='password' name='password' placeholder={t('content.password-holder')} minLength="6" required/><br></br>
                 <div className='info'>
                   <div className='gender'>
                     <label htmlFor='male'>
@@ -126,8 +128,8 @@ const Signup = () => {
                   verifyCallback={verifyIfHuman}
                 />
                 <div className='auth-buttons'>
-                  <button className='reset' type='reset' value='Reset'>Clear</button>
-                  <button className='submit' type='submit' value='Submit' disabled={!isVerified}>Sign up</button>
+                  <button className='reset' type='reset' value='Reset'>{t('content.clear')}</button>
+                  <button className='submit' type='submit' value='Submit' disabled={!isVerified}>{t('content.signup')}</button>
                 </div>
               </fieldset>
             </form>
