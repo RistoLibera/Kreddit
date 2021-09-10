@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { AuthContext } from '../components/loading/Auth';
+import { useTranslation } from "react-i18next";
 import FirebasePack from '../config/FirebasePack';
 import FilterButtons from '../components/discussion-titles/FilterButtons';
 import CreateDiscussion from '../components/discussion-titles/CreateDiscussion';
@@ -8,6 +9,7 @@ import DiscussionsList from '../components/discussion-titles/DiscussionsList';
 import '../styles/css/discussion-titles.css';
 
 const DiscussionTitles = () => {
+  const { t } = useTranslation('discussion');
   const { optionalGroup }  = useParams();
   const { currentUser } = useContext(AuthContext);
   const [formHidden, setFormHidden] = useState('hidden');
@@ -100,10 +102,10 @@ const DiscussionTitles = () => {
           <div className='discussions-controller'>
             <FilterButtons documents={GroupsDoc}  updateSelection={updateSelection} cancelSelection={cancelSelection} allSelection={allSelection} optionalGroup={optionalGroup} />
             {currentUser
-                ? <button onClick={switchHidden}>Create a discussion</button>
+                ? <button onClick={switchHidden}>{t('content.create-discussion')}</button>
                 : <div></div>
             }
-            <h2>Expand all</h2>
+            <h2>should be two arrow expand all </h2>
           </div>
           {currentUser
             ?

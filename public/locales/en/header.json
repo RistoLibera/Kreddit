@@ -11,6 +11,9 @@
     "clear": "Clear all",
     "partake": "partook in your discussion",
     "rate": "rated your discussion",
-    "reply": "replied to your discussion"
+    "reply": "replied to your discussion",
+    "signout": "Sign out",
+    "login": "Log in",
+    "signup": "Sign up"
   }
 }

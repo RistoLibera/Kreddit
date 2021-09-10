@@ -142,12 +142,12 @@ const Header = () => {
             <div className='user-bar'>
               <div>
                 <button onClick={() => history.push('/login')} type='button'>
-                  Log in
+                  {t('content.login')}
                 </button>
               </div>
               <div>
                 <button onClick={() => history.push('/signup')} type='button'>
-                  Sign up
+                  {t('content.signup')}
                 </button>
               </div>
             </div>

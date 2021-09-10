@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from "react-i18next";
 import FirebasePack from '../../config/FirebasePack';
 import firebase from 'firebase/app';
 import { css } from '@emotion/react';
@@ -6,6 +7,7 @@ import BarLoader from 'react-spinners/BarLoader';
 
 //  change view matrix or line
 const CreateDiscussion = (props) => {
+  const { t } = useTranslation('discussion');
   const { currentUser, hidden, update } = props;
   const spinnerCSS = css`
   display: block;
@@ -45,7 +47,7 @@ const CreateDiscussion = (props) => {
   const makeOption = (groupInfos) => {
     let container = [];
     if (groupInfos.length === 0 ) {
-      let warningTag = <option key='0' value='0'>You need join a group!</option>;
+      let warningTag = <option key='0' value='0'>{t('content.group-warning')}</option>;
       container.push(warningTag);
       setOptionsTags(container);
       setDisabledButton(true);
@@ -165,7 +167,7 @@ const CreateDiscussion = (props) => {
         :
           <form onSubmit={handleCreation}>
             <fieldset>
-              <legend>Discussion</legend>
+              <legend>{t('content.discussion')}</legend>
               <select id='group' name='group'>
                 {optionsTags.map((option) => {
                   return (
@@ -173,13 +175,13 @@ const CreateDiscussion = (props) => {
                   );
                 })}
               </select>
-              <label htmlFor='title'>Title</label>
-              <input type='text' id='title' name='title' placeholder='Title' required/><br></br>
-              <label htmlFor='content'>Content</label>
-              <textarea type='text' id='content' name='content' maxLength="200" placeholder='Content' required/><br></br>
-              <label htmlFor='attachment'>Attachment</label>
+              <label htmlFor='title'>{t('content.title')}</label>
+              <input type='text' id='title' name='title' placeholder={t('content.title-holder')} required/><br></br>
+              <label htmlFor='content'>{t('content.content')}</label>
+              <textarea type='text' id='content' name='content' maxLength="200" placeholder={t('content.content-holder')} required/><br></br>
+              <label htmlFor='attachment'>{t('content.attachment')}</label>
               <input type='file' id='attachment' name='attachment'/><br></br>
-              <button className='submit' type='submit' value='Submit' disabled={disabledButton}>Create</button>
+              <button className='submit' type='submit' value='Submit' disabled={disabledButton}>{t('content.create')}</button>
             </fieldset>
           </form>
       }
