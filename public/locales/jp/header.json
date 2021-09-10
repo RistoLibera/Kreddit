@@ -3,6 +3,16 @@
   "content": {
     "search-button": "検索",
     "search-holder": "いこう！",
-    "profile": "プロフィール"
+    "profile": "プロフィール",
+    "discussion": "話し合い",
+    "group": "群れ",
+    "english": "英語",
+    "japanese": "日本語",
+    "clear": "全消去",
+    "partake": "は話し合いに興味があります",
+    "rate": "は話し合いに評価しました",
+    "reply": "は話し合いに参加しました"
+
+
   }
 }

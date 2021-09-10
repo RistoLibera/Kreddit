@@ -3,6 +3,15 @@
   "content": {
     "search-button": "SEARCH",
     "search-holder": "Let's kreddit!",
-    "profile": "Profile"
+    "profile": "Profile",
+    "discussion": "Discussion",
+    "group": "Group",
+    "english": "EN",
+    "japanese": "JP",
+    "clear": "Clear all",
+    "partake": "partook in your discussion",
+    "rate": "rated your discussion",
+    "reply": "replied to your discussion"
+
   }
 }

@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from "react-i18next";
 import FirebasePack from '../../config/FirebasePack';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell, faBellSlash } from '@fortawesome/free-solid-svg-icons';
 
 const ShowNotif = (props) => {
+  const { t } = useTranslation('header');
   const { documents, currentUser, update } = props;
   const [listTags, setListTags] = useState([]);
   const [showUL, setShowUL] = useState('hidden');
@@ -36,19 +38,19 @@ const ShowNotif = (props) => {
     if (rate === true && reply === true) {
       return (
         <li key={index}>
-          <Link to={url}>{sender} partook in your discussion</Link>
+          <Link to={url}>{sender} {t('content.partake')}</Link>
         </li>
       );
     } else if (rate === true) {
       return (
         <li key={index}>
-          <Link to={url}>{sender} rate your discussion</Link>
+          <Link to={url}>{sender} {t('content.rate')}</Link>
         </li>
       );
     } else {
       return (
         <li key={index}>
-          <Link to={url}>{sender} reply to your discussion</Link>
+          <Link to={url}>{sender} {t('content.reply')}</Link>
         </li>
       );
     }
@@ -68,7 +70,7 @@ const ShowNotif = (props) => {
       list = makeNotifList(rate, reply, sender, url , index);
       container.push(list);
     }
-    let clearOption = <li id='clear-all' key={container.length} onClick={clearNotif}>Clear all</li>;
+    let clearOption = <li id='clear-all' key={container.length} onClick={clearNotif}>{t('content.clear')}</li>;
     container.push(clearOption);
     container.reverse();
     setListTags(container);
@@ -76,7 +78,7 @@ const ShowNotif = (props) => {
   
   useEffect(() => {
     createNotif();
-  }, [documents]);
+  }, [documents, t]);
 
   return (
     <div className='notification-center' onMouseEnter={() => setShowUL('show')} onMouseLeave={() => setShowUL('hidden')}>
