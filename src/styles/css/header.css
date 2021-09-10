@@ -1,4 +1,4 @@
-.app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar, .app-header .right-bar .user-bar .notification-center ul li {
+.app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar, .app-header .right-bar .user-bar .notification-center ul li, .app-header .right-bar .user-bar .dropdown #dropdown-menu .language-buttons {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -22,6 +22,9 @@
 }
 .app-header .middle-bar .groups-bar {
   cursor: pointer;
+}
+.app-header .right-bar {
+  margin-right: 60px;
 }
 .app-header .right-bar .user-bar .notification-center {
   position: relative;

@@ -103,6 +103,7 @@ const DiscussionTitles = () => {
                 ? <button onClick={switchHidden}>Create a discussion</button>
                 : <div></div>
             }
+            <h2>Expand all</h2>
           </div>
           {currentUser
             ?

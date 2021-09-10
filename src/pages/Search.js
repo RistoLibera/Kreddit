@@ -136,7 +136,6 @@ const Search = () => {
 
   // Get titles data
   const getTitleData = async (groupDocs) => {
-    console.log(groupDocs);
     let discussionDocs = [];
     for (const [index, doc] of groupDocs.entries()) {
       try {
@@ -194,6 +193,7 @@ const Search = () => {
   return (
     <section className='search-result-page'>
       <div className='search-history'>
+        <h2>Past Search</h2>
         <ul>
           {searchListTags.map((li) => {
             return (
@@ -204,6 +204,7 @@ const Search = () => {
       </div>
 
       <div className="titles">
+        <h2>Titles</h2>
         <ul>
           {userListTags.map((li) => {
               return (
@@ -214,6 +215,7 @@ const Search = () => {
       </div>
 
       <div className="users">
+        <h2>Users</h2>
         <ul>
           {titleListTags.map((li) => {
               return (

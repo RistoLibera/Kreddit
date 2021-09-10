@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { AuthContext } from '../components/loading/Auth';
+import { useTranslation } from "react-i18next";
 import FirebasePack from '../config/FirebasePack';
 import Default from '../assets/img/default-icon.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,11 +10,13 @@ import { faLightbulb as farLightbulb } from '@fortawesome/free-regular-svg-icons
 import Koin from '../assets/img/header-koin.png';
 import SearchBar from '../components/search/SearchBar';
 import ShowNotif from '../components/notification/ShowNotif';
+import Language from '../components/user/Language';
 import Signout from '../components/user/Signout';
 import '../styles/css/header.css';
 
 
 const Header = () => {
+  const { t } = useTranslation('header');
   const { currentUser } = useContext(AuthContext);
   const history = useHistory();
   const [iconURL, setIconURL] = useState('');
@@ -129,8 +132,8 @@ const Header = () => {
                 </button>
                 <div id="dropdown-menu" className={showMenu}>
                   <h3>{name}</h3>
-                  <Link className="dropdown-items" to={getProfileURL}>Profile</Link>
-                  <button className="dropdown-items">Language</button>
+                  <Link className="dropdown-items" to={getProfileURL}>{t('content.profile')}</Link>
+                  <Language />
                   <Signout />
                 </div>
               </div>

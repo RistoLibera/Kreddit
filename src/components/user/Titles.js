@@ -56,6 +56,7 @@ const Titles = (props) => {
           );
         })}
       </ul>
+      <h2>Expand all</h2>
     </div>
   );
 };

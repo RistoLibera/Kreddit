@@ -27,7 +27,8 @@
 
   .right-bar {
     @extend %flex-row-direction;
-
+    margin-right: 60px;
+    
     .user-bar {
       @extend %flex-row-direction;
 
@@ -66,6 +67,10 @@
   
           .dropdown-items {
             margin: 5px;
+          }
+
+          .language-buttons {
+            @extend %flex-row-direction;
           }
         }
   
