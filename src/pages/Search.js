@@ -180,10 +180,15 @@ const Search = () => {
     setTitleListTags(container);
   };
 
+  // Get all result
+  const createResult = async () => {
+    await createUserList();
+    await createTitleList();
+  };
+
   useEffect(() => {
     createSearchList();
-    createUserList();
-    createTitleList();
+    createResult();
   }, [keyword]);
 
   return (

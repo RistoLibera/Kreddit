@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useHistory, Redirect } from 'react-router-dom';
 import { AuthContext } from '../components/loading/Auth';
+import Recaptcha from 'react-recaptcha';
 import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
 import FirebasePack from '../config/FirebasePack';
@@ -63,6 +64,11 @@ const Login = () => {
                 <input type='text' id='nickname' name='nickname' placeholder='Nickname!' required/><br></br>
                 <label htmlFor='password'>Password</label>
                 <input type='password' id='password' name='password' placeholder='Password' minLength="6" required/><br></br>
+                <Recaptcha
+                  sitekey="6Le3UlgcAAAAAGDSykaEb3RRHHttIUXqM_d9iHhB"
+                  render="explicit"
+                  // onloadCallback={callback}
+                />
                 <div className='auth-buttons'>
                   <button className='reset' type='reset' value='Reset'>Clear</button>
                   <button className='submit' type='submit' value='Submit'>Log in</button>
