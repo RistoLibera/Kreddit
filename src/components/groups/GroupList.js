@@ -60,7 +60,7 @@ const GroupList = (props) => {
     update();
   };
   
-  // Calculate when was the discussion created
+  // Calculate when was the group created
   const calculateTime = (data) => {
     let time;
     let now = DateTime.now();

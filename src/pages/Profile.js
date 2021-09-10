@@ -33,8 +33,23 @@ const Profile = () => {
   const [discussionGroupURLs, setDiscussonGroupURLs] = useState([]);
   const [discussionInfos, setDiscussionInfos] = useState([]);
 
-  // Get picture
-  const getStorage = async (groupArray, code) => {
+  // Get icon
+  const getIcon = async () => {
+    let icon = Default;
+    try {
+      icon = 
+        await FirebasePack
+          .storage()
+          .ref('user-icon/' + uid + '/icon.jpg')
+          .getDownloadURL();
+    } catch (error) {
+      setIconError(handleFirebaseError(error));
+    }
+    setIconURL(icon);
+  };
+
+  // Get group symbol
+  const getSymbol = async (groupArray, code) => {
     let container = [];
     for (const groupName of groupArray) {
       try {
@@ -87,22 +102,7 @@ const Profile = () => {
       console.log(error);
     }
     // Get created groups URL
-    if(groupArray) await getStorage(groupArray, 1);
-  };
-
-  // Get icon
-  const getIcon = async () => {
-    let icon = Default;
-    try {
-      icon = 
-        await FirebasePack
-          .storage()
-          .ref('user-icon/' + uid + '/icon.jpg')
-          .getDownloadURL();
-    } catch (error) {
-      setIconError(handleFirebaseError(error));
-    }
-    setIconURL(icon);
+    if(groupArray) await getSymbol(groupArray, 1);
   };
 
   // Get joined groups
@@ -122,7 +122,7 @@ const Profile = () => {
     } catch (error) {
       console.log(error);
     }   
-    await getStorage(groupArray, 2);
+    await getSymbol(groupArray, 2);
   };
 
   // Get discussions info
@@ -151,7 +151,7 @@ const Profile = () => {
     console.log(error);
   }   
   setDiscussionInfos(container);
-  await getStorage(groupArray, 3);
+  await getSymbol(groupArray, 3);
   return amount;
   };
 
@@ -172,7 +172,7 @@ const Profile = () => {
   return amount;
   };
 
-  // Get data
+  // Get discussion data
   const getData = async () => {
     let sum = 0;
     try {

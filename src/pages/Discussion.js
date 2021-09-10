@@ -52,7 +52,7 @@ const Discussion = () => {
             <ClimbingBoxLoader color='#D5D736' css={spinnerCSS} size={50} />
           </div>
         :
-        <DiscussionBody document={discussionDoc} rootUpdate={fetchThisDiscussion} />
+          <DiscussionBody document={discussionDoc} rootUpdate={fetchThisDiscussion} />
       }
     </section>
   );
