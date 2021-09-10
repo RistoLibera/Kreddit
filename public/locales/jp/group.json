@@ -1,0 +1,15 @@
+{
+  "title": "グループ",
+  "content": {
+    "create-group": "グループ作り",
+    "creator": "作成者",
+    "join": "仲間入り",
+    "group-limit": "４つは限界だ",
+    "group-name": "グループ名",
+    "group-name-limit": "３チャラ以上!",
+    "introduction": "紹介",
+    "introduction-limit": "目的は?",
+    "symbol": "象徴",
+    "create": "作成"
+  }
+}

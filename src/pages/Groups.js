@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../components/loading/Auth';
+import { useTranslation } from "react-i18next";
 import FirebasePack from '../config/FirebasePack';
 import CreateGroup from '../components/groups/CreateGroup';
 import GroupList from '../components/groups/GroupList';
 import '../styles/css/groups.css';
 
 const Groups = () => {
+  const { t } = useTranslation('group');
   const { currentUser } = useContext(AuthContext);
   const [formHidden, setFormHidden] = useState("hidden");
   const [GroupsDoc, setGroupsDoc] = useState([]);
@@ -59,7 +61,7 @@ const Groups = () => {
               <p>two-grid</p>
             </div>
             {currentUser
-              ? <button onClick={switchHidden}>Create a group</button>
+              ? <button onClick={switchHidden}>{t('content.create-group')}</button>
               : <div></div>
             }
           </div>

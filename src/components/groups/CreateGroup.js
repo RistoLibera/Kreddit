@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useTranslation } from "react-i18next";
 import FirebasePack from '../../config/FirebasePack';
 import firebase from 'firebase/app';
 import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
 
 const CreateGroup = (props) => {
+  const { t } = useTranslation('group');
   const { documents, currentUser ,hidden, update } = props;
   const spinnerCSS = css`
   display: block;
@@ -120,14 +122,14 @@ const CreateGroup = (props) => {
         :
           <form onSubmit={handleCreation}>
             <fieldset>
-              <legend>You can create at most four groups</legend>
-              <label htmlFor='name'>Name</label>
-              <input type='text' id='name' name='name' placeholder='3 or more characters!' minLength='3' maxLength='20' required/><br></br>
-              <label htmlFor='introduction'>Introduction</label>
-              <textarea type='text' id='introduction' name='introduction' maxLength="80" placeholder='What is this group for?' required/><br></br>
-              <label htmlFor='symbol'>Symbol</label>
+              <legend>{t('content.group-limit')}</legend>
+              <label htmlFor='name'>{t('content.group-name')}</label>
+              <input type='text' id='name' name='name' placeholder={t('content.group-name-limit')} minLength='3' maxLength='20' required/><br></br>
+              <label htmlFor='introduction'>{t('content.introduction')}</label>
+              <textarea type='text' id='introduction' name='introduction' placeholder={t('content.introduction-limit')} maxLength="80" required/><br></br>
+              <label htmlFor='symbol'>{t('content.symbol')}</label>
               <input type='file' id='symbol' name='symbol' required/><br></br>
-              <button className='submit' type='submit' value='Submit'>Create</button>
+              <button className='submit' type='submit' value='Submit'>{t('content.create')}</button>
             </fieldset>
           </form>
       }

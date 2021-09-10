@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from "react-i18next";
 import FirebasePack from '../config/FirebasePack';
 import { useParams } from 'react-router-dom';
 import '../styles/css/search.css';
 
 // Search results
 const Search = () => {
+  const { t } = useTranslation('search');
   const { keyword }  = useParams();
   const [searchListTags, setSearchListTags] = useState([]);
   const [userListTags, setUserListTags] = useState([]);
@@ -193,7 +195,7 @@ const Search = () => {
   return (
     <section className='search-result-page'>
       <div className='search-history'>
-        <h2>Past Search</h2>
+        <h2>{t('content.search-history')}</h2>
         <ul>
           {searchListTags.map((li) => {
             return (
@@ -204,7 +206,7 @@ const Search = () => {
       </div>
 
       <div className="titles">
-        <h2>Titles</h2>
+        <h2>{t('content.title')}</h2>
         <ul>
           {userListTags.map((li) => {
               return (
@@ -215,7 +217,7 @@ const Search = () => {
       </div>
 
       <div className="users">
-        <h2>Users</h2>
+        <h2>{t('content.user')}</h2>
         <ul>
           {titleListTags.map((li) => {
               return (

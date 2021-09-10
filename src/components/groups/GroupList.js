@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
+import { useTranslation } from "react-i18next";
 import { DateTime, Interval } from "luxon";
 import Default from '../../assets/img/default-symbol.png';
 import FirebasePack from '../../config/FirebasePack';
@@ -7,6 +8,7 @@ import { css } from '@emotion/react';
 import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
 
 const GroupList = (props) => {
+  const { t } = useTranslation('group');
   const history = useHistory();
   const { documents, currentUser, update } = props;
   const spinnerCSS = css`
@@ -121,7 +123,7 @@ const GroupList = (props) => {
         </div>
 
         <div className='middle-block'>
-          <p>Creator: {creator}</p>
+          <p>{t('content.creator')}: {creator}</p>
           <p>{introduction}</p>
           <p>{time}</p>
         </div>
@@ -129,11 +131,11 @@ const GroupList = (props) => {
         <div className='right-block'>
           {currentUser 
             ? 
-              <button onClick={() => joinGroup(groupName, groupUID, currentUser)} disabled={buttonState}>Join</button>
+              <button onClick={() => joinGroup(groupName, groupUID, currentUser)} disabled={buttonState}>{t('content.join')}</button>
             :
               <button>Join</button>
           }
-          <button onClick={() => history.push('/discussions/' + groupName)} >To discussion</button>
+          <button onClick={() => history.push('/discussions/' + groupName)} >should be a icon</button>
         </div>
       </li>
     );
@@ -161,7 +163,7 @@ const GroupList = (props) => {
 
   useEffect(() => {
     createList();
-  }, [documents]);
+  }, [documents, t]);
 
   return (
     <div className='all-groups'>
