@@ -5,11 +5,19 @@ import Default from '../../assets/img/default-icon.jpg';
 import FirebasePack from '../../config/FirebasePack';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComments, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
+import { css } from '@emotion/react';
+import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
 
 const DiscussionsList = (props) => {
   const history = useHistory();
   const { documents, selectedGroups } = props;
+  const spinnerCSS = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+  `;
   const [listTags, setListTags] = useState([]);
+  const [pageLoading, setPageLoading] = useState(true);
 
   // Fetch title content img
   const getImg = async (title) => {
@@ -130,6 +138,7 @@ const DiscussionsList = (props) => {
       container.push(list);
     }
     setListTags(container);
+    setPageLoading(false);
   };
 
   useEffect(() => {
@@ -138,13 +147,20 @@ const DiscussionsList = (props) => {
 
   return (
     <div className='discussions-list'>
-      <ul>
-        {listTags.map((li) => {
-          return (
-            li
-          );
-        })}
-      </ul>
+      {pageLoading 
+        ?
+          <div className='page-loader'>
+            <ClimbingBoxLoader color='#D5D736' css={spinnerCSS} size={50} />
+          </div>
+        :
+          <ul>
+            {listTags.map((li) => {
+              return (
+                li
+              );
+            })}
+          </ul>
+      }
     </div>
   );
 };
