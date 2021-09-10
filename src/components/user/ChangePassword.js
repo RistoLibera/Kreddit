@@ -5,6 +5,8 @@ import firebase from 'firebase/app';
 import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
 import Lock from '../../assets/img/lock.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faKey } from '@fortawesome/free-solid-svg-icons';
 import handleFirebaseError from '../../components/error/handleFirebaseError';
 
 const ChangePassword = (props) => {
@@ -101,6 +103,7 @@ const ChangePassword = (props) => {
             <div className='change-container'>
               <form onSubmit={handleChange}>
                 <fieldset>
+                  <legend>Change Password</legend>
                   <div className={divHidden}>
                     <input type='password' id='old-password' name='old_password' placeholder='Old Password' minLength="6" required/><br></br>
                     <input type='password' id='new-password' name='new_password' placeholder='New Password' minLength="6" required/><br></br>
@@ -109,7 +112,7 @@ const ChangePassword = (props) => {
                     </button>
                   </div>
                   <button onClick={switchHidden} type='button'>
-                    Change password(up and down arrow)
+                    <FontAwesomeIcon icon={faKey} color='' size='2x' />
                   </button>
                 </fieldset>
               </form>

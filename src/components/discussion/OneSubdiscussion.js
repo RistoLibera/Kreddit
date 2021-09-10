@@ -6,6 +6,8 @@ import ReplyForm from './ReplyForm';
 import EditForm from './EditForm';
 import Delete from './Delete';
 import RatingButtons from './RatingButtons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faReply, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 const OneSubdiscussion = (props) => {
   const { currentUser, document, rootUpdate } = props;
@@ -130,15 +132,25 @@ const OneSubdiscussion = (props) => {
         {currentUser
           ?
             <div className='interaction'>
-              <button className='reply-discussion' onClick={switchHidden}>Reply</button>
-              <button className='edit-discussion' onClick={toggleEdit} >Edit</button>
+              <button className='reply-discussion' onClick={switchHidden}>
+                <FontAwesomeIcon icon={faReply} color='' size='2x' />
+              </button>
+              <button className='edit-discussion' onClick={toggleEdit} >
+                <FontAwesomeIcon icon={faEdit} color='' size='2x' />
+              </button>
               <Delete document={document} currentUser={currentUser} parentLayer={layer} beEditor={beEditor} rootUpdate={rootUpdate} />
             </div>
           :
             <div className='interaction'>
-              <button className='reply-discussion'>Reply</button>
-              <button className='edit-discussion'>Edit</button>
-              <button className='delete-discussion'>Delete</button>
+              <button className='reply-discussion'>
+                <FontAwesomeIcon icon={faReply} color='' size='2x' />
+              </button>
+              <button className='edit-discussion'>
+                <FontAwesomeIcon icon={faEdit} color='' size='2x' />
+              </button>
+              <button className='delete-discussion'>
+                <FontAwesomeIcon icon={faTrashAlt} color='' size='2x' />
+              </button>
             </div>
           }
       </div>

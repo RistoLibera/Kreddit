@@ -4,6 +4,8 @@ import { DateTime, Interval } from "luxon";
 import FirebasePack from '../../config/FirebasePack';
 import { css } from '@emotion/react';
 import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faReply, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import DefaultIcon from '../../assets/img/default-icon.jpg';
 import DefaultSymbol from '../../assets/img/default-symbol.png';
 import ReplyForm from './ReplyForm';
@@ -214,15 +216,25 @@ const DiscussionBody = (props) => {
                   {currentUser
                     ?
                       <div className='interaction'>
-                        <button className='reply-discussion' onClick={switchHidden}>Reply</button>
-                        <button className='edit-discussion' onClick={toggleEdit} >Edit</button>
+                        <button className='reply-discussion' onClick={switchHidden}>
+                          <FontAwesomeIcon icon={faReply} color='' size='2x' />
+                        </button>
+                        <button className='edit-discussion' onClick={toggleEdit} >
+                          <FontAwesomeIcon icon={faEdit} color='' size='2x' />
+                        </button>
                         <Delete document={document} currentUser={currentUser} parentLayer={layer} beEditor={beEditor}  rootUpdate={rootUpdate}/>
                       </div>
                     :
                       <div className='interaction'>
-                        <button className='reply-discussion'>Reply</button>
-                        <button className='edit-discussion'>Edit</button>
-                        <button className='delete-discussion'>Delete</button>
+                        <button className='reply-discussion'>
+                          <FontAwesomeIcon icon={faReply} color='' size='2x' />
+                        </button>
+                        <button className='edit-discussion'>
+                          <FontAwesomeIcon icon={faEdit} color='' size='2x' />
+                        </button>
+                        <button className='delete-discussion'>
+                          <FontAwesomeIcon icon={faTrashAlt} color='' size='2x' />
+                        </button>
                       </div>
                   }
                 </div>

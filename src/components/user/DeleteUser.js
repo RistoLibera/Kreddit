@@ -5,6 +5,8 @@ import FirebasePack from '../../config/FirebasePack';
 import firebase from 'firebase/app';
 import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserSlash } from '@fortawesome/free-solid-svg-icons';
 import handleFirebaseError from '../../components/error/handleFirebaseError';
 
 const DeleteUser = (props) => {
@@ -159,6 +161,7 @@ const DeleteUser = (props) => {
             <div className='delete-container'>
               <form onSubmit={handleChange}>
                 <fieldset>
+                  <legend>Delete This User</legend>
                   <div className={divHidden}>
                     <input type='password' id='old-password' name='old_password' placeholder='Old Password' minLength="6" required/><br></br>
                     <button className='submit' type='submit' value='Submit'>
@@ -166,7 +169,7 @@ const DeleteUser = (props) => {
                     </button>
                   </div>
                   <button onClick={switchHidden} type='button'>
-                    Delete Account(up and down arrow)
+                    <FontAwesomeIcon icon={faUserSlash} color='' size='2x' />
                   </button>
                 </fieldset>
               </form>

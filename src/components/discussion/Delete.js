@@ -1,9 +1,9 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import FirebasePack from '../../config/FirebasePack';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 const Search = (props) => {
-  const history = useHistory();
   const { document, currentUser, parentLayer, beEditor, rootUpdate } = props;
 
   // Delete discussion or subdiscussion
@@ -63,7 +63,9 @@ const Search = (props) => {
   };
   
   return (
-    <button className='delete-discussion' onClick={deleteThis}>Delete</button>
+    <button className='delete-discussion' onClick={deleteThis}>
+      <FontAwesomeIcon icon={faTrashAlt} color='' size='2x' />
+    </button>
   );
 };
 
