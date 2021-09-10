@@ -3,11 +3,19 @@ import { useHistory } from 'react-router-dom';
 import { DateTime, Interval } from "luxon";
 import Default from '../../assets/img/default-symbol.png';
 import FirebasePack from '../../config/FirebasePack';
+import { css } from '@emotion/react';
+import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
 
 const GroupList = (props) => {
   const history = useHistory();
   const { documents, currentUser, update } = props;
+  const spinnerCSS = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+  `;
   const [listTags, setListTags] = useState([]);
+  const [pageLoading, setPageLoading] = useState(true);
 
   // Check current user enrollment
   const checkGroup = async (name, user) => {
@@ -148,6 +156,7 @@ const GroupList = (props) => {
       container.push(list);
     }
     setListTags(container);
+    setPageLoading(false);
   };
 
   useEffect(() => {
@@ -156,13 +165,20 @@ const GroupList = (props) => {
 
   return (
     <div className='all-groups'>
-      <ul>
-        {listTags.map((li) => {
-          return (
-            li
-          );
-        })}
-      </ul>
+      {pageLoading 
+        ?
+          <div className='page-loader'>
+            <ClimbingBoxLoader color='#D5D736' css={spinnerCSS} size={50} />
+          </div>
+        :
+          <ul>
+            {listTags.map((li) => {
+              return (
+                li
+              );
+            })}
+          </ul>
+      }
     </div>
   );
 };
