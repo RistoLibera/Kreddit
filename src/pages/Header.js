@@ -90,15 +90,15 @@ const Header = () => {
       let name = (currentUser.email).slice(0, -9);
       setName(name);
       let url = await getIcon();
-      setIconURL(url);
       let docs = await getNotif();
+      setIconURL(url);
       setNotifDocs(docs);
     }
   };
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [currentUser]);
 
   return (
     <header className='app-header'>

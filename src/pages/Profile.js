@@ -193,7 +193,6 @@ const Profile = () => {
     }
   };
 
-
   // Fetch data from Firestore and Firestorage
   const fetchData = async () => {
     await getInfo();

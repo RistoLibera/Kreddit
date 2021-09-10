@@ -191,7 +191,18 @@ const ReplyForm = (props) => {
             <form onSubmit={handleReply}>
               <fieldset>
                 <textarea type='text' id='content' name='content' maxLength="200" placeholder='Content' required/><br></br>
-                <button className='submit' type='submit' value='Submit'>Create</button>
+                <div className='reply-buttons'>
+                  <div className='syntax-buttons'>
+                    <h2>bold</h2>
+                    <h2>italic</h2>
+                    <h2>throughline</h2>
+                  </div>
+
+                  <div className='creation-buttons'>
+                    <button className='reset' type='reset' value='Reset'>Clear</button>
+                    <button className='submit' type='submit' value='Submit'>Create</button>
+                  </div>
+                </div>
               </fieldset>
             </form>
         }

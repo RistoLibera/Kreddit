@@ -18,7 +18,8 @@ const Login = () => {
   `;
   const [errorMessage, setErrorMessage] = useState([]);
   const [pageLoading, setPageLoading] = useState(false);
-  
+  const [isVerified, setIsVerified] = useState(false);
+
   // Grant no access for logged-in-user even via URL 
   if (currentUser) {
     return (
@@ -48,6 +49,18 @@ const Login = () => {
     await loginExisted(email, password.value);
   };
 
+  // Load status
+  const loadCallback = () => {
+    console.log('Recaptcha successfully loads');
+  };
+
+  // Verify if being human
+  const verifyIfHuman = (response) => {
+    if (response) {
+      setIsVerified(true);
+    }
+  };
+
   return (
     <section className='login-page'>
       {pageLoading
@@ -65,13 +78,15 @@ const Login = () => {
                 <label htmlFor='password'>Password</label>
                 <input type='password' id='password' name='password' placeholder='Password' minLength="6" required/><br></br>
                 <Recaptcha
+                  className='verification'
                   sitekey="6Le3UlgcAAAAAGDSykaEb3RRHHttIUXqM_d9iHhB"
                   render="explicit"
-                  // onloadCallback={callback}
+                  onloadCallback={loadCallback}
+                  verifyCallback={verifyIfHuman}
                 />
                 <div className='auth-buttons'>
                   <button className='reset' type='reset' value='Reset'>Clear</button>
-                  <button className='submit' type='submit' value='Submit'>Log in</button>
+                  <button className='submit' type='submit' value='Submit' disabled={!isVerified}>Log in</button>
                 </div>
               </fieldset>
             </form>

@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useHistory, Redirect } from 'react-router-dom';
 import { AuthContext } from '../components/loading/Auth';
+import Recaptcha from 'react-recaptcha';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMars, faVenus } from '@fortawesome/free-solid-svg-icons';
 import { css } from '@emotion/react';
@@ -20,6 +21,7 @@ const Signup = () => {
   `;
   const [errorMessage, setErrorMessage] = useState([]);
   const [pageLoading, setPageLoading] = useState(false);
+  const [isVerified, setIsVerified] = useState(false);
 
   // Grant no access for logged-in-user even via URL 
   if (currentUser) {
@@ -73,6 +75,18 @@ const Signup = () => {
       await updateFirestore(credential.user.uid, nickname.value, gender.value, nation.value);
     }
   };
+
+  // Load status
+  const loadCallback = () => {
+    console.log('Recaptcha successfully loads');
+  };
+
+  // Verify if being human
+  const verifyIfHuman = (response) => {
+    if (response) {
+      setIsVerified(true);
+    }
+  };
   
   return (
     <section className='signup-page'>
@@ -104,9 +118,16 @@ const Signup = () => {
 
                   <SelectCountry />
                 </div>
+                <Recaptcha
+                  className='verification'
+                  sitekey="6Le3UlgcAAAAAGDSykaEb3RRHHttIUXqM_d9iHhB"
+                  render="explicit"
+                  onloadCallback={loadCallback}
+                  verifyCallback={verifyIfHuman}
+                />
                 <div className='auth-buttons'>
                   <button className='reset' type='reset' value='Reset'>Clear</button>
-                  <button className='submit' type='submit' value='Submit'>Sign up</button>
+                  <button className='submit' type='submit' value='Submit' disabled={!isVerified}>Sign up</button>
                 </div>
               </fieldset>
             </form>
