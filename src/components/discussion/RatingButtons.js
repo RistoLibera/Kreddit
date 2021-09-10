@@ -16,6 +16,7 @@ const RatingButtons = (props) => {
 
   // Check if rated
   const checkRated = async () => {
+    if (document.length === 0) return;
     if (!currentUser) {
       setDisableUp(true);
       setDisableDown(true);

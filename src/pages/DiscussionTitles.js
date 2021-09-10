@@ -78,7 +78,7 @@ const DiscussionTitles = () => {
         await FirebasePack
           .firestore()
           .collection('groups')
-          .orderBy("created_time", "asc")
+          .orderBy("created_time", "desc")
           .get();
       storeGroups(groupCache);
       await storeDiscussions(groupCache);

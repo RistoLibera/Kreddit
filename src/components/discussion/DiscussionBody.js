@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../loading/Auth';
 import { DateTime, Interval } from "luxon";
 import FirebasePack from '../../config/FirebasePack';
+import { css } from '@emotion/react';
+import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
 import DefaultIcon from '../../assets/img/default-icon.jpg';
 import DefaultSymbol from '../../assets/img/default-symbol.png';
 import ReplyForm from './ReplyForm';
@@ -13,6 +15,12 @@ import SubDiscussionBody from './SubDiscussionBody';
 const DiscussionBody = (props) => {
   const { currentUser } = useContext(AuthContext);
   const { document, rootUpdate } = props;
+  const spinnerCSS = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+  `;
+  const [pageLoading, setPageLoading] = useState(true);
   const [beEditor, setBeEditor] = useState(false);
   const [editShow, setEditShow] = useState(false);
   const [formHidden, setFormHidden] = useState('hidden');
@@ -154,64 +162,77 @@ const DiscussionBody = (props) => {
     setSubDocs(container);
   };
 
-  useEffect(() => {
+  const initialState = async () => {
+    if (document.length === 0) return;
     checkCurrentEditor();
-    fetchTitleContent();
-    fetchSubdiscussionInfos();
+    await fetchTitleContent();
+    await fetchSubdiscussionInfos();
+    setPageLoading(false);
+  };
+
+  useEffect(() => {
+    initialState();
   }, [document]);
 
   return (
     <div className='discussion-container'>
-      <div className='discussion-content'>
-        <div className='group'>
-          <img src={symbolURL} alt='symbol' width='40px' height='40px'/>
-          <h2>{group}</h2>
-        </div>
-        
-        <div className='title'>
-          <RatingButtons rating={rating} currentUser={currentUser} document={document} rootUpdate={rootUpdate}/>
-
-          <div className='title-body'>
-            <header className='body-header'>
-              <img src={iconURL} alt='icon' width='30px' height='30px'/>
-              <h1>{creator}</h1>
-              <h1>{title}</h1>
-              <h1>{time}</h1>
-            </header>
-
-            <div className='title-content'>
-              <img src={imgURL} alt='img' width='70px' />
-              {editShow
-                ? 
-                  <EditForm content={content} title={title} document={document} parentLayer={layer} rootUpdate={rootUpdate} toggleEdit={toggleEdit} />
-                  
-                :
-                <h2>{content}</h2>
-              }
-            </div>
-
-            <div className='title-buttons'>
-              {currentUser
-                ?
-                  <div className='interaction'>
-                    <button className='reply-discussion' onClick={switchHidden}>Reply</button>
-                    <button className='edit-discussion' onClick={toggleEdit} >Edit</button>
-                    <Delete document={document} currentUser={currentUser} parentLayer={layer} beEditor={beEditor}  rootUpdate={rootUpdate}/>
-                  </div>
-                :
-                  <div className='interaction'>
-                    <button className='reply-discussion'>Reply</button>
-                    <button className='edit-discussion'>Edit</button>
-                    <button className='delete-discussion'>Delete</button>
-                  </div>
-              }
-            </div>
+      {pageLoading 
+        ?
+          <div className='page-loader'>
+            <ClimbingBoxLoader color='#D5D736' css={spinnerCSS} size={50} />
           </div>
-        </div>
-        <ReplyForm currentUser={currentUser} hidden={formHidden} document={document} parentLayer={layer} rootUpdate={rootUpdate} switchHidden={switchHidden} />
-      
-        <SubDiscussionBody currentUser={currentUser} documents={subDocs} rootUpdate={rootUpdate} />
-      </div>
+        :
+          <div className='discussion-content'>
+            <div className='group'>
+              <img src={symbolURL} alt='symbol' width='40px' height='40px'/>
+              <h2>{group}</h2>
+            </div>
+            
+            <div className='title'>
+              <RatingButtons rating={rating} currentUser={currentUser} document={document} rootUpdate={rootUpdate}/>
+
+              <div className='title-body'>
+                <header className='body-header'>
+                  <img src={iconURL} alt='icon' width='30px' height='30px'/>
+                  <h1>{creator}</h1>
+                  <h1>{title}</h1>
+                  <h1>{time}</h1>
+                </header>
+
+                <div className='title-content'>
+                  <img src={imgURL} alt='img' width='70px' />
+                  {editShow
+                    ? 
+                      <EditForm content={content} title={title} document={document} parentLayer={layer} rootUpdate={rootUpdate} toggleEdit={toggleEdit} />
+                      
+                    :
+                    <h2>{content}</h2>
+                  }
+                </div>
+
+                <div className='title-buttons'>
+                  {currentUser
+                    ?
+                      <div className='interaction'>
+                        <button className='reply-discussion' onClick={switchHidden}>Reply</button>
+                        <button className='edit-discussion' onClick={toggleEdit} >Edit</button>
+                        <Delete document={document} currentUser={currentUser} parentLayer={layer} beEditor={beEditor}  rootUpdate={rootUpdate}/>
+                      </div>
+                    :
+                      <div className='interaction'>
+                        <button className='reply-discussion'>Reply</button>
+                        <button className='edit-discussion'>Edit</button>
+                        <button className='delete-discussion'>Delete</button>
+                      </div>
+                  }
+                </div>
+              </div>
+            </div>
+            <ReplyForm currentUser={currentUser} hidden={formHidden} document={document} parentLayer={layer} rootUpdate={rootUpdate} switchHidden={switchHidden} />
+          
+            <SubDiscussionBody currentUser={currentUser} documents={subDocs} rootUpdate={rootUpdate} />
+          </div>
+      }
     </div>
   );
 };
