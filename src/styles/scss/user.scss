@@ -78,7 +78,7 @@
 .signup-page {
   @extend %flex-column-direction;
   height: 100%;
-  padding-top: 1rem;
+  padding-top: 6rem;
   position:relative;
   z-index: 3;
 
@@ -148,6 +148,9 @@
         .password {
           font-size: 1.1rem;
   
+          #toggle-visiblility {
+            cursor: pointer;
+          }
         }
   
         .info {

@@ -27,6 +27,15 @@ const Signup = () => {
   const [errorMessage, setErrorMessage] = useState([]);
   const [pageLoading, setPageLoading] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
+  const [buttonType, setButtonType] = useState('password');
+
+  const toggleType = () => {
+    if (buttonType === 'password') {
+      setButtonType('text');
+    } else {
+      setButtonType('password');
+    }
+  };
 
   // Grant no access for logged-in-user even via URL 
   if (currentUser) {
@@ -124,8 +133,8 @@ const Signup = () => {
                   <label htmlFor='password'>
                     {t('content.password')}
                   </label>
-                  <input type='password' id='password' name='password' placeholder={t('content.password-holder')} minLength="6" required/><br></br>
-                  <VisibilityIcon className="materials"/>
+                  <input type={buttonType} id='password' name='password' placeholder={t('content.password-holder')} minLength="6" required/><br></br>
+                  <VisibilityIcon className="materials" id="toggle-visiblility" onClick={toggleType}/>
                 </fieldset>
 
                 <fieldset className='info'>
