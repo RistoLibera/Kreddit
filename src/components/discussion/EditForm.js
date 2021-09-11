@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from "react-i18next";
 import FirebasePack from '../../config/FirebasePack';
 import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
 
 const EditForm = (props) => {
+  const { t } = useTranslation('edit');
   const { content, title, document, parentLayer, rootUpdate, toggleEdit } = props;
   const spinnerCSS = css`
   display: block;
@@ -81,17 +83,17 @@ const EditForm = (props) => {
                 ?
                   <form className='edit-discussion' onSubmit={handleEdit}>
                     <fieldset>
-                      <textarea type='text' id='content' name='content' maxLength="200" defaultValue={content} required/><br></br>
-                      <label htmlFor='attachment'>Attachment</label>
+                      <textarea type='text' id='content' name='content' maxLength="200" defaultValue={content} placeholder={t('content.content-holder')} required/><br></br>
+                      <label htmlFor='attachment'>{t('content.attachment')}</label>
                       <input type='file' id='attachment' name='attachment'/><br></br>
-                      <button type='submit' value='Submit'>Submit</button>
+                      <button type='submit' value='Submit'>{t('content.submit')}</button>
                     </fieldset>
                   </form>
                 :
                   <form className='edit-discussion' onSubmit={handleEdit}>
                     <fieldset>
-                      <textarea type='text' id='content' name='content' maxLength="200" defaultValue={content} required/><br></br>
-                      <button type='submit' value='Submit'>Submit</button>
+                      <textarea type='text' id='content' name='content' maxLength="200" defaultValue={content} placeholder={t('content.content-holder')} required/><br></br>
+                      <button type='submit' value='Submit'>{t('content.submit')}</button>
                     </fieldset>
                   </form>
               }

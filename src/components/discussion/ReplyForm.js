@@ -1,10 +1,12 @@
 import React, { useState, useEffect }  from 'react';
+import { useTranslation } from "react-i18next";
 import FirebasePack from '../../config/FirebasePack';
 import firebase from 'firebase/app';
 import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
 
 const ReplyForm = (props) => {
+  const { t } = useTranslation('reply');
   const { currentUser, hidden, document, parentLayer, rootUpdate, switchHidden } = props;
   const spinnerCSS = css`
   display: block;
@@ -190,7 +192,7 @@ const ReplyForm = (props) => {
           :
             <form onSubmit={handleReply}>
               <fieldset>
-                <textarea type='text' id='content' name='content' maxLength="200" placeholder='Content' required/><br></br>
+                <textarea type='text' id='content' name='content' maxLength="200" placeholder={t('content.content-holder')} required/><br></br>
                 <div className='reply-buttons'>
                   <div className='syntax-buttons'>
                     <h2>bold</h2>
@@ -199,8 +201,8 @@ const ReplyForm = (props) => {
                   </div>
 
                   <div className='creation-buttons'>
-                    <button className='reset' type='reset' value='Reset'>Clear</button>
-                    <button className='submit' type='submit' value='Submit'>Create</button>
+                    <button className='reset' type='reset' value='Reset'>{t('content.clear')} </button>
+                    <button className='submit' type='submit' value='Submit'>{t('content.create')} </button>
                   </div>
                 </div>
               </fieldset>
