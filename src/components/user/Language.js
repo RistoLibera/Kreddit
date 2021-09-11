@@ -11,9 +11,20 @@ const Language = () => {
 
   return (
     <div className='language-buttons dropdown-items'>
-      <button className="dropdown-items" onClick={() => changeLanguage("en")}>{t('content.english')}</button>
-      <button className="dropdown-items" onClick={() => changeLanguage("jp")}>{t('content.japanese')}</button>
-
+      <button onClick={() => changeLanguage("en")}>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        {t('content.english')}
+        </button>
+      <button onClick={() => changeLanguage("jp")}>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        {t('content.japanese')}
+        </button>
     </div>
   );
 };

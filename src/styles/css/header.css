@@ -1,11 +1,11 @@
-.app-header .middle-bar, .app-header .middle-bar #icon, .app-header .right-bar, .app-header .right-bar .user-bar, .app-header .right-bar .user-bar .notification-center ul #clear-all, .app-header .right-bar .user-bar .notification-center ul li, .app-header .right-bar .user-bar .dropdown #dropdown-menu .language-buttons {
+.app-header .middle-bar, .app-header .middle-bar #icon, .app-header .right-bar .user-bar, .app-header .right-bar .user-bar .notification-center ul #clear-all, .app-header .right-bar .user-bar .notification-center ul li, .app-header .right-bar .user-bar .dropdown #dropdown-menu .dropdown-items, .app-header .right-bar .user-bar .dropdown #dropdown-menu .language-buttons, .app-header .right-bar .user-bar .dropdown #dropdown-menu #signout {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
-.app-header .left-bar, .app-header .right-bar .user-bar .notification-center ul .show, .app-header .right-bar .user-bar .dropdown .show {
+.app-header .left-bar, .app-header .right-bar .user-bar .notification-center, .app-header .right-bar .user-bar .notification-center ul .show, .app-header .right-bar .user-bar .dropdown, .app-header .right-bar .user-bar .dropdown .show {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -66,12 +66,12 @@
   height: 75%;
   position: absolute;
   z-index: 10;
-  right: 4px;
+  right: 1px;
   top: 5px;
   cursor: pointer;
 }
 .app-header .middle-bar {
-  padding: 0 100px;
+  margin: 0 70px;
 }
 .app-header .middle-bar .discussions-bar {
   font-weight: 800;
@@ -96,10 +96,21 @@
   padding-right: 60px;
 }
 .app-header .right-bar {
-  margin-right: 60px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  justify-content: center;
+  align-items: center;
+}
+.app-header .right-bar .user-bar {
+  grid-column: 1/span 2;
+  justify-content: space-evenly;
 }
 .app-header .right-bar .user-bar .notification-center {
   position: relative;
+}
+.app-header .right-bar .user-bar .notification-center svg {
+  color: #938045;
 }
 .app-header .right-bar .user-bar .notification-center ul {
   position: absolute;
@@ -123,17 +134,170 @@
 .app-header .right-bar .user-bar .dropdown {
   position: relative;
 }
+.app-header .right-bar .user-bar .dropdown .dropbtn {
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 37px;
+  height: 37px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 .app-header .right-bar .user-bar .dropdown #dropdown-menu {
   position: absolute;
+  top: 50px;
+  background-color: white;
 }
 .app-header .right-bar .user-bar .dropdown #dropdown-menu .dropdown-items {
+  justify-content: center;
+  margin: 10px 5px;
+  width: 130px;
+}
+.app-header .right-bar .user-bar .dropdown #dropdown-menu h3 {
+  font-size: 2rem;
+  padding-bottom: 10px;
+}
+.app-header .right-bar .user-bar .dropdown #dropdown-menu a:hover {
+  color: #b39804;
+}
+.app-header .right-bar .user-bar .dropdown #dropdown-menu .language-buttons button {
+  cursor: pointer;
   margin: 5px;
+  position: relative;
+  display: inline-block;
+  border-radius: 4px;
+  color: black;
+  text-decoration: none;
+  overflow: hidden;
+  font-family: "Roboto", sans-serif;
+  filter: hue-rotate(0deg);
+  border: 2px solid #b39804;
+  transition: all 0.1s linear;
+}
+.app-header .right-bar .user-bar .dropdown #dropdown-menu .language-buttons button:hover {
+  border: 1px solid transparent;
+}
+.app-header .right-bar .user-bar .dropdown #dropdown-menu .language-buttons button:hover span {
+  position: absolute;
+  display: block;
+}
+.app-header .right-bar .user-bar .dropdown #dropdown-menu .language-buttons button:hover span:nth-child(1) {
+  filter: hue-rotate(0deg);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #b39804);
+  animation: animate1 1s linear infinite;
+}
+@keyframes animate1 {
+  0% {
+    left: -100%;
+  }
+  50%, 100% {
+    left: 100%;
+  }
+}
+.app-header .right-bar .user-bar .dropdown #dropdown-menu .language-buttons button:hover span:nth-child(2) {
+  filter: hue-rotate(60deg);
+  top: -100%;
+  right: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #b39804);
+  animation: animate2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+@keyframes animate2 {
+  0% {
+    top: -100%;
+  }
+  50%, 100% {
+    top: 100%;
+  }
+}
+.app-header .right-bar .user-bar .dropdown #dropdown-menu .language-buttons button:hover span:nth-child(3) {
+  filter: hue-rotate(120deg);
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  background: linear-gradient(270deg, transparent, #b39804);
+  animation: animate3 1s linear infinite;
+  animation-delay: 0.5s;
+}
+@keyframes animate3 {
+  0% {
+    right: -100%;
+    height: 3px;
+  }
+  50%, 100% {
+    height: 2px;
+    right: 100%;
+  }
+}
+.app-header .right-bar .user-bar .dropdown #dropdown-menu .language-buttons button:hover span:nth-child(4) {
+  filter: hue-rotate(300deg);
+  bottom: -100%;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #b39804);
+  animation: animate4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+@keyframes animate4 {
+  0% {
+    bottom: -100%;
+  }
+  50%, 100% {
+    bottom: 100%;
+  }
+}
+.app-header .right-bar .user-bar .dropdown #dropdown-menu #signout {
+  justify-content: space-around;
+  border: 1px solid grey;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.app-header .right-bar .user-bar .dropdown #dropdown-menu #signout svg {
+  width: 20px;
+  opacity: 0.6;
+}
+.app-header .right-bar .user-bar .dropdown #dropdown-menu #signout span {
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+.app-header .right-bar .user-bar .dropdown #dropdown-menu #signout:hover svg {
+  opacity: 1;
+}
+.app-header .right-bar .user-bar .dropdown #dropdown-menu #signout:hover span {
+  opacity: 1;
 }
 .app-header .right-bar .user-bar .dropdown .hidden {
   display: none;
 }
+.app-header .right-bar .user-bar .gain-access {
+  padding-right: 20px;
+}
+.app-header .right-bar .user-bar .gain-access button {
+  color: grey;
+  font-weight: 900;
+  border: 2px solid #938045;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  opacity: 0.7;
+}
+.app-header .right-bar .user-bar .gain-access button:hover {
+  opacity: 1;
+}
 .app-header .right-bar .mode-bar {
+  grid-column: 3/span 1;
   display: block;
+}
+.app-header .right-bar .mode-bar svg {
+  color: #938045;
 }
 
 /*# sourceMappingURL=header.css.map */

@@ -67,7 +67,7 @@
           height: 75%;
           position: absolute;
           z-index: 10;
-          right: 4px;
+          right: 1px;
           top: 5px;
           cursor: pointer;
         }
@@ -78,7 +78,7 @@
 
   .middle-bar {
     @extend %flex-row-direction;
-    padding: 0 100px;
+    margin: 0 70px;
 
     .discussions-bar {
       font-weight: 800;
@@ -109,14 +109,26 @@
   }
 
   .right-bar {
-    @extend %flex-row-direction;
-    margin-right: 60px;
-    
+    // @extend %flex-row-direction;
+    // margin-right: 60px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    justify-content: center;
+    align-items: center;
+
     .user-bar {
+      grid-column: 1 / span 2;
       @extend %flex-row-direction;
+      justify-content: space-evenly;
 
       .notification-center {
         position: relative;
+        @extend %flex-column-direction;
+
+        svg {
+          color: #938045;
+        }
 
         ul {
           position: absolute;
@@ -149,17 +161,176 @@
       }
 
       .dropdown {
+        @extend %flex-column-direction;
         position: relative;
   
+        .dropbtn {
+          border: none;
+          border-radius: 50%;
+          cursor: pointer;
+          width: 37px;
+          height: 37px;
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+
         #dropdown-menu {
           position: absolute;
-  
+          top: 50px;
+          background-color: white;
+
           .dropdown-items {
-            margin: 5px;
+            @extend %flex-row-direction;
+            justify-content: center;
+            margin: 10px 5px;
+            width: 130px;
+          }
+
+          h3 {
+            font-size: 2rem;
+            padding-bottom: 10px;
+          }
+
+          a:hover {
+            color: rgb(179, 152, 4);
           }
 
           .language-buttons {
             @extend %flex-row-direction;
+            
+            button {
+              cursor: pointer;
+              margin: 5px;
+              position: relative;
+              display: inline-block;
+              border-radius: 4px;
+              color: black;
+              text-decoration: none;
+              overflow: hidden;
+              font-family: "Roboto", sans-serif;
+              filter: hue-rotate(0deg);
+              border: 2px solid rgb(179, 152, 4);
+              transition: all 0.1s linear;
+            
+              &:hover {
+                border: 1px solid transparent;
+                span {
+                  position: absolute;
+                  display: block;
+            
+                  &:nth-child(1) {
+                    filter: hue-rotate(0deg);
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 3px;
+                    background: linear-gradient(90deg, transparent, rgb(179, 152, 4));
+                    animation: animate1 1s linear infinite;
+                  }
+                  @keyframes animate1 {
+                    0% {
+                      left: -100%;
+                    }
+                    50%,
+                    100% {
+                      left: 100%;
+                    }
+                  }
+            
+                  &:nth-child(2) {
+                    filter: hue-rotate(60deg);
+                    top: -100%;
+                    right: 0;
+                    width: 3px;
+                    height: 100%;
+                    background: linear-gradient(180deg, transparent, rgb(179, 152, 4));
+                    animation: animate2 1s linear infinite;
+                    animation-delay: 0.25s;
+                  }
+            
+                  @keyframes animate2 {
+                    0% {
+                      top: -100%;
+                    }
+                    50%,
+                    100% {
+                      top: 100%;
+                    }
+                  }
+                  &:nth-child(3) {
+                    filter: hue-rotate(120deg);
+                    bottom: 0;
+                    right: 0;
+                    width: 100%;
+            
+                    background: linear-gradient(270deg, transparent, rgb(179, 152, 4));
+                    animation: animate3 1s linear infinite;
+                    animation-delay: 0.5s;
+                  }
+                  @keyframes animate3 {
+                    0% {
+                      right: -100%;
+                      height: 3px;
+                    }
+                    50%,
+                    100% {
+                      height: 2px;
+                      right: 100%;
+                    }
+                  }
+            
+                  &:nth-child(4) {
+                    filter: hue-rotate(300deg);
+                    bottom: -100%;
+                    left: 0;
+                    width: 3px;
+                    height: 100%;
+                    background: linear-gradient(360deg, transparent, rgb(179, 152, 4));
+                    animation: animate4 1s linear infinite;
+                    animation-delay: 0.75s;
+                  }
+                  @keyframes animate4 {
+                    0% {
+                      bottom: -100%;
+                    }
+                    50%,
+                    100% {
+                      bottom: 100%;
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          #signout {
+            @extend %flex-row-direction;
+            justify-content: space-around;
+            border: 1px solid grey;
+            border-radius: 20px;
+            cursor: pointer;
+
+            svg {
+              width: 20px;
+              opacity: 0.6;
+            }
+
+            span {
+              font-size: 0.8rem;
+              opacity: 0.6;
+            }
+          }
+
+          #signout:hover {
+            svg {
+              opacity: 1;
+            }
+
+            span {
+              opacity: 1;
+            }
+
           }
         }
   
@@ -171,10 +342,32 @@
           @extend %flex-column-direction;
         }
       }  
+
+      .gain-access {
+        padding-right: 20px;
+        button {
+          color: grey;
+          font-weight: 900;
+          border: 2px solid #938045;
+          border-radius: 10px;
+          cursor: pointer;
+          font-size: 1rem;
+          opacity: 0.7;
+        }
+
+        button:hover {
+          opacity: 1;
+        }
+      }
     }
 
     .mode-bar {
+      grid-column: 3 / span 1;
       display: block;
+
+      svg {
+        color: #938045;
+      }
     }
   }
 }

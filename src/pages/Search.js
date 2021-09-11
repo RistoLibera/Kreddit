@@ -15,7 +15,7 @@ const Search = () => {
 
   // Record on localstorage
   const runLocalstorage = () => {
-    if (localStorage.length === 0) {
+    if (!localStorage.getItem('search-history')) {
       let searchHistory = [];
       searchHistory.push(keyword);
       localStorage.setItem('search-history', JSON.stringify(searchHistory));

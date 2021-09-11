@@ -127,9 +127,7 @@ const Header = () => {
             <div className='user-bar'>
               <ShowNotif documents={notifDocs} currentUser={currentUser} update={getData} />
               <div className="dropdown">
-                <button onClick={togglebutton} className="dropbtn">
-                  <img src={iconURL} alt='icon' width='30px' />
-                </button>
+                <button onClick={togglebutton} className="dropbtn" style={{ backgroundImage: `url('${iconURL}')` }}></button>
                 <div id="dropdown-menu" className={showMenu}>
                   <h3>{name}</h3>
                   <Link className="dropdown-items" to={getProfileURL}>{t('content.profile')}</Link>
@@ -140,12 +138,12 @@ const Header = () => {
             </div>
           :
             <div className='user-bar'>
-              <div>
+              <div className='gain-access'>
                 <button onClick={() => history.push('/login')} type='button'>
                   {t('content.login')}
                 </button>
               </div>
-              <div>
+              <div className='gain-access'>
                 <button onClick={() => history.push('/signup')} type='button'>
                   {t('content.signup')}
                 </button>
