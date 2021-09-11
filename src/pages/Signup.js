@@ -4,12 +4,15 @@ import { AuthContext } from '../components/loading/Auth';
 import { useTranslation } from "react-i18next";
 import Recaptcha from 'react-recaptcha';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMars, faVenus } from '@fortawesome/free-solid-svg-icons';
+import { faLink, faMars, faVenus } from '@fortawesome/free-solid-svg-icons';
+import { faFacebook, faTwitter, faGoogle, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
 import FirebasePack from '../config/FirebasePack';
 import handleFirebaseError from '../components/error/handleFirebaseError';
 import SelectCountry from '../components/user/SelectCountry';
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import PersonIcon from '@material-ui/icons/Person';
 import '../styles/css/user.css';
 
 const Signup = () => {
@@ -99,42 +102,64 @@ const Signup = () => {
           </div>
         :
           <div className='signup-container'>
-            <form onSubmit={handleSignup}>
-              <fieldset className='user-auth'>
+            <div className="signup-connect">
+              <a className="btn btn-social btn-facebook"><FontAwesomeIcon className="fa fa-facebook" icon={faFacebook} size='lg'/> Sign in with Facebook</a>
+              <a className="btn btn-social btn-twitter"><FontAwesomeIcon className="fa fa-twitter" icon={faTwitter} size='lg'/> Sign in with Twitter</a>
+              <a className="btn btn-social btn-google"><FontAwesomeIcon className="fa fa-google" icon={faGoogle} size='lg'/> Sign in with Google</a>
+              <a className="btn btn-social btn-linkedin"><FontAwesomeIcon className="fa fa-linkedin" icon={faLinkedin} size='lg'/> Sign in with Linkedin</a>
+            </div>
+
+            <div className="signup-classic">            
+              <form onSubmit={handleSignup}>
                 <legend>{t('content.signup')}</legend>
-                <label htmlFor='nickname'>{t('content.nickname')}</label>
-                <input type='text' id='nickname' name='nickname' placeholder={t('content.nickname-holder')} minLength="3" required/><br></br>
-                <label htmlFor='password'>{t('content.password')}</label>
-                <input type='password' id='password' name='password' placeholder={t('content.password-holder')} minLength="6" required/><br></br>
-                <div className='info'>
+                <fieldset className='name'>
+                  <label htmlFor='nickname'>
+                    {t('content.nickname')}
+                  </label>
+                  <input type='text' id='nickname' name='nickname' placeholder={t('content.nickname-holder')} minLength="3" required/><br></br>
+                  <PersonIcon className="materials"/>
+                </fieldset>
+
+                <fieldset className='password'>
+                  <label htmlFor='password'>
+                    {t('content.password')}
+                  </label>
+                  <input type='password' id='password' name='password' placeholder={t('content.password-holder')} minLength="6" required/><br></br>
+                  <VisibilityIcon className="materials"/>
+                </fieldset>
+
+                <fieldset className='info'>
                   <div className='gender'>
                     <label htmlFor='male'>
-                      <FontAwesomeIcon icon={faMars} color='cornflowerblue' size='lg' />
+                      <FontAwesomeIcon icon={faMars} color='cornflowerblue' size='2x' />
                     </label>
                     <input type='radio' id='male' name='gender' value='male' checked onChange={e => {}}/>
                     <label htmlFor='female'>
-                      <FontAwesomeIcon icon={faVenus} color='crimson' size='lg' />
+                      <FontAwesomeIcon icon={faVenus} color='crimson' size='2x' />
                     </label>
                     <input type='radio' id='female' name='gender' value='female' />
                   </div>
-
                   <SelectCountry />
-                </div>
-                <Recaptcha
-                  className='verification'
-                  sitekey="6Le3UlgcAAAAAGDSykaEb3RRHHttIUXqM_d9iHhB"
-                  render="explicit"
-                  onloadCallback={loadCallback}
-                  verifyCallback={verifyIfHuman}
-                />
-                <div className='auth-buttons'>
-                  <button className='reset' type='reset' value='Reset'>{t('content.clear')}</button>
-                  <button className='submit' type='submit' value='Submit' disabled={!isVerified}>{t('content.signup')}</button>
-                </div>
-              </fieldset>
-            </form>
-            <div className='error-message'>
-              <h2>{errorMessage}</h2>
+                </fieldset>
+
+                <fieldset className='recaptcha'>
+                  <Recaptcha
+                    className='verification'
+                    sitekey="6Le3UlgcAAAAAGDSykaEb3RRHHttIUXqM_d9iHhB"
+                    render="explicit"
+                    onloadCallback={loadCallback}
+                    verifyCallback={verifyIfHuman}
+                  />
+                </fieldset>
+
+                <fieldset className='buttons'>
+                  <button className='reset-button' type='reset' value='Reset'>{t('content.clear')}</button>
+                  <button className='submit-button' type='submit' value='Submit' disabled={!isVerified}>{t('content.signup')}</button>
+                </fieldset>
+              </form>
+              <div className='error-message'>
+                <h2>{errorMessage}</h2>
+              </div>
             </div>
           </div>
       }

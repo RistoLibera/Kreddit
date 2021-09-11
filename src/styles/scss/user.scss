@@ -1,5 +1,6 @@
 @use 'base';
 
+
 // Login page
 
 
@@ -9,11 +10,221 @@
 
 
 // Signup page
+
+// Fake buttons
+.btn {
+  display: block;
+  background: hsl(59, 76%, 71%);
+  color: hsl(0, 0, 100);
+  text-decoration: none;
+  margin: 20px 0;
+  padding: 20px 15px;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all .2s ease-in-out;
+    box-shadow: inset 0 3px 0 hsla(0, 0, 0, 0), 0 3px 3px hsla(0, 0, 0, .2);
+    border-radius: 5px;
+  }
+  
+  &:hover::after {
+    background: hsla(0, 0, 0, 0.1);
+    box-shadow: inset 0 3px 0 hsla(0, 0, 0, 0.2);
+  }
+}
+
+// Fake buttons
+.btn-social {
+  padding-left: 64px;
+  position: relative;
+  z-index: 1;
+  
+  .fa {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 50px;
+    height: 100%;
+    text-align: center;
+    background: hsla(0, 0, 0, 0.1);
+    line-height: 3.2;
+    border-radius: 5px 0 0 5px;
+  }
+  
+}
+.btn-facebook {
+  background-color: hsl(221, 44%, 41%);
+}
+.btn-twitter {
+  background-color: hsl(206, 82%, 63%);
+}
+.btn-google {
+  background-color: hsl(7, 71%, 55%); 
+}
+.btn-linkedin {
+  background-color: hsl(196, 100%, 43%);
+}
+
 .signup-page {
-  .signup-container form fieldset{
-    @extend %flex-column-direction;
+  @extend %flex-column-direction;
+  height: 100%;
+  padding-top: 1rem;
+  position:relative;
+  z-index: 3;
+
+  .signup-container {
+    @extend %flex-row-direction;
+    justify-content: center;
+    align-items:flex-start;
+    width: 800px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 25px rgba(0, 0, 0, 0.5);
+    
+    .signup-connect {
+      background: linear-gradient(134deg, #fbce50, #e08106);
+      color: white;
+      padding: 30px 30px;
+      margin: 30px 30px 0 0;
+    }
+
+    .signup-classic {
+      margin: 20px 0 5px 0;
+      form {
+        @extend %flex-column-direction;
+        
+        fieldset {
+          border: none;
+          padding: 0;
+          margin: 8px 0;
+          position: relative;
+          width: 100%;
+
+          input {
+            width: 100%;
+            height: 28px;
+            color: hsl(0, 0, 20);
+            padding: 5px 5px 5px 15px;
+            margin-top: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            outline: none!important;
+            border: 1px solid hsla(0, 0, 0, 0.3);
+            box-shadow: inset 0 1px 4px hsla(0, 0, 0, 0.2);
+            vertical-align: top;
+          }
+      
+          label {
+            padding: 1px 0 10px 10px;
+          }
+      
+          .materials {
+            position: absolute;
+            right: -15px;
+            bottom: 8px
+          }
+        }
+      
+        legend {
+          font-size: 1.7rem;
+          padding-bottom: 0.3rem;
+        }
+
+        .name {
+          font-size: 1.1rem;
+  
+        }
+  
+        .password {
+          font-size: 1.1rem;
+  
+        }
+  
+        .info {
+          @extend %flex-row-direction;
+          justify-content: space-around;
+          font-size: 1.1rem;
+          margin-left: 30px;
+
+          .gender {
+            @extend %flex-row-direction;
+
+            label {
+              padding: 0;
+            }
+
+            input {
+              margin-right: 14px;
+            }
+          }
+
+          .all-nations {
+            margin-left: 5px;
+
+            select {
+              height: 30px;
+              border: 1px outset rgba(0, 0, 0, 0.5);
+              border-radius: 10px;
+              outline: none;
+              appearance: none;
+              text-align: center;
+            }
+
+          }
+        }
+  
+        .recaptcha {
+          width: 100%;
+          @extend %flex-column-direction;
+
+        }
+  
+        .buttons {
+          @extend %flex-row-direction;
+          justify-content: space-around;
+          button {
+            font-size: 1rem;
+            display: block;
+            text-decoration: none;
+            margin: 5px 0;
+            padding: 10px 10px;
+            border-radius: 5px;          
+          }
+
+          .reset-button {
+            background-color: #3c3636;
+            color: white;
+            cursor: pointer;
+          }
+
+          .submit-button {
+            background-color: white;
+            color: #3c3636;
+            cursor: pointer;
+          }
+
+          .submit-button:disabled {
+            cursor: default;
+          }
+  
+        }
+      }
+
+    }
+
+
+
   }
 }
 
 
-// Change Password

@@ -1,8 +1,188 @@
-.signup-page .signup-container form fieldset {
+.signup-page .signup-container, .signup-page .signup-container .signup-classic form .info, .signup-page .signup-container .signup-classic form .info .gender, .signup-page .signup-container .signup-classic form .buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.signup-page, .signup-page .signup-container .signup-classic form, .signup-page .signup-container .signup-classic form .recaptcha {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.btn {
+  display: block;
+  background: #edeb7d;
+  color: white;
+  text-decoration: none;
+  margin: 20px 0;
+  padding: 20px 15px;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+}
+.btn::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.2s ease-in-out;
+  box-shadow: inset 0 3px 0 rgba(0, 0, 0, 0), 0 3px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+.btn:hover::after {
+  background: rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+.btn-social {
+  padding-left: 64px;
+  position: relative;
+  z-index: 1;
+}
+.btn-social .fa {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 50px;
+  height: 100%;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.1);
+  line-height: 3.2;
+  border-radius: 5px 0 0 5px;
+}
+
+.btn-facebook {
+  background-color: #3b5897;
+}
+
+.btn-twitter {
+  background-color: #53abee;
+}
+
+.btn-google {
+  background-color: #de4e3b;
+}
+
+.btn-linkedin {
+  background-color: #00a1db;
+}
+
+.signup-page {
+  height: 100%;
+  padding-top: 1rem;
+  position: relative;
+  z-index: 3;
+}
+.signup-page .signup-container {
+  justify-content: center;
+  align-items: flex-start;
+  width: 800px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 3px 25px rgba(0, 0, 0, 0.5);
+}
+.signup-page .signup-container .signup-connect {
+  background: linear-gradient(134deg, #fbce50, #e08106);
+  color: white;
+  padding: 30px 30px;
+  margin: 30px 30px 0 0;
+}
+.signup-page .signup-container .signup-classic {
+  margin: 20px 0 5px 0;
+}
+.signup-page .signup-container .signup-classic form fieldset {
+  border: none;
+  padding: 0;
+  margin: 8px 0;
+  position: relative;
+  width: 100%;
+}
+.signup-page .signup-container .signup-classic form fieldset input {
+  width: 100%;
+  height: 28px;
+  color: #333333;
+  padding: 5px 5px 5px 15px;
+  margin-top: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  outline: none !important;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.2);
+  vertical-align: top;
+}
+.signup-page .signup-container .signup-classic form fieldset label {
+  padding: 1px 0 10px 10px;
+}
+.signup-page .signup-container .signup-classic form fieldset .materials {
+  position: absolute;
+  right: -15px;
+  bottom: 8px;
+}
+.signup-page .signup-container .signup-classic form legend {
+  font-size: 1.7rem;
+  padding-bottom: 0.3rem;
+}
+.signup-page .signup-container .signup-classic form .name {
+  font-size: 1.1rem;
+}
+.signup-page .signup-container .signup-classic form .password {
+  font-size: 1.1rem;
+}
+.signup-page .signup-container .signup-classic form .info {
+  justify-content: space-around;
+  font-size: 1.1rem;
+  margin-left: 30px;
+}
+.signup-page .signup-container .signup-classic form .info .gender label {
+  padding: 0;
+}
+.signup-page .signup-container .signup-classic form .info .gender input {
+  margin-right: 14px;
+}
+.signup-page .signup-container .signup-classic form .info .all-nations {
+  margin-left: 5px;
+}
+.signup-page .signup-container .signup-classic form .info .all-nations select {
+  height: 30px;
+  border: 1px outset rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  outline: none;
+  appearance: none;
+  text-align: center;
+}
+.signup-page .signup-container .signup-classic form .recaptcha {
+  width: 100%;
+}
+.signup-page .signup-container .signup-classic form .buttons {
+  justify-content: space-around;
+}
+.signup-page .signup-container .signup-classic form .buttons button {
+  font-size: 1rem;
+  display: block;
+  text-decoration: none;
+  margin: 5px 0;
+  padding: 10px 10px;
+  border-radius: 5px;
+}
+.signup-page .signup-container .signup-classic form .buttons .reset-button {
+  background-color: #3c3636;
+  color: white;
+  cursor: pointer;
+}
+.signup-page .signup-container .signup-classic form .buttons .submit-button {
+  background-color: white;
+  color: #3c3636;
+  cursor: pointer;
+}
+.signup-page .signup-container .signup-classic form .buttons .submit-button:disabled {
+  cursor: default;
 }
 
 /*# sourceMappingURL=user.css.map */

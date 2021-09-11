@@ -51,3 +51,8 @@ a {
   color: black;
   text-decoration: none;
 }
+
+html, 
+body {
+    height: 100%;
+}

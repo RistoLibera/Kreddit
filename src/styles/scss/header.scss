@@ -6,6 +6,8 @@
   grid-template-columns: 1fr 2fr 1fr;
   grid-template-rows: auto;
   padding-top: 5px;
+  padding-bottom: 5px;
+  border-bottom: 0.5px solid grey;
   
   // position: fixed;
   .left-bar {
@@ -36,6 +38,7 @@
           width: 90%;
           border-style: none;
           z-index: 1;
+          font-size: 1.4rem;
         }
 
         input::placeholder {

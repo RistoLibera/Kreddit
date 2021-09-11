@@ -17,6 +17,8 @@
   grid-template-columns: 1fr 2fr 1fr;
   grid-template-rows: auto;
   padding-top: 5px;
+  padding-bottom: 5px;
+  border-bottom: 0.5px solid grey;
 }
 .app-header .left-bar form {
   width: 100%;
@@ -42,6 +44,7 @@
   width: 90%;
   border-style: none;
   z-index: 1;
+  font-size: 1.4rem;
 }
 .app-header .left-bar form fieldset input::placeholder {
   font-size: 1.4rem;
