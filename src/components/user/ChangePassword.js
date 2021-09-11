@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { AuthContext } from '../loading/Auth';
+import { useTranslation } from "react-i18next";
 import FirebasePack from '../../config/FirebasePack';
 import firebase from 'firebase/app';
 import { css } from '@emotion/react';
@@ -10,6 +11,7 @@ import { faKey } from '@fortawesome/free-solid-svg-icons';
 import handleFirebaseError from '../../components/error/handleFirebaseError';
 
 const ChangePassword = (props) => {
+  const { t } = useTranslation('profile');
   const { uid } = props;
   const { currentUser } = useContext(AuthContext);
   const spinnerCSS = css`
@@ -103,12 +105,12 @@ const ChangePassword = (props) => {
             <div className='change-container'>
               <form onSubmit={handleChange}>
                 <fieldset>
-                  <legend>Change Password</legend>
+                  <legend>{t('content.change-password')}</legend>
                   <div className={divHidden}>
-                    <input type='password' id='old-password' name='old_password' placeholder='Old Password' minLength="6" required/><br></br>
-                    <input type='password' id='new-password' name='new_password' placeholder='New Password' minLength="6" required/><br></br>
+                    <input type='password' id='old-password' name='old_password' placeholder={t('content.old-password')} minLength="6" required/><br></br>
+                    <input type='password' id='new-password' name='new_password' placeholder={t('content.new-password')} minLength="6" required/><br></br>
                     <button className='submit' type='submit' value='Submit'>
-                      Confirm
+                      {t('content.confirm')}
                     </button>
                   </div>
                   <button onClick={switchHidden} type='button'>

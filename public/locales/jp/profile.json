@@ -1,0 +1,10 @@
+{
+  "title": "プロフィール",
+  "content": {
+    "delete-user": "ユーザー削除",
+    "confirm": "確認",
+    "change-password": "パスワード変更",
+    "old-password": "以前のパスワード",
+    "new-password": "新しいパスワード"
+  }
+}
