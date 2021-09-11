@@ -148,6 +148,7 @@
   position: absolute;
   top: 50px;
   background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.2);
 }
 .app-header .right-bar .user-bar .dropdown #dropdown-menu .dropdown-items {
   justify-content: center;
@@ -291,10 +292,12 @@
 }
 .app-header .right-bar .user-bar .gain-access button:hover {
   opacity: 1;
+  color: black;
 }
 .app-header .right-bar .mode-bar {
   grid-column: 3/span 1;
   display: block;
+  cursor: pointer;
 }
 .app-header .right-bar .mode-bar svg {
   color: #938045;

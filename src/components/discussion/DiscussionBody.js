@@ -39,6 +39,7 @@ const DiscussionBody = (props) => {
   const [subDocs, setSubDocs] = useState([]);
 
   const checkCurrentEditor = () => {
+    if (!currentUser) return;
     let beCurrentEditor = currentUser.uid === document.data().creator_uid;
     setBeEditor(beCurrentEditor);
   };

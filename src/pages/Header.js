@@ -4,16 +4,13 @@ import { AuthContext } from '../components/loading/Auth';
 import { useTranslation } from "react-i18next";
 import FirebasePack from '../config/FirebasePack';
 import Default from '../assets/img/default-icon.jpg';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLightbulb as fasLightbulb } from '@fortawesome/free-solid-svg-icons';
-import { faLightbulb as farLightbulb } from '@fortawesome/free-regular-svg-icons';
 import Koin from '../assets/img/header-koin.png';
 import SearchBar from '../components/search/SearchBar';
 import ShowNotif from '../components/notification/ShowNotif';
 import Language from '../components/user/Language';
 import Signout from '../components/user/Signout';
+import DisplayMode from '../components/user/DisplayMode';
 import '../styles/css/header.css';
-
 
 const Header = () => {
   const { t } = useTranslation('header');
@@ -150,10 +147,7 @@ const Header = () => {
               </div>
             </div>
           }
-        <div className='mode-bar'>
-          <FontAwesomeIcon icon={fasLightbulb} color='' size='2x' />
-          <FontAwesomeIcon icon={farLightbulb} color='' size='2x' />
-        </div>
+        <DisplayMode />
       </div>
     </header>
   );
