@@ -10,7 +10,7 @@ import Header from './pages/Header';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Search from './pages/Search';
-// import './styles/css/reset.css';
+import './styles/css/reset.css';
 
 const Routes = () => {
   return (

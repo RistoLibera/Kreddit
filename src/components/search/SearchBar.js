@@ -16,13 +16,13 @@ const Search = () => {
   };
 
   return (
-    <section className='search-bar'>
+    <div className='search-bar'>
       <form onSubmit={jumpToSearchPage}>
         <FontAwesomeIcon icon={faSearch} color='' size='2x' />
         <input type='text' id='keyword' name='keyword' placeholder={t('content.search-holder')} maxLength='15'></input>
         <button type='submit' value='Submit'>{t('content.search-button')}</button>
       </form>
-    </section>
+    </div>
   );
 };
 

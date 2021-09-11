@@ -2,11 +2,14 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 .discussions-page, .discussions-page .discussions-container, .discussions-page .discussions-container header, .discussions-page .discussions-container .discussions-list ul, .discussions-page .discussions-container .discussions-list ul li, .discussions-page .discussions-container .discussions-list ul li .second-area {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .discussions-page .discussions-container header .discussions-controller .filter-buttons ul li {

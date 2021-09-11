@@ -2,26 +2,46 @@
 
 // Omnipresent header 
 .app-header {
-  @extend %flex-row-direction;
-  justify-content: space-between;
-
-  // position: fixed;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: auto;
+  padding-top: 10px;
   
+  // position: fixed;
+  .left-bar {
+    @extend %flex-row-direction;
+    justify-content: center;
+  }
+
   .middle-bar {
     @extend %flex-row-direction;
+    padding: 0 100px;
 
     .discussions-bar {
+      font-weight: 800;
+      font-size: 1.5rem;
+      text-align: center;
       cursor: pointer;
     }
 
-    #icon img {
-      height: 70px;
-      width: 70px;
-      cursor: pointer;
+    #icon {
+      @extend %flex-row-direction;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        height: 70px;
+        width: 70px;
+        cursor: pointer;
+      }  
     }
 
     .groups-bar {
+      font-weight: 800;
+      font-size: 1.5rem;
+      text-align: center;
       cursor: pointer;
+      padding-right: 60px;
     }
   }
 

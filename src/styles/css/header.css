@@ -1,19 +1,38 @@
-.app-header, .app-header .middle-bar, .app-header .right-bar, .app-header .right-bar .user-bar, .app-header .right-bar .user-bar .notification-center ul li, .app-header .right-bar .user-bar .dropdown #dropdown-menu .language-buttons {
+.app-header .left-bar, .app-header .middle-bar, .app-header .middle-bar #icon, .app-header .right-bar, .app-header .right-bar .user-bar, .app-header .right-bar .user-bar .notification-center ul li, .app-header .right-bar .user-bar .dropdown #dropdown-menu .language-buttons {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 .app-header .right-bar .user-bar .notification-center ul .show, .app-header .right-bar .user-bar .dropdown .show {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .app-header {
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: auto;
+  padding-top: 10px;
+}
+.app-header .left-bar {
+  justify-content: center;
+}
+.app-header .middle-bar {
+  padding: 0 100px;
 }
 .app-header .middle-bar .discussions-bar {
+  font-weight: 800;
+  font-size: 1.5rem;
+  text-align: center;
   cursor: pointer;
+}
+.app-header .middle-bar #icon {
+  justify-content: center;
+  align-items: center;
 }
 .app-header .middle-bar #icon img {
   height: 70px;
@@ -21,7 +40,11 @@
   cursor: pointer;
 }
 .app-header .middle-bar .groups-bar {
+  font-weight: 800;
+  font-size: 1.5rem;
+  text-align: center;
   cursor: pointer;
+  padding-right: 60px;
 }
 .app-header .right-bar {
   margin-right: 60px;

@@ -2,11 +2,14 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 .groups-page, .groups-page .group-container, .groups-page .group-container header, .groups-page .group-container .group-list ul {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .hidden {

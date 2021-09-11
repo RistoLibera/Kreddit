@@ -2,11 +2,14 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 .profile-page .profile-container, .profile-page .profile-container .upper-profile .info, .profile-page .profile-container .upper-profile .registration, .profile-page .profile-container .lower-profile {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .hidden {
