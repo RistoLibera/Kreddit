@@ -115,28 +115,40 @@
 }
 .app-header .right-bar .user-bar .notification-center {
   position: relative;
+  height: 40px;
 }
 .app-header .right-bar .user-bar .notification-center svg {
   color: #938045;
 }
 .app-header .right-bar .user-bar .notification-center ul {
+  background-color: white;
+  padding-top: 25px;
   position: absolute;
-  left: -35px;
-  top: 40px;
-  border: 1px solid rgba(116, 92, 61, 0.22);
+  left: -45px;
+  top: 35px;
+  border-top: none;
 }
 .app-header .right-bar .user-bar .notification-center ul #clear-all {
   justify-content: center;
   background-color: #e3cb81;
   cursor: pointer;
+  border: none;
 }
 .app-header .right-bar .user-bar .notification-center ul .hidden {
   display: none;
 }
 .app-header .right-bar .user-bar .notification-center ul li {
+  border-left: 1px solid rgba(116, 92, 61, 0.22);
+  border-right: 1px solid rgba(116, 92, 61, 0.22);
   list-style: none;
   padding: 10px;
   width: 100px;
+}
+.app-header .right-bar .user-bar .notification-center ul li:last-child {
+  border-bottom: 1px solid rgba(116, 92, 61, 0.22);
+}
+.app-header .right-bar .user-bar .notification-center ul li:hover {
+  font-size: 800;
 }
 .app-header .right-bar .user-bar .dropdown {
   position: relative;
@@ -152,6 +164,7 @@
   background-repeat: no-repeat;
 }
 .app-header .right-bar .user-bar .dropdown #dropdown-menu {
+  margin-top: 8px;
   position: absolute;
   top: 50px;
   background-color: white;
@@ -163,6 +176,7 @@
   width: 130px;
 }
 .app-header .right-bar .user-bar .dropdown #dropdown-menu h3 {
+  padding-top: 10px;
   font-size: 2rem;
   padding-bottom: 10px;
 }
@@ -275,6 +289,8 @@
 .app-header .right-bar .user-bar .dropdown #dropdown-menu #signout span {
   font-size: 0.8rem;
   opacity: 0.6;
+  margin-right: 5px;
+  padding-bottom: 2px;
 }
 .app-header .right-bar .user-bar .dropdown #dropdown-menu #signout:hover svg {
   opacity: 1;

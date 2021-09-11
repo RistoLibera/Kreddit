@@ -208,7 +208,7 @@ const Search = () => {
       <div className="titles">
         <h2>{t('content.title')}</h2>
         <ul>
-          {userListTags.map((li) => {
+          {titleListTags.map((li) => {
               return (
                 li
               );
@@ -219,7 +219,7 @@ const Search = () => {
       <div className="users">
         <h2>{t('content.user')}</h2>
         <ul>
-          {titleListTags.map((li) => {
+          {userListTags.map((li) => {
               return (
                 li
               );
