@@ -1,11 +1,11 @@
-.app-header .left-bar, .app-header .middle-bar, .app-header .middle-bar #icon, .app-header .right-bar, .app-header .right-bar .user-bar, .app-header .right-bar .user-bar .notification-center ul li, .app-header .right-bar .user-bar .dropdown #dropdown-menu .language-buttons {
+.app-header .middle-bar, .app-header .middle-bar #icon, .app-header .right-bar, .app-header .right-bar .user-bar, .app-header .right-bar .user-bar .notification-center ul #clear-all, .app-header .right-bar .user-bar .notification-center ul li, .app-header .right-bar .user-bar .dropdown #dropdown-menu .language-buttons {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
-.app-header .right-bar .user-bar .notification-center ul .show, .app-header .right-bar .user-bar .dropdown .show {
+.app-header .left-bar, .app-header .right-bar .user-bar .notification-center ul .show, .app-header .right-bar .user-bar .dropdown .show {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,10 +16,59 @@
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   grid-template-rows: auto;
-  padding-top: 10px;
+  padding-top: 5px;
 }
-.app-header .left-bar {
-  justify-content: center;
+.app-header .left-bar form {
+  width: 100%;
+  padding: 10px 10px 0 40px;
+}
+.app-header .left-bar form fieldset {
+  position: relative;
+  height: 40px;
+}
+.app-header .left-bar form fieldset svg {
+  position: absolute;
+  left: 2px;
+  bottom: 4px;
+  color: #593c1f;
+  opacity: 0.3;
+  z-index: 10;
+}
+.app-header .left-bar form fieldset input {
+  margin-right: 40px;
+  padding-left: 45px;
+  position: relative;
+  height: 100%;
+  width: 90%;
+  border-style: none;
+  z-index: 1;
+}
+.app-header .left-bar form fieldset input::placeholder {
+  font-size: 1.4rem;
+  color: grey;
+}
+.app-header .left-bar form fieldset button {
+  display: none;
+}
+.app-header .left-bar form fieldset:hover svg {
+  opacity: 1;
+}
+.app-header .left-bar form fieldset:hover input::placeholder {
+  font-size: 1.4rem;
+  color: black;
+}
+.app-header .left-bar form fieldset:hover button {
+  display: block;
+  background-color: #8c5227;
+  color: white;
+  border: none;
+  border-radius: 10%;
+  height: 75%;
+  position: absolute;
+  z-index: 10;
+  right: 4px;
+  top: 5px;
+  cursor: pointer;
 }
 .app-header .middle-bar {
   padding: 0 100px;
@@ -54,10 +103,13 @@
 }
 .app-header .right-bar .user-bar .notification-center ul {
   position: absolute;
-  right: 10px;
+  left: -35px;
+  top: 40px;
+  border: 1px solid rgba(116, 92, 61, 0.22);
 }
 .app-header .right-bar .user-bar .notification-center ul #clear-all {
-  background-color: turquoise;
+  justify-content: center;
+  background-color: #e3cb81;
   cursor: pointer;
 }
 .app-header .right-bar .user-bar .notification-center ul .hidden {
@@ -65,6 +117,8 @@
 }
 .app-header .right-bar .user-bar .notification-center ul li {
   list-style: none;
+  padding: 10px;
+  width: 100px;
 }
 .app-header .right-bar .user-bar .dropdown {
   position: relative;
@@ -77,6 +131,9 @@
 }
 .app-header .right-bar .user-bar .dropdown .hidden {
   display: none;
+}
+.app-header .right-bar .mode-bar {
+  display: block;
 }
 
 /*# sourceMappingURL=header.css.map */

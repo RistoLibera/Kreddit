@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
 import FirebasePack from '../../config/FirebasePack';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBell, faBellSlash } from '@fortawesome/free-solid-svg-icons';
+import { faBell as farBell } from '@fortawesome/free-regular-svg-icons';
+import { faBellSlash as farBellSlash } from '@fortawesome/free-regular-svg-icons';
 
 const ShowNotif = (props) => {
   const { t } = useTranslation('header');
@@ -70,7 +71,7 @@ const ShowNotif = (props) => {
       list = makeNotifList(rate, reply, sender, url , index);
       container.push(list);
     }
-    let clearOption = <li id='clear-all' key={container.length} onClick={clearNotif}>{t('content.clear')}</li>;
+    let clearOption = <li id='clear-all' key={container.length} onClick={clearNotif}><span>{t('content.clear')}</span></li>;
     container.push(clearOption);
     container.reverse();
     setListTags(container);
@@ -84,9 +85,9 @@ const ShowNotif = (props) => {
     <div className='notification-center' onMouseEnter={() => setShowUL('show')} onMouseLeave={() => setShowUL('hidden')}>
       {documents.length === 0
         ?
-          <FontAwesomeIcon icon={faBellSlash} color='' size='2x' />
+          <FontAwesomeIcon icon={farBellSlash} color='' size='2x' />
         :
-          <FontAwesomeIcon icon={faBell} color='' size='2x' />
+          <FontAwesomeIcon icon={farBell} color='' size='2x' />
       }
       <ul className={showUL}>
         {listTags.map((li) => {
