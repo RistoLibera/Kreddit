@@ -75,7 +75,7 @@ const Login = () => {
           <div className='login-container'>
             <div className="instruction">
               <h1>{t('content.login')}</h1>
-              <p>By logging in you agree to the ridiculously long terms that you didn't bother to read</p>
+              <p>{t('content.instruction')}</p>
             </div>
 
             <div className='action'>
