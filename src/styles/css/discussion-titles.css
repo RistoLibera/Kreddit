@@ -12,6 +12,10 @@
   align-items: center;
 }
 
+.discussions-page {
+  height: 100%;
+  padding-top: 6rem;
+}
 .discussions-page .discussions-container header .discussions-controller .filter-buttons ul li {
   margin: 0 10px;
   list-style-type: none;

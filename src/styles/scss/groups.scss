@@ -7,6 +7,8 @@
 
 .groups-page {
   @extend %flex-column-direction;
+  height: 100%;
+  padding-top: 6rem;
 
   .group-container  {
     @extend %flex-column-direction;

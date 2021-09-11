@@ -12,6 +12,10 @@
   align-items: center;
 }
 
+.search-result-page {
+  height: 100%;
+  padding-top: 6rem;
+}
 .search-result-page .search-history ul li {
   list-style: none;
 }

@@ -65,6 +65,7 @@ const Login = () => {
 
   return (
     <section className='login-page'>
+      
       {pageLoading
         ?
           <div className='page-loader'>
@@ -72,26 +73,41 @@ const Login = () => {
           </div>
         :
           <div className='login-container'>
-            <form onSubmit={handleLogin}>
-              <fieldset className='user-auth'>
-                <legend>{t('content.login')}</legend>
-                <label htmlFor='nickname'>{t('content.nickname')}</label>
-                <input type='text' id='nickname' name='nickname' placeholder={t('content.nickname') + '!'} required/><br></br>
-                <label htmlFor='password'>{t('content.password')}</label>
-                <input type='password' id='password' name='password' placeholder={t('content.password') + '!'} minLength="6" required/><br></br>
-                <Recaptcha
-                  className='verification'
-                  sitekey="6Le3UlgcAAAAAGDSykaEb3RRHHttIUXqM_d9iHhB"
-                  render="explicit"
-                  onloadCallback={loadCallback}
-                  verifyCallback={verifyIfHuman}
-                />
-                <div className='auth-buttons'>
-                  <button className='reset' type='reset' value='Reset'>{t('content.clear')}</button>
-                  <button className='submit' type='submit' value='Submit' disabled={!isVerified}>{t('content.login')}</button>
-                </div>
-              </fieldset>
-            </form>
+            <div className="instruction">
+              <h1>{t('content.login')}</h1>
+              <p>By logging in you agree to the ridiculously long terms that you didn't bother to read</p>
+            </div>
+
+            <div className='action'>
+              <form onSubmit={handleLogin}>
+                <fieldset className='name'>
+                  <label htmlFor='nickname'>
+                    {t('content.nickname')}
+                  </label>
+                  <input type='text' id='nickname-input' name='nickname' placeholder={t('content.nickname-holder') + '!'} required/><br></br>
+                </fieldset>
+
+                <fieldset className='password'>
+                  <label htmlFor='password'>{t('content.password')}</label>
+                  <input type='password' id='password-input' name='password' placeholder={t('content.password-holder') + '!'} minLength="6" required/><br></br>
+                </fieldset>
+
+                <fieldset className='recaptcha'>
+                  <Recaptcha
+                    className='verification'
+                    sitekey="6Le3UlgcAAAAAGDSykaEb3RRHHttIUXqM_d9iHhB"
+                    render="explicit"
+                    onloadCallback={loadCallback}
+                    verifyCallback={verifyIfHuman}
+                  />
+                </fieldset>
+
+                <fieldset className='buttons'>
+                  <button className='reset-button' type='reset' value='Reset'>{t('content.clear')}</button>
+                  <button className='submit-button' type='submit' value='Submit' disabled={!isVerified}>{t('content.login')}</button>
+                </fieldset>
+              </form>
+            </div>
             <div className='error-message'>
               <h2>{errorMessage}</h2>
             </div>

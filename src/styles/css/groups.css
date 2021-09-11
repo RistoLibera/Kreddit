@@ -16,6 +16,10 @@
   display: none;
 }
 
+.groups-page {
+  height: 100%;
+  padding-top: 6rem;
+}
 .groups-page .group-container .group-list ul {
   list-style-type: none;
 }

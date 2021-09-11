@@ -1,16 +1,5 @@
 @use 'base';
 
-
-// Login page
-
-
-
-
-
-
-
-// Signup page
-
 // Fake buttons
 .btn {
   display: block;
@@ -75,12 +64,11 @@
   background-color: hsl(196, 100%, 43%);
 }
 
+// Signup page
 .signup-page {
   @extend %flex-column-direction;
   height: 100%;
   padding-top: 6rem;
-  position:relative;
-  z-index: 3;
 
   .signup-container {
     @extend %flex-row-direction;
@@ -148,7 +136,7 @@
         .password {
           font-size: 1.1rem;
   
-          #toggle-visiblility {
+          #toggle-visibility {
             cursor: pointer;
           }
         }
@@ -219,15 +207,120 @@
           .submit-button:disabled {
             cursor: default;
           }
-  
         }
       }
-
     }
-
-
-
   }
 }
+
+
+// Login page
+.login-page {
+  @extend %flex-column-direction;
+  height: 100%;
+  padding-top: 6rem;
+
+  .login-container {
+    @extend %flex-row-direction;
+    width: 800px;
+
+    .instruction {
+      @extend %flex-column-direction;
+      height: 100%;
+      width: 40%;
+
+      h1 {
+        font-size: 4rem;
+        font-weight: 900;
+        margin: 50px 40px 40px;
+      }
+
+      p {
+        width: 60%;
+        color: #999;
+        font-size: 0.7rem;
+        line-height: 1.5;
+        margin: 30px;
+      }
+    }
+
+    .action {
+      
+      form {
+        @extend %flex-column-direction;
+        
+        fieldset {
+          @extend %flex-row-direction;
+          border: none;
+          padding: 0;
+          margin: 8px 0;
+          position: relative;
+          width: 100%;
+
+          input {
+            width: 100%;
+            height: 28px;
+            color: hsl(0, 0, 20);
+            padding: 5px 5px 5px 15px;
+            margin-top: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            outline: none!important;
+            border: 1px solid hsla(0, 0, 0, 0.3);
+            box-shadow: inset 0 1px 4px hsla(0, 0, 0, 0.2);
+            vertical-align: top;
+          }
+      
+          label {
+            padding: 10px 20px 0 0;
+          }
+        }
+
+        .password {
+          label {
+            padding-right: 25px;
+          }
+        }
+
+        .recaptcha {
+          padding-left: 30px;
+        }
+
+        .buttons {
+          @extend %flex-row-direction;
+          justify-content: space-around;
+          button {
+            font-size: 1rem;
+            display: block;
+            text-decoration: none;
+            margin: 5px 0;
+            padding: 10px 10px;
+            border-radius: 5px;          
+          }
+
+          .reset-button {
+            background-color: #3c3636;
+            color: white;
+            cursor: pointer;
+          }
+
+          .submit-button {
+            background-color: white;
+            color: #3c3636;
+            cursor: pointer;
+          }
+
+          .submit-button:disabled {
+            cursor: default;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
 
 

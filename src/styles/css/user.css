@@ -1,11 +1,11 @@
-.signup-page .signup-container, .signup-page .signup-container .signup-classic form .info, .signup-page .signup-container .signup-classic form .info .gender, .signup-page .signup-container .signup-classic form .buttons {
+.signup-page .signup-container, .signup-page .signup-container .signup-classic form .info, .signup-page .signup-container .signup-classic form .info .gender, .signup-page .signup-container .signup-classic form .buttons, .login-page .login-container, .login-page .login-container .action form fieldset, .login-page .login-container .action form .buttons {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
-.signup-page, .signup-page .signup-container .signup-classic form, .signup-page .signup-container .signup-classic form .recaptcha {
+.signup-page, .signup-page .signup-container .signup-classic form, .signup-page .signup-container .signup-classic form .recaptcha, .login-page, .login-page .login-container .instruction, .login-page .login-container .action form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -77,8 +77,6 @@
 .signup-page {
   height: 100%;
   padding-top: 6rem;
-  position: relative;
-  z-index: 3;
 }
 .signup-page .signup-container {
   justify-content: center;
@@ -135,7 +133,7 @@
 .signup-page .signup-container .signup-classic form .password {
   font-size: 1.1rem;
 }
-.signup-page .signup-container .signup-classic form .password #toggle-visiblility {
+.signup-page .signup-container .signup-classic form .password #toggle-visibility {
   cursor: pointer;
 }
 .signup-page .signup-container .signup-classic form .info {
@@ -185,6 +183,83 @@
   cursor: pointer;
 }
 .signup-page .signup-container .signup-classic form .buttons .submit-button:disabled {
+  cursor: default;
+}
+
+.login-page {
+  height: 100%;
+  padding-top: 6rem;
+}
+.login-page .login-container {
+  width: 800px;
+}
+.login-page .login-container .instruction {
+  height: 100%;
+  width: 40%;
+}
+.login-page .login-container .instruction h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  margin: 50px 40px 40px;
+}
+.login-page .login-container .instruction p {
+  width: 60%;
+  color: #999;
+  font-size: 0.7rem;
+  line-height: 1.5;
+  margin: 30px;
+}
+.login-page .login-container .action form fieldset {
+  border: none;
+  padding: 0;
+  margin: 8px 0;
+  position: relative;
+  width: 100%;
+}
+.login-page .login-container .action form fieldset input {
+  width: 100%;
+  height: 28px;
+  color: #333333;
+  padding: 5px 5px 5px 15px;
+  margin-top: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  outline: none !important;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.2);
+  vertical-align: top;
+}
+.login-page .login-container .action form fieldset label {
+  padding: 10px 20px 0 0;
+}
+.login-page .login-container .action form .password label {
+  padding-right: 25px;
+}
+.login-page .login-container .action form .recaptcha {
+  padding-left: 30px;
+}
+.login-page .login-container .action form .buttons {
+  justify-content: space-around;
+}
+.login-page .login-container .action form .buttons button {
+  font-size: 1rem;
+  display: block;
+  text-decoration: none;
+  margin: 5px 0;
+  padding: 10px 10px;
+  border-radius: 5px;
+}
+.login-page .login-container .action form .buttons .reset-button {
+  background-color: #3c3636;
+  color: white;
+  cursor: pointer;
+}
+.login-page .login-container .action form .buttons .submit-button {
+  background-color: white;
+  color: #3c3636;
+  cursor: pointer;
+}
+.login-page .login-container .action form .buttons .submit-button:disabled {
   cursor: default;
 }
 

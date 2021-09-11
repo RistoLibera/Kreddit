@@ -29,6 +29,7 @@ const Signup = () => {
   const [isVerified, setIsVerified] = useState(false);
   const [buttonType, setButtonType] = useState('password');
 
+  // Show password text or not
   const toggleType = () => {
     if (buttonType === 'password') {
       setButtonType('text');
@@ -125,7 +126,7 @@ const Signup = () => {
                   <label htmlFor='nickname'>
                     {t('content.nickname')}
                   </label>
-                  <input type='text' id='nickname' name='nickname' placeholder={t('content.nickname-holder')} minLength="3" required/><br></br>
+                  <input type='text' id='nickname-input' name='nickname' placeholder={t('content.nickname-holder')} minLength="3" required/><br></br>
                   <PersonIcon className="materials"/>
                 </fieldset>
 
@@ -133,8 +134,8 @@ const Signup = () => {
                   <label htmlFor='password'>
                     {t('content.password')}
                   </label>
-                  <input type={buttonType} id='password' name='password' placeholder={t('content.password-holder')} minLength="6" required/><br></br>
-                  <VisibilityIcon className="materials" id="toggle-visiblility" onClick={toggleType}/>
+                  <input type={buttonType} id='password-input' name='password' placeholder={t('content.password-holder')} minLength="6" required/><br></br>
+                  <VisibilityIcon className="materials" id="toggle-visibility" onClick={toggleType}/>
                 </fieldset>
 
                 <fieldset className='info'>

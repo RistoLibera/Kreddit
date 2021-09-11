@@ -3,6 +3,8 @@
 // Search result page
 .search-result-page {
   @extend %flex-row-direction;
+  height: 100%;
+  padding-top: 6rem;
 
   .search-history {
     ul {

@@ -16,6 +16,10 @@
   display: none;
 }
 
+.profile-page {
+  height: 100%;
+  padding-top: 6rem;
+}
 .profile-page .profile-container .upper-profile {
   justify-content: space-around;
 }

@@ -1,8 +1,10 @@
 {
   "title": "login",
   "content": {
-    "nickname": "Nickname",
-    "password": "Password",
+    "nickname": "Nickname:",
+    "nickname-holder": "Nickname",
+    "password": "Password:",
+    "password-holder": "Password",
     "clear": "Clear",
     "login": "Log In"
   }

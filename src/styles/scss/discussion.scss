@@ -2,6 +2,9 @@
 
 // One discussion page
 .discussion-page {
+  height: 100%;
+  padding-top: 6rem;
+
   .discussion-content{
     .group {
       @extend %flex-row-direction;

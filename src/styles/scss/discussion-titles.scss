@@ -3,6 +3,8 @@
 // Discussion titles page
 .discussions-page {
   @extend %flex-column-direction;
+  height: 100%;
+  padding-top: 6rem;
 
   .discussions-container  {
     @extend %flex-column-direction;

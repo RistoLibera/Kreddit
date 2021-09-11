@@ -1,8 +1,10 @@
 {
   "title": "ロギン",
   "content": {
-    "nickname": "ニックネーム",
-    "password": "パスワード",
+    "nickname": "ニックネーム：",
+    "nickname-holder": "ニックネーム",
+    "password": "パスワード：",
+    "password-holder": "パスワード",
     "clear": "クリア",
     "login": "ロギン"
   }

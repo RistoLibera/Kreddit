@@ -3,6 +3,8 @@
 // Default page
 .homepage {
   @extend %flex-column-direction;
+  height: 100%;
+  padding-top: 6rem;
 
   .reactive-home {
     @extend %flex-column-direction;

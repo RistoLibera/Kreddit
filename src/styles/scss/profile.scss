@@ -6,6 +6,9 @@
 }
 
 .profile-page {
+  height: 100%;
+  padding-top: 6rem;
+
   .profile-container {
     @extend %flex-column-direction;
   
