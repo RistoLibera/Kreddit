@@ -1,11 +1,11 @@
-.profile-page .profile-container .upper-profile, .profile-page .profile-container .upper-profile .info .lower-info, .profile-page .profile-container .upper-profile .info .lower-info .groups .as-creator ul, .profile-page .profile-container .upper-profile .info .lower-info .groups .as-member ul, .profile-page .profile-container .upper-profile .info .lower-info .discussions .as-participant, .profile-page .profile-container .lower-profile .title-blocks ul li {
+.profile-page .profile-container .upper-profile, .profile-page .profile-container .upper-profile .info .lower-info, .profile-page .profile-container .upper-profile .info .lower-info .groups .as-creator ul, .profile-page .profile-container .upper-profile .info .lower-info .groups .as-member ul, .profile-page .profile-container .upper-profile .info .lower-info .discussions .as-participant, .profile-page .profile-container .upper-profile .registration .change-password .change-container, .profile-page .profile-container .upper-profile .registration .delete-user .delete-container, .profile-page .profile-container .lower-profile .title-blocks ul li {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
-.profile-page, .profile-page .profile-container, .profile-page .profile-container .upper-profile .info, .profile-page .profile-container .upper-profile .registration, .profile-page .profile-container .lower-profile {
+.profile-page, .profile-page .profile-container, .profile-page .profile-container .upper-profile .info, .profile-page .profile-container .upper-profile .info .lower-info .groups .as-creator span, .profile-page .profile-container .upper-profile .info .lower-info .groups .as-member span, .profile-page .profile-container .lower-profile {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,8 +23,8 @@
   background-color: white;
 }
 .profile-page .profile-container {
-  width: 90%;
   align-items: initial;
+  position: relative;
 }
 .profile-page .profile-container .upper-profile {
   margin: 0 5rem 2rem;
@@ -39,6 +39,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  margin-right: 4rem;
 }
 .profile-page .profile-container .upper-profile .profile-icon .upload {
   position: absolute;
@@ -51,13 +52,17 @@
 .profile-page .profile-container .upper-profile .profile-icon .upload label {
   cursor: pointer;
 }
+.profile-page .profile-container .upper-profile .profile-icon .upload label svg {
+  color: #5a4f2e;
+}
 .profile-page .profile-container .upper-profile .info {
   margin-right: 2rem;
+  padding-bottom: 10px;
 }
 .profile-page .profile-container .upper-profile .info .upper-info {
   display: grid;
   grid-template-rows: auto;
-  grid-template-columns: 40px minmax(70px, 1fr) 30px;
+  grid-template-columns: 60px minmax(70px, 1fr) 70px;
   gap: 20px;
   align-items: center;
   padding-bottom: 10px;
@@ -66,36 +71,110 @@
   font-size: 2rem;
 }
 .profile-page .profile-container .upper-profile .info .upper-info .nation {
-  justify-self: end;
+  justify-self: start;
 }
 .profile-page .profile-container .upper-profile .info .lower-info {
   display: grid;
   grid-template-rows: auto;
-  grid-template-columns: minmax(100px, 1fr) 30px;
+  grid-template-columns: minmax(100px, 1fr) 60px;
+  position: relative;
 }
 .profile-page .profile-container .upper-profile .info .lower-info .groups .as-creator {
   display: grid;
   grid-template-rows: auto;
-  grid-template-columns: 60px minmax(80px, 1fr) 40px;
+  grid-template-columns: 80px minmax(80px, 1fr) 40px;
   align-items: center;
+  margin-bottom: 10px;
 }
 .profile-page .profile-container .upper-profile .info .lower-info .groups .as-creator h5 {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
 }
 .profile-page .profile-container .upper-profile .info .lower-info .groups .as-creator ul li {
   list-style: none;
+  width: 25px;
+  height: 25px;
+  border: none;
+  border-radius: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.profile-page .profile-container .upper-profile .info .lower-info .groups .as-creator span {
+  font-size: 0.7rem;
+  width: 25px;
+  height: 25px;
+  background-color: black;
+  color: #c5c74e;
+  margin-left: 5px;
 }
 .profile-page .profile-container .upper-profile .info .lower-info .groups .as-member {
   display: grid;
   grid-template-rows: auto;
-  grid-template-columns: 60px minmax(80px, 1fr) 40px;
+  grid-template-columns: 80px minmax(80px, 1fr) 40px;
   align-items: center;
 }
 .profile-page .profile-container .upper-profile .info .lower-info .groups .as-member h5 {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
 }
 .profile-page .profile-container .upper-profile .info .lower-info .groups .as-member ul li {
   list-style: none;
+  width: 25px;
+  height: 25px;
+  border: none;
+  border-radius: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.profile-page .profile-container .upper-profile .info .lower-info .groups .as-member span {
+  font-size: 0.7rem;
+  width: 25px;
+  height: 25px;
+  background-color: black;
+  color: #c5c74e;
+  margin-left: 5px;
+}
+.profile-page .profile-container .upper-profile .info .lower-info .discussions {
+  padding-left: 20px;
+  position: absolute;
+  top: -10px;
+  right: -70px;
+  font-size: 1.6rem;
+  color: #685a31;
+}
+.profile-page .profile-container .upper-profile .info .lower-info .discussions .as-participant p {
+  padding-left: 5px;
+}
+.profile-page .profile-container .upper-profile .registration {
+  display: grid;
+  grid-template-columns: minmax(100px, 200px);
+  grid-template-rows: 60px 60px;
+  margin-left: 80px;
+  justify-content: space-between;
+  align-items: initial;
+  height: 100px;
+}
+.profile-page .profile-container .upper-profile .registration .change-password .change-container {
+  height: 100%;
+}
+.profile-page .profile-container .upper-profile .registration .change-password .change-container .toggle-show {
+  width: 40px;
+  height: 40px;
+  border: 2px solid black;
+  cursor: pointer;
+}
+.profile-page .profile-container .upper-profile .registration .delete-user .delete-container {
+  height: 100%;
+}
+.profile-page .profile-container .upper-profile .registration .delete-user .delete-container .toggle-show {
+  width: 40px;
+  height: 40px;
+  border: 2px solid black;
+  cursor: pointer;
+}
+.profile-page .profile-container .upper-profile .registration .delete-user .delete-container .toggle-show svg {
+  width: 30px;
+  height: 30px;
 }
 .profile-page .profile-container .lower-profile {
   align-items: initial;

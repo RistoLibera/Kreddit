@@ -14,8 +14,7 @@ const ShowStatistic = (props) => {
   // Make one list HTML tag
   const makeList = (url, index) => {
     return (
-      <li key={index}>
-        <img src={url} alt='symbol' width='20px' />
+      <li key={index} style={{ backgroundImage: `url('${url}')` }}>
       </li>
     );
   };

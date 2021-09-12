@@ -153,7 +153,7 @@ const DeleteUser = (props) => {
 
   if(isCurrentUser()) {
     return (
-      <div className='delete-account'>
+      <div className='delete-user'>
         {pageLoading
           ?
             <div className='page-loader'>
@@ -161,18 +161,18 @@ const DeleteUser = (props) => {
             </div>
           :
             <div className='delete-container'>
+                <button onClick={switchHidden} type='button' className='toggle-show'>
+                  <FontAwesomeIcon icon={faUserSlash} color='' size='2x' />
+                </button>
               <form onSubmit={handleChange}>
-                <fieldset>
+                <fieldset className={divHidden}>
                   <legend>{t('content.delete-user')}</legend>
-                  <div className={divHidden}>
+                  <div>
                     <input type='password' id='old-password' name='old_password' placeholder={t('content.old-password')} minLength="6" required/><br></br>
                     <button className='submit' type='submit' value='Submit'>
                       {t('content.confirm')}
                     </button>
                   </div>
-                  <button onClick={switchHidden} type='button'>
-                    <FontAwesomeIcon icon={faUserSlash} color='' size='2x' />
-                  </button>
                 </fieldset>
               </form>
             </div>

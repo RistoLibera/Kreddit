@@ -14,8 +14,8 @@
 
   .profile-container {
     @extend %flex-column-direction;
-    width: 90%;
     align-items: initial;
+    position: relative;
     
     .upper-profile {
       @extend %flex-row-direction;
@@ -31,6 +31,7 @@
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
+        margin-right: 4rem;
 
         .upload {
           position: absolute;
@@ -43,6 +44,10 @@
 
           label {
             cursor: pointer;
+            
+            svg {
+              color:#5a4f2e;
+            }
           }
         }
       }
@@ -50,12 +55,13 @@
       .info {
         @extend %flex-column-direction;
         margin-right: 2rem;
+        padding-bottom: 10px;
 
         .upper-info {
           // @extend %flex-row-direction;
           display: grid;
           grid-template-rows: auto;
-          grid-template-columns: 40px minmax(70px, 1fr) 30px;
+          grid-template-columns: 60px minmax(70px, 1fr) 70px;
           gap: 20px;
           align-items: center;
           padding-bottom: 10px;
@@ -65,7 +71,7 @@
           }
 
           .nation {
-            justify-self: end;
+            justify-self: start;
           }
         }
   
@@ -73,17 +79,19 @@
           @extend %flex-row-direction;
           display: grid;
           grid-template-rows: auto;
-          grid-template-columns: minmax(100px, 1fr) 30px;
+          grid-template-columns: minmax(100px, 1fr) 60px;
+          position: relative;
 
           .groups {
             .as-creator {
               display: grid;
               grid-template-rows: auto;
-              grid-template-columns: 60px minmax(80px, 1fr) 40px;
+              grid-template-columns: 80px minmax(80px, 1fr) 40px;
               align-items: center;
+              margin-bottom: 10px;
 
               h5 {
-                font-size: 1.1rem;
+                font-size: 1.3rem;
               }
 
               ul{
@@ -91,18 +99,35 @@
 
                 li {
                   list-style: none;
+                  width: 25px;
+                  height: 25px;
+                  border: none;
+                  border-radius: 50%;
+                  background-size: cover;
+                  background-repeat: no-repeat;
+                  background-position: center;  
                 }
+              }
+
+              span {
+                @extend %flex-column-direction;
+                font-size: 0.7rem;
+                width:25px;
+                height: 25px;
+                background-color: black;
+                color: rgb(197, 199, 78);
+                margin-left: 5px;
               }
             }
 
             .as-member {
               display: grid;
               grid-template-rows: auto;
-              grid-template-columns: 60px minmax(80px, 1fr) 40px;
+              grid-template-columns: 80px minmax(80px, 1fr) 40px;
               align-items: center;
 
               h5 {
-                font-size: 1.1rem;
+                font-size: 1.3rem;
               }
 
               ul{
@@ -110,23 +135,89 @@
 
                 li {
                   list-style: none;
+                  width: 25px;
+                  height: 25px;
+                  border: none;
+                  border-radius: 50%;
+                  background-size: cover;
+                  background-repeat: no-repeat;
+                  background-position: center;  
                 }
               }
 
+              span {
+                @extend %flex-column-direction;
+                font-size: 0.7rem;
+                width:25px;
+                height: 25px;
+                background-color: black;
+                color: rgb(197, 199, 78);
+                margin-left: 5px;
+              }
             }
           }
 
           .discussions {
+            padding-left: 20px;
+            position: absolute;
+            top: -10px;
+            right: -70px;
+            font-size: 1.6rem;
+            color: #685a31;
+
             .as-participant {
               @extend %flex-row-direction;
-  
+
+              p {
+                padding-left: 5px;
+              }
             }  
           }
         }
       }
   
       .registration {
-        @extend %flex-column-direction;
+        display: grid;
+        grid-template-columns: minmax(100px, 200px);
+        grid-template-rows: 60px 60px;
+
+        margin-left: 80px;
+        justify-content: space-between;
+        align-items: initial;
+        height: 100px;
+
+        .change-password {
+          .change-container {
+            height: 100%;
+            @extend %flex-row-direction;
+
+            .toggle-show {
+              width: 40px;
+              height: 40px;
+              border: 2px solid black;
+              cursor: pointer;
+            }
+          }
+        }
+
+        .delete-user {
+          .delete-container {
+            height: 100%;
+            @extend %flex-row-direction;
+
+            .toggle-show {
+              width: 40px;
+              height: 40px;
+              border: 2px solid black;
+              cursor: pointer;
+
+              svg {
+                width: 30px;
+                height: 30px;
+              }
+            }
+          }
+        }
       }
     }
   

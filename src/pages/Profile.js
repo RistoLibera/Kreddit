@@ -221,8 +221,8 @@ const Profile = () => {
               </div>
 
               <div className='registration'>
-                <DeleteUser uid = {uid} />
                 <ChangePassword uid = {uid} />
+                <DeleteUser uid = {uid} />
               </div>
             </div>
 
