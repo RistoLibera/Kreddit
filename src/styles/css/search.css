@@ -5,7 +5,7 @@
   align-items: center;
 }
 
-.search-result-page .search-history ul, .search-result-page .titles ul, .search-result-page .users ul {
+.search-result-page .search-history, .search-result-page .search-history ul, .search-result-page .titles, .search-result-page .titles ul, .search-result-page .users, .search-result-page .users ul {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,17 +13,60 @@
 }
 
 .search-result-page {
+  align-items: inherit;
   height: 100%;
-  padding-top: 6rem;
+  padding: 6rem 6rem 0 3rem;
+}
+.search-result-page .search-history {
+  justify-content: flex-start;
+}
+.search-result-page .search-history h2 {
+  font-size: 2rem;
+  height: 60px;
+  text-decoration: underline;
+}
+.search-result-page .search-history ul {
+  width: 80%;
 }
 .search-result-page .search-history ul li {
   list-style: none;
+  width: 80%;
+  padding: 8px;
+  font-size: 1.4rem;
+}
+.search-result-page .search-history ul li .delete-history {
+  border: none;
+  color: grey;
+  cursor: pointer;
+}
+.search-result-page .search-history ul li .delete-history:hover {
+  color: black;
+}
+.search-result-page .titles {
+  justify-content: flex-start;
+}
+.search-result-page .titles h2 {
+  font-size: 2rem;
+  height: 60px;
+  text-decoration: underline;
 }
 .search-result-page .titles ul li {
   list-style: none;
+  font-size: 1.3rem;
+  padding: 10px 7px;
+  border: 0.6px solid rgba(173, 161, 161, 0.836);
+}
+.search-result-page .users {
+  justify-content: flex-start;
+}
+.search-result-page .users h2 {
+  font-size: 2rem;
+  height: 60px;
+  text-decoration: underline;
 }
 .search-result-page .users ul li {
   list-style: none;
+  font-size: 1.5rem;
 }
 
 /*# sourceMappingURL=search.css.map */

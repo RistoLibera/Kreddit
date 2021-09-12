@@ -3,37 +3,83 @@
 // Search result page
 .search-result-page {
   @extend %flex-row-direction;
+  align-items: inherit;
   height: 100%;
-  padding-top: 6rem;
+  padding: 6rem 6rem 0 3rem;
 
   .search-history {
+    @extend %flex-column-direction;
+    justify-content: flex-start;
+
+    h2 {
+      font-size: 2rem;
+      height: 60px;
+      text-decoration: underline;
+    }
+
     ul {
       @extend %flex-column-direction;
+      width: 80%;
+
       li {
         @extend %flex-row-direction;
         list-style: none;
+        width: 80%;
+        padding: 8px;
+        font-size: 1.4rem;
 
+        .delete-history {
+          border: none;
+          color: grey;
+          cursor: pointer;
+        }
+
+        .delete-history:hover {
+          color: black;
+        }
       }
     }
   }
 
   .titles {
+    @extend %flex-column-direction;
+    justify-content: flex-start;
+    
+    h2 {
+      font-size: 2rem;
+      height: 60px;
+      text-decoration: underline;
+    }
+
     ul {
       @extend %flex-column-direction;
       li {
         @extend %flex-row-direction;
         list-style: none;
-
+        font-size: 1.3rem;
+        padding: 10px 7px;
+        border: 0.6px solid rgba(173, 161, 161, 0.836);
       }
     }
   }
 
   .users {
+    @extend %flex-column-direction;
+    justify-content: flex-start;
+
+    h2 {
+      font-size: 2rem;
+      height: 60px;
+      text-decoration: underline;
+    }
+
     ul {
       @extend %flex-column-direction;
+
       li {
         @extend %flex-row-direction;
         list-style: none;
+        font-size: 1.5rem;
 
       }
     }

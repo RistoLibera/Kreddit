@@ -55,7 +55,7 @@ const Search = () => {
     return (
       <li key={index} id={index}>
         <Link to={"/search/" + result}>{result}</Link>
-        <button onClick={() => deleteThis(result, index)}>X</button>
+        <button className='delete-history' onClick={() => deleteThis(result, index)}>X</button>
       </li>
     );
   };
@@ -138,6 +138,7 @@ const Search = () => {
 
   // Get titles data
   const getTitleData = async (groupDocs) => {
+    if (!groupDocs) return;
     let discussionDocs = [];
     for (const [index, doc] of groupDocs.entries()) {
       try {
@@ -161,7 +162,7 @@ const Search = () => {
   const makeTitleList = (title, group, uid, index) => {
     return (
       <li key={index}>
-        <Link to={"/discussions/" + group + '/' + uid}>{title} in {group}</Link>
+        <Link to={"/discussions/" + group + '/' + uid}>{title} in <b style={{ fontWeight: 800}}>{group}</b></Link>
       </li>
     );
   };
