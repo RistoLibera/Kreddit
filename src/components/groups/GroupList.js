@@ -3,6 +3,8 @@ import { useHistory } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
 import { DateTime, Interval } from "luxon";
 import Default from '../../assets/img/default-symbol.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons';
 import FirebasePack from '../../config/FirebasePack';
 import { css } from '@emotion/react';
 import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
@@ -118,24 +120,34 @@ const GroupList = (props) => {
     return (
       <li key={index} className='group-list'>
         <div className='left-block'>
-          <img src={symbolURL} alt='icon' width='40px' />
-          <h2>{groupName}</h2>
+          <span className='img'  style={{ backgroundImage: `url('${symbolURL}')` }}></span>
         </div>
 
         <div className='middle-block'>
-          <p>{t('content.creator')}: {creator}</p>
-          <p>{introduction}</p>
-          <p>{time}</p>
+          <div className="upper">
+            <h2 className='name'>{groupName}</h2>
+          </div>
+
+          <div className="middle">
+            <p>{introduction}</p>
+          </div>
+
+          <div className="lower">
+            <p className='creator'>{t('content.creator')}: {creator}</p>
+            <p>{time}</p>
+          </div>
         </div>
 
         <div className='right-block'>
           {currentUser 
             ? 
-              <button onClick={() => joinGroup(groupName, groupUID, currentUser)} disabled={buttonState}>{t('content.join')}</button>
+              <button className='join' onClick={() => joinGroup(groupName, groupUID, currentUser)} disabled={buttonState}>{t('content.join')}</button>
             :
-              <button>Join</button>
+              <button className='join'>Join</button>
           }
-          <button onClick={() => history.push('/discussions/' + groupName)} >should be a icon</button>
+          <button className='quick-link' onClick={() => history.push('/discussions/' + groupName)} >
+            <FontAwesomeIcon icon={faArrowAltCircleRight} color='' size='2x' />
+          </button>
         </div>
       </li>
     );
@@ -166,7 +178,7 @@ const GroupList = (props) => {
   }, [documents, t]);
 
   return (
-    <div className='all-groups'>
+    <div className='list-view'>
       {pageLoading 
         ?
           <div className='page-loader'>

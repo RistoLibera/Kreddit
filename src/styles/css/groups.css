@@ -1,11 +1,11 @@
-.groups-page .group-container header .group-controller, .groups-page .group-container header #create-group form .upload, .groups-page .group-container .all-groups ul li {
+.groups-page .group-container header .group-controller, .groups-page .group-container header #create-group form .upload, .groups-page .group-container .list-view ul li, .groups-page .group-container .list-view ul li .middle-block .lower, .groups-page .group-container .list-view ul li .right-block {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
-.groups-page, .groups-page .group-container, .groups-page .group-container header, .groups-page .group-container header #create-group form, .groups-page .group-container header #create-group form .input-name, .groups-page .group-container header #create-group form .input-intro, .groups-page .group-container .group-list ul {
+.groups-page, .groups-page .group-container, .groups-page .group-container header, .groups-page .group-container header #create-group form, .groups-page .group-container header #create-group form .input-name, .groups-page .group-container header #create-group form .input-intro, .groups-page .group-container .list-view ul, .groups-page .group-container .list-view ul li .middle-block {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -316,15 +316,75 @@
 .groups-page .group-container header #create-group form .upload #files {
   display: none;
 }
-.groups-page .group-container .group-list ul {
-  list-style-type: none;
-}
-.groups-page .group-container .all-groups {
+.groups-page .group-container .list-view {
   width: 100%;
+  padding-top: 10px;
 }
-.groups-page .group-container .all-groups ul {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.groups-page .group-container .list-view ul {
+  margin: 10px 40px;
+}
+.groups-page .group-container .list-view ul li {
+  width: 100%;
+  margin: 20px 0;
+}
+.groups-page .group-container .list-view ul li .left-block {
+  position: relative;
+}
+.groups-page .group-container .list-view ul li .left-block .img {
+  display: inline-block;
+  width: 90px;
+  height: 90px;
+  border: none;
+  border-radius: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.groups-page .group-container .list-view ul li .middle-block .upper {
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 5px;
+}
+.groups-page .group-container .list-view ul li .middle-block .middle {
+  padding: 5px;
+  font-size: 1rem;
+  text-align: center;
+  line-height: 1.3;
+}
+.groups-page .group-container .list-view ul li .middle-block .middle p {
+  word-wrap: break-word;
+  max-width: 500px;
+}
+.groups-page .group-container .list-view ul li .middle-block .lower {
+  padding: 5px;
+}
+.groups-page .group-container .list-view ul li .middle-block .lower .creator {
+  padding-right: 17px;
+  font-style: italic;
+  font-size: 1.1rem;
+}
+.groups-page .group-container .list-view ul li .right-block button {
+  border: none;
+}
+.groups-page .group-container .list-view ul li .right-block .join {
+  text-align: center;
+  font-size: 1.2rem;
+  display: block;
+  text-decoration: none;
+  margin: 5px 5px;
+  padding: 13px 10px;
+  background: black;
+  color: white;
+  cursor: pointer;
+}
+.groups-page .group-container .list-view ul li .right-block .join:disabled {
+  cursor: default;
+  background: grey;
+  color: black;
+}
+.groups-page .group-container .list-view ul li .right-block .quick-link {
+  font-size: 1.6rem;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=groups.css.map */
