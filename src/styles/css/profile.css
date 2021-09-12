@@ -19,6 +19,7 @@
 .profile-page {
   height: 100%;
   padding-top: 6rem;
+  background-color: white;
 }
 .profile-page .profile-container .upper-profile {
   justify-content: space-around;

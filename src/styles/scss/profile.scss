@@ -8,7 +8,8 @@
 .profile-page {
   height: 100%;
   padding-top: 6rem;
-
+  background-color: white;
+  
   .profile-container {
     @extend %flex-column-direction;
   

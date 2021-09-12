@@ -11,6 +11,13 @@ const ShowIcon = (props) => {
   border-color: red;
   `;
   const [loading, setLoading] = useState(false);
+
+  // Also update header icon
+  const updateHeader = () => {
+    const megatron = document.querySelector("#megatron");
+    megatron.click();
+  };
+
   const uploadIcon = async (event) => {
     const file = event.target.files[0];
     setLoading(true);
@@ -22,6 +29,7 @@ const ShowIcon = (props) => {
     } catch (error) {
       console.log(error);
     }
+    updateHeader();
     update();
     setLoading(false);
   };

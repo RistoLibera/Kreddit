@@ -124,6 +124,7 @@ const Header = () => {
             <div className='user-bar'>
               <ShowNotif documents={notifDocs} currentUser={currentUser} update={getData} />
               <div className="dropdown">
+                <div id="megatron" onClick={()=> getData()} style={{ display: 'none'}} ></div>
                 <button onClick={togglebutton} className="dropbtn" style={{ backgroundImage: `url('${iconURL}')` }}></button>
                 <div id="dropdown-menu" className={showMenu}>
                   <h3>{name}</h3>
