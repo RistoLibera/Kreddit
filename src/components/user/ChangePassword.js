@@ -106,16 +106,14 @@ const ChangePassword = (props) => {
               <button onClick={switchHidden} type='button' className='toggle-show'>
                 <FontAwesomeIcon icon={faKey} color='' size='2x' />
               </button>
-              <form onSubmit={handleChange}>
+              <form onSubmit={handleChange} >
                 <fieldset className={divHidden}>
                   <legend>{t('content.change-password')}</legend>
-                  <div>
-                    <input type='password' id='old-password' name='old_password' placeholder={t('content.old-password')} minLength="6" required/><br></br>
-                    <input type='password' id='new-password' name='new_password' placeholder={t('content.new-password')} minLength="6" required/><br></br>
-                    <button className='submit' type='submit' value='Submit'>
-                      {t('content.confirm')}
-                    </button>
-                  </div>
+                  <input type='password' id='old-password' name='old_password' placeholder={t('content.old-password')} minLength="6" required/><br></br>
+                  <input type='password' id='new-password' name='new_password' placeholder={t('content.new-password')} minLength="6" required/><br></br>
+                  <button className='submit' type='submit' value='Submit'>
+                    {t('content.confirm')}
+                  </button>
                 </fieldset>
               </form>
             </div>

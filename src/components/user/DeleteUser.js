@@ -167,12 +167,10 @@ const DeleteUser = (props) => {
               <form onSubmit={handleChange}>
                 <fieldset className={divHidden}>
                   <legend>{t('content.delete-user')}</legend>
-                  <div>
-                    <input type='password' id='old-password' name='old_password' placeholder={t('content.old-password')} minLength="6" required/><br></br>
-                    <button className='submit' type='submit' value='Submit'>
-                      {t('content.confirm')}
-                    </button>
-                  </div>
+                  <input type='password' id='old-password' name='old_password' placeholder={t('content.old-password')} minLength="6" required/><br></br>
+                  <button className='submit' type='submit' value='Submit'>
+                    {t('content.confirm')}
+                  </button>
                 </fieldset>
               </form>
             </div>

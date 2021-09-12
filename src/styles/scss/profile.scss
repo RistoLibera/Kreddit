@@ -8,13 +8,13 @@
 .profile-page {
   height: 100%;
   padding-top: 6rem;
-  margin-top: 1rem;
+  margin-top: 3rem;
   background-color: white;
   @extend %flex-column-direction;
 
   .profile-container {
     @extend %flex-column-direction;
-    align-items: initial;
+    width: 100%;
     position: relative;
     
     .upper-profile {
@@ -46,7 +46,7 @@
             cursor: pointer;
             
             svg {
-              color:#5a4f2e;
+              color:#38311d;
             }
           }
         }
@@ -64,7 +64,7 @@
           grid-template-columns: 60px minmax(70px, 1fr) 70px;
           gap: 20px;
           align-items: center;
-          padding-bottom: 10px;
+          padding-bottom: 15px;
 
           h2 {
             font-size: 2rem;
@@ -86,7 +86,7 @@
             .as-creator {
               display: grid;
               grid-template-rows: auto;
-              grid-template-columns: 80px minmax(80px, 1fr) 40px;
+              grid-template-columns: 80px minmax(90px, 1fr) 40px;
               align-items: center;
               margin-bottom: 10px;
 
@@ -114,8 +114,8 @@
                 font-size: 0.7rem;
                 width:25px;
                 height: 25px;
-                background-color: black;
-                color: rgb(197, 199, 78);
+                border: 2px solid black;
+                color: black;
                 margin-left: 5px;
               }
             }
@@ -123,7 +123,7 @@
             .as-member {
               display: grid;
               grid-template-rows: auto;
-              grid-template-columns: 80px minmax(80px, 1fr) 40px;
+              grid-template-columns: 80px minmax(90px, 1fr) 40px;
               align-items: center;
 
               h5 {
@@ -150,8 +150,8 @@
                 font-size: 0.7rem;
                 width:25px;
                 height: 25px;
-                background-color: black;
-                color: rgb(197, 199, 78);
+                border: 2px solid black;
+                color: black;
                 margin-left: 5px;
               }
             }
@@ -161,9 +161,9 @@
             padding-left: 20px;
             position: absolute;
             top: -10px;
-            right: -70px;
+            right: -50px;
             font-size: 1.6rem;
-            color: #685a31;
+            color: #3b382c;
 
             .as-participant {
               @extend %flex-row-direction;
@@ -180,8 +180,8 @@
         display: grid;
         grid-template-columns: minmax(100px, 200px);
         grid-template-rows: 60px 60px;
-
-        margin-left: 80px;
+        margin-bottom: 10px;
+        margin-left: 60px;
         justify-content: space-between;
         align-items: initial;
         height: 100px;
@@ -192,10 +192,56 @@
             @extend %flex-row-direction;
 
             .toggle-show {
-              width: 40px;
-              height: 40px;
+              width: 38px;
+              height: 38px;
               border: 2px solid black;
               cursor: pointer;
+            }
+
+            .hidden {
+              display: none;
+            }
+
+            form {
+              margin: 40px 0 0 30px;
+              @extend %flex-column-direction;
+              
+              fieldset {
+                @extend %flex-column-direction;
+                border: none;
+                padding: 0;
+                margin: 8px 0;
+                position: relative;
+                width: 100%;
+      
+                legend {
+                  padding-left: 7px;
+                  font-size: 0.8rem;
+                }
+
+                input {
+                  width: 100%;
+                  height: 18px;
+                  color: hsl(0, 0, 20);
+                  padding: 5px 0 5px 15px;
+                  margin-top: 10px;
+                  border-radius: 5px;
+                  font-size: 14px;
+                  outline: none!important;
+                  border: 1px solid hsla(0, 0, 0, 0.3);
+                  box-shadow: inset 0 1px 4px hsla(0, 0, 0, 0.2);
+                  vertical-align: top;
+                }
+            
+                button {
+                  font-size: 0.8rem;
+                  display: block;
+                  text-decoration: none;
+                  margin: 5px 0;
+                  padding: 5px 5px;
+                  border-radius: 5px;          
+                }      
+              }      
             }
           }
         }
@@ -206,8 +252,8 @@
             @extend %flex-row-direction;
 
             .toggle-show {
-              width: 40px;
-              height: 40px;
+              width: 38px;
+              height: 38px;
               border: 2px solid black;
               cursor: pointer;
 
@@ -216,6 +262,52 @@
                 height: 30px;
               }
             }
+
+            .hidden {
+              display: none;
+            }
+
+            form {
+              margin: 0 0 0 30px;
+              @extend %flex-column-direction;
+              
+              fieldset {
+                @extend %flex-column-direction;
+                border: none;
+                padding: 0;
+                margin: 8px 0;
+                position: relative;
+                width: 100%;
+      
+                legend {
+                  padding-left: 7px;
+                  font-size: 0.8rem;
+                }
+
+                input {
+                  width: 100%;
+                  height: 18px;
+                  color: hsl(0, 0, 20);
+                  padding: 5px 0 5px 15px;
+                  margin-top: 10px;
+                  border-radius: 5px;
+                  font-size: 14px;
+                  outline: none!important;
+                  border: 1px solid hsla(0, 0, 0, 0.3);
+                  box-shadow: inset 0 1px 4px hsla(0, 0, 0, 0.2);
+                  vertical-align: top;
+                }
+            
+                button {
+                  font-size: 0.8rem;
+                  display: block;
+                  text-decoration: none;
+                  margin: 5px 0;
+                  padding: 5px 5px;
+                  border-radius: 5px;          
+                }      
+              }      
+            }        
           }
         }
       }
