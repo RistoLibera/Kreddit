@@ -12,6 +12,16 @@ const Groups = () => {
   const [formHidden, setFormHidden] = useState("hidden");
   const [GroupsDoc, setGroupsDoc] = useState([]);
 
+  // Toggle groups view
+  const toggleView = (event) => {
+    const btn = event.target.closest('.grid-list');
+    btn.classList.add('animation');
+    btn.classList.toggle('active');
+    let newElem = btn.cloneNode(true);
+    btn.parentNode.replaceChild(newElem, btn);
+    newElem.addEventListener('click', toggleView);
+  };
+
   const switchHidden = () => {
     if (formHidden === 'hidden') {
       setFormHidden('form-container');
@@ -56,12 +66,23 @@ const Groups = () => {
       <div className='group-container'>
         <header>
           <div className='group-controller'>
-            <div>
-              <p>many-grid</p>
-              <p>two-grid</p>
-            </div>
+            <button className="grid-list" onClick={toggleView}>
+              <div className="icon">
+                <div className="dots">
+                  <i></i><i></i><i></i><i></i>
+                </div>
+                <div className="lines">
+                  <i></i><i></i><i></i><i></i>
+                </div>
+              </div>
+              <div className="text">
+                <span>Grid</span>
+                <span>List</span>
+              </div>
+            </button>
+
             {currentUser
-              ? <button onClick={switchHidden}>{t('content.create-group')}</button>
+              ? <button onClick={switchHidden} className='display-control' >{t('content.create-group')}</button>
               : <div></div>
             }
           </div>

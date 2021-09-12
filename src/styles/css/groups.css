@@ -1,11 +1,11 @@
-.groups-page .group-container header .group-controller, .groups-page .group-container .all-groups ul li {
+.groups-page .group-container header .group-controller, .groups-page .group-container header #create-group form .upload, .groups-page .group-container .all-groups ul li {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
-.groups-page, .groups-page .group-container, .groups-page .group-container header, .groups-page .group-container .group-list ul {
+.groups-page, .groups-page .group-container, .groups-page .group-container header, .groups-page .group-container header #create-group form, .groups-page .group-container header #create-group form .input-name, .groups-page .group-container header #create-group form .input-intro, .groups-page .group-container .group-list ul {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,10 +18,309 @@
 
 .groups-page {
   height: 100%;
-  padding-top: 6rem;
+  padding-top: 5.5rem;
+}
+.groups-page .group-container {
+  width: 100%;
+}
+.groups-page .group-container header {
+  width: 100%;
+}
+.groups-page .group-container header .group-controller {
+  width: 100%;
+}
+.groups-page .group-container header .group-controller .grid-list {
+  --color: #F6F8FF;
+  --background: #2B3044;
+  --background-hover: #1E2235;
+  --icon-color: #BBC1E1;
+  padding: 6px 12px 6px 8px;
+  margin: 0.5rem 0 1rem 2rem;
+  display: flex;
+  outline: none;
+  position: relative;
+  border: none;
+  border-radius: 9px;
+  background: var(--b, var(--background));
+  cursor: pointer;
+  -webkit-appearence: none;
+  -webkit-tap-highlight-color: transparent;
+  transform: scale(var(--scale, 1)) translateZ(0);
+  transition: transform 0.15s, background 0.4s;
+}
+.groups-page .group-container header .group-controller .grid-list:active {
+  --scale: .95;
+}
+.groups-page .group-container header .group-controller .grid-list:hover {
+  --b: var(--background-hover);
+}
+.groups-page .group-container header .group-controller .grid-list.without-text {
+  --background: #275EFE;
+  --background-hover: #1548DB;
+  --icon-color: #FFFFFF;
+  padding: 6px;
+}
+.groups-page .group-container header .group-controller .grid-list .icon {
+  width: 24px;
+  height: 24px;
+  position: relative;
+}
+.groups-page .group-container header .group-controller .grid-list .icon i {
+  position: absolute;
+  left: var(--left, 4px);
+  top: var(--top, 4px);
+  display: block;
+  border-radius: 2px;
+  width: var(--width, 7px);
+  height: var(--height, 7px);
+  background: var(--icon-color);
+  animation: var(--name, var(--dots-name, none)) var(--duration, var(--dots-duration, 0.5s)) var(--easing, var(--dots-easing, linear)) forwards var(--delay, var(--dots-delay, 0s));
+}
+.groups-page .group-container header .group-controller .grid-list .icon .dots i:nth-child(1) {
+  --x-middle: -8px;
+  --y-middle: 10px;
+  --x-end: -2px;
+  --y-end: 12px;
+  --x-back: 10px;
+  --y-back: 7px;
+  --x-back-end: 9px;
+  --y-back-end: 0;
+}
+.groups-page .group-container header .group-controller .grid-list .icon .dots i:nth-child(2) {
+  --left: 13px;
+  --x-middle: -12px;
+  --y-middle: 5px;
+  --x-end: -11px;
+  --y-end: 7px;
+  --x-back: -3px;
+  --y-back: 1px;
+  --x-back-end: -9px;
+  --y-back-end: 0;
+}
+.groups-page .group-container header .group-controller .grid-list .icon .dots i:nth-child(3) {
+  --top: 13px;
+  --x-middle: 4px;
+  --y-middle: -5px;
+  --x-end: -2px;
+  --y-end: -7px;
+  --x-back: -5px;
+  --y-back: 0px;
+  --x-back-end: 9px;
+  --y-back-end: 0;
+}
+.groups-page .group-container header .group-controller .grid-list .icon .dots i:nth-child(4) {
+  --left: 13px;
+  --top: 13px;
+  --x-middle: 0;
+  --y-middle: -10px;
+  --x-end: -11px;
+  --y-end: -12px;
+  --x-back: -14px;
+  --y-back: -8px;
+  --x-back-end: -9px;
+  --y-back-end: 0;
+}
+.groups-page .group-container header .group-controller .grid-list .icon .lines {
+  --name: var(--lines-name, none);
+  --duration: var(--lines-duration, .15s);
+  --easing: var(--lines-easing, linear);
+  --delay: var(--lines-delay, 0s);
+}
+.groups-page .group-container header .group-controller .grid-list .icon .lines i {
+  --left: 9px;
+  --top: 3px;
+  --height: 2px;
+  --width: 11px;
+  transform: translateY(20%) translateZ(0) scaleX(0);
+}
+.groups-page .group-container header .group-controller .grid-list .icon .lines i:nth-child(2) {
+  --top: 8px;
+}
+.groups-page .group-container header .group-controller .grid-list .icon .lines i:nth-child(3) {
+  --top: 13px;
+}
+.groups-page .group-container header .group-controller .grid-list .icon .lines i:nth-child(4) {
+  --top: 18px;
+}
+.groups-page .group-container header .group-controller .grid-list .text {
+  margin-left: 4px;
+  position: relative;
+  line-height: 24px;
+  font-weight: 600;
+  font-size: 14px;
+  min-width: 28px;
+  color: var(--color);
+}
+.groups-page .group-container header .group-controller .grid-list .text span {
+  --y-default: 0;
+  --o-default: 1;
+  --y-active: -12px;
+  --o-active: 0;
+  display: block;
+  opacity: var(--o-default);
+  transform: translateY(var(--y-default)) translateZ(0);
+  animation: var(--span-name, none) 0.4s ease forwards;
+}
+.groups-page .group-container header .group-controller .grid-list .text span:last-child {
+  --y-default: 12px;
+  --o-default: 0;
+  --y-active: 0;
+  --o-active: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.groups-page .group-container header .group-controller .grid-list.animation {
+  --span-name: text;
+  --dots-name: back;
+  --lines-name: scale-down;
+}
+.groups-page .group-container header .group-controller .grid-list.animation .lines i {
+  transform-origin: 0 50%;
+}
+.groups-page .group-container header .group-controller .grid-list.animation .lines i:nth-child(3), .groups-page .group-container header .group-controller .grid-list.animation .lines i:nth-child(4) {
+  transform-origin: 100% 50%;
+}
+.groups-page .group-container header .group-controller .grid-list.animation.active {
+  --span-name: text-active;
+  --dots-name: move;
+  --lines-name: scale;
+  --lines-duration: .15s;
+  --lines-delay: .3s;
+}
+.groups-page .group-container header .group-controller .grid-list.animation.active .lines i {
+  transform-origin: 100% 50%;
+}
+.groups-page .group-container header .group-controller .grid-list.animation.active .lines i:nth-child(3), .groups-page .group-container header .group-controller .grid-list.animation.active .lines i:nth-child(4) {
+  transform-origin: 0 50%;
+}
+@keyframes text {
+  0% {
+    opacity: var(--o-active);
+    transform: translateY(var(--y-active)) translateZ(0);
+  }
+  100% {
+    opacity: var(--o-default);
+    transform: translateY(var(--y-default)) translateZ(0);
+  }
+}
+@keyframes text-active {
+  0% {
+    opacity: var(--o-default);
+    transform: translateY(var(--y-default)) translateZ(0);
+  }
+  100% {
+    opacity: var(--o-active);
+    transform: translateY(var(--y-active)) translateZ(0);
+  }
+}
+@keyframes move {
+  50% {
+    transform: translate(var(--x-middle, 0), var(--y-middle, 0)) scale(0.4);
+  }
+  100% {
+    transform: translate(var(--x-end, 0), var(--y-end, 0)) scale(0.4);
+  }
+}
+@keyframes back {
+  0%, 15% {
+    transform: translate(var(--x-end, 0), var(--y-end, 0)) scale(0.4);
+  }
+  50% {
+    transform: translate(var(--x-back, 0), var(--y-back, 0)) scale(0.5);
+  }
+  100% {
+    transform: translate(var(--x-back-end, 0), var(--y-back-end, 0)) scale(1);
+  }
+}
+@keyframes scale {
+  100% {
+    transform: translateY(20%) translateZ(0) scaleX(1);
+  }
+}
+@keyframes scale-down {
+  0% {
+    transform: translateY(20%) translateZ(0) scaleX(1);
+  }
+  100% {
+    transform: translateY(20%) translateZ(0) scaleX(0);
+  }
+}
+.groups-page .group-container header .group-controller html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+.groups-page .group-container header .group-controller * {
+  box-sizing: inherit;
+}
+.groups-page .group-container header .group-controller *:before, .groups-page .group-container header .group-controller *:after {
+  box-sizing: inherit;
+}
+.groups-page .group-container header .group-controller .display-control {
+  font-size: 1rem;
+  display: block;
+  text-decoration: none;
+  padding: 10px 10px;
+  border-radius: 5px;
+  margin-right: 3rem;
+}
+.groups-page .group-container header #create-group form legend {
+  font-size: 1.6rem;
+  padding-bottom: 0.3rem;
+}
+.groups-page .group-container header #create-group form fieldset {
+  border: none;
+  padding: 0;
+  margin: 8px 0;
+  position: relative;
+  width: 100%;
+}
+.groups-page .group-container header #create-group form fieldset input {
+  width: 100%;
+  height: 28px;
+  color: #333333;
+  padding: 5px 5px 5px 15px;
+  margin-top: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  outline: none !important;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.2);
+  vertical-align: top;
+}
+.groups-page .group-container header #create-group form fieldset textarea {
+  resize: none;
+  color: #333333;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+.groups-page .group-container header #create-group form fieldset label {
+  padding: 1px 0 10px 10px;
+}
+.groups-page .group-container header #create-group form fieldset button {
+  font-size: 1rem;
+  display: block;
+  text-decoration: none;
+  margin: 5px 0;
+  padding: 10px 10px;
+  border-radius: 5px;
+}
+.groups-page .group-container header #create-group form .upload {
+  margin: 0;
+}
+.groups-page .group-container header #create-group form .upload #symbol {
+  border: 2px solid black;
+  cursor: pointer;
+  padding: 5px 3px;
+}
+.groups-page .group-container header #create-group form .upload #files {
+  display: none;
 }
 .groups-page .group-container .group-list ul {
   list-style-type: none;
+}
+.groups-page .group-container .all-groups {
+  width: 100%;
 }
 .groups-page .group-container .all-groups ul {
   display: grid;

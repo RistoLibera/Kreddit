@@ -113,7 +113,7 @@ const CreateGroup = (props) => {
   };
 
   return (
-    <div className={hidden}>
+    <div className={hidden} id="create-group">
       {pageLoading
         ?
           <div className='page-loader'>
@@ -121,14 +121,20 @@ const CreateGroup = (props) => {
           </div>
         :
           <form onSubmit={handleCreation}>
-            <fieldset>
-              <legend>{t('content.group-limit')}</legend>
+            <legend>{t('content.group-limit')}</legend>
+            <fieldset className='input-name'>
               <label htmlFor='name'>{t('content.group-name')}</label>
               <input type='text' id='name' name='name' placeholder={t('content.group-name-limit')} minLength='3' maxLength='20' required/><br></br>
+            </fieldset>
+
+            <fieldset className='input-intro'>
               <label htmlFor='introduction'>{t('content.introduction')}</label>
-              <textarea type='text' id='introduction' name='introduction' placeholder={t('content.introduction-limit')} maxLength="80" required/><br></br>
-              <label htmlFor='symbol'>{t('content.symbol')}</label>
-              <input type='file' id='symbol' name='symbol' required/><br></br>
+              <textarea rows="5" cols='50' type='text' id='introduction' name='introduction' placeholder={t('content.introduction-limit')} maxLength="150" required/><br></br>
+            </fieldset>
+
+            <fieldset className='upload'>
+              <label id="symbol" htmlFor='files'>{t('content.symbol')}</label>
+              <input type='file' id='files' name='symbol' required/><br></br>
               <button className='submit' type='submit' value='Submit'>{t('content.create')}</button>
             </fieldset>
           </form>

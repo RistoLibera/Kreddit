@@ -80,6 +80,7 @@
   grid-template-rows: auto;
   grid-template-columns: minmax(100px, 1fr) 60px;
   position: relative;
+  width: 100%;
 }
 .profile-page .profile-container .upper-profile .info .lower-info .groups .as-creator {
   display: grid;

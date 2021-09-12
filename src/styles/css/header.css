@@ -180,6 +180,8 @@
   padding-top: 10px;
   font-size: 2rem;
   padding-bottom: 10px;
+  overflow: hidden;
+  text-overflow: clip;
 }
 .app-header .right-bar .user-bar .dropdown #dropdown-menu a:hover {
   color: #b39804;

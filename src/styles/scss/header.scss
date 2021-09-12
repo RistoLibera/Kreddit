@@ -215,6 +215,8 @@
             padding-top: 10px;
             font-size: 2rem;
             padding-bottom: 10px;
+            overflow: hidden;
+            text-overflow: clip;
           }
 
           a:hover {
