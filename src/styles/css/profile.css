@@ -1,4 +1,4 @@
-.profile-page .profile-container .upper-profile, .profile-page .profile-container .upper-profile .info .lower-info, .profile-page .profile-container .upper-profile .info .lower-info .groups .as-creator ul, .profile-page .profile-container .upper-profile .info .lower-info .groups .as-member ul, .profile-page .profile-container .upper-profile .info .lower-info .discussions .as-participant, .profile-page .profile-container .upper-profile .registration .change-password .change-container, .profile-page .profile-container .upper-profile .registration .delete-user .delete-container, .profile-page .profile-container .lower-profile .title-blocks ul li {
+.profile-page .profile-container .upper-profile, .profile-page .profile-container .upper-profile .info .lower-info, .profile-page .profile-container .upper-profile .info .lower-info .groups .as-creator ul, .profile-page .profile-container .upper-profile .info .lower-info .groups .as-member ul, .profile-page .profile-container .upper-profile .info .lower-info .discussions .as-participant, .profile-page .profile-container .upper-profile .registration .change-password .change-container, .profile-page .profile-container .upper-profile .registration .delete-user .delete-container, .profile-page .profile-container .lower-profile .title-blocks ol li, .profile-page .profile-container .lower-profile .title-blocks ol li .title {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -27,8 +27,10 @@
   position: relative;
 }
 .profile-page .profile-container .upper-profile {
-  margin: 0 5rem 2rem;
+  margin: 0 1rem 1rem;
   justify-content: flex-start;
+  border: 1px solid black;
+  padding: 40px;
 }
 .profile-page .profile-container .upper-profile .profile-icon {
   position: relative;
@@ -253,19 +255,111 @@
   padding: 5px 5px;
   border-radius: 5px;
 }
-.profile-page .profile-container .lower-profile {
-  align-items: initial;
+.profile-page .profile-container .lower-profile ol.gradient-list > li::before, .profile-page .profile-container .lower-profile ol.gradient-list > li {
+  box-shadow: 0.25rem 0.25rem 0.6rem rgba(0, 0, 0, 0.05), 0 0.5rem 1.125rem rgba(75, 0, 0, 0.05);
 }
-.profile-page .profile-container .lower-profile .title-blocks ul li .entry .fa-door-closed {
+.profile-page .profile-container .lower-profile *,
+.profile-page .profile-container .lower-profile *:before,
+.profile-page .profile-container .lower-profile *:after {
+  box-sizing: border-box;
+}
+.profile-page .profile-container .lower-profile ol.gradient-list {
+  counter-reset: gradient-counter;
+  list-style: none;
+  margin: 1.75rem 0;
+  padding-left: 1rem;
+}
+.profile-page .profile-container .lower-profile ol.gradient-list > li {
+  background: white;
+  counter-increment: gradient-counter;
+  padding: 1rem 1rem 1rem 3rem;
+  position: relative;
+}
+.profile-page .profile-container .lower-profile ol.gradient-list > li::before, .profile-page .profile-container .lower-profile ol.gradient-list > li::after {
+  background: linear-gradient(135deg, #83e4e2 0%, #a2ed56 100%);
+  border-radius: 1rem 1rem 0 1rem;
+  content: "";
+  height: 3rem;
+  left: -1rem;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 3rem;
+}
+.profile-page .profile-container .lower-profile ol.gradient-list > li::before {
+  align-items: flex-end;
+  content: counter(gradient-counter);
+  color: #1d1f20;
+  display: flex;
+  font: 900 1.5em/1 "Montserrat";
+  justify-content: flex-end;
+  padding: 0.125em 0.25em;
+  z-index: 1;
+}
+.profile-page .profile-container .lower-profile ol.gradient-list > li:nth-child(10n+1):before {
+  background: linear-gradient(135deg, rgba(162, 237, 86, 0.2) 0%, rgba(253, 220, 50, 0.2) 100%);
+}
+.profile-page .profile-container .lower-profile ol.gradient-list > li:nth-child(10n+2):before {
+  background: linear-gradient(135deg, rgba(162, 237, 86, 0.4) 0%, rgba(253, 220, 50, 0.4) 100%);
+}
+.profile-page .profile-container .lower-profile ol.gradient-list > li:nth-child(10n+3):before {
+  background: linear-gradient(135deg, rgba(162, 237, 86, 0.6) 0%, rgba(253, 220, 50, 0.6) 100%);
+}
+.profile-page .profile-container .lower-profile ol.gradient-list > li:nth-child(10n+4):before {
+  background: linear-gradient(135deg, rgba(162, 237, 86, 0.8) 0%, rgba(253, 220, 50, 0.8) 100%);
+}
+.profile-page .profile-container .lower-profile ol.gradient-list > li:nth-child(10n+5):before {
+  background: linear-gradient(135deg, #a2ed56 0%, #fddc32 100%);
+}
+.profile-page .profile-container .lower-profile ol.gradient-list > li:nth-child(10n+6):before {
+  background: linear-gradient(135deg, rgba(162, 237, 86, 0.8) 0%, rgba(253, 220, 50, 0.8) 100%);
+}
+.profile-page .profile-container .lower-profile ol.gradient-list > li:nth-child(10n+7):before {
+  background: linear-gradient(135deg, rgba(162, 237, 86, 0.6) 0%, rgba(253, 220, 50, 0.6) 100%);
+}
+.profile-page .profile-container .lower-profile ol.gradient-list > li:nth-child(10n+8):before {
+  background: linear-gradient(135deg, rgba(162, 237, 86, 0.4) 0%, rgba(253, 220, 50, 0.4) 100%);
+}
+.profile-page .profile-container .lower-profile ol.gradient-list > li:nth-child(10n+9):before {
+  background: linear-gradient(135deg, rgba(162, 237, 86, 0.2) 0%, rgba(253, 220, 50, 0.2) 100%);
+}
+.profile-page .profile-container .lower-profile ol.gradient-list > li:nth-child(10n+10):before {
+  background: linear-gradient(135deg, rgba(162, 237, 86, 0) 0%, rgba(253, 220, 50, 0) 100%);
+}
+.profile-page .profile-container .lower-profile ol.gradient-list > li + li {
+  margin-top: 2rem;
+}
+.profile-page .profile-container .lower-profile .title-blocks ol li {
+  font-family: "Raleway", sans-serif;
+}
+.profile-page .profile-container .lower-profile .title-blocks ol li .title .img {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.profile-page .profile-container .lower-profile .title-blocks ol li .title > h1 {
+  margin-left: 15px;
+  margin-right: 10px;
+}
+.profile-page .profile-container .lower-profile .title-blocks ol li .entry button {
+  border: none;
+  cursor: pointer;
+}
+.profile-page .profile-container .lower-profile .title-blocks ol li .entry .fa-door-closed {
   display: block;
 }
-.profile-page .profile-container .lower-profile .title-blocks ul li .entry .fa-door-open {
+.profile-page .profile-container .lower-profile .title-blocks ol li .entry .fa-door-open {
   display: none;
 }
-.profile-page .profile-container .lower-profile .title-blocks ul li .entry:hover .fa-door-closed {
+.profile-page .profile-container .lower-profile .title-blocks ol li .entry:hover .fa-door-closed {
   display: none;
 }
-.profile-page .profile-container .lower-profile .title-blocks ul li .entry:hover .fa-door-open {
+.profile-page .profile-container .lower-profile .title-blocks ol li .entry:hover .fa-door-open {
   display: block;
 }
 

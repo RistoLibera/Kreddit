@@ -19,8 +19,10 @@
     
     .upper-profile {
       @extend %flex-row-direction;
-      margin: 0 5rem 2rem;
+      margin: 0 1rem 1rem;
       justify-content: flex-start;
+      border: 1px solid black;
+      padding: 40px;
 
       .profile-icon {
         position: relative;
@@ -315,12 +317,105 @@
   
     .lower-profile {
       @extend %flex-column-direction;
-      align-items: initial;
 
-      .title-blocks ul li{
+      $black: #1d1f20;
+      $blue: #83e4e2;
+      $green: #a2ed56;
+      $yellow: #fddc32;
+      $white: #fafafa;
+
+      %boxshadow {
+        box-shadow: 0.25rem 0.25rem 0.6rem rgba(0,0,0,0.05), 0 0.5rem 1.125rem rgba(75,0,0,0.05);
+      }
+
+      *,
+      *:before,
+      *:after {
+        box-sizing: border-box;
+      }
+
+      ol.gradient-list {
+        counter-reset: gradient-counter;
+        list-style: none;
+        margin: 1.75rem 0;
+        padding-left: 1rem;
+        > li {
+          background: white;
+          @extend %boxshadow;
+          counter-increment: gradient-counter;
+          padding: 1rem 1rem 1rem 3rem;
+          position: relative;
+          &::before,
+          &::after {
+            background: linear-gradient(135deg, $blue 0%,$green 100%);
+            border-radius: 1rem 1rem 0 1rem;
+            content: '';
+            height: 3rem;
+            left: -1rem;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            width: 3rem;
+          }
+          &::before {
+            align-items: flex-end;
+            @extend %boxshadow;
+            content: counter(gradient-counter);
+            color: $black;
+            display: flex;
+            font: 900 1.5em/1 'Montserrat';
+            justify-content: flex-end;
+            padding: 0.125em 0.25em;
+            z-index: 1;
+          }
+          @for $i from 1 through 5 {
+            &:nth-child(10n+#{$i}):before {
+              background: linear-gradient(135deg, rgba($green, $i * 0.2) 0%,rgba($yellow, $i * 0.2) 100%);
+            }
+          }
+          @for $i from 6 through 10 {
+            &:nth-child(10n+#{$i}):before {
+              background: linear-gradient(135deg, rgba($green, 1 - (($i - 5) * 0.2)) 0%,rgba($yellow, 1 - (($i - 5) * 0.2)) 100%);
+            }
+          }
+          + li {
+            margin-top: 2rem;
+          }
+        }
+      }
+
+      .title-blocks ol li{
         @extend %flex-row-direction;
+        font-family: "Raleway", sans-serif;
+
+        .title {
+          @extend %flex-row-direction;
+
+          .img {
+            display: block;
+            width: 30px;
+            height: 30px;
+            border: none;
+            border-radius: 50%;  
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;  
+          }
+
+          >h1 {
+            margin-left: 15px;
+            margin-right: 10px;
+          }
+  
+        }
 
         .entry {
+
+          button {
+            border: none;
+            cursor: pointer;
+          }
+
           .fa-door-closed {
             display: block;
           }

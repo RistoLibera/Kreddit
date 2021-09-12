@@ -11,11 +11,8 @@ const Titles = (props) => {
   const makeList = (symbolURL, title, linkURL, index) => {
     return (
       <li key={index}>
-        <div className='img'>
-          <img src={symbolURL} alt='symbol' width='30px' />
-        </div>
-
         <div className='title'>
+          <span className='img'  style={{ backgroundImage: `url('${symbolURL}')` }}></span>
           <h1>{title}</h1>
         </div>
 
@@ -49,14 +46,13 @@ const Titles = (props) => {
 
   return (
     <div className='title-blocks'>
-      <ul>
+      <ol class="gradient-list">
         {listTags.map((li) => {
           return (
             li
           );
         })}
-      </ul>
-      <h2>Expand all</h2>
+      </ol>
     </div>
   );
 };
