@@ -12,7 +12,7 @@ import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
 const GroupList = (props) => {
   const { t } = useTranslation('group');
   const history = useHistory();
-  const { documents, currentUser, update } = props;
+  const { documents, currentUser, groupView, update } = props;
   const spinnerCSS = css`
   display: block;
   margin: 0 auto;
@@ -175,10 +175,10 @@ const GroupList = (props) => {
 
   useEffect(() => {
     createList();
-  }, [documents, t]);
+  }, [documents, t, groupView]);
 
   return (
-    <div className='list-view'>
+    <div className={groupView}>
       {pageLoading 
         ?
           <div className='page-loader'>

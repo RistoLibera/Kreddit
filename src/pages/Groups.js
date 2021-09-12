@@ -11,15 +11,26 @@ const Groups = () => {
   const { currentUser } = useContext(AuthContext);
   const [formHidden, setFormHidden] = useState("hidden");
   const [GroupsDoc, setGroupsDoc] = useState([]);
+  const [groupView, setGroupView] = useState('grid-view');
+
+  // Change groups display
+  const changeView = () => {
+    if (groupView === 'grid-view') {
+      setGroupView('list-view');
+    } else {
+      setGroupView('grid-view');
+    }
+  };
 
   // Toggle groups view
   const toggleView = (event) => {
     const btn = event.target.closest('.grid-list');
     btn.classList.add('animation');
     btn.classList.toggle('active');
-    let newElem = btn.cloneNode(true);
-    btn.parentNode.replaceChild(newElem, btn);
-    newElem.addEventListener('click', toggleView);
+    // let newElem = btn.cloneNode(true);
+    // btn.parentNode.replaceChild(newElem, btn);
+    // newElem.addEventListener('click', toggleView);
+    changeView();
   };
 
   const switchHidden = () => {
@@ -88,7 +99,7 @@ const Groups = () => {
           </div>
           <CreateGroup documents={GroupsDoc} currentUser={currentUser} hidden={formHidden} update={fetchGroups} />
         </header>
-        <GroupList documents={GroupsDoc} currentUser={currentUser} update={fetchGroups}/>
+        <GroupList documents={GroupsDoc} currentUser={currentUser} groupView={groupView} update={fetchGroups}/>
       </div>
     </section>
   );
