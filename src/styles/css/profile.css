@@ -1,11 +1,11 @@
-.profile-page .profile-container .upper-profile, .profile-page .profile-container .upper-profile .info .upper-info, .profile-page .profile-container .upper-profile .info .lower-info, .profile-page .profile-container .upper-profile .info .lower-info .as-creator, .profile-page .profile-container .upper-profile .info .lower-info .as-creator ul, .profile-page .profile-container .upper-profile .info .lower-info .as-member, .profile-page .profile-container .upper-profile .info .lower-info .as-member ul, .profile-page .profile-container .upper-profile .info .lower-info .as-participant, .profile-page .profile-container .lower-profile .title-blocks ul li {
+.profile-page .profile-container .upper-profile, .profile-page .profile-container .upper-profile .info .lower-info, .profile-page .profile-container .upper-profile .info .lower-info .groups .as-creator ul, .profile-page .profile-container .upper-profile .info .lower-info .groups .as-member ul, .profile-page .profile-container .upper-profile .info .lower-info .discussions .as-participant, .profile-page .profile-container .lower-profile .title-blocks ul li {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
-.profile-page .profile-container, .profile-page .profile-container .upper-profile .info, .profile-page .profile-container .upper-profile .registration, .profile-page .profile-container .lower-profile {
+.profile-page, .profile-page .profile-container, .profile-page .profile-container .upper-profile .info, .profile-page .profile-container .upper-profile .registration, .profile-page .profile-container .lower-profile {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,24 +19,86 @@
 .profile-page {
   height: 100%;
   padding-top: 6rem;
+  margin-top: 1rem;
   background-color: white;
 }
+.profile-page .profile-container {
+  width: 90%;
+  align-items: initial;
+}
 .profile-page .profile-container .upper-profile {
-  justify-content: space-around;
+  margin: 0 5rem 2rem;
+  justify-content: flex-start;
 }
-.profile-page .profile-container .upper-profile .info .lower-info .as-creator h5 {
-  writing-mode: vertical-rl;
-  text-orientation: upright;
+.profile-page .profile-container .upper-profile .profile-icon {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border: none;
+  border-radius: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
-.profile-page .profile-container .upper-profile .info .lower-info .as-creator ul li {
+.profile-page .profile-container .upper-profile .profile-icon .upload {
+  position: absolute;
+  top: -10px;
+  right: -30px;
+}
+.profile-page .profile-container .upper-profile .profile-icon .upload input {
+  display: none;
+}
+.profile-page .profile-container .upper-profile .profile-icon .upload label {
+  cursor: pointer;
+}
+.profile-page .profile-container .upper-profile .info {
+  margin-right: 2rem;
+}
+.profile-page .profile-container .upper-profile .info .upper-info {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 40px minmax(70px, 1fr) 30px;
+  gap: 20px;
+  align-items: center;
+  padding-bottom: 10px;
+}
+.profile-page .profile-container .upper-profile .info .upper-info h2 {
+  font-size: 2rem;
+}
+.profile-page .profile-container .upper-profile .info .upper-info .nation {
+  justify-self: end;
+}
+.profile-page .profile-container .upper-profile .info .lower-info {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: minmax(100px, 1fr) 30px;
+}
+.profile-page .profile-container .upper-profile .info .lower-info .groups .as-creator {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 60px minmax(80px, 1fr) 40px;
+  align-items: center;
+}
+.profile-page .profile-container .upper-profile .info .lower-info .groups .as-creator h5 {
+  font-size: 1.1rem;
+}
+.profile-page .profile-container .upper-profile .info .lower-info .groups .as-creator ul li {
   list-style: none;
 }
-.profile-page .profile-container .upper-profile .info .lower-info .as-member h5 {
-  writing-mode: vertical-rl;
-  text-orientation: upright;
+.profile-page .profile-container .upper-profile .info .lower-info .groups .as-member {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 60px minmax(80px, 1fr) 40px;
+  align-items: center;
 }
-.profile-page .profile-container .upper-profile .info .lower-info .as-member ul li {
+.profile-page .profile-container .upper-profile .info .lower-info .groups .as-member h5 {
+  font-size: 1.1rem;
+}
+.profile-page .profile-container .upper-profile .info .lower-info .groups .as-member ul li {
   list-style: none;
+}
+.profile-page .profile-container .lower-profile {
+  align-items: initial;
 }
 .profile-page .profile-container .lower-profile .title-blocks ul li .entry .fa-door-closed {
   display: block;

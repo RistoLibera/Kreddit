@@ -4,7 +4,7 @@ import { AuthContext } from '../components/loading/Auth';
 import { useTranslation } from "react-i18next";
 import Recaptcha from 'react-recaptcha';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLink, faMars, faVenus } from '@fortawesome/free-solid-svg-icons';
+import { faMars, faVenus } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faTwitter, faGoogle, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';

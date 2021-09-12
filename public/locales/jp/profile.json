@@ -5,6 +5,8 @@
     "confirm": "確認",
     "change-password": "パスワード変更",
     "old-password": "以前のパスワード",
-    "new-password": "新しいパスワード"
+    "new-password": "新しいパスワード",
+    "create": "作成",
+    "join": "参加"
   }
 }

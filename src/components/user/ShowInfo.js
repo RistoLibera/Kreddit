@@ -20,10 +20,10 @@ const ShowInfo = (props) => {
 
   return (
     <div className='upper-info'>
-      {showGender()}
+      <ReactCountryFlag countryCode={nation} style={{ fontSize: '2rem' }} className='nation'/>
       <h2>{nickname}</h2>
-      <ReactCountryFlag countryCode={nation} style={{ fontSize: '2rem' }} />
-    </div>
+      {showGender()}
+   </div>
   );
 };
 

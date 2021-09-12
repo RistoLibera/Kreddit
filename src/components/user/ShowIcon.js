@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import FirebasePack from '../../config/FirebasePack';
 import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 
 const ShowIcon = (props) => {
-  const { uid, iconURL, iconError, update } = props;
+  const { uid, iconURL, update } = props;
   const spinnerCSS = css`
   display: block;
   margin: 0 auto;
@@ -35,14 +37,17 @@ const ShowIcon = (props) => {
   };
   
   return (
-    <div className='profile-icon'>
-      <img src={iconURL} alt='icon' width='100px' />
+    <figure className='profile-icon' style={{ backgroundImage: `url('${iconURL}')` }}>
+      <div className='upload'>
+        <input onChange={uploadIcon} type="file" id="files" />
+        <label htmlFor="files">
+         <FontAwesomeIcon icon={faPlusCircle} color='black' size='2x' />
+        </label>
+      </div>
       <span hidden={!loading}>
         <BarLoader color='#D5D736' css={spinnerCSS} size={50} />
       </span>
-      <input onChange={uploadIcon} type='file' name='icon'/>
-      <h2>{iconError}</h2>
-    </div>
+    </figure>
   );
 };
 

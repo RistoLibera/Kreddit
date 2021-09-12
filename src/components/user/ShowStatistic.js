@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useTranslation } from "react-i18next";
 import { faCommentDots } from '@fortawesome/free-solid-svg-icons';
 
 const ShowStatistic = (props) => {
+  const { t } = useTranslation('profile');
   const { createdURLs, joinedURLs, amount } = props;
   const [createdList, setCreatedList] = useState([]);
   const [createdRemnant, setCreatedRemnant] = useState(0);
@@ -55,33 +57,37 @@ const ShowStatistic = (props) => {
 
   return (
     <div className='lower-info'>
-      <div className='as-creator'>
-        <h5>create</h5>
-        <ul>
-          {createdList.map((li) => {
-            return (
-              li
-            );
-          })}
-        </ul>
-        <span>+{createdRemnant}</span>
+      <div className="groups">
+        <div className='as-creator'>
+          <h5>{t('content.create')}</h5>
+          <ul>
+            {createdList.map((li) => {
+              return (
+                li
+              );
+            })}
+          </ul>
+          <span>+{createdRemnant}</span>
+        </div>
+
+        <div className='as-member'>
+          <h5>{t('content.join')}</h5>
+          <ul>
+            {joinedList.map((li) => {
+              return (
+                li
+              );
+            })}
+          </ul>
+          <span>+{joinedRemnant}</span>
+        </div>
       </div>
 
-      <div className='as-member'>
-        <h5>join</h5>
-        <ul>
-          {joinedList.map((li) => {
-            return (
-              li
-            );
-          })}
-        </ul>
-        <span>+{joinedRemnant}</span>
-      </div>
-
-      <div className='as-participant'>
-        <FontAwesomeIcon icon={faCommentDots} color='' size='2x' />
-        <p>{amount}</p>
+      <div className="discussions">
+        <div className='as-participant'>
+          <FontAwesomeIcon icon={faCommentDots} color='' size='2x' />
+          <p>{amount}</p>
+        </div>
       </div>
     </div>
   );

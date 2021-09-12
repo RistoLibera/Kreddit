@@ -8,65 +8,120 @@
 .profile-page {
   height: 100%;
   padding-top: 6rem;
+  margin-top: 1rem;
   background-color: white;
-  
+  @extend %flex-column-direction;
+
   .profile-container {
     @extend %flex-column-direction;
-  
+    width: 90%;
+    align-items: initial;
+    
     .upper-profile {
       @extend %flex-row-direction;
-      justify-content: space-around;
-  
+      margin: 0 5rem 2rem;
+      justify-content: flex-start;
+
+      .profile-icon {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        border: none;
+        border-radius: 50%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        .upload {
+          position: absolute;
+          top: -10px;
+          right: -30px;
+
+          input {
+            display: none;
+          }
+
+          label {
+            cursor: pointer;
+          }
+        }
+      }
+
       .info {
         @extend %flex-column-direction;
-  
+        margin-right: 2rem;
+
         .upper-info {
-          @extend %flex-row-direction;
+          // @extend %flex-row-direction;
+          display: grid;
+          grid-template-rows: auto;
+          grid-template-columns: 40px minmax(70px, 1fr) 30px;
+          gap: 20px;
+          align-items: center;
+          padding-bottom: 10px;
+
+          h2 {
+            font-size: 2rem;
+          }
+
+          .nation {
+            justify-self: end;
+          }
         }
   
         .lower-info {
           @extend %flex-row-direction;
+          display: grid;
+          grid-template-rows: auto;
+          grid-template-columns: minmax(100px, 1fr) 30px;
 
-          .as-creator {
-            @extend %flex-row-direction;
+          .groups {
+            .as-creator {
+              display: grid;
+              grid-template-rows: auto;
+              grid-template-columns: 60px minmax(80px, 1fr) 40px;
+              align-items: center;
 
-            h5 {
-              writing-mode: vertical-rl;
-              text-orientation: upright;
-            }
-
-            ul{
-              @extend %flex-row-direction;
-
-              li {
-                list-style: none;
+              h5 {
+                font-size: 1.1rem;
               }
-            }
-          }
 
-          .as-member {
-            @extend %flex-row-direction;
+              ul{
+                @extend %flex-row-direction;
 
-            h5 {
-              writing-mode: vertical-rl;
-              text-orientation: upright;
-            }
-
-            ul{
-              @extend %flex-row-direction;
-
-              li {
-                list-style: none;
+                li {
+                  list-style: none;
+                }
               }
             }
 
-          }
-          
-          .as-participant {
-            @extend %flex-row-direction;
+            .as-member {
+              display: grid;
+              grid-template-rows: auto;
+              grid-template-columns: 60px minmax(80px, 1fr) 40px;
+              align-items: center;
 
+              h5 {
+                font-size: 1.1rem;
+              }
+
+              ul{
+                @extend %flex-row-direction;
+
+                li {
+                  list-style: none;
+                }
+              }
+
+            }
           }
 
+          .discussions {
+            .as-participant {
+              @extend %flex-row-direction;
+  
+            }  
+          }
         }
       }
   
@@ -77,6 +132,7 @@
   
     .lower-profile {
       @extend %flex-column-direction;
+      align-items: initial;
 
       .title-blocks ul li{
         @extend %flex-row-direction;

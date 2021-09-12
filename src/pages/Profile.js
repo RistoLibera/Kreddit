@@ -4,7 +4,6 @@ import FirebasePack from '../config/FirebasePack';
 import Default from '../assets/img/default-icon.jpg';
 import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
-import handleFirebaseError from '../components/error/handleFirebaseError';
 import ShowIcon from '../components/user/ShowIcon';
 import DeleteUser from '../components/user/DeleteUser';
 import ChangePassword from '../components/user/ChangePassword';
@@ -25,7 +24,6 @@ const Profile = () => {
   const [gender, setGender] = useState('');
   const [nation, setNation] = useState('');
   const [iconURL, setIconURL] = useState('');
-  const [iconError, setIconError] = useState([]);
   const [pageLoading, setPageLoading] = useState(true);
   const [createdURLs, setCreatedURLs] = useState([]);
   const [joinedURLs, setJoinedURLs] = useState([]);
@@ -43,7 +41,7 @@ const Profile = () => {
           .ref('user-icon/' + uid + '/icon.jpg')
           .getDownloadURL();
     } catch (error) {
-      setIconError(handleFirebaseError(error));
+      console.log(error);
     }
     setIconURL(icon);
   };
@@ -215,7 +213,7 @@ const Profile = () => {
         :
           <div className='profile-container'>
             <div className='upper-profile'>
-              <ShowIcon uid = {uid} iconURL={iconURL} iconError={iconError} update={getIcon} />
+              <ShowIcon uid = {uid} iconURL={iconURL} update={getIcon} />
 
               <div className='info'>
                 <ShowInfo nickname={nickname} gender={gender} nation={nation} />

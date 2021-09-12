@@ -5,6 +5,8 @@
     "confirm": "Confirm",
     "change-password": "Change Password",
     "old-password": "Old Password",
-    "new-password": "New Password"
+    "new-password": "New Password",
+    "create": "create",
+    "join": "join"
   }
 }
