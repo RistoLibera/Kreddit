@@ -107,7 +107,7 @@ const Search = () => {
   // Get users result
   const createUserList = async () => {
     let userInfos = await getUserData();
-    let result = userInfos.filter((info) => info.name.includes(keyword));
+    let result = userInfos.filter((info) => info.name.toLowerCase().includes(keyword.toLowerCase()));
     let container = [];
 
     result.forEach((info, index) => {
@@ -170,7 +170,7 @@ const Search = () => {
   const createTitleList = async () => {
     let groupDocs = await getTitleGroup();
     let discussionDocs = await getTitleData(groupDocs);
-    let result = discussionDocs.filter((doc) => doc.data().title.includes(keyword));
+    let result = discussionDocs.filter((doc) => doc.data().title.toLowerCase().includes(keyword.toLowerCase()));
     let container = [];
 
     result.forEach((doc, index) => {
