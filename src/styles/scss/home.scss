@@ -4,14 +4,43 @@
 .homepage {
   @extend %flex-column-direction;
   height: 100%;
-  padding-top: 6rem;
+  margin-top: 5rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 500px;
 
   .reactive-home {
+    height: 100%;
     @extend %flex-column-direction;
-
+    justify-content: space-evenly;
     .display-mode {
       @extend %flex-row-direction;
+      justify-content: space-between;
+      font-size: 4rem;
+      color: rgba(255, 255, 255, 0.822);
 
+      h1 {
+        margin-left: 5rem;
+        dfn abbr {
+          text-decoration: none;
+        }
+      }
+    }
+
+    .instruction {
+      font-size: 1.75rem;
+      width: 70%;
+      color: rgba(236, 234, 234, 0.856);
+
+      p {
+        margin-left: 15rem;
+        padding-bottom: 2rem;
+      }
+    }
+
+    .slogan {
+      font-size: 2rem;
+      color: white;
     }
   }
 }

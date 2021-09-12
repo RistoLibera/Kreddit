@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDesktop, faLaptop, faMobileAlt } from '@fortawesome/free-solid-svg-icons';
+import Homepage from '../assets/img/homepage.jpg';
 import '../styles/css/home.css';
 
 const Home = () => {
@@ -19,8 +20,10 @@ const Home = () => {
             <FontAwesomeIcon icon={faMobileAlt} color='' size='lg' />
             <h1><dfn><abbr title={t('content.smartphone-title')}>{t('content.smartphone')}</abbr></dfn></h1>
           </div>
+          <div className="instruction">
             {instruction}
-          <h2>{t('content.slogan')}</h2>
+          </div>
+          <h2 className='slogan'>{t('content.slogan')}</h2>
         </div>
       );
     } else if (windowWidth < 850) {
@@ -30,8 +33,10 @@ const Home = () => {
             <FontAwesomeIcon icon={faLaptop} color='' size='lg' />
             <h1><dfn><abbr title={t('content.smallscreen-title')}>{t('content.smallscreen')}</abbr></dfn></h1>
           </div>
+          <div className="instruction">
             {instruction}
-          <h2>{t('content.slogan')}</h2>
+          </div>
+          <h2 className='slogan'>{t('content.slogan')}</h2>
         </div>
       );
     } else {
@@ -41,8 +46,10 @@ const Home = () => {
             <FontAwesomeIcon icon={faDesktop} color='' size='lg' />
             <h1><dfn><abbr title={t('content.desktop-title')}>{t('content.desktop')}</abbr></dfn></h1>
           </div>
+          <div className="instruction">
             {instruction}
-          <h2>{t('content.slogan')}</h2>
+          </div>
+          <h2 className='slogan'>{t('content.slogan')}</h2>
         </div>
       );
     }
@@ -53,7 +60,7 @@ const Home = () => {
   }, [t]);
 
   return (
-    <section className='homepage'>
+    <section className='homepage' style={{ backgroundImage: `url('${Homepage}')` }}>
       {showContent()}
     </section>
   );
