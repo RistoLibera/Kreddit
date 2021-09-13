@@ -13,6 +13,7 @@
 ### As user
 
 - You can create user by nickname(immutable) and password.
+- You can toggle showing your input password.
 - You can choose nation and gender.
 - You can change your icon.
 - You can search for what you like.

@@ -19,9 +19,19 @@ const DiscussionsList = (props) => {
   const [listTags, setListTags] = useState([]);
   const [pageLoading, setPageLoading] = useState(true);
 
+  // Open or close a block
+  const activate = (event) => {
+    console.log(event.target);
+    const card = event.target.closest('.card');
+    const summary = card.querySelector('.summary');
+    card.classList.toggle('open');
+    summary.classList.toggle('open');
+
+  };
+
   // Fetch title content img
   const getImg = async (title) => {
-    let URL;
+    let URL = '';
     try {
       URL = 
         await FirebasePack
@@ -80,39 +90,44 @@ const DiscussionsList = (props) => {
   // Make one list HTML tag
   const makeList = (uid, iconURL, creator, group, title, content, imgURL, subdiscussions, rating, time, index) => {
     return (
-      <li key={index} className='discussion-list' onClick={() => history.push('/discussions/' + group + '/' + uid)}>
-        <div className='first-area'>
-          <h2>Group: {group}</h2>
-        </div>
-
-        <div className='second-area'>
-          <div className='creator'>
-            <img src={iconURL} alt='icon' width='40px' />
-            <h2>{creator}</h2>
-          </div>
-
-          <div className="content">
-            <h1>{title}</h1>
-            <img src={imgURL} alt='' width='100px' />
+      <li key={index} className='card flex-row' onClick={activate}>
+        <img src={imgURL} alt='' width='100px' className='book'/>
+        <div className='flex-column info'>
+          <h1 className='title'>{title}</h1>
+          <img src={iconURL} alt='icon' width='30px' />
+          <h2 className='author'>{creator}</h2>
+          <div className="hidden bottom summary">
             <p>{content}</p>
           </div>
         </div>
 
-        <div className='third-area'>
-          <div className="amount">
-            <p>{subdiscussions}</p>
-            <FontAwesomeIcon icon={faComments} color='' size='lg' />
+        <div className='flex-column group'>
+          <div className='members'>
+            <h2>Group: {group}</h2>
+            <span className='current'>14</span> /
+            <span className='max'>30</span>
+          </div>
+          <div className='hidden bottom'>
+            <button className='simple'onClick={() => history.push('/discussions/' + group + '/' + uid)} >Join</button>
           </div>
 
-          <div className='rating'>
-            <p>{rating}</p>
-            <FontAwesomeIcon icon={faStarHalfAlt} color='' size='lg' />
-          </div>
+          <div className='third-area'>
+            <div className="amount">
+              <p>{subdiscussions}</p>
+              <FontAwesomeIcon icon={faComments} color='' size='lg' />
+            </div>
 
-          <div className="time">
-            <p>{time}</p>
+            <div className='rating'>
+              <p>{rating}</p>
+              <FontAwesomeIcon icon={faStarHalfAlt} color='' size='lg' />
+            </div>
+
+            <div className="time">
+              <p>{time}</p>
+            </div>
           </div>
         </div>
+
       </li>
     );
   };
@@ -155,7 +170,7 @@ const DiscussionsList = (props) => {
             <ClimbingBoxLoader color='#D5D736' css={spinnerCSS} size={50} />
           </div>
         :
-          <ul>
+          <ul className='center list flex-column'>
             {listTags.map((li) => {
               return (
                 li

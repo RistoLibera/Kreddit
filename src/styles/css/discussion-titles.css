@@ -1,11 +1,11 @@
-.discussions-page .discussions-container header .discussions-controller, .discussions-page .discussions-container header #create-discussion form .upload, .discussions-page .discussions-container header #create-discussion form .groups, .discussions-page .discussions-container .discussions-list ul li .first-area, .discussions-page .discussions-container .discussions-list ul li .second-area, .discussions-page .discussions-container .discussions-list ul li .third-area {
+.discussions-page .discussions-container header .discussions-controller, .discussions-page .discussions-container header #create-discussion form .upload, .discussions-page .discussions-container header #create-discussion form .groups {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
-.discussions-page, .discussions-page .discussions-container, .discussions-page .discussions-container header, .discussions-page .discussions-container header #create-discussion form, .discussions-page .discussions-container header #create-discussion form .input-title, .discussions-page .discussions-container header #create-discussion form .input-content, .discussions-page .discussions-container .discussions-list ul, .discussions-page .discussions-container .discussions-list ul li {
+.discussions-page, .discussions-page .discussions-container, .discussions-page .discussions-container header, .discussions-page .discussions-container header #create-discussion form, .discussions-page .discussions-container header #create-discussion form .input-title, .discussions-page .discussions-container header #create-discussion form .input-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -127,10 +127,120 @@
   appearance: none;
   text-align: center;
 }
-.discussions-page .discussions-container .discussions-list ul li {
+.discussions-page .discussions-container .discussions-list .flex-row {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+}
+.discussions-page .discussions-container .discussions-list .flex-column {
+  display: flex;
+  flex-flow: column;
+}
+.discussions-page .discussions-container .discussions-list .center {
+  align-items: center;
+}
+.discussions-page .discussions-container .discussions-list .list {
+  border-radius: 3px;
+  overflow: hidden;
+}
+.discussions-page .discussions-container .discussions-list .list .card {
   cursor: pointer;
-  border: 1px solid black;
-  margin: 10px;
+  min-width: 700px;
+  margin-bottom: 10px;
+  perspective: 600px;
+  transition: all 0.1s;
+  background-color: #212140;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  height: 90px;
+}
+.discussions-page .discussions-container .discussions-list .list .card .bottom {
+  height: 0px;
+  overflow: hidden;
+  width: 200px;
+  font-size: 12px;
+  color: #777;
+  font-weight: normal;
+}
+.discussions-page .discussions-container .discussions-list .list .card.open {
+  padding: 30px;
+  height: auto;
+}
+.discussions-page .discussions-container .discussions-list .list .card.open .bottom {
+  margin-top: 10px;
+  height: 100%;
+  overflow: visible;
+}
+.discussions-page .discussions-container .discussions-list .list .card.open .book {
+  transform: rotateY(50deg);
+  box-shadow: -10px 10px 10px 2px rgba(0, 0, 0, 0.2), -2px 0px 0px 0px #888;
+  transition: all 0.5s;
+  transition-delay: 0.05s;
+}
+.discussions-page .discussions-container .discussions-list .list .card.open .info {
+  transform: translate(0, -10px);
+}
+.discussions-page .discussions-container .discussions-list .list .card.open .members {
+  padding: 15px 20px;
+  border-radius: 4px;
+  align-self: flex-start;
+}
+.discussions-page .discussions-container .discussions-list .list .card button.simple {
+  cursor: pointer;
+  color: #CCC;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background-color: #1ea94b;
+  padding: 15px 20px;
+  font-family: "Montserrat";
+  font-weight: bold;
+  transition: all 0.1s;
+}
+.discussions-page .discussions-container .discussions-list .list .card button.simple:hover {
+  box-shadow: 0px 15px 20px -5px rgba(0, 0, 0, 0.3);
+  transform: translate(0, -2px);
+}
+.discussions-page .discussions-container .discussions-list .list .card .book {
+  transition: all 0.5s;
+  width: 120px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+.discussions-page .discussions-container .discussions-list .list .card .info {
+  transition: all 0.2s;
+  min-width: 200px;
+  padding: 0px 30px;
+  font-family: "Montserrat";
+  font-weight: bold;
+}
+.discussions-page .discussions-container .discussions-list .list .card .info .title {
+  font-size: 1em;
+  color: #FFF;
+  letter-spacing: 1px;
+}
+.discussions-page .discussions-container .discussions-list .list .card .info .author {
+  font-size: 12px;
+  font-weight: normal;
+  color: #888;
+}
+.discussions-page .discussions-container .discussions-list .list .card .group {
+  margin-left: auto;
+}
+.discussions-page .discussions-container .discussions-list .list .card .members {
+  transition: all 0.1s;
+  padding: 40px;
+  font-family: "Montserrat";
+  color: #CCC;
+  background-color: #1c1c36;
+}
+.discussions-page .discussions-container .discussions-list .list .card .members .current {
+  font-weight: bold;
+  margin-right: 10px;
+}
+.discussions-page .discussions-container .discussions-list .list .card .members .max {
+  opacity: 0.5;
+  margin-left: 10px;
 }
 
 /*# sourceMappingURL=discussion-titles.css.map */
