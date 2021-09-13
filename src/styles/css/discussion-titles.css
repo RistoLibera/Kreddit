@@ -25,6 +25,9 @@
   margin-bottom: 10px;
   width: 100%;
 }
+.discussions-page .discussions-container header .hidden {
+  display: none;
+}
 .discussions-page .discussions-container header .discussions-controller {
   width: 100%;
   position: relative;
@@ -233,14 +236,6 @@
   font-family: "Montserrat";
   color: #CCC;
   background-color: #1c1c36;
-}
-.discussions-page .discussions-container .discussions-list .list .card .members .current {
-  font-weight: bold;
-  margin-right: 10px;
-}
-.discussions-page .discussions-container .discussions-list .list .card .members .max {
-  opacity: 0.5;
-  margin-left: 10px;
 }
 
 /*# sourceMappingURL=discussion-titles.css.map */

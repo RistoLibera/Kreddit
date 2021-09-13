@@ -21,12 +21,10 @@ const DiscussionsList = (props) => {
 
   // Open or close a block
   const activate = (event) => {
-    console.log(event.target);
     const card = event.target.closest('.card');
     const summary = card.querySelector('.summary');
     card.classList.toggle('open');
     summary.classList.toggle('open');
-
   };
 
   // Fetch title content img
@@ -104,8 +102,6 @@ const DiscussionsList = (props) => {
         <div className='flex-column group'>
           <div className='members'>
             <h2>Group: {group}</h2>
-            <span className='current'>14</span> /
-            <span className='max'>30</span>
           </div>
           <div className='hidden bottom'>
             <button className='simple'onClick={() => history.push('/discussions/' + group + '/' + uid)} >Join</button>

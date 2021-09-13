@@ -12,10 +12,6 @@
   align-items: center;
 }
 
-.hidden {
-  display: none;
-}
-
 .groups-page {
   height: 100%;
   padding-top: 5.5rem;
@@ -25,6 +21,9 @@
 }
 .groups-page .group-container header {
   width: 100%;
+}
+.groups-page .group-container header .hidden {
+  display: none;
 }
 .groups-page .group-container header .group-controller {
   width: 100%;

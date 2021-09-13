@@ -121,6 +121,9 @@
 .app-header .right-bar .user-bar .notification-center svg {
   color: #938045;
 }
+.app-header .right-bar .user-bar .notification-center .hidden {
+  display: none;
+}
 .app-header .right-bar .user-bar .notification-center ul {
   background-color: white;
   padding-top: 25px;

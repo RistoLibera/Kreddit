@@ -12,10 +12,6 @@
   align-items: center;
 }
 
-.hidden {
-  display: none;
-}
-
 .profile-page {
   height: 100%;
   padding-top: 6rem;
@@ -173,6 +169,9 @@
 .profile-page .profile-container .upper-profile .registration .change-password .change-container form {
   margin: 40px 0 0 30px;
 }
+.profile-page .profile-container .upper-profile .registration .change-password .change-container form .hidden {
+  display: none;
+}
 .profile-page .profile-container .upper-profile .registration .change-password .change-container form fieldset {
   border: none;
   padding: 0;
@@ -223,6 +222,9 @@
 }
 .profile-page .profile-container .upper-profile .registration .delete-user .delete-container form {
   margin: 0 0 0 30px;
+}
+.profile-page .profile-container .upper-profile .registration .delete-user .delete-container form .hidden {
+  display: none;
 }
 .profile-page .profile-container .upper-profile .registration .delete-user .delete-container form fieldset {
   border: none;

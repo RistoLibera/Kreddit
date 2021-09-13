@@ -1,9 +1,6 @@
 @use 'base';
 
 // Groups page
-.hidden {
-  display: none;
-}
 
 .groups-page {
   @extend %flex-column-direction;
@@ -18,6 +15,10 @@
       @extend %flex-column-direction;
       width: 100%;
 
+      .hidden {
+        display: none;
+      }
+      
       .group-controller {
         @extend %flex-row-direction;
         width: 100%;

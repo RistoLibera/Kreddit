@@ -17,6 +17,10 @@
       margin-bottom: 10px;
       width: 100%;
 
+      .hidden {
+        display: none;
+      }
+      
       .discussions-controller {
         @extend %flex-row-direction;
         width: 100%;
@@ -267,14 +271,7 @@
             font-family:'Montserrat';
             color:#CCC;
             background-color:lighten($dark,5%);
-            & .current {
-              font-weight:bold;
-              margin-right:10px;
-            }
-            & .max {
-              opacity:0.5;
-              margin-left:10px;
-            }
+
           }
 
         }

@@ -1,9 +1,6 @@
 @use 'base';
 
 // Profile page
-.hidden {
-  display: none;
-}
 
 .profile-page {
   height: 100%;
@@ -209,6 +206,10 @@
               margin: 40px 0 0 30px;
               @extend %flex-column-direction;
               
+              .hidden {
+                display: none;
+              }
+              
               fieldset {
                 @extend %flex-column-direction;
                 border: none;
@@ -273,6 +274,10 @@
             form {
               margin: 0 0 0 30px;
               @extend %flex-column-direction;
+              
+              .hidden {
+                display: none;
+              }
               
               fieldset {
                 @extend %flex-column-direction;
