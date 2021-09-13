@@ -27,20 +27,17 @@
 }
 .discussions-page .discussions-container header .discussions-controller {
   width: 100%;
+  position: relative;
 }
 .discussions-page .discussions-container header .discussions-controller .filter-buttons {
-  width: 800px;
+  width: 1000px;
 }
 .discussions-page .discussions-container header .discussions-controller .filter-buttons ul {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
-  grid-template-rows: auto;
-  justify-content: center;
-  align-items: center;
   text-align: center;
 }
 .discussions-page .discussions-container header .discussions-controller .filter-buttons ul li {
-  margin: 0 10px;
+  float: left;
+  margin: 5px 10px;
   list-style-type: none;
   cursor: pointer;
   border: 1px solid black;
@@ -54,6 +51,9 @@
   color: black;
 }
 .discussions-page .discussions-container header .discussions-controller #toggle-display {
+  position: absolute;
+  right: 0;
+  top: 0;
   font-size: 1rem;
   display: block;
   text-decoration: none;

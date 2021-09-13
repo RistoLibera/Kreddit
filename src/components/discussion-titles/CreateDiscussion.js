@@ -180,7 +180,7 @@ const CreateDiscussion = (props) => {
 
             <fieldset className='input-title'>
               <label htmlFor='title'>{t('content.title')}</label>
-              <input type='text' id='title' name='title' placeholder={t('content.title-holder')} required/><br></br>
+              <input type='text' id='title' name='title' placeholder={t('content.title-holder')} minLength='3' maxLength='40' required/><br></br>
             </fieldset>
 
             <fieldset className='input-content'>
