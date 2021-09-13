@@ -37,17 +37,19 @@
               margin: 5px 10px;
               list-style-type: none;
               cursor: pointer;
-              border: 1px solid black;
+              border: 2px solid #938045;
               border-radius: 10px;
               padding: 5px;
             }
 
             .active {
-              color: crimson;
+              color: rgb(247, 195, 54);
+              background: #938045;
             }
             
             .inactive {
               color: black;
+              background: white;
             }
           }  
         }
