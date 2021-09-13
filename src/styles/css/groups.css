@@ -1,11 +1,11 @@
-.groups-page .group-container header .group-controller, .groups-page .group-container header #create-group form .upload, .groups-page .group-container .list-view ul li, .groups-page .group-container .list-view ul li .middle-block .lower, .groups-page .group-container .list-view ul li .right-block {
+.groups-page .group-container header .group-controller, .groups-page .group-container header #create-group form .upload, .groups-page .group-container .list-view ul li, .groups-page .group-container .list-view ul li .middle-block .lower, .groups-page .group-container .list-view ul li .right-block, .groups-page .group-container .grid-view ul li .right-block {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
-.groups-page, .groups-page .group-container, .groups-page .group-container header, .groups-page .group-container header #create-group form, .groups-page .group-container header #create-group form .input-name, .groups-page .group-container header #create-group form .input-intro, .groups-page .group-container .list-view ul, .groups-page .group-container .list-view ul li .middle-block {
+.groups-page, .groups-page .group-container, .groups-page .group-container header, .groups-page .group-container header #create-group form, .groups-page .group-container header #create-group form .input-name, .groups-page .group-container header #create-group form .input-intro, .groups-page .group-container .list-view ul, .groups-page .group-container .list-view ul li .middle-block, .groups-page .group-container .grid-view ul li {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -366,7 +366,7 @@
 .groups-page .group-container .list-view ul li .right-block button {
   border: none;
 }
-.groups-page .group-container .list-view ul li .right-block .join {
+.groups-page .group-container .list-view ul li .right-block .join-group {
   text-align: center;
   font-size: 1.2rem;
   display: block;
@@ -377,13 +377,81 @@
   color: white;
   cursor: pointer;
 }
-.groups-page .group-container .list-view ul li .right-block .join:disabled {
+.groups-page .group-container .list-view ul li .right-block .join-group h1 {
+  display: block;
+}
+.groups-page .group-container .list-view ul li .right-block .join-group .join-in {
+  display: none;
+}
+.groups-page .group-container .list-view ul li .right-block .join-group:disabled {
   cursor: default;
   background: grey;
   color: black;
 }
 .groups-page .group-container .list-view ul li .right-block .quick-link {
   font-size: 1.6rem;
+  cursor: pointer;
+}
+.groups-page .group-container .grid-view {
+  padding-top: 30px;
+  width: 100%;
+}
+.groups-page .group-container .grid-view ul {
+  margin: 10px 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-rows: auto;
+}
+.groups-page .group-container .grid-view ul li .left-block .img {
+  display: inline-block;
+  width: 90px;
+  height: 90px;
+  border: none;
+  border-radius: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.groups-page .group-container .grid-view ul li .middle-block {
+  padding: 5px 0;
+}
+.groups-page .group-container .grid-view ul li .middle-block .upper {
+  font-size: 1.3rem;
+}
+.groups-page .group-container .grid-view ul li .middle-block .middle {
+  display: none;
+}
+.groups-page .group-container .grid-view ul li .middle-block .lower {
+  display: none;
+}
+.groups-page .group-container .grid-view ul li .right-block {
+  justify-content: flex-start;
+}
+.groups-page .group-container .grid-view ul li .right-block button {
+  border: none;
+}
+.groups-page .group-container .grid-view ul li .right-block .join-group {
+  text-align: center;
+  color: black;
+  cursor: pointer;
+}
+.groups-page .group-container .grid-view ul li .right-block .join-group h1 {
+  display: none;
+}
+.groups-page .group-container .grid-view ul li .right-block .join-group .join-in {
+  width: 37px;
+  height: 37px;
+  font-size: 1rem;
+  display: block;
+}
+.groups-page .group-container .grid-view ul li .right-block .join-group:disabled {
+  cursor: default;
+  color: grey;
+}
+.groups-page .group-container .grid-view ul li .right-block .quick-link {
+  width: 40px;
+  height: 40px;
+  font-size: 1rem;
   cursor: pointer;
 }
 

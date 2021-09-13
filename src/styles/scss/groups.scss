@@ -429,7 +429,7 @@
               border: none;
             }
 
-            .join {
+            .join-group {
               text-align: center;
               font-size: 1.2rem;
               display: block;
@@ -439,9 +439,17 @@
               background: black;   
               color: white;
               cursor: pointer;
+
+              h1 {
+                display: block;
+              }
+
+              .join-in {
+                display: none;
+              }
             }
 
-            .join:disabled {
+            .join-group:disabled {
               cursor: default;
               background: grey;   
               color: black;
@@ -457,7 +465,92 @@
     }
 
     .grid-view {
+      padding-top: 30px;
+      width: 100%;
 
+      ul {
+        margin: 10px 40px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-template-rows: auto;
+
+        li {
+          @extend %flex-column-direction;
+
+          .left-block {
+            .img {
+              display: inline-block;
+              width: 90px;
+              height: 90px;
+              border: none;
+              border-radius: 50%;  
+              background-size: cover;
+              background-repeat: no-repeat;
+              background-position: center;  
+            }
+          }
+
+          .middle-block {
+            padding: 5px 0;
+            // text-align: center;
+            .upper {
+              font-size: 1.3rem;
+            }
+
+            .middle {
+              display: none;
+            }
+
+            .lower {
+              display: none;
+            }
+          }
+
+          .right-block {
+            @extend %flex-row-direction;
+            justify-content: flex-start;
+
+            button {
+              border: none;
+            }
+
+            .join-group {
+              text-align: center;
+              // font-size: 1.2rem;
+              // display: block;
+              // text-decoration: none;
+              // margin: 5px 5px;
+              // padding: 13px 10px;
+              // background: black;  
+              color: black;
+              cursor: pointer;
+
+              h1 {
+                display: none;
+              }
+
+              .join-in {
+                width: 37px;
+                height: 37px;   
+                font-size: 1rem;
+                display: block;
+              }
+            }
+
+            .join-group:disabled {
+              cursor: default;
+              color: grey;
+            }
+
+            .quick-link {
+              width: 40px;
+              height: 40px;   
+              font-size: 1rem;
+              cursor: pointer;
+            }
+          }
+        }
+      }
     }
   }
 }

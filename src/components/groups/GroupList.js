@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { DateTime, Interval } from "luxon";
 import Default from '../../assets/img/default-symbol.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons';
+import { faArrowAltCircleRight, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import FirebasePack from '../../config/FirebasePack';
 import { css } from '@emotion/react';
 import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
@@ -141,9 +141,15 @@ const GroupList = (props) => {
         <div className='right-block'>
           {currentUser 
             ? 
-              <button className='join' onClick={() => joinGroup(groupName, groupUID, currentUser)} disabled={buttonState}>{t('content.join')}</button>
+              <button className='join-group' onClick={() => joinGroup(groupName, groupUID, currentUser)} disabled={buttonState}>
+                <FontAwesomeIcon icon={faUserPlus} color='' size='2x' className='join-in' />
+                <h1>{t('content.join')}</h1>
+                </button>
             :
-              <button className='join'>Join</button>
+              <button className='join-group'>
+                <FontAwesomeIcon icon={faUserPlus} color='' size='2x'  className='join-in' />
+                <h1>{t('content.join')}</h1>
+              </button>
           }
           <button className='quick-link' onClick={() => history.push('/discussions/' + groupName)} >
             <FontAwesomeIcon icon={faArrowAltCircleRight} color='' size='2x' />
