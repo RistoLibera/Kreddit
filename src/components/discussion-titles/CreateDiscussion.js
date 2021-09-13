@@ -8,7 +8,7 @@ import BarLoader from 'react-spinners/BarLoader';
 //  change view matrix or line
 const CreateDiscussion = (props) => {
   const { t } = useTranslation('discussion');
-  const { currentUser, hidden, update } = props;
+  const { currentUser, hidden, switchHidden, update } = props;
   const spinnerCSS = css`
   display: block;
   margin: 0 auto;
@@ -147,8 +147,9 @@ const CreateDiscussion = (props) => {
     let discussionUID = await addDiscussion(groupUID, groupValue, titleValue, contentValue);
     await addImg(titleValue, attachmentValue);
     await updateInfo(groupUID, groupValue, discussionUID, titleValue, currentUser.uid);
-    alert('success!');
     event.target.reset();
+    switchHidden();
+    alert('success!');
     setPageLoading(false);
     update();
   };

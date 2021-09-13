@@ -108,7 +108,7 @@ const DiscussionTitles = () => {
           </div>
           {currentUser
             ?
-              <CreateDiscussion currentUser={currentUser} hidden={formHidden} update={fetchDiscussions} />
+              <CreateDiscussion currentUser={currentUser} hidden={formHidden} switchHidden={switchHidden} update={fetchDiscussions} />
             :
               <div></div>
           }
