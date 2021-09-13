@@ -1,11 +1,11 @@
-.discussions-page .discussions-container header .discussions-controller, .discussions-page .discussions-container header .discussions-controller .filter-buttons ul, .discussions-page .discussions-container header #create-discussion form .upload, .discussions-page .discussions-container header #create-discussion form .groups, .discussions-page .discussions-container .discussions-list ul li .first-area, .discussions-page .discussions-container .discussions-list ul li .third-area {
+.discussions-page .discussions-container header .discussions-controller, .discussions-page .discussions-container header #create-discussion form .upload, .discussions-page .discussions-container header #create-discussion form .groups, .discussions-page .discussions-container .discussions-list ul li .first-area, .discussions-page .discussions-container .discussions-list ul li .second-area, .discussions-page .discussions-container .discussions-list ul li .third-area {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
-.discussions-page, .discussions-page .discussions-container, .discussions-page .discussions-container header, .discussions-page .discussions-container header #create-discussion form, .discussions-page .discussions-container header #create-discussion form .input-title, .discussions-page .discussions-container header #create-discussion form .input-content, .discussions-page .discussions-container .discussions-list ul, .discussions-page .discussions-container .discussions-list ul li, .discussions-page .discussions-container .discussions-list ul li .second-area {
+.discussions-page, .discussions-page .discussions-container, .discussions-page .discussions-container header, .discussions-page .discussions-container header #create-discussion form, .discussions-page .discussions-container header #create-discussion form .input-title, .discussions-page .discussions-container header #create-discussion form .input-content, .discussions-page .discussions-container .discussions-list ul, .discussions-page .discussions-container .discussions-list ul li {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -28,6 +28,17 @@
 .discussions-page .discussions-container header .discussions-controller {
   width: 100%;
 }
+.discussions-page .discussions-container header .discussions-controller .filter-buttons {
+  width: 800px;
+}
+.discussions-page .discussions-container header .discussions-controller .filter-buttons ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+  grid-template-rows: auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 .discussions-page .discussions-container header .discussions-controller .filter-buttons ul li {
   margin: 0 10px;
   list-style-type: none;
@@ -46,7 +57,6 @@
   font-size: 1rem;
   display: block;
   text-decoration: none;
-  margin: 5px 0;
   padding: 5px 5px;
   border-radius: 5px;
 }

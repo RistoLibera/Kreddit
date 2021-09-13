@@ -22,9 +22,16 @@
         width: 100%;
 
         .filter-buttons {
+          width: 800px;
+
           ul {
-            @extend %flex-row-direction;
-            
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+            grid-template-rows: auto;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+                
             li {
               margin: 0 10px;
               list-style-type: none;
@@ -48,7 +55,6 @@
           font-size: 1rem;
           display: block;
           text-decoration: none;
-          margin: 5px 0;
           padding: 5px 5px;
           border-radius: 5px;          
         }
@@ -169,7 +175,7 @@
           }
 
           .second-area {
-            @extend %flex-column-direction;
+            @extend %flex-row-direction;
 
           }
           

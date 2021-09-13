@@ -82,20 +82,20 @@ const DiscussionsList = (props) => {
     return (
       <li key={index} className='discussion-list' onClick={() => history.push('/discussions/' + group + '/' + uid)}>
         <div className='first-area'>
+          <h2>Group: {group}</h2>
+        </div>
+
+        <div className='second-area'>
           <div className='creator'>
             <img src={iconURL} alt='icon' width='40px' />
             <h2>{creator}</h2>
           </div>
 
-          <div className='group'>
-            <h2>{group}</h2>
+          <div className="content">
             <h1>{title}</h1>
+            <img src={imgURL} alt='' width='100px' />
+            <p>{content}</p>
           </div>
-        </div>
-
-        <div className='second-area'>
-          <img src={imgURL} alt='img' width='100px' />
-          <p>{content}</p>
         </div>
 
         <div className='third-area'>
@@ -109,7 +109,9 @@ const DiscussionsList = (props) => {
             <FontAwesomeIcon icon={faStarHalfAlt} color='' size='lg' />
           </div>
 
-          <p>{time}</p>
+          <div className="time">
+            <p>{time}</p>
+          </div>
         </div>
       </li>
     );
