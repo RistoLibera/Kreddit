@@ -158,7 +158,7 @@ const CreateDiscussion = (props) => {
   }, []);
 
   return (
-    <div className={hidden}>
+    <div className={hidden} id='create-discussion'>
       {pageLoading
         ?
           <div className='page-loader'>
@@ -166,7 +166,7 @@ const CreateDiscussion = (props) => {
           </div>
         :
           <form onSubmit={handleCreation}>
-            <fieldset>
+            <fieldset className='groups'>
               <legend>{t('content.discussion')}</legend>
               <select id='group' name='group'>
                 {optionsTags.map((option) => {
@@ -175,12 +175,21 @@ const CreateDiscussion = (props) => {
                   );
                 })}
               </select>
+            </fieldset>
+
+            <fieldset className='input-title'>
               <label htmlFor='title'>{t('content.title')}</label>
               <input type='text' id='title' name='title' placeholder={t('content.title-holder')} required/><br></br>
+            </fieldset>
+
+            <fieldset className='input-content'>
               <label htmlFor='content'>{t('content.content')}</label>
-              <textarea type='text' id='content' name='content' maxLength="200" placeholder={t('content.content-holder')} required/><br></br>
-              <label htmlFor='attachment'>{t('content.attachment')}</label>
-              <input type='file' id='attachment' name='attachment'/><br></br>
+              <textarea rows="5" cols='50' type='text' id='content' name='content' maxLength="200" placeholder={t('content.content-holder')} required/><br></br>
+            </fieldset>
+
+            <fieldset className='upload'>
+              <label id="img" htmlFor='files'>{t('content.attachment')}</label>
+              <input type='file' id='files' name='attachment'/><br></br>
               <button className='submit' type='submit' value='Submit' disabled={disabledButton}>{t('content.create')}</button>
             </fieldset>
           </form>

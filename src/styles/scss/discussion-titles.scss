@@ -5,15 +5,21 @@
   @extend %flex-column-direction;
   height: 100%;
   padding-top: 6rem;
+  margin: 0 30px;
 
   .discussions-container  {
     @extend %flex-column-direction;
-    
+    width: 100%;
+    margin: 0 30px;
+
     header {
       @extend %flex-column-direction;
+      margin-bottom: 10px;
+      width: 100%;
 
       .discussions-controller {
         @extend %flex-row-direction;
+        width: 100%;
 
         .filter-buttons {
           ul {
@@ -24,16 +30,125 @@
               list-style-type: none;
               cursor: pointer;
               border: 1px solid black;
+              border-radius: 10px;
+              padding: 5px;
             }
 
             .active {
-              color: red;
+              color: crimson;
             }
             
             .inactive {
               color: black;
             }
           }  
+        }
+
+        #toggle-display {
+          font-size: 1rem;
+          display: block;
+          text-decoration: none;
+          margin: 5px 0;
+          padding: 5px 5px;
+          border-radius: 5px;          
+        }
+      }
+
+      #create-discussion {
+        margin: 15px 0;
+        
+        form {
+          @extend %flex-column-direction;
+
+          fieldset {
+            border: none;
+            padding: 0;
+            margin: 8px 0;
+            position: relative;
+            width: 100%;
+
+            legend {
+              font-size: 1.6rem;
+              padding-bottom: 0.3rem;
+            }  
+  
+            input {
+              width: 100%;
+              height: 28px;
+              color: hsl(0, 0, 20);
+              padding: 5px 5px 5px 15px;
+              margin-top: 10px;
+              border-radius: 5px;
+              font-size: 14px;
+              outline: none!important;
+              border: 1px solid hsla(0, 0, 0, 0.3);
+              box-shadow: inset 0 1px 4px hsla(0, 0, 0, 0.2);
+              vertical-align: top;
+            }
+
+            textarea {
+              resize: none;
+              color: hsl(0, 0, 20);
+              border: 1px solid hsla(0, 0, 0, 0.3);
+              box-shadow: inset 0 1px 4px hsla(0, 0, 0, 0.2);
+            }
+
+            label {
+              padding: 1px 0 10px 10px;
+            }
+
+            button {
+              font-size: 1rem;
+              display: block;
+              text-decoration: none;
+              margin: 5px 0;
+              padding: 10px 10px;
+              border-radius: 5px;          
+            }      
+          }   
+
+          .input-title {
+            @extend %flex-column-direction;
+
+          }
+
+          .input-content {
+            @extend %flex-column-direction;
+
+          }
+          
+          .upload {
+            @extend %flex-row-direction;
+            margin: 0;
+
+            #img {
+              border: 2px solid black;
+              cursor: pointer;
+              padding: 6px 3px;
+              margin-top: 5px;
+            }
+        
+            #files {
+              display: none;
+            }  
+          }
+
+          .groups {
+            @extend %flex-row-direction;
+            
+            legend {
+              float: left;
+            }
+
+            select {
+              height: 30px;
+              border: 1px outset rgba(143, 130, 19, 0.5);
+              border-radius: 10px;
+              outline: none;
+              appearance: none;
+              text-align: center;
+            }
+          }
         }
       }
     }

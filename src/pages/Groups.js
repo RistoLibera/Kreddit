@@ -11,7 +11,7 @@ const Groups = () => {
   const { currentUser } = useContext(AuthContext);
   const [formHidden, setFormHidden] = useState("hidden");
   const [GroupsDoc, setGroupsDoc] = useState([]);
-  const [groupView, setGroupView] = useState('grid-view');
+  const [groupView, setGroupView] = useState('list-view');
 
   // Change groups display
   const changeView = () => {
@@ -77,7 +77,7 @@ const Groups = () => {
       <div className='group-container'>
         <header>
           <div className='group-controller'>
-            <button className="grid-list" onClick={toggleView}>
+            <button className="grid-list animation active" onClick={toggleView}>
               <div className="icon">
                 <div className="dots">
                   <i></i><i></i><i></i><i></i>

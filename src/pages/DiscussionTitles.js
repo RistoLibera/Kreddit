@@ -102,10 +102,9 @@ const DiscussionTitles = () => {
           <div className='discussions-controller'>
             <FilterButtons documents={GroupsDoc}  updateSelection={updateSelection} cancelSelection={cancelSelection} allSelection={allSelection} optionalGroup={optionalGroup} />
             {currentUser
-                ? <button onClick={switchHidden}>{t('content.create-discussion')}</button>
+                ? <button id='toggle-display' onClick={switchHidden}>{t('content.create-discussion')}</button>
                 : <div></div>
             }
-            <h2>should be two arrow expand all </h2>
           </div>
           {currentUser
             ?
