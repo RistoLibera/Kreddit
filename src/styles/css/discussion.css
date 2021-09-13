@@ -16,6 +16,9 @@
   height: 100%;
   padding-top: 6rem;
 }
+.discussion-page .hidden {
+  display: none;
+}
 .discussion-page .discussion-content .title {
   justify-content: space-evenly;
 }

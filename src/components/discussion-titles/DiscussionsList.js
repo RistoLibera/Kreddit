@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
 import { DateTime, Interval } from "luxon";
+import { useTranslation } from "react-i18next";
 import DefaultIcon from '../../assets/img/default-icon.jpg';
 import DefaultImg from '../../assets/img/default-image.jpg';
 import FirebasePack from '../../config/FirebasePack';
@@ -10,6 +11,7 @@ import { css } from '@emotion/react';
 import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
 
 const DiscussionsList = (props) => {
+  const { t } = useTranslation('discussion');
   const history = useHistory();
   const { documents, selectedGroups } = props;
   const spinnerCSS = css`
@@ -107,7 +109,9 @@ const DiscussionsList = (props) => {
             <h2>Group: {group}</h2>
           </div>
           <div className='entry'>
-            <button className='simple'onClick={() => history.push('/discussions/' + group + '/' + uid)} >Entry</button>
+            <button className='simple'onClick={() => history.push('/discussions/' + group + '/' + uid)} >
+              {t('content.entry')}
+            </button>
           </div>
 
           <div className='trend'>

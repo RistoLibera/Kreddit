@@ -5,6 +5,10 @@
   height: 100%;
   padding-top: 6rem;
 
+  .hidden {
+    display: none;
+  }
+
   .discussion-content{
     .group {
       @extend %flex-row-direction;
