@@ -93,9 +93,11 @@ const DiscussionsList = (props) => {
         <span className='title-img' style={{ backgroundImage: `url('${imgURL}')` }} ></span>
         <div className='flex-column info'>
           <h1 className='title'>{title}</h1>
-          <img src={iconURL} alt='icon' width='30px' />
-          <h2 className='author'>{creator}</h2>
-          <div className="hidden bottom content">
+          <div className="created-by">
+            <span className='icon' style={{ backgroundImage: `url('${iconURL}')` }} ></span>
+            <h2 className='creator'>{creator}</h2>
+          </div>
+          <div className="bottom content">
             <p>{content}</p>
           </div>
         </div>
@@ -104,7 +106,7 @@ const DiscussionsList = (props) => {
           <div className='group-name'>
             <h2>Group: {group}</h2>
           </div>
-          <div className='hidden entry'>
+          <div className='entry'>
             <button className='simple'onClick={() => history.push('/discussions/' + group + '/' + uid)} >Entry</button>
           </div>
 

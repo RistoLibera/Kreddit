@@ -1,4 +1,4 @@
-.discussions-page .discussions-container header .discussions-controller, .discussions-page .discussions-container header #create-discussion form .upload, .discussions-page .discussions-container header #create-discussion form .groups, .discussions-page .discussions-container .discussions-list .card .statistics .trend, .discussions-page .discussions-container .discussions-list .card .statistics .trend .amount, .discussions-page .discussions-container .discussions-list .card .statistics .trend .rating, .discussions-page .discussions-container .discussions-list .card .statistics .trend .time {
+.discussions-page .discussions-container header .discussions-controller, .discussions-page .discussions-container header #create-discussion form .upload, .discussions-page .discussions-container header #create-discussion form .groups, .discussions-page .discussions-container .discussions-list .card .statistics .trend, .discussions-page .discussions-container .discussions-list .card .statistics .trend .amount, .discussions-page .discussions-container .discussions-list .card .statistics .trend .rating, .discussions-page .discussions-container .discussions-list .card .statistics .trend .time, .discussions-page .discussions-container .discussions-list .list .card .info .created-by {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -187,6 +187,27 @@
   color: black;
   font-weight: normal;
 }
+.discussions-page .discussions-container .discussions-list .list .card .info {
+  height: 80px;
+}
+.discussions-page .discussions-container .discussions-list .list .card .info .title {
+  padding-top: 5px;
+  font-size: 1.4rem;
+}
+.discussions-page .discussions-container .discussions-list .list .card .info .created-by {
+  justify-content: flex-start;
+  margin: 5px 0 5px 0;
+  padding-top: 6px;
+}
+.discussions-page .discussions-container .discussions-list .list .card .info .created-by .icon {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
 .discussions-page .discussions-container .discussions-list .list .card .info .content {
   display: none;
 }
@@ -200,8 +221,20 @@
   height: 100%;
   overflow: visible;
 }
+.discussions-page .discussions-container .discussions-list .list .card.open .info {
+  width: 300px;
+}
+.discussions-page .discussions-container .discussions-list .list .card.open .info .title {
+  display: none;
+}
+.discussions-page .discussions-container .discussions-list .list .card.open .info .created-by {
+  display: none;
+}
 .discussions-page .discussions-container .discussions-list .list .card.open .info .content {
+  letter-spacing: 1px;
+  font-size: 0.9rem;
   display: block;
+  word-wrap: break-word;
 }
 .discussions-page .discussions-container .discussions-list .list .card.open .title-img {
   transform: rotateY(50deg);
@@ -257,7 +290,7 @@
   color: black;
   letter-spacing: 1px;
 }
-.discussions-page .discussions-container .discussions-list .list .card .info .author {
+.discussions-page .discussions-container .discussions-list .list .card .info .creator {
   font-size: 12px;
   font-weight: normal;
   color: black;
