@@ -36,6 +36,7 @@ const EditForm = (props) => {
 
   // Update img
   const updateImg = async (img) => {
+    if (!img) return;
     try {
       await FirebasePack
         .storage()

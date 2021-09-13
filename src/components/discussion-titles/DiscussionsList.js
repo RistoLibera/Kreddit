@@ -1,7 +1,8 @@
 import React, { useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
 import { DateTime, Interval } from "luxon";
-import Default from '../../assets/img/default-icon.jpg';
+import DefaultIcon from '../../assets/img/default-icon.jpg';
+import DefaultImg from '../../assets/img/default-image.jpg';
 import FirebasePack from '../../config/FirebasePack';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComments, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
@@ -22,16 +23,16 @@ const DiscussionsList = (props) => {
   // Open or close a block
   const activate = (event) => {
     const card = event.target.closest('.card');
-    const summary = card.querySelector('.summary');
+    const content = card.querySelector('.content');
     card.classList.toggle('open');
-    summary.classList.toggle('open');
+    content.classList.toggle('open');
   };
 
   // Fetch title content img
   const getImg = async (title) => {
-    let URL = '';
+    let imgURL = DefaultImg;
     try {
-      URL = 
+      imgURL = 
         await FirebasePack
           .storage()
           .ref('discussion-title-image/' + title + '/img.jpg')
@@ -39,12 +40,12 @@ const DiscussionsList = (props) => {
     } catch (error) {
       console.log(error);
     }
-    return URL;
+    return imgURL;
   };
 
   // Get creator icon
-  async function getIcon(uid) {
-    let iconURL = Default;
+  const getIcon = async (uid) => {
+    let iconURL = DefaultIcon;
     try {
       iconURL =
         await FirebasePack
@@ -55,7 +56,7 @@ const DiscussionsList = (props) => {
       console.log(error.code);
     }
     return iconURL;
-  }
+  };
 
   // Calculate when was the discussion created
   const calculateTime = (data) => {
@@ -89,25 +90,25 @@ const DiscussionsList = (props) => {
   const makeList = (uid, iconURL, creator, group, title, content, imgURL, subdiscussions, rating, time, index) => {
     return (
       <li key={index} className='card flex-row' onClick={activate}>
-        <img src={imgURL} alt='' width='100px' className='book'/>
+        <span className='title-img' style={{ backgroundImage: `url('${imgURL}')` }} ></span>
         <div className='flex-column info'>
           <h1 className='title'>{title}</h1>
           <img src={iconURL} alt='icon' width='30px' />
           <h2 className='author'>{creator}</h2>
-          <div className="hidden bottom summary">
+          <div className="hidden bottom content">
             <p>{content}</p>
           </div>
         </div>
 
-        <div className='flex-column group'>
-          <div className='members'>
+        <div className='flex-column statistics'>
+          <div className='group-name'>
             <h2>Group: {group}</h2>
           </div>
-          <div className='hidden bottom'>
-            <button className='simple'onClick={() => history.push('/discussions/' + group + '/' + uid)} >Join</button>
+          <div className='hidden entry'>
+            <button className='simple'onClick={() => history.push('/discussions/' + group + '/' + uid)} >Entry</button>
           </div>
 
-          <div className='third-area'>
+          <div className='trend'>
             <div className="amount">
               <p>{subdiscussions}</p>
               <FontAwesomeIcon icon={faComments} color='' size='lg' />
@@ -122,8 +123,8 @@ const DiscussionsList = (props) => {
               <p>{time}</p>
             </div>
           </div>
-        </div>
 
+        </div>
       </li>
     );
   };

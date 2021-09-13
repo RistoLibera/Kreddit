@@ -105,6 +105,7 @@ const CreateDiscussion = (props) => {
 
   // Update FireStorage
   const addImg = async (title, attachment) => {
+    if (!attachment) return;
     try {
       await FirebasePack
         .storage()

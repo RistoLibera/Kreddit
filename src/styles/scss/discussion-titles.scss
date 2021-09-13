@@ -166,18 +166,61 @@
     .discussions-list {
       $dark:#131325;
 
+      .card {
+
+        .statistics {
+
+          .trend {
+            @extend %flex-row-direction;
+            padding-top: 10px;
+            padding-bottom: 8px;
+
+            .amount {
+              @extend %flex-row-direction;
+              font-size: 0.8rem;
+
+              p {
+                padding-right: 2px;
+              }
+            }
+            
+            .rating {
+              @extend %flex-row-direction;
+              font-size: 0.8rem;
+              
+              p {
+                padding-right: 2px;
+              }
+            }
+
+            .time {
+              @extend %flex-row-direction;
+              font-size: 0.8rem;
+
+              p {
+                padding-right: 2px;
+              }
+            }
+          }
+        }
+      }
+
+
       .flex-row {
         display:flex;
         flex-flow:row;
         align-items:center;
       }
+
       .flex-column{
         display:flex;
         flex-flow:column;
       }
+
       .center {
         align-items:center;
       }
+
       .list {
         border-radius:3px;
         overflow:hidden;
@@ -187,23 +230,34 @@
           margin-bottom:10px;
           perspective:600px;
           transition:all 0.1s;
-          & .bottom {
+          & .entry {
             height:0px;
             overflow:hidden;
             width:200px;
             font-size:12px;
-            color:#777;
+            color:black;
             font-weight:normal;
+          }
+          & .info {
+            & .content {
+              display: none;
+            }
           }
           &.open {
             padding:30px;
             height:auto;
-            & .bottom {
-              margin-top:10px;
+            & .entry {
+              text-align: center;
+              margin: 30px 0 30px 20px;
               height:100%;
               overflow:visible;
             }
-            & .book {
+            & .info {
+              & .content {
+                display: block;
+              }
+            }  
+            & .title-img {
               transform:rotateY( 50deg );
               box-shadow:-10px 10px 10px 2px rgba(0,0,0,.2), -2px 0px 0px 0px #888;
               transition:all 0.5s;
@@ -212,15 +266,16 @@
             & .info {
               transform:translate(0,-10px);
             }
-            & .members {
-              padding:15px 20px;
-              border-radius:4px;
-              align-self:flex-start;
+            & .group-name {
+              display: none;
+            }
+            & .trend {
+              padding-bottom: 0;
             }
           }
           & button.simple {
             cursor:pointer;
-            color:#CCC;
+            color:black;
             border:none;
             outline:none;
             border-radius:4px;
@@ -234,12 +289,17 @@
               transform:translate(0,-2px);
             }
           }
-          background-color:lighten($dark,8%);
+          background-color:silver;
           box-shadow:0px 2px 10px rgba(0,0,0,.2);
           overflow:hidden;
-          height:90px;
-          & .book {
+          height:110px;
+          & .title-img {
             transition:all 0.5s;
+            border: none;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;  
+            height: 110px;
             width:120px;
             box-shadow:0px 2px 10px rgba(0,0,0,0.3);
             overflow:hidden;
@@ -252,28 +312,26 @@
             font-weight:bold;
             & .title {
               font-size:1em;
-              color:#FFF;
+              color:black;
               letter-spacing:1px;
             }
             & .author {
               font-size:12px;
               font-weight:normal;
-              color:#888;
+              color:black;
             }
           }
-          & .group {
+          & .statistics {
               margin-left:auto;  
           }
-          & .members {
-
+          & .group-name {
             transition:all 0.1s;
-            padding:40px;
+            padding: 30px 20px 30px 20px;
+            text-align: center;
             font-family:'Montserrat';
-            color:#CCC;
-            background-color:lighten($dark,5%);
-
+            color:black;
+            background-color: #d9bd8a;
           }
-
         }
 
         

@@ -1,4 +1,4 @@
-.discussions-page .discussions-container header .discussions-controller, .discussions-page .discussions-container header #create-discussion form .upload, .discussions-page .discussions-container header #create-discussion form .groups {
+.discussions-page .discussions-container header .discussions-controller, .discussions-page .discussions-container header #create-discussion form .upload, .discussions-page .discussions-container header #create-discussion form .groups, .discussions-page .discussions-container .discussions-list .card .statistics .trend, .discussions-page .discussions-container .discussions-list .card .statistics .trend .amount, .discussions-page .discussions-container .discussions-list .card .statistics .trend .rating, .discussions-page .discussions-container .discussions-list .card .statistics .trend .time {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -130,6 +130,28 @@
   appearance: none;
   text-align: center;
 }
+.discussions-page .discussions-container .discussions-list .card .statistics .trend {
+  padding-top: 10px;
+  padding-bottom: 8px;
+}
+.discussions-page .discussions-container .discussions-list .card .statistics .trend .amount {
+  font-size: 0.8rem;
+}
+.discussions-page .discussions-container .discussions-list .card .statistics .trend .amount p {
+  padding-right: 2px;
+}
+.discussions-page .discussions-container .discussions-list .card .statistics .trend .rating {
+  font-size: 0.8rem;
+}
+.discussions-page .discussions-container .discussions-list .card .statistics .trend .rating p {
+  padding-right: 2px;
+}
+.discussions-page .discussions-container .discussions-list .card .statistics .trend .time {
+  font-size: 0.8rem;
+}
+.discussions-page .discussions-container .discussions-list .card .statistics .trend .time p {
+  padding-right: 2px;
+}
 .discussions-page .discussions-container .discussions-list .flex-row {
   display: flex;
   flex-flow: row;
@@ -152,29 +174,36 @@
   margin-bottom: 10px;
   perspective: 600px;
   transition: all 0.1s;
-  background-color: #212140;
+  background-color: silver;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
   overflow: hidden;
-  height: 90px;
+  height: 110px;
 }
-.discussions-page .discussions-container .discussions-list .list .card .bottom {
+.discussions-page .discussions-container .discussions-list .list .card .entry {
   height: 0px;
   overflow: hidden;
   width: 200px;
   font-size: 12px;
-  color: #777;
+  color: black;
   font-weight: normal;
+}
+.discussions-page .discussions-container .discussions-list .list .card .info .content {
+  display: none;
 }
 .discussions-page .discussions-container .discussions-list .list .card.open {
   padding: 30px;
   height: auto;
 }
-.discussions-page .discussions-container .discussions-list .list .card.open .bottom {
-  margin-top: 10px;
+.discussions-page .discussions-container .discussions-list .list .card.open .entry {
+  text-align: center;
+  margin: 30px 0 30px 20px;
   height: 100%;
   overflow: visible;
 }
-.discussions-page .discussions-container .discussions-list .list .card.open .book {
+.discussions-page .discussions-container .discussions-list .list .card.open .info .content {
+  display: block;
+}
+.discussions-page .discussions-container .discussions-list .list .card.open .title-img {
   transform: rotateY(50deg);
   box-shadow: -10px 10px 10px 2px rgba(0, 0, 0, 0.2), -2px 0px 0px 0px #888;
   transition: all 0.5s;
@@ -183,14 +212,15 @@
 .discussions-page .discussions-container .discussions-list .list .card.open .info {
   transform: translate(0, -10px);
 }
-.discussions-page .discussions-container .discussions-list .list .card.open .members {
-  padding: 15px 20px;
-  border-radius: 4px;
-  align-self: flex-start;
+.discussions-page .discussions-container .discussions-list .list .card.open .group-name {
+  display: none;
+}
+.discussions-page .discussions-container .discussions-list .list .card.open .trend {
+  padding-bottom: 0;
 }
 .discussions-page .discussions-container .discussions-list .list .card button.simple {
   cursor: pointer;
-  color: #CCC;
+  color: black;
   border: none;
   outline: none;
   border-radius: 4px;
@@ -204,8 +234,13 @@
   box-shadow: 0px 15px 20px -5px rgba(0, 0, 0, 0.3);
   transform: translate(0, -2px);
 }
-.discussions-page .discussions-container .discussions-list .list .card .book {
+.discussions-page .discussions-container .discussions-list .list .card .title-img {
   transition: all 0.5s;
+  border: none;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 110px;
   width: 120px;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
   overflow: hidden;
@@ -219,23 +254,24 @@
 }
 .discussions-page .discussions-container .discussions-list .list .card .info .title {
   font-size: 1em;
-  color: #FFF;
+  color: black;
   letter-spacing: 1px;
 }
 .discussions-page .discussions-container .discussions-list .list .card .info .author {
   font-size: 12px;
   font-weight: normal;
-  color: #888;
+  color: black;
 }
-.discussions-page .discussions-container .discussions-list .list .card .group {
+.discussions-page .discussions-container .discussions-list .list .card .statistics {
   margin-left: auto;
 }
-.discussions-page .discussions-container .discussions-list .list .card .members {
+.discussions-page .discussions-container .discussions-list .list .card .group-name {
   transition: all 0.1s;
-  padding: 40px;
+  padding: 30px 20px 30px 20px;
+  text-align: center;
   font-family: "Montserrat";
-  color: #CCC;
-  background-color: #1c1c36;
+  color: black;
+  background-color: #d9bd8a;
 }
 
 /*# sourceMappingURL=discussion-titles.css.map */

@@ -27,9 +27,6 @@ const Groups = () => {
     const btn = event.target.closest('.grid-list');
     btn.classList.add('animation');
     btn.classList.toggle('active');
-    // let newElem = btn.cloneNode(true);
-    // btn.parentNode.replaceChild(newElem, btn);
-    // newElem.addEventListener('click', toggleView);
     changeView();
   };
 
