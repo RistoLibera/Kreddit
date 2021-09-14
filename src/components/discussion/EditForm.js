@@ -13,7 +13,8 @@ const EditForm = (props) => {
   border-color: red;
   `;
   const [pageLoading, setPageLoading] = useState(false);
-  const [layerClass, setLayerClass] =useState('');
+  const [layerClass, setLayerClass] = useState('');
+  const [editedContent, setEditedContent] = useState(content);
 
   // Adjust textarea height
   const adjustHeight = (event) => {
@@ -61,17 +62,19 @@ const EditForm = (props) => {
     if (parentLayer === 0) {
       const { content, attachment} = event.target.elements;
       let contentValue = content.value;
+      setEditedContent(contentValue);
       let attachmentValue = attachment.files[0];
       if (contentValue !== content) await updateContent(contentValue);
       if (attachmentValue !== undefined && parentLayer === 0) await updateImg(attachmentValue);  
     } else {
       const { content } = event.target.elements;
       let contentValue = content.value;
+      setEditedContent(contentValue);
       if (contentValue !== content) await updateContent(contentValue);
     }
     setPageLoading(false);
-    rootUpdate();
     toggleEdit();
+    rootUpdate();
   };
 
   useEffect(() => {
@@ -92,7 +95,7 @@ const EditForm = (props) => {
                 ?
                   <form className='edit-discussion' onSubmit={handleEdit}>
                     <fieldset className='modify-text'>
-                      <textarea onChange={adjustHeight} style={{ height: height }} type='text' id='content' name='content' maxLength="500" defaultValue={content} placeholder={t('content.content-holder')} required/><br></br>
+                      <textarea onChange={adjustHeight} style={{ height: height }} type='text' id='content' name='content' maxLength="500" defaultValue={editedContent} placeholder={t('content.content-holder')} required/>
                     </fieldset>
 
                     <fieldset className='upload'>
@@ -102,9 +105,9 @@ const EditForm = (props) => {
                     </fieldset>
                   </form>
                 :
-                  <form className='edit-discussion' onSubmit={handleEdit}>
+                  <form className='edit-subdiscussion' onSubmit={handleEdit}>
                     <fieldset>
-                      <textarea type='text' id='content' name='content' maxLength="200" defaultValue={content} placeholder={t('content.content-holder')} required/><br></br>
+                      <textarea type='text' id='content' name='content' maxLength="200" defaultValue={editedContent} placeholder={t('content.content-holder')} required/>
                       <button type='submit' value='Submit'>{t('content.submit')}</button>
                     </fieldset>
                   </form>

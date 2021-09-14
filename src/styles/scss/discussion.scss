@@ -106,7 +106,6 @@
           .title-content {
             padding: 20px 0;
             @extend %flex-column-direction;
-            align-items: initial;
             width: 100%;
 
             .title-img {
@@ -153,6 +152,8 @@
                         border: 1px solid hsla(0, 0, 0, 0.3);
                         box-shadow: inset 0 1px 4px hsla(0, 0, 0, 0.2);
                         width: 600px;
+                        overflow-y:hidden;
+                        min-height: 100px;
                       }
                   
                       button {

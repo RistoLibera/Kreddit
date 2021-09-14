@@ -2,6 +2,8 @@ import React, { useState, useEffect }  from 'react';
 import { useTranslation } from "react-i18next";
 import FirebasePack from '../../config/FirebasePack';
 import firebase from 'firebase/app';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBold, faItalic, faReply, faStrikethrough } from '@fortawesome/free-solid-svg-icons';
 import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
 
@@ -195,9 +197,9 @@ const ReplyForm = (props) => {
                 <textarea type='text' id='content' name='content' maxLength="200" placeholder={t('content.content-holder')} required/><br></br>
                 <div className='reply-buttons'>
                   <div className='syntax-buttons'>
-                    <h2>bold</h2>
-                    <h2>italic</h2>
-                    <h2>throughline</h2>
+                    <FontAwesomeIcon icon={faBold} color='' size='2x' />
+                    <FontAwesomeIcon icon={faItalic} color='' size='2x' />
+                    <FontAwesomeIcon icon={faStrikethrough} color='' size='2x' />
                   </div>
 
                   <div className='creation-buttons'>

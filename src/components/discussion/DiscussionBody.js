@@ -72,7 +72,7 @@ const DiscussionBody = (props) => {
     // Auto set edit textarea height
     if (!event) return;
     const paragraph =  event.target.closest('.title-buttons').parentNode.querySelector('.title-content').childNodes[2];
-    let height = paragraph.scrollHeight;
+    let height = (paragraph.scrollHeight) + "px";
     setEditHeight(height);
   };
 

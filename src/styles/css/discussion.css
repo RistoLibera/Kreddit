@@ -94,7 +94,6 @@
 }
 .discussion-page .discussion-container .discussion-content .title .title-body .title-content {
   padding: 20px 0;
-  align-items: initial;
   width: 100%;
 }
 .discussion-page .discussion-container .discussion-content .title .title-body .title-content .title-img {
@@ -130,6 +129,8 @@
   border: 1px solid rgba(0, 0, 0, 0.3);
   box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.2);
   width: 600px;
+  overflow-y: hidden;
+  min-height: 100px;
 }
 .discussion-page .discussion-container .discussion-content .title .title-body .title-content .form-container .edit-layer-0 .ternary .edit-discussion fieldset button {
   font-size: 1rem;
