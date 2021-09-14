@@ -15,6 +15,17 @@ const EditForm = (props) => {
   const [pageLoading, setPageLoading] = useState(false);
   const [layerClass, setLayerClass] =useState('');
 
+  // Adjust input height
+  const adjustHeight = (event) => {
+    const textareaHTML = event.target;
+    const height = textareaHTML.scrollHeight;
+    textareaHTML.setAttribute("style", "height:" + (height) + "px;overflow-y:hidden;");
+
+    textareaHTML.style.height = "auto";
+    textareaHTML.style.height = (textareaHTML.scrollHeight) + "px";
+  };
+
+
   // Adjust block width
   const makeLayerClass = () => {
     let className = 'edit-layer-' + parentLayer; 
@@ -84,7 +95,7 @@ const EditForm = (props) => {
                 ?
                   <form className='edit-discussion' onSubmit={handleEdit}>
                     <fieldset className='modify-text'>
-                      <textarea type='text' id='content' name='content' maxLength="500" defaultValue={content} placeholder={t('content.content-holder')} required/><br></br>
+                      <textarea onChange={adjustHeight} type='text' id='content' name='content' maxLength="500" defaultValue={content} placeholder={t('content.content-holder')} required/><br></br>
                     </fieldset>
 
                     <fieldset className='upload'>
