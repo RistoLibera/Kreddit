@@ -83,10 +83,13 @@ const EditForm = (props) => {
               {parentLayer === 0
                 ?
                   <form className='edit-discussion' onSubmit={handleEdit}>
-                    <fieldset>
+                    <fieldset className='modify-text'>
                       <textarea type='text' id='content' name='content' maxLength="500" defaultValue={content} placeholder={t('content.content-holder')} required/><br></br>
-                      <label htmlFor='attachment'>{t('content.attachment')}</label>
-                      <input type='file' id='attachment' name='attachment'/><br></br>
+                    </fieldset>
+
+                    <fieldset className='upload'>
+                      <label id="img" htmlFor='files'>{t('content.attachment')}</label>
+                      <input type='file' id='files' name='attachment'/><br></br>
                       <button type='submit' value='Submit'>{t('content.submit')}</button>
                     </fieldset>
                   </form>
