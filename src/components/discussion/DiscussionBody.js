@@ -67,11 +67,13 @@ const DiscussionBody = (props) => {
       alert("You can't");
       return;
     }
+    switchEditHidden();
+
     // Auto set edit textarea height
+    if (!event) return;
     const paragraph =  event.target.closest('.title-buttons').parentNode.querySelector('.title-content').childNodes[2];
     let height = paragraph.scrollHeight;
     setEditHeight(height);
-    switchEditHidden();
   };
 
   // Calculate when was the discussion created
