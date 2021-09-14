@@ -6,7 +6,7 @@ import BarLoader from 'react-spinners/BarLoader';
 
 const EditForm = (props) => {
   const { t } = useTranslation('edit');
-  const { content, title, document, parentLayer, rootUpdate, toggleEdit } = props;
+  const { height, content, title, document, parentLayer, rootUpdate, toggleEdit } = props;
   const spinnerCSS = css`
   display: block;
   margin: 0 auto;
@@ -15,12 +15,9 @@ const EditForm = (props) => {
   const [pageLoading, setPageLoading] = useState(false);
   const [layerClass, setLayerClass] =useState('');
 
-  // Adjust input height
+  // Adjust textarea height
   const adjustHeight = (event) => {
     const textareaHTML = event.target;
-    const height = textareaHTML.scrollHeight;
-    textareaHTML.setAttribute("style", "height:" + (height) + "px;overflow-y:hidden;");
-
     textareaHTML.style.height = "auto";
     textareaHTML.style.height = (textareaHTML.scrollHeight) + "px";
   };
@@ -95,7 +92,7 @@ const EditForm = (props) => {
                 ?
                   <form className='edit-discussion' onSubmit={handleEdit}>
                     <fieldset className='modify-text'>
-                      <textarea onChange={adjustHeight} type='text' id='content' name='content' maxLength="500" defaultValue={content} placeholder={t('content.content-holder')} required/><br></br>
+                      <textarea onChange={adjustHeight} style={{ height: height }} type='text' id='content' name='content' maxLength="500" defaultValue={content} placeholder={t('content.content-holder')} required/><br></br>
                     </fieldset>
 
                     <fieldset className='upload'>

@@ -37,6 +37,7 @@ const DiscussionBody = (props) => {
   const [rating, setRating] = useState(0);
   const [layer, setLayer] = useState(0);
   const [subDocs, setSubDocs] = useState([]);
+  const [editHeight, setEditHeight] = useState(0);
 
   const checkCurrentEditor = () => {
     if (!currentUser) return;
@@ -53,11 +54,16 @@ const DiscussionBody = (props) => {
   };
   
   // Toggle edit form
-  const toggleEdit = () => {
+  const toggleEdit = (event) => {
     if(currentUser.uid !== document.data().creator_uid) {
       alert("You can't");
       return;
     }
+
+    // Auto set edit textarea height
+    const paragraph =  event.target.closest('.title-buttons').parentNode.querySelector('.title-content').childNodes[1];
+    let height = paragraph.scrollHeight;
+    setEditHeight(height);
     setEditShow(!editShow);
   };
 
@@ -211,10 +217,10 @@ const DiscussionBody = (props) => {
                   <img className='title-img' src={imgURL} alt='img' width='300px' />
                   {editShow
                     ? 
-                      <EditForm content={content} title={title} document={document} parentLayer={layer} rootUpdate={rootUpdate} toggleEdit={toggleEdit} />
+                      <EditForm height={editHeight} content={content} title={title} document={document} parentLayer={layer} rootUpdate={rootUpdate} toggleEdit={toggleEdit} />
                       
                     :
-                    <h2 className='scripting'>{content}</h2>
+                    <p className='scripting'>{content}</p>
                   }
                 </div>
 
