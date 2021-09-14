@@ -6,7 +6,7 @@ import BarLoader from 'react-spinners/BarLoader';
 
 const EditForm = (props) => {
   const { t } = useTranslation('edit');
-  const { height, content, title, document, parentLayer, rootUpdate, toggleEdit } = props;
+  const { hidden, height, content, title, document, parentLayer, rootUpdate, toggleEdit } = props;
   const spinnerCSS = css`
   display: block;
   margin: 0 auto;
@@ -79,7 +79,7 @@ const EditForm = (props) => {
   }, []);
 
   return (
-    <div className='edit-form-block'>
+    <div className={hidden}>
       <div className={layerClass}>
         {pageLoading
           ?

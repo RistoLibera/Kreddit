@@ -24,8 +24,8 @@ const DiscussionBody = (props) => {
   `;
   const [pageLoading, setPageLoading] = useState(true);
   const [beEditor, setBeEditor] = useState(false);
-  const [editShow, setEditShow] = useState(false);
-  const [formHidden, setFormHidden] = useState('hidden');
+  const [editHidden, setEditHidden] = useState('hidden');
+  const [replyHidden, setReplyHidden] = useState('hidden');
   const [group, setGroup] = useState('');
   const [symbolURL, setSymbolURL] = useState('');
   const [iconURL, setIconURL] = useState('');
@@ -45,11 +45,19 @@ const DiscussionBody = (props) => {
     setBeEditor(beCurrentEditor);
   };
 
-  const switchHidden = () => {
-    if (formHidden === 'hidden') {
-      setFormHidden('form-container');
+  const switchReplyHidden = () => {
+    if (replyHidden === 'hidden') {
+      setReplyHidden('form-container');
     } else {
-      setFormHidden('hidden');
+      setReplyHidden('hidden');
+    }
+  };
+
+  const switchEditHidden = () => {
+    if (editHidden === 'hidden') {
+      setEditHidden('form-container');
+    } else {
+      setEditHidden('hidden');
     }
   };
   
@@ -59,12 +67,11 @@ const DiscussionBody = (props) => {
       alert("You can't");
       return;
     }
-
     // Auto set edit textarea height
-    const paragraph =  event.target.closest('.title-buttons').parentNode.querySelector('.title-content').childNodes[1];
+    const paragraph =  event.target.closest('.title-buttons').parentNode.querySelector('.title-content').childNodes[2];
     let height = paragraph.scrollHeight;
     setEditHeight(height);
-    setEditShow(!editShow);
+    switchEditHidden();
   };
 
   // Calculate when was the discussion created
@@ -215,20 +222,15 @@ const DiscussionBody = (props) => {
 
                 <div className='title-content'>
                   <img className='title-img' src={imgURL} alt='img' width='300px' />
-                  {editShow
-                    ? 
-                      <EditForm height={editHeight} content={content} title={title} document={document} parentLayer={layer} rootUpdate={rootUpdate} toggleEdit={toggleEdit} />
-                      
-                    :
-                    <p className='scripting'>{content}</p>
-                  }
+                    <EditForm hidden={editHidden} height={editHeight} content={content} title={title} document={document} parentLayer={layer} rootUpdate={rootUpdate} toggleEdit={toggleEdit} />
+                    <p className={(editHidden === 'hidden' ?  'scripting' : 'hidden')} >{content}</p>
                 </div>
 
                 <div className='title-buttons'>
                   {currentUser
                     ?
                       <div className='interaction'>
-                        <button className='reply-discussion' onClick={switchHidden}>
+                        <button className='reply-discussion' onClick={switchReplyHidden}>
                           <FontAwesomeIcon icon={faReply} color='' size='2x' />
                         </button>
                         <button className='edit-discussion' onClick={toggleEdit} >
@@ -252,7 +254,7 @@ const DiscussionBody = (props) => {
                 </div>
               </div>
             </div>
-            <ReplyForm currentUser={currentUser} hidden={formHidden} document={document} parentLayer={layer} rootUpdate={rootUpdate} switchHidden={switchHidden} />
+            <ReplyForm currentUser={currentUser} hidden={replyHidden} document={document} parentLayer={layer} rootUpdate={rootUpdate} switchHidden={switchReplyHidden} />
           
             <SubDiscussionBody currentUser={currentUser} documents={subDocs} rootUpdate={rootUpdate} />
           </div>
