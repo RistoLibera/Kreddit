@@ -14,14 +14,15 @@ const OneSubdiscussion = (props) => {
   const title = '';
   const [beEditor, setBeEditor] = useState(false);
   const [layerClass, setLayerClass] =useState('');
-  const [editShow, setEditShow] = useState(false);
-  const [formHidden, setFormHidden] = useState('hidden');
+  const [editHidden, setEditHidden] = useState('hidden');
+  const [replyHidden, setReplyHidden] = useState('hidden');
   const [iconURL, setIconURL] = useState('');
   const [creator, setCreator] = useState('');
   const [time, setTime] = useState('');
   const [content, setContent] = useState('');
   const [rating, setRating] = useState(0);
   const [layer, setLayer] = useState(0);
+  const [editHeight, setEditHeight] = useState(0);
 
   const checkCurrentEditor = () => {
     let beCurrentEditor = currentUser.uid === document.data().creator_uid;
@@ -34,21 +35,35 @@ const OneSubdiscussion = (props) => {
     setLayerClass(className);
   };
 
-  const switchHidden = () => {
-    if (formHidden === 'hidden') {
-      setFormHidden('form-container');
+  const switchReplyHidden = () => {
+    if (replyHidden === 'hidden') {
+      setReplyHidden('reply-form-container');
     } else {
-      setFormHidden('hidden');
+      setReplyHidden('hidden');
+    }
+  };
+
+  const switchEditHidden = () => {
+    if (editHidden === 'hidden') {
+      setEditHidden('edit-form-container');
+    } else {
+      setEditHidden('hidden');
     }
   };
   
   // Toggle edit form
-  const toggleEdit = () => {
+  const toggleEdit = (event) => {
     if(currentUser.uid !== document.data().creator_uid) {
       alert("You can't");
       return;
     }
-    setEditShow(!editShow);
+    switchEditHidden();
+
+    // Auto set edit textarea height
+    if (!event) return;
+    const paragraph =  event.target.closest('.subdiscussion-buttons').parentNode.querySelector('.subdiscussion-content').childNodes[1];
+    let height = (paragraph.scrollHeight) + "px";
+    setEditHeight(height);
   };
 
   // Fetch creator icon
@@ -118,13 +133,8 @@ const OneSubdiscussion = (props) => {
       </header>
 
       <div className='subdiscussion-content'>
-        {editShow
-          ? 
-            <EditForm content={content} title={title} document={document} parentLayer={layer} rootUpdate={rootUpdate} toggleEdit={toggleEdit} />
-            
-          :
-          <h2>{content}</h2>
-        }
+        <EditForm hidden={editHidden} height={editHeight} content={content} title={title} document={document} parentLayer={layer} rootUpdate={rootUpdate} toggleEdit={toggleEdit} />
+        <p className={(editHidden === 'hidden' ?  'scripting' : 'hidden')} >{content}</p>
       </div>
 
       <div className='subdiscussion-buttons'>
@@ -132,7 +142,7 @@ const OneSubdiscussion = (props) => {
         {currentUser
           ?
             <div className='interaction'>
-              <button className='reply-discussion' onClick={switchHidden}>
+              <button className='reply-discussion' onClick={switchReplyHidden}>
                 <FontAwesomeIcon icon={faReply} color='' size='2x' />
               </button>
               <button className='edit-discussion' onClick={toggleEdit} >
@@ -154,7 +164,7 @@ const OneSubdiscussion = (props) => {
             </div>
           }
       </div>
-      <ReplyForm currentUser={currentUser} hidden={formHidden} document={document} parentLayer={layer} rootUpdate={rootUpdate} switchHidden={switchHidden} />
+      <ReplyForm currentUser={currentUser} hidden={replyHidden} document={document} parentLayer={layer} rootUpdate={rootUpdate} switchHidden={switchReplyHidden} />
     </div>
   );
 };

@@ -14,7 +14,7 @@ const EditForm = (props) => {
   `;
   const [pageLoading, setPageLoading] = useState(false);
   const [layerClass, setLayerClass] = useState('');
-  const [editedContent, setEditedContent] = useState(content);
+  const [editedContent, setEditedContent] = useState('');
 
   // Adjust textarea height
   const adjustHeight = (event) => {
@@ -22,7 +22,6 @@ const EditForm = (props) => {
     textareaHTML.style.height = "auto";
     textareaHTML.style.height = (textareaHTML.scrollHeight) + "px";
   };
-
 
   // Adjust block width
   const makeLayerClass = () => {
@@ -79,7 +78,8 @@ const EditForm = (props) => {
 
   useEffect(() => {
     makeLayerClass();
-  }, []);
+    setEditedContent(content);
+  }, [content]);
 
   return (
     <div className={hidden}>
@@ -106,8 +106,8 @@ const EditForm = (props) => {
                   </form>
                 :
                   <form className='edit-subdiscussion' onSubmit={handleEdit}>
-                    <fieldset>
-                      <textarea type='text' id='content' name='content' maxLength="200" defaultValue={editedContent} placeholder={t('content.content-holder')} required/>
+                    <fieldset className='modify-sub-text'>
+                      <textarea onChange={adjustHeight} style={{ height: height }} type='text' id='content' name='content' maxLength="500" defaultValue={editedContent} placeholder={t('content.content-holder')} required/>
                       <button type='submit' value='Submit'>{t('content.submit')}</button>
                     </fieldset>
                   </form>

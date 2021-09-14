@@ -224,8 +224,8 @@ const DiscussionBody = (props) => {
 
                 <div className='title-content'>
                   <img className='title-img' src={imgURL} alt='img' width='300px' />
-                    <EditForm hidden={editHidden} height={editHeight} content={content} title={title} document={document} parentLayer={layer} rootUpdate={rootUpdate} toggleEdit={toggleEdit} />
-                    <p className={(editHidden === 'hidden' ?  'scripting' : 'hidden')} >{content}</p>
+                  <EditForm hidden={editHidden} height={editHeight} content={content} title={title} document={document} parentLayer={layer} rootUpdate={rootUpdate} toggleEdit={toggleEdit} />
+                  <p className={(editHidden === 'hidden' ?  'scripting' : 'hidden')} >{content}</p>
                 </div>
 
                 <div className='title-buttons'>
