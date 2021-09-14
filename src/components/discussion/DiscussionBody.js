@@ -187,8 +187,8 @@ const DiscussionBody = (props) => {
         :
           <div className='discussion-content'>
             <div className='group'>
-              <img src={symbolURL} alt='symbol' width='40px' height='40px'/>
-              <h2>{group}</h2>
+              <span className='group-symbol' style={{ backgroundImage: `url('${symbolURL}')` }} ></span>
+              <h2 className='group-name'>{group}</h2>
             </div>
             
             <div className='title'>

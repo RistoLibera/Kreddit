@@ -14,10 +14,27 @@
 
 .discussion-page {
   height: 100%;
-  padding-top: 6rem;
+  padding-top: 5rem;
 }
 .discussion-page .hidden {
   display: none;
+}
+.discussion-page .discussion-content .group {
+  padding: 10px 40px;
+  margin-bottom: 10px;
+  background-color: #ac9a37;
+}
+.discussion-page .discussion-content .group .group-symbol {
+  border: none;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+.discussion-page .discussion-content .group .group-name {
+  font-size: 2rem;
 }
 .discussion-page .discussion-content .title {
   justify-content: space-evenly;

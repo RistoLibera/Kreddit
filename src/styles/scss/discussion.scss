@@ -3,7 +3,7 @@
 // One discussion page
 .discussion-page {
   height: 100%;
-  padding-top: 6rem;
+  padding-top: 5rem;
 
   .hidden {
     display: none;
@@ -12,7 +12,23 @@
   .discussion-content{
     .group {
       @extend %flex-row-direction;
+      padding: 10px 40px;
+      margin-bottom: 10px;
+      background-color: rgb(172, 154, 55);
+      
+      .group-symbol {
+        border: none;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;  
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+      }
 
+      .group-name {
+        font-size: 2rem;
+      }
     }
 
     .title {
