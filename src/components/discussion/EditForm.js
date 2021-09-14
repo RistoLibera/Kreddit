@@ -84,7 +84,7 @@ const EditForm = (props) => {
                 ?
                   <form className='edit-discussion' onSubmit={handleEdit}>
                     <fieldset>
-                      <textarea type='text' id='content' name='content' maxLength="200" defaultValue={content} placeholder={t('content.content-holder')} required/><br></br>
+                      <textarea type='text' id='content' name='content' maxLength="500" defaultValue={content} placeholder={t('content.content-holder')} required/><br></br>
                       <label htmlFor='attachment'>{t('content.attachment')}</label>
                       <input type='file' id='attachment' name='attachment'/><br></br>
                       <button type='submit' value='Submit'>{t('content.submit')}</button>

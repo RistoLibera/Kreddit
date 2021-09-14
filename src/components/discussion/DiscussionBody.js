@@ -196,20 +196,25 @@ const DiscussionBody = (props) => {
 
               <div className='title-body'>
                 <header className='body-header'>
-                  <img src={iconURL} alt='icon' width='30px' height='30px'/>
-                  <h1>{creator}</h1>
-                  <h1>{title}</h1>
-                  <h1>{time}</h1>
+                  <div className="creator">
+                    <span className='group-symbol' style={{ backgroundImage: `url('${iconURL}')` }} ></span>
+                    <h1 className='name'>{creator}</h1>
+                    <h1 className='time'>{time}</h1>
+                  </div>
+
+                  <div className="title-name">
+                    <h1>{title}</h1>
+                  </div>
                 </header>
 
                 <div className='title-content'>
-                  <img src={imgURL} alt='img' width='70px' />
+                  <img className='title-img' src={imgURL} alt='img' width='300px' />
                   {editShow
                     ? 
                       <EditForm content={content} title={title} document={document} parentLayer={layer} rootUpdate={rootUpdate} toggleEdit={toggleEdit} />
                       
                     :
-                    <h2>{content}</h2>
+                    <h2 className='scripting'>{content}</h2>
                   }
                 </div>
 

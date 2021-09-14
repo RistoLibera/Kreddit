@@ -186,7 +186,7 @@ const CreateDiscussion = (props) => {
 
             <fieldset className='input-content'>
               <label htmlFor='content'>{t('content.content')}</label>
-              <textarea rows="5" cols='50' type='text' id='content' name='content' maxLength="200" placeholder={t('content.content-holder')} required/><br></br>
+              <textarea rows="5" cols='50' type='text' id='content' name='content' maxLength="500" placeholder={t('content.content-holder')} required/><br></br>
             </fieldset>
 
             <fieldset className='upload'>
