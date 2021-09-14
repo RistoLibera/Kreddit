@@ -1,11 +1,11 @@
-.discussion-page .discussion-container .discussion-content .group, .discussion-page .discussion-container .discussion-content .title .title-body .body-header .creator, .discussion-page .discussion-container .discussion-content .title .title-body .title-content .form-container, .discussion-page .discussion-container .discussion-content .title .title-body .title-content .form-container .edit-layer-0 .ternary .edit-discussion .upload, .discussion-page .discussion-container .discussion-content .title .title-body .title-buttons, .discussion-page .discussion-container .discussion-content .title .title-body .title-buttons .interaction, .discussion-page .discussion-container .discussion-content .subdiscussion-container div[class^=content-layer] .subdiscussion-header, .discussion-page .discussion-container .discussion-content .subdiscussion-container div[class^=content-layer] .subdiscussion-content, .discussion-page .discussion-container .discussion-content .subdiscussion-container div[class^=content-layer] .subdiscussion-buttons, .discussion-page .discussion-container .discussion-content .subdiscussion-container div[class^=content-layer] .subdiscussion-buttons .interaction {
+.discussion-page .discussion-container .discussion-content .group, .discussion-page .discussion-container .discussion-content .title .title-body .body-header .creator, .discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container, .discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container .edit-layer-0 .ternary .edit-discussion .upload, .discussion-page .discussion-container .discussion-content .title .title-body .title-buttons, .discussion-page .discussion-container .discussion-content .title .title-body .title-buttons .interaction, .discussion-page .discussion-container .discussion-content .title .reply-form-container, .discussion-page .discussion-container .discussion-content .title .reply-form-container .reply-layer-0 form fieldset .reply-buttons, .discussion-page .discussion-container .discussion-content .title .reply-form-container .reply-layer-0 form fieldset .reply-buttons .syntax-buttons, .discussion-page .discussion-container .discussion-content .title .reply-form-container .reply-layer-0 form fieldset .reply-buttons .creation-buttons, .discussion-page .discussion-container .discussion-content .subdiscussion-container div[class^=content-layer] .subdiscussion-header, .discussion-page .discussion-container .discussion-content .subdiscussion-container div[class^=content-layer] .subdiscussion-content, .discussion-page .discussion-container .discussion-content .subdiscussion-container div[class^=content-layer] .subdiscussion-buttons, .discussion-page .discussion-container .discussion-content .subdiscussion-container div[class^=content-layer] .subdiscussion-buttons .interaction {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
-.discussion-page .discussion-container .discussion-content .title .title-rating, .discussion-page .discussion-container .discussion-content .title .title-body, .discussion-page .discussion-container .discussion-content .title .title-body .body-header, .discussion-page .discussion-container .discussion-content .title .title-body .title-content, .discussion-page .discussion-container .discussion-content .title .title-body .title-content .form-container .edit-layer-0 .ternary .edit-discussion, .discussion-page .discussion-container .discussion-content .subdiscussion-container, .discussion-page .discussion-container .discussion-content .subdiscussion-container div[class^=content-layer] {
+.discussion-page .discussion-container .discussion-content .title .title-rating, .discussion-page .discussion-container .discussion-content .title .title-body, .discussion-page .discussion-container .discussion-content .title .title-body .body-header, .discussion-page .discussion-container .discussion-content .title .title-body .title-content, .discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container .edit-layer-0 .ternary .edit-discussion, .discussion-page .discussion-container .discussion-content .title .reply-form-container .reply-layer-0 form, .discussion-page .discussion-container .discussion-content .subdiscussion-container, .discussion-page .discussion-container .discussion-content .subdiscussion-container div[class^=content-layer] {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -38,7 +38,7 @@
 }
 .discussion-page .discussion-container .discussion-content .title {
   display: grid;
-  grid-template-rows: auto;
+  grid-template-rows: auto auto;
   grid-template-columns: 50px 1fr;
   justify-content: space-between;
   align-items: initial;
@@ -60,7 +60,7 @@
 }
 .discussion-page .discussion-container .discussion-content .title .title-body {
   justify-content: space-between;
-  padding: 0 30px;
+  padding-left: 30px;
 }
 .discussion-page .discussion-container .discussion-content .title .title-body .body-header {
   align-self: flex-start;
@@ -93,36 +93,35 @@
   font-size: 2rem;
 }
 .discussion-page .discussion-container .discussion-content .title .title-body .title-content {
-  padding: 20px 0;
+  padding: 20px 0 10px 0;
   width: 100%;
 }
 .discussion-page .discussion-container .discussion-content .title .title-body .title-content .title-img {
-  padding-left: 80px;
   width: 600px;
 }
-.discussion-page .discussion-container .discussion-content .title .title-body .title-content .form-container {
+.discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container {
   margin: 30px 20px 15px 5px;
   justify-content: flex-start;
 }
-.discussion-page .discussion-container .discussion-content .title .title-body .title-content .form-container .edit-layer-0 .ternary .edit-discussion .upload {
+.discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container .edit-layer-0 .ternary .edit-discussion .upload {
   margin: 0;
 }
-.discussion-page .discussion-container .discussion-content .title .title-body .title-content .form-container .edit-layer-0 .ternary .edit-discussion .upload #img {
+.discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container .edit-layer-0 .ternary .edit-discussion .upload #img {
   border: 2px solid black;
   cursor: pointer;
   padding: 6px 3px;
   margin-top: 5px;
 }
-.discussion-page .discussion-container .discussion-content .title .title-body .title-content .form-container .edit-layer-0 .ternary .edit-discussion .upload #files {
+.discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container .edit-layer-0 .ternary .edit-discussion .upload #files {
   display: none;
 }
-.discussion-page .discussion-container .discussion-content .title .title-body .title-content .form-container .edit-layer-0 .ternary .edit-discussion fieldset {
+.discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container .edit-layer-0 .ternary .edit-discussion fieldset {
   border: none;
   padding: 0;
   margin: 8px 0;
   position: relative;
 }
-.discussion-page .discussion-container .discussion-content .title .title-body .title-content .form-container .edit-layer-0 .ternary .edit-discussion fieldset textarea {
+.discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container .edit-layer-0 .ternary .edit-discussion fieldset textarea {
   line-height: 1.3;
   resize: none;
   color: #333333;
@@ -132,7 +131,7 @@
   overflow-y: hidden;
   min-height: 100px;
 }
-.discussion-page .discussion-container .discussion-content .title .title-body .title-content .form-container .edit-layer-0 .ternary .edit-discussion fieldset button {
+.discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container .edit-layer-0 .ternary .edit-discussion fieldset button {
   font-size: 1rem;
   display: block;
   text-decoration: none;
@@ -146,6 +145,51 @@
   max-width: 700px;
   line-height: 1.3;
   white-space: pre-line;
+}
+.discussion-page .discussion-container .discussion-content .title .title-body .title-buttons .interaction button {
+  font-size: 1rem;
+  display: block;
+  text-decoration: none;
+  margin: 0 18px;
+  padding: 5px 5px;
+  border-radius: 5px;
+}
+.discussion-page .discussion-container .discussion-content .title .reply-form-container {
+  margin: 30px 20px 15px 5px;
+  grid-column: 1/span 2;
+}
+.discussion-page .discussion-container .discussion-content .title .reply-form-container .reply-layer-0 {
+  width: 100%;
+}
+.discussion-page .discussion-container .discussion-content .title .reply-form-container .reply-layer-0 form fieldset {
+  border: none;
+  padding: 0;
+  margin: 8px 0;
+  position: relative;
+}
+.discussion-page .discussion-container .discussion-content .title .reply-form-container .reply-layer-0 form fieldset textarea {
+  line-height: 1.3;
+  resize: none;
+  color: #333333;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.2);
+  width: 600px;
+  overflow-y: hidden;
+  min-height: 100px;
+}
+.discussion-page .discussion-container .discussion-content .title .reply-form-container .reply-layer-0 form fieldset .reply-buttons button {
+  font-size: 1rem;
+  display: block;
+  text-decoration: none;
+  margin: 5px 0;
+  padding: 10px 10px;
+  border-radius: 5px;
+}
+.discussion-page .discussion-container .discussion-content .title .reply-form-container .reply-layer-0 form fieldset .reply-buttons .syntax-buttons {
+  font-size: 0.7rem;
+}
+.discussion-page .discussion-container .discussion-content .title .reply-form-container .reply-layer-0 form fieldset .reply-buttons .syntax-buttons svg {
+  padding: 0 7px;
 }
 .discussion-page .discussion-container .discussion-content .subdiscussion-container div[class^=content-layer] {
   margin: 20px 0;

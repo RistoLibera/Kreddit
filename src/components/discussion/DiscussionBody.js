@@ -47,7 +47,7 @@ const DiscussionBody = (props) => {
 
   const switchReplyHidden = () => {
     if (replyHidden === 'hidden') {
-      setReplyHidden('form-container');
+      setReplyHidden('reply-form-container');
     } else {
       setReplyHidden('hidden');
     }
@@ -55,7 +55,7 @@ const DiscussionBody = (props) => {
 
   const switchEditHidden = () => {
     if (editHidden === 'hidden') {
-      setEditHidden('form-container');
+      setEditHidden('edit-form-container');
     } else {
       setEditHidden('hidden');
     }
@@ -255,8 +255,9 @@ const DiscussionBody = (props) => {
                   }
                 </div>
               </div>
+              <ReplyForm currentUser={currentUser} hidden={replyHidden} document={document} parentLayer={layer} rootUpdate={rootUpdate} switchHidden={switchReplyHidden} />
+
             </div>
-            <ReplyForm currentUser={currentUser} hidden={replyHidden} document={document} parentLayer={layer} rootUpdate={rootUpdate} switchHidden={switchReplyHidden} />
           
             <SubDiscussionBody currentUser={currentUser} documents={subDocs} rootUpdate={rootUpdate} />
           </div>

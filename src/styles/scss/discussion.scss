@@ -35,7 +35,7 @@
 
       .title {
         display: grid;
-        grid-template-rows: auto;
+        grid-template-rows: auto auto;
         grid-template-columns: 50px 1fr;
         justify-content: space-between;
         align-items: initial;
@@ -63,7 +63,7 @@
           @extend %flex-column-direction;
           justify-content: space-between;
           // align-items: flex-start;
-          padding: 0 30px;
+          padding-left: 30px;
 
           .body-header {
             @extend %flex-column-direction;
@@ -104,16 +104,15 @@
           }
 
           .title-content {
-            padding: 20px 0;
+            padding: 20px 0 10px 0;
             @extend %flex-column-direction;
             width: 100%;
 
             .title-img {
-              padding-left: 80px;
               width: 600px;
             }
 
-            .form-container {
+            .edit-form-container {
               margin: 30px 20px 15px 5px;
               @extend %flex-row-direction;
               justify-content: flex-start;
@@ -185,6 +184,72 @@
             .interaction {
             @extend %flex-row-direction;
 
+              button {
+                font-size: 1rem;
+                display: block;
+                text-decoration: none;
+                margin: 0 18px;
+                padding: 5px 5px;
+                border-radius: 5px;          
+              }      
+            }
+          }
+        }
+
+        .reply-form-container {
+          margin: 30px 20px 15px 5px;
+          @extend %flex-row-direction;
+          grid-column: 1 / span 2;
+        
+          .reply-layer-0 {
+            width: 100%;
+        
+            form {
+              @extend %flex-column-direction;
+        
+              fieldset {
+                border: none;
+                padding: 0;
+                margin: 8px 0;
+                position: relative;
+                      
+                textarea {
+                  line-height: 1.3;
+                  resize: none;
+                  color: hsl(0, 0, 20);
+                  border: 1px solid hsla(0, 0, 0, 0.3);
+                  box-shadow: inset 0 1px 4px hsla(0, 0, 0, 0.2);
+                  width: 600px;
+                  overflow-y:hidden;
+                  min-height: 100px;
+                }
+            
+                .reply-buttons {
+                  @extend %flex-row-direction;
+        
+                  button {
+                    font-size: 1rem;
+                    display: block;
+                    text-decoration: none;
+                    margin: 5px 0;
+                    padding: 10px 10px;
+                    border-radius: 5px;          
+                  }      
+        
+                  .syntax-buttons {
+                    @extend %flex-row-direction;
+                    font-size: 0.7rem;
+        
+                    svg {
+                    padding: 0 7px;
+                    }
+                  }
+        
+                  .creation-buttons {
+                    @extend %flex-row-direction;
+                  }
+                }
+              }           
             }
           }
         }
@@ -219,3 +284,5 @@
     }
   }
 }
+
+
