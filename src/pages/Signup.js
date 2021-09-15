@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMars, faVenus } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faTwitter, faGoogle, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { css } from '@emotion/react';
-import BarLoader from 'react-spinners/BarLoader';
+import ClockLoader from 'react-spinners/ClockLoader';
 import FirebasePack from '../config/FirebasePack';
 import handleFirebaseError from '../components/error/handleFirebaseError';
 import SelectCountry from '../components/user/SelectCountry';
@@ -21,6 +21,10 @@ const Signup = () => {
   const history = useHistory();
   const spinnerCSS = css`
   display: block;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
   margin: 0 auto;
   border-color: red;
   `;
@@ -108,7 +112,7 @@ const Signup = () => {
       {pageLoading
         ?
           <div className='page-loader'>
-            <BarLoader color='#D5D736' css={spinnerCSS} size={150} />
+            <ClockLoader color='#8E5829' css={spinnerCSS} size={100} />
           </div>
         :
           <div className='signup-container'>
