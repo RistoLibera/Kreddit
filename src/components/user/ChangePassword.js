@@ -98,7 +98,7 @@ const ChangePassword = (props) => {
       <div className="change-password">
         {pageLoading
           ?
-            <div className='page-loader'>
+            <div className='block-loader'>
               <BarLoader color='#D5D736' css={spinnerCSS} size={150} />
             </div>
           :

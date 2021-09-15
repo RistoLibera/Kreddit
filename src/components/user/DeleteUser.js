@@ -156,7 +156,7 @@ const DeleteUser = (props) => {
       <div className='delete-user'>
         {pageLoading
           ?
-            <div className='page-loader'>
+            <div className='block-loader'>
               <BarLoader color='#D5D736' css={spinnerCSS} size={150} />
             </div>
           :
