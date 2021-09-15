@@ -40,8 +40,13 @@
         justify-content: space-between;
         align-items: initial;
         padding: 10px 5px;
-        margin: 0 5px;
-
+        margin: 0 15px;
+        margin: 20px;
+        box-shadow: 0 2.5rem 2rem -2rem hsl(200 50% 20% / 40%);
+        border-radius: 2ch;
+        border: 2px solid  hsl(0 0% 70%);
+        background: hsl(0 0% 100%);
+        
         .title-rating {
           @extend %flex-column-direction;
           justify-content: flex-start;
@@ -261,15 +266,24 @@
         align-items: flex-end;
 
         li[class^="content-layer"] {
-          @extend %flex-column-direction;
-          justify-content: space-between;
-          min-height: 150px;
-          margin: 10px 0;
-          
+          display: grid;
+          grid-template-rows: auto auto auto;
+          grid-template-columns: 1fr 1fr 1fr;
+          min-height: 180px;
+          margin: 10px 10px;
+          padding: 5px;
+          box-shadow: 0 2.5rem 2rem -2rem hsl(200 50% 20% / 40%);
+          border-radius: 2ch;
+          border: 1.5px solid  hsl(0 0% 70%);
+          background: hsl(0 0% 100%);
+            
           .subdiscussion-header {
+            justify-self: flex-start;
+            grid-column: 1 / span 1;
             @extend %flex-row-direction;
 
             .user-icon {
+              display: inline-block;
               background-size: cover;
               background-repeat: no-repeat;
               background-position: center;  
@@ -281,10 +295,16 @@
           }
 
           .subdiscussion-content {
-            @extend %flex-row-direction;
+            grid-column: 1 / span 3;
+            grid-row: 2 /span 1;
+            word-wrap: break-word;
+            overflow: hidden;
+            padding: 20px 40px;
           }
 
           .subdiscussion-buttons {
+            grid-column: 1 / span 3;
+            grid-row: 3 /span 1;
             @extend %flex-row-direction;
 
             .interaction {
@@ -295,10 +315,9 @@
         }
 
         $content-layer: content-layer;
-        @for $i from 1 through 4 {
+        @for $i from 1 through 10 {
           .#{$content-layer}-#{$i} {
-            width: 90% - 10 * $i;
-            border: 1px solid black;
+            width: 90% - 10 * ($i - 1);
 
           }
         }
