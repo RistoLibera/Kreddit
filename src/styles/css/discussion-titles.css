@@ -68,6 +68,9 @@
 .discussions-page .discussions-container header #create-discussion {
   margin: 15px 0;
 }
+.discussions-page .discussions-container header #create-discussion .block-loader {
+  padding: 20px 0;
+}
 .discussions-page .discussions-container header #create-discussion form fieldset {
   border: none;
   padding: 0;

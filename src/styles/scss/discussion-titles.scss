@@ -68,7 +68,11 @@
 
       #create-discussion {
         margin: 15px 0;
-        
+
+        .block-loader {
+          padding: 20px 0;
+        }
+
         form {
           @extend %flex-column-direction;
 

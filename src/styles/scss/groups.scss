@@ -282,6 +282,10 @@
       }
 
       #create-group {
+        .block-loader {
+          padding: 20px 0;
+        }
+
         form {
           @extend %flex-column-direction;
 

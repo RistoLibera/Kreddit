@@ -163,7 +163,7 @@ const CreateDiscussion = (props) => {
     <div className={hidden} id='create-discussion'>
       {pageLoading
         ?
-          <div className='page-loader'>
+          <div className='block-loader'>
             <BarLoader color='#D5D736' css={spinnerCSS} size={150} />
           </div>
         :

@@ -263,6 +263,9 @@
   border-radius: 5px;
   margin-right: 3rem;
 }
+.groups-page .group-container header #create-group .block-loader {
+  padding: 20px 0;
+}
 .groups-page .group-container header #create-group form legend {
   font-size: 1.6rem;
   padding-bottom: 0.3rem;
