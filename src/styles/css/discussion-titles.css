@@ -132,6 +132,15 @@
   appearance: none;
   text-align: center;
 }
+.discussions-page .discussions-container .discussions-list .page-loader {
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+}
 .discussions-page .discussions-container .discussions-list .card .statistics .trend {
   padding-top: 10px;
   padding-bottom: 8px;
