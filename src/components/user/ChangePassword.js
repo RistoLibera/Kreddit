@@ -123,7 +123,7 @@ const ChangePassword = (props) => {
   } else {
     return (
       <div className='lock'>
-        <img src={Lock} alt='Lock' width="50px"></img>
+        <img src={Lock} alt='Lock' width="150px"></img>
       </div>
       );
   }

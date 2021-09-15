@@ -5,7 +5,7 @@
   align-items: center;
 }
 
-.profile-page, .profile-page .profile-container, .profile-page .profile-container .upper-profile .info, .profile-page .profile-container .upper-profile .info .lower-info .groups .as-creator span, .profile-page .profile-container .upper-profile .info .lower-info .groups .as-member span, .profile-page .profile-container .upper-profile .registration .change-password .change-container form, .profile-page .profile-container .upper-profile .registration .change-password .change-container form fieldset, .profile-page .profile-container .upper-profile .registration .delete-user .delete-container form, .profile-page .profile-container .upper-profile .registration .delete-user .delete-container form fieldset, .profile-page .profile-container .lower-profile {
+.profile-page, .profile-page .profile-container, .profile-page .profile-container .upper-profile .info, .profile-page .profile-container .upper-profile .info .lower-info .groups .as-creator span, .profile-page .profile-container .upper-profile .info .lower-info .groups .as-member span, .profile-page .profile-container .upper-profile .registration .lock, .profile-page .profile-container .upper-profile .registration .change-password .change-container form, .profile-page .profile-container .upper-profile .registration .change-password .change-container form fieldset, .profile-page .profile-container .upper-profile .registration .delete-user .delete-container form, .profile-page .profile-container .upper-profile .registration .delete-user .delete-container form fieldset, .profile-page .profile-container .lower-profile {
   display: flex;
   flex-direction: column;
   justify-content: center;
