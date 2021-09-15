@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
   const changeCurrentUser = () => {
     FirebasePack.auth().onAuthStateChanged((user) => {
       setCurrentUser(user);
-      // setPending(false);
+      setPending(false);
     });  
   };
 
