@@ -4,9 +4,9 @@ import { AuthContext } from '../loading/Auth';
 import { DateTime, Interval } from "luxon";
 import FirebasePack from '../../config/FirebasePack';
 import { css } from '@emotion/react';
-import ClockLoader from 'react-spinners/ClockLoader';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faReply, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import ClockLoader from 'react-spinners/ClockLoader';
 import DefaultIcon from '../../assets/img/default-icon.jpg';
 import DefaultSymbol from '../../assets/img/default-symbol.png';
 import ReplyForm from './ReplyForm';
@@ -21,6 +21,10 @@ const DiscussionBody = (props) => {
   const history = useHistory();
   const spinnerCSS = css`
   display: block;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
   margin: 0 auto;
   border-color: red;
   `;
@@ -201,7 +205,7 @@ const DiscussionBody = (props) => {
       {pageLoading 
         ?
           <div className='page-loader'>
-            <ClockLoader color='#D5D736' css={spinnerCSS} size={50} />
+            <ClockLoader color='#8E5829' css={spinnerCSS} size={100} />
           </div>
         :
           <div className='discussion-content'>
