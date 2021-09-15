@@ -46,7 +46,7 @@ const Titles = (props) => {
 
   return (
     <div className='title-blocks'>
-      <ol class="gradient-list">
+      <ol className="gradient-list">
         {listTags.map((li) => {
           return (
             li
