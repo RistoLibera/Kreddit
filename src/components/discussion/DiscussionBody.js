@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import { AuthContext } from '../loading/Auth';
 import { DateTime, Interval } from "luxon";
 import FirebasePack from '../../config/FirebasePack';
@@ -17,6 +18,7 @@ import SubDiscussionBody from './SubDiscussionBody';
 const DiscussionBody = (props) => {
   const { currentUser } = useContext(AuthContext);
   const { document, rootUpdate } = props;
+  const history = useHistory();
   const spinnerCSS = css`
   display: block;
   margin: 0 auto;
@@ -32,6 +34,7 @@ const DiscussionBody = (props) => {
   const [title, setTitle] = useState('');
   const [imgURL, setImgURL] = useState('');
   const [creator, setCreator] = useState('');
+  const [creatorUID, setCreatorUID] = useState('');
   const [time, setTime] = useState('');
   const [content, setContent] = useState('');
   const [rating, setRating] = useState(0);
@@ -150,6 +153,7 @@ const DiscussionBody = (props) => {
   const fetchTitleContent = async () => {
     let data = document.data();
     calculateTime(data);
+    setCreatorUID(data.creator_uid);
     await getIcon(data.creator_uid);
     await getSymbol(data.group_name);
     await getImg(data.title);
@@ -211,7 +215,7 @@ const DiscussionBody = (props) => {
 
               <div className='title-body'>
                 <header className='body-header'>
-                  <div className="creator">
+                  <div className="creator"  onClick={() => history.push('/profile/' + creatorUID)}>
                     <span className='group-symbol' style={{ backgroundImage: `url('${iconURL}')` }} ></span>
                     <h1 className='name'>{creator}</h1>
                     <h1 className='time'>{time}</h1>

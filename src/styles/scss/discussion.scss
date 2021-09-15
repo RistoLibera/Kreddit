@@ -80,6 +80,7 @@
             align-self: flex-start;
 
             .creator {
+              cursor: pointer;
               @extend %flex-row-direction;
               width: 100%;
               justify-content: flex-start;
@@ -284,6 +285,7 @@
             background: hsl(0 0% 100%);
 
             .subdiscussion-header {
+              cursor: pointer;
               justify-self: flex-start;
               grid-column: 1 / span 1;
               grid-row: 1 / span 1;

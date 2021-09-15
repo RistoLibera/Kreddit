@@ -75,6 +75,7 @@
   align-self: flex-start;
 }
 .discussion-page .discussion-container .discussion-content .title .title-body .body-header .creator {
+  cursor: pointer;
   width: 100%;
   justify-content: flex-start;
 }
@@ -224,6 +225,7 @@
   background: white;
 }
 .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .subdiscussion-content .subdiscussion-header {
+  cursor: pointer;
   justify-self: flex-start;
   grid-column: 1/span 1;
   grid-row: 1/span 1;

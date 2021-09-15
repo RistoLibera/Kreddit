@@ -1,4 +1,5 @@
 import React, { useState, useEffect }  from 'react';
+import { useHistory } from 'react-router-dom';
 import { DateTime, Interval } from "luxon";
 import FirebasePack from '../../config/FirebasePack';
 import DefaultIcon from '../../assets/img/default-icon.jpg';
@@ -11,6 +12,7 @@ import { faEdit, faReply, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 const OneSubdiscussion = (props) => {
   const { currentUser, document, rootUpdate } = props;
+  const history = useHistory();
   const title = '';
   const [beEditor, setBeEditor] = useState(false);
   const [layerClass, setLayerClass] =useState('');
@@ -18,6 +20,7 @@ const OneSubdiscussion = (props) => {
   const [replyHidden, setReplyHidden] = useState('hidden');
   const [iconURL, setIconURL] = useState('');
   const [creator, setCreator] = useState('');
+  const [creatorUID, setCreatorUID] = useState('');
   const [time, setTime] = useState('');
   const [content, setContent] = useState('');
   const [rating, setRating] = useState(0);
@@ -109,6 +112,7 @@ const OneSubdiscussion = (props) => {
 
   const decypherDocument = async () => {
     let data = document.data();
+    setCreatorUID(data.creator_uid);
     await getIcon(data.creator_uid);
     setCreator(data.creator_name);
     calculateTime(data);
@@ -127,7 +131,7 @@ const OneSubdiscussion = (props) => {
   return (
     <li className={layerClass}>
       <div className="subdiscussion-content">
-        <header className='subdiscussion-header'>
+        <header className='subdiscussion-header' onClick={() => history.push('/profile/' + creatorUID)}>
           <span className='user-icon' style={{ backgroundImage: `url('${iconURL}')` }} ></span>
           <h1 className='name'>{creator}</h1>
           <h1 className='time'>{time}</h1>
