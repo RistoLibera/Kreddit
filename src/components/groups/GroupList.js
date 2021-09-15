@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowAltCircleRight, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import FirebasePack from '../../config/FirebasePack';
 import { css } from '@emotion/react';
-import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
+import ClockLoader from 'react-spinners/ClockLoader';
 
 const GroupList = (props) => {
   const { t } = useTranslation('group');
@@ -188,7 +188,7 @@ const GroupList = (props) => {
       {pageLoading 
         ?
           <div className='page-loader'>
-            <ClimbingBoxLoader color='#D5D736' css={spinnerCSS} size={50} />
+            <ClockLoader color='#D5D736' css={spinnerCSS} size={50} />
           </div>
         :
           <ul>

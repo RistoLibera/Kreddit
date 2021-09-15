@@ -216,11 +216,17 @@
           }
 
           h3 {
+            width: 80px;
+            text-align: center;
             padding-top: 10px;
-            font-size: 2rem;
+            font-size: 1.3rem;
             padding-bottom: 10px;
             overflow: hidden;
-            text-overflow: clip;
+            text-overflow: ellipsis;
+          }
+
+          a {
+            font-size: 1.7rem;
           }
 
           a:hover {

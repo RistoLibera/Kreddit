@@ -8,7 +8,7 @@ import FirebasePack from '../../config/FirebasePack';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComments, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
 import { css } from '@emotion/react';
-import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
+import ClockLoader from 'react-spinners/ClockLoader';
 
 const DiscussionsList = (props) => {
   const { t } = useTranslation('discussion');
@@ -170,7 +170,7 @@ const DiscussionsList = (props) => {
       {pageLoading 
         ?
           <div className='page-loader'>
-            <ClimbingBoxLoader color='#D5D736' css={spinnerCSS} size={50} />
+            <ClockLoader color='#D5D736' css={spinnerCSS} size={50} />
           </div>
         :
           <ul className='center list flex-column'>

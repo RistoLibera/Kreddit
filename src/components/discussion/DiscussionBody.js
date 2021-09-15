@@ -3,7 +3,7 @@ import { AuthContext } from '../loading/Auth';
 import { DateTime, Interval } from "luxon";
 import FirebasePack from '../../config/FirebasePack';
 import { css } from '@emotion/react';
-import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader';
+import ClockLoader from 'react-spinners/ClockLoader';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faReply, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import DefaultIcon from '../../assets/img/default-icon.jpg';
@@ -197,7 +197,7 @@ const DiscussionBody = (props) => {
       {pageLoading 
         ?
           <div className='page-loader'>
-            <ClimbingBoxLoader color='#D5D736' css={spinnerCSS} size={50} />
+            <ClockLoader color='#D5D736' css={spinnerCSS} size={50} />
           </div>
         :
           <div className='discussion-content'>

@@ -180,11 +180,16 @@
   width: 130px;
 }
 .app-header .right-bar .user-bar .dropdown #dropdown-menu h3 {
+  width: 80px;
+  text-align: center;
   padding-top: 10px;
-  font-size: 2rem;
+  font-size: 1.3rem;
   padding-bottom: 10px;
   overflow: hidden;
-  text-overflow: clip;
+  text-overflow: ellipsis;
+}
+.app-header .right-bar .user-bar .dropdown #dropdown-menu a {
+  font-size: 1.7rem;
 }
 .app-header .right-bar .user-bar .dropdown #dropdown-menu a:hover {
   color: #b39804;

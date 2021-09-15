@@ -224,6 +224,8 @@
   overflow: visible;
 }
 .discussions-page .discussions-container .discussions-list .list .card.open .info {
+  height: 100px;
+  align-self: self-end;
   width: 300px;
 }
 .discussions-page .discussions-container .discussions-list .list .card.open .info .title {
@@ -233,6 +235,8 @@
   display: none;
 }
 .discussions-page .discussions-container .discussions-list .list .card.open .info .content {
+  height: 100%;
+  overflow: hidden;
   letter-spacing: 1px;
   font-size: 0.9rem;
   display: block;

@@ -279,6 +279,8 @@
               overflow:visible;
             }
             & .info {
+              height: 100px;
+              align-self: self-end;
               width: 300px;
 
               & .title {
@@ -290,6 +292,8 @@
               }
 
               & .content {
+                height: 100%;
+                overflow: hidden;
                 letter-spacing: 1px;
                 font-size: 0.9rem;
                 display: block;
