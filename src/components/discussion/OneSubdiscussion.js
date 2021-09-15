@@ -61,7 +61,7 @@ const OneSubdiscussion = (props) => {
 
     // Auto set edit textarea height
     if (!event) return;
-    const paragraph =  event.target.closest('.subdiscussion-buttons').parentNode.querySelector('.subdiscussion-content').childNodes[1];
+    const paragraph =  event.target.closest('.subdiscussion-buttons').parentNode.querySelector('.reply-content').childNodes[1];
     let height = (paragraph.scrollHeight) + "px";
     setEditHeight(height);
   };
@@ -126,43 +126,45 @@ const OneSubdiscussion = (props) => {
 
   return (
     <li className={layerClass}>
-      <header className='subdiscussion-header'>
-        <span className='user-icon' style={{ backgroundImage: `url('${iconURL}')` }} ></span>
-        <h1 className='name'>{creator}</h1>
-        <h1 className='time'>{time}</h1>
-      </header>
+      <div className="subdiscussion-content">
+        <header className='subdiscussion-header'>
+          <span className='user-icon' style={{ backgroundImage: `url('${iconURL}')` }} ></span>
+          <h1 className='name'>{creator}</h1>
+          <h1 className='time'>{time}</h1>
+        </header>
 
-      <div className='subdiscussion-content'>
-        <EditForm hidden={editHidden} height={editHeight} content={content} title={title} document={document} parentLayer={layer} rootUpdate={rootUpdate} toggleEdit={toggleEdit} />
-        <p className={(editHidden === 'hidden' ?  'scripting' : 'hidden')} >{content}</p>
-      </div>
+        <div className='reply-content'>
+          <EditForm hidden={editHidden} height={editHeight} content={content} title={title} document={document} parentLayer={layer} rootUpdate={rootUpdate} toggleEdit={toggleEdit} />
+          <p className={(editHidden === 'hidden' ?  'scripting' : 'hidden')} >{content}</p>
+        </div>
 
-      <div className='subdiscussion-buttons'>
-        <RatingButtons rating={rating} currentUser={currentUser} document={document} rootUpdate={rootUpdate}/>
-        {currentUser
-          ?
-            <div className='interaction'>
-              <button className='reply-discussion' onClick={switchReplyHidden}>
-                <FontAwesomeIcon icon={faReply} color='' size='2x' />
-              </button>
-              <button className='edit-discussion' onClick={toggleEdit} >
-                <FontAwesomeIcon icon={faEdit} color='' size='2x' />
-              </button>
-              <Delete document={document} currentUser={currentUser} parentLayer={layer} beEditor={beEditor} rootUpdate={rootUpdate} />
-            </div>
-          :
-            <div className='interaction'>
-              <button className='reply-discussion'>
-                <FontAwesomeIcon icon={faReply} color='' size='2x' />
-              </button>
-              <button className='edit-discussion'>
-                <FontAwesomeIcon icon={faEdit} color='' size='2x' />
-              </button>
-              <button className='delete-discussion'>
-                <FontAwesomeIcon icon={faTrashAlt} color='' size='2x' />
-              </button>
-            </div>
-          }
+        <div className='subdiscussion-buttons'>
+          <RatingButtons rating={rating} currentUser={currentUser} document={document} rootUpdate={rootUpdate}/>
+          {currentUser
+            ?
+              <div className='interaction'>
+                <button className='reply-discussion' onClick={switchReplyHidden}>
+                  <FontAwesomeIcon icon={faReply} color='' size='2x' />
+                </button>
+                <button className='edit-discussion' onClick={toggleEdit} >
+                  <FontAwesomeIcon icon={faEdit} color='' size='2x' />
+                </button>
+                <Delete document={document} currentUser={currentUser} parentLayer={layer} beEditor={beEditor} rootUpdate={rootUpdate} />
+              </div>
+            :
+              <div className='interaction'>
+                <button className='reply-discussion'>
+                  <FontAwesomeIcon icon={faReply} color='' size='2x' />
+                </button>
+                <button className='edit-discussion'>
+                  <FontAwesomeIcon icon={faEdit} color='' size='2x' />
+                </button>
+                <button className='delete-discussion'>
+                  <FontAwesomeIcon icon={faTrashAlt} color='' size='2x' />
+                </button>
+              </div>
+            }
+        </div>
       </div>
       <ReplyForm currentUser={currentUser} hidden={replyHidden} document={document} parentLayer={layer} rootUpdate={rootUpdate} switchHidden={switchReplyHidden} />
     </li>

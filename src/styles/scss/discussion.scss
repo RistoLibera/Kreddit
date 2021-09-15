@@ -204,115 +204,117 @@
             }
           }
         }
-
-        .reply-form-container {
-          margin: 30px 20px 15px 5px;
-          @extend %flex-row-direction;
-          grid-column: 1 / span 2;
-                
-          form {
-            @extend %flex-column-direction;
-            width: 100%;
-
-            fieldset {
-              border: none;
-              padding: 0;
-              margin: 8px 0;
-              position: relative;
-                    
-              textarea {
-                line-height: 1.3;
-                resize: none;
-                color: hsl(0, 0, 20);
-                border: 1px solid hsla(0, 0, 0, 0.3);
-                box-shadow: inset 0 1px 4px hsla(0, 0, 0, 0.2);
-                width: 600px;
-                overflow-y:hidden;
-                min-height: 100px;
-                border-radius: 10px;
-              }
-          
-              .reply-buttons {
-                @extend %flex-row-direction;
-                padding: 0 20px;
-
-                button {
-                  cursor: pointer;
-                  font-size: 1rem;
-                  display: block;
-                  text-decoration: none;
-                  margin: 5px 0;
-                  padding: 10px 10px;
-                  border-radius: 5px;          
-                }      
-      
-                .syntax-buttons {
-                  @extend %flex-row-direction;
-                  font-size: 0.7rem;
-      
-                  svg {
-                  padding: 0 7px;
-                  }
-                }
-      
-                .creation-buttons {
-                  @extend %flex-row-direction;
-
-                  button {}
-                }
-              }
-            }           
-          }
-        }
       }
 
+      .reply-form-container {
+        margin: 30px 20px 15px 5px;
+        @extend %flex-row-direction;
+        grid-column: 1 / span 2;
+              
+        form {
+          @extend %flex-column-direction;
+          width: 100%;
+
+          fieldset {
+            border: none;
+            padding: 0;
+            margin: 8px 0;
+            position: relative;
+                  
+            textarea {
+              line-height: 1.3;
+              resize: none;
+              color: hsl(0, 0, 20);
+              border: 1px solid hsla(0, 0, 0, 0.3);
+              box-shadow: inset 0 1px 4px hsla(0, 0, 0, 0.2);
+              width: 600px;
+              overflow-y:hidden;
+              min-height: 100px;
+              border-radius: 10px;
+            }
+        
+            .reply-buttons {
+              @extend %flex-row-direction;
+              padding: 0 20px;
+
+              button {
+                cursor: pointer;
+                font-size: 1rem;
+                display: block;
+                text-decoration: none;
+                margin: 5px 0;
+                padding: 10px 10px;
+                border-radius: 5px;          
+              }      
+    
+              .syntax-buttons {
+                @extend %flex-row-direction;
+                font-size: 0.7rem;
+    
+                svg {
+                padding: 0 7px;
+                }
+              }
+    
+              .creation-buttons {
+                @extend %flex-row-direction;
+
+                button {}
+              }
+            }
+          }           
+        }
+      }
       .subdiscussion-container ul{
         @extend %flex-column-direction;
         align-items: flex-end;
 
         li[class^="content-layer"] {
-          display: grid;
-          grid-template-rows: 30px minmax(110px, auto) 60px auto;
-          grid-template-columns: 1fr 1fr 1fr;
           min-height: 200px;
           margin: 10px 10px;
           padding: 5px;
-          box-shadow: 0 2.5rem 2rem -2rem hsl(200 50% 20% / 40%);
-          border-radius: 2ch;
-          border: 1.5px solid  hsl(0 0% 70%);
-          background: hsl(0 0% 100%);
             
-          .subdiscussion-header {
-            justify-self: flex-start;
-            grid-column: 1 / span 1;
-            grid-row: 1 / span 1;
-            @extend %flex-row-direction;
-            margin-left: 5px;
+          .subdiscussion-content {
+            display: grid;
+            grid-template-rows: 30px minmax(110px, auto) 60px auto;
+            grid-template-columns: 1fr 1fr 1fr;
+            box-shadow: 0 2.5rem 2rem -2rem hsl(200 50% 20% / 40%);
+            border-radius: 2ch;
+            border: 1.5px solid  hsl(0 0% 70%);
+            background: hsl(0 0% 100%);
 
-            .user-icon {
-              display: inline-block;
-              background-size: cover;
-              background-repeat: no-repeat;
-              background-position: center;  
-              height: 25px;
-              width: 25px;  
-              border-radius: 50%;
-              margin-right: 8px;
-            }
-
-            .name {
-              padding: 0 6px;
-              font-size: 1rem;
-            }
-
-            .time {
-              font-size: 0.7rem;
-              color: grey;
-              padding-top: 2px;
+            .subdiscussion-header {
+              justify-self: flex-start;
+              grid-column: 1 / span 1;
+              grid-row: 1 / span 1;
+              @extend %flex-row-direction;
+              margin-left: 5px;
+  
+              .user-icon {
+                display: inline-block;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;  
+                height: 25px;
+                width: 25px;  
+                border-radius: 50%;
+                margin-right: 8px;
+              }
+  
+              .name {
+                padding: 0 6px;
+                font-size: 1rem;
+              }
+  
+              .time {
+                font-size: 0.7rem;
+                color: grey;
+                padding-top: 2px;
+              }
             }
           }
 
-          .subdiscussion-content {
+          .reply-content {
             grid-column: 1 / span 3;
             grid-row: 2 /span 1;
             word-wrap: break-word;

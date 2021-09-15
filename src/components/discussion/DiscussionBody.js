@@ -255,10 +255,10 @@ const DiscussionBody = (props) => {
                   }
                 </div>
               </div>
-              <ReplyForm currentUser={currentUser} hidden={replyHidden} document={document} parentLayer={layer} rootUpdate={rootUpdate} switchHidden={switchReplyHidden} />
 
             </div>
-          
+            <ReplyForm currentUser={currentUser} hidden={replyHidden} document={document} parentLayer={layer} rootUpdate={rootUpdate} switchHidden={switchReplyHidden} />
+
             <SubDiscussionBody currentUser={currentUser} documents={subDocs} rootUpdate={rootUpdate} />
           </div>
       }
