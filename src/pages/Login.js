@@ -4,7 +4,7 @@ import { AuthContext } from '../components/loading/Auth';
 import { useTranslation } from "react-i18next";
 import Recaptcha from 'react-recaptcha';
 import { css } from '@emotion/react';
-import BarLoader from 'react-spinners/BarLoader';
+import ClockLoader from 'react-spinners/ClockLoader';
 import FirebasePack from '../config/FirebasePack';
 import handleFirebaseError from '../components/error/handleFirebaseError';
 import '../styles/css/user.css';
@@ -15,6 +15,10 @@ const Login = () => {
   const history = useHistory();
   const spinnerCSS = css`
   display: block;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
   margin: 0 auto;
   border-color: red;
   `;
@@ -65,11 +69,10 @@ const Login = () => {
 
   return (
     <section className='login-page'>
-      
       {pageLoading
         ?
           <div className='page-loader'>
-            <BarLoader color='#D5D736' css={spinnerCSS} size={150} />
+            <ClockLoader color='#8E5829' css={spinnerCSS} size={100} />
           </div>
         :
           <div className='login-container'>
