@@ -51,11 +51,13 @@ const SubDiscussionBody = (props) => {
 
   return (
     <div className='subdiscussion-container'>
-      {rearrangedDoc.map((doc, index) => {
-        return (
-          <OneSubdiscussion currentUser={currentUser} document={doc} rootUpdate={rootUpdate} key={index}/>
-        );
-      })}
+      <ul>
+        {rearrangedDoc.map((doc, index) => {
+          return (
+            <OneSubdiscussion currentUser={currentUser} document={doc} rootUpdate={rootUpdate} key={index}/>
+          );
+        })}
+      </ul>
     </div>
   );
 };

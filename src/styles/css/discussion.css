@@ -1,11 +1,11 @@
-.discussion-page .discussion-container .discussion-content .group, .discussion-page .discussion-container .discussion-content .title .title-body .body-header .creator, .discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container, .discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container .edit-layer-0 .ternary .edit-discussion .upload, .discussion-page .discussion-container .discussion-content .title .title-body .title-buttons, .discussion-page .discussion-container .discussion-content .title .title-body .title-buttons .interaction, .discussion-page .discussion-container .discussion-content .title .reply-form-container, .discussion-page .discussion-container .discussion-content .title .reply-form-container .reply-layer-0 form fieldset .reply-buttons, .discussion-page .discussion-container .discussion-content .title .reply-form-container .reply-layer-0 form fieldset .reply-buttons .syntax-buttons, .discussion-page .discussion-container .discussion-content .title .reply-form-container .reply-layer-0 form fieldset .reply-buttons .creation-buttons, .discussion-page .discussion-container .discussion-content .subdiscussion-container div[class^=content-layer] .subdiscussion-header, .discussion-page .discussion-container .discussion-content .subdiscussion-container div[class^=content-layer] .subdiscussion-content, .discussion-page .discussion-container .discussion-content .subdiscussion-container div[class^=content-layer] .subdiscussion-buttons, .discussion-page .discussion-container .discussion-content .subdiscussion-container div[class^=content-layer] .subdiscussion-buttons .interaction {
+.discussion-page .discussion-container .discussion-content .group, .discussion-page .discussion-container .discussion-content .title .title-body .body-header .creator, .discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container, .discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container .edit-layer-0 .ternary .edit-discussion .upload, .discussion-page .discussion-container .discussion-content .title .title-body .title-buttons, .discussion-page .discussion-container .discussion-content .title .title-body .title-buttons .interaction, .discussion-page .discussion-container .discussion-content .title .reply-form-container, .discussion-page .discussion-container .discussion-content .title .reply-form-container .reply-layer-0 form fieldset .reply-buttons, .discussion-page .discussion-container .discussion-content .title .reply-form-container .reply-layer-0 form fieldset .reply-buttons .syntax-buttons, .discussion-page .discussion-container .discussion-content .title .reply-form-container .reply-layer-0 form fieldset .reply-buttons .creation-buttons, .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .subdiscussion-header, .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .subdiscussion-content, .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .subdiscussion-buttons, .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .subdiscussion-buttons .interaction {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
-.discussion-page .discussion-container .discussion-content .title .title-rating, .discussion-page .discussion-container .discussion-content .title .title-body, .discussion-page .discussion-container .discussion-content .title .title-body .body-header, .discussion-page .discussion-container .discussion-content .title .title-body .title-content, .discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container .edit-layer-0 .ternary .edit-discussion, .discussion-page .discussion-container .discussion-content .title .reply-form-container .reply-layer-0 form, .discussion-page .discussion-container .discussion-content .subdiscussion-container, .discussion-page .discussion-container .discussion-content .subdiscussion-container div[class^=content-layer] {
+.discussion-page .discussion-container .discussion-content .title .title-rating, .discussion-page .discussion-container .discussion-content .title .title-body, .discussion-page .discussion-container .discussion-content .title .title-body .body-header, .discussion-page .discussion-container .discussion-content .title .title-body .title-content, .discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container .edit-layer-0 .ternary .edit-discussion, .discussion-page .discussion-container .discussion-content .title .reply-form-container .reply-layer-0 form, .discussion-page .discussion-container .discussion-content .subdiscussion-container ul, .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -42,7 +42,8 @@
   grid-template-columns: 50px 1fr;
   justify-content: space-between;
   align-items: initial;
-  padding: 0 10px;
+  padding: 10px 5px;
+  margin: 0 5px;
 }
 .discussion-page .discussion-container .discussion-content .title .title-rating {
   justify-content: flex-start;
@@ -191,8 +192,36 @@
 .discussion-page .discussion-container .discussion-content .title .reply-form-container .reply-layer-0 form fieldset .reply-buttons .syntax-buttons svg {
   padding: 0 7px;
 }
-.discussion-page .discussion-container .discussion-content .subdiscussion-container div[class^=content-layer] {
-  margin: 20px 0;
+.discussion-page .discussion-container .discussion-content .subdiscussion-container ul {
+  align-items: flex-end;
+}
+.discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] {
+  justify-content: space-between;
+  min-height: 150px;
+  margin: 10px 0;
+}
+.discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .subdiscussion-header .user-icon {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+}
+.discussion-page .discussion-container .discussion-content .subdiscussion-container ul .content-layer-1 {
+  width: 80%;
+  border: 1px solid black;
+}
+.discussion-page .discussion-container .discussion-content .subdiscussion-container ul .content-layer-2 {
+  width: 70%;
+  border: 1px solid black;
+}
+.discussion-page .discussion-container .discussion-content .subdiscussion-container ul .content-layer-3 {
+  width: 60%;
+  border: 1px solid black;
+}
+.discussion-page .discussion-container .discussion-content .subdiscussion-container ul .content-layer-4 {
+  width: 50%;
   border: 1px solid black;
 }
 

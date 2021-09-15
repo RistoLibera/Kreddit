@@ -125,9 +125,9 @@ const OneSubdiscussion = (props) => {
 
 
   return (
-    <div className={layerClass}>
+    <li className={layerClass}>
       <header className='subdiscussion-header'>
-        <img src={iconURL} alt='icon' width='30px' height='30px'/>
+        <span className='user-icon' style={{ backgroundImage: `url('${iconURL}')` }} ></span>
         <h1>{creator}</h1>
         <h1>{time}</h1>
       </header>
@@ -165,7 +165,7 @@ const OneSubdiscussion = (props) => {
           }
       </div>
       <ReplyForm currentUser={currentUser} hidden={replyHidden} document={document} parentLayer={layer} rootUpdate={rootUpdate} switchHidden={switchReplyHidden} />
-    </div>
+    </li>
   );
 };
 
