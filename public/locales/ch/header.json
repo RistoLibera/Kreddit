@@ -1,20 +1,20 @@
 {
-  "title": "header",
+  "title": "题头",
   "content": {
-    "search-button": "SEARCH",
-    "search-holder": "Let's kreddit!",
-    "profile": "Profile",
-    "discussion": "Discussion",
-    "group": "Group",
-    "english": "EN",
-    "chinese": "CH",
-    "japanese": "JP",
-    "clear": "Clear all",
-    "partake": "partook in your discussion",
-    "rate": "rated your discussion",
-    "reply": "replied to your discussion",
-    "signout": "Sign Out",
-    "login": "Log In",
-    "signup": "Sign Up"
+    "search-button": "搜索",
+    "search-holder": "我们走，皮皮虾！",
+    "profile": "档案",
+    "discussion": "讨论",
+    "group": "小组",
+    "english": "英语",
+    "chinese": "汉语",
+    "japanese": "日语",
+    "clear": "清除信息",
+    "partake": "参与了你的讨论",
+    "rate": "评价了你的讨论",
+    "reply": "回复了你的讨论",
+    "signout": "退出",
+    "login": "登入",
+    "signup": "注册"
   }
 }

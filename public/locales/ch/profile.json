@@ -1,12 +1,12 @@
 {
-  "title": "profile",
+  "title": "档案",
   "content": {
-    "delete-user": "Delete This User",
-    "confirm": "Confirm",
-    "change-password": "Change Password",
-    "old-password": "Old Password",
-    "new-password": "New Password",
-    "create": "create",
-    "join": "join"
+    "delete-user": "删除用户",
+    "confirm": "确认",
+    "change-password": "修改密码",
+    "old-password": "旧密码",
+    "new-password": "新密码",
+    "create": "创建",
+    "join": "加入"
   }
 }

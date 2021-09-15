@@ -1,8 +1,8 @@
 {
-  "title": "reply",
+  "title": "回复",
   "content": {
-    "content-holder": "Thought",
-    "clear": "Clear",
-    "create": "Create"
+    "content-holder": "想法",
+    "clear": "清除",
+    "create": "创建"
   }
 }

@@ -1,15 +1,16 @@
 {
-  "title": "discussion",
+  "title": "讨论",
   "content": {
-    "create-discussion": "Create a discussion",
-    "group-warning": "You need join a group!",
-    "discussion": "Discussion",
-    "title": "Title",
-    "title-holder": "Mainpoint",
-    "content": "Content",
-    "content-holder": "Thought",
-    "attachment": "Attachment",
-    "create": "Create",
-    "entry": "Entry"
+    "create-discussion": "创建一个讨论",
+    "group-warning": "你需要加入一个小组！",
+    "discussion": "讨论",
+    "title": "题目",
+    "title-holder": "重点",
+    "content": "内容",
+    "content-holder": "想法",
+    "attachment": "附件",
+    "create": "创建",
+    "entry": "进入",
+    "group": "小组："
   }
 }

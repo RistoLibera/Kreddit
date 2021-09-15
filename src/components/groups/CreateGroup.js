@@ -124,12 +124,12 @@ const CreateGroup = (props) => {
             <legend>{t('content.group-limit')}</legend>
             <fieldset className='input-name'>
               <label htmlFor='name'>{t('content.group-name')}</label>
-              <input type='text' id='name' name='name' placeholder={t('content.group-name-limit')} minLength='3' maxLength='20' required/><br></br>
+              <input type='text' id='name' name='name' placeholder={t('content.group-name-holder')} minLength='3' maxLength='20' required/><br></br>
             </fieldset>
 
             <fieldset className='input-intro'>
               <label htmlFor='introduction'>{t('content.introduction')}</label>
-              <textarea rows="5" cols='50' type='text' id='introduction' name='introduction' placeholder={t('content.introduction-limit')} maxLength="150" required/><br></br>
+              <textarea rows="5" cols='50' type='text' id='introduction' name='introduction' placeholder={t('content.introduction-holder')} maxLength="150" required/><br></br>
             </fieldset>
 
             <fieldset className='upload'>

@@ -1,9 +1,9 @@
 {
-  "title": "edit",
+  "title": "编辑",
   "content": {
-    "content": "Content",
-    "content-holder": "Thought",
-    "attachment": "Attachment",
-    "submit": "Submit"
+    "content": "内容",
+    "content-holder": "想法",
+    "attachment": "附件",
+    "submit": "提交"
   }
 }

@@ -1,11 +1,11 @@
 {
-  "title": "signup",
+  "title": "注册",
   "content": {
-    "nickname": "Nickname:",
-    "nickname-holder": "Give yourself a cool nickname (3 or more)!",
-    "password": "Password:",
-    "password-holder": "A password (6 or more)!",
-    "clear": "Clear",
-    "signup": "Sign up"
+    "nickname": "昵称:",
+    "nickname-holder": "来起个三位以上的名字吧！",
+    "password": "密码:",
+    "password-holder": "六位以上的密码！",
+    "clear": "清除",
+    "signup": "注册"
   }
 }

@@ -1,15 +1,15 @@
 {
-  "title": "group",
+  "title": "小组",
   "content": {
-    "create-group": "Create a group",
-    "creator": "Creator",
-    "join": "Join",
-    "group-limit": "You can create at most four groups",
-    "group-name": "Group Name",
-    "group-name-limit": "3 or more characters!",
-    "introduction": "Introduction",
-    "introduction-limit": "What is this group for?",
-    "symbol": "Upload Symbol",
-    "create": "Create"
+    "create-group": "创建一个小组",
+    "creator": "组织者",
+    "join": "加入",
+    "group-limit": "你最多可创建四个小组",
+    "group-name": "小组名称",
+    "group-name-holder": "3字符以上!",
+    "introduction": "介绍",
+    "introduction-holder": "为何创建呢？",
+    "symbol": "上传标识",
+    "create": "创建"
   }
 }

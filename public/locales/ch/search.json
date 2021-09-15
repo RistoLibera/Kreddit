@@ -1,8 +1,8 @@
 {
-  "title": "search",
+  "title": "搜索",
   "content": {
-    "search-history": "Past Search",
-    "title": "Titles",
-    "user": "Users"
+    "search-history": "搜索历史",
+    "title": "题目",
+    "user": "用户"
   }
 }

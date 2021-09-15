@@ -6,9 +6,9 @@
     "join": "Join",
     "group-limit": "You can create at most four groups",
     "group-name": "Group Name",
-    "group-name-limit": "3 or more characters!",
+    "group-name-holder": "3 or more characters!",
     "introduction": "Introduction",
-    "introduction-limit": "What is this group for?",
+    "introduction-holder": "What is this group for?",
     "symbol": "Upload Symbol",
     "create": "Create"
   }

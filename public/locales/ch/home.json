@@ -1,13 +1,13 @@
 {
-  "title": "home",
+  "title": "主页",
   "content": {
-    "slogan": "Let's kreddit!",
-    "instruction": "This is a discussion website imitating Reddit, just feel free to explore what it presents!",
-    "smartphone": "Smartphone view",
-    "smartphone-title": "Width is less than 600px",
-    "smallscreen": "SmallScreen view",
-    "smallscreen-title": "Width is less than 850px",
-    "desktop": "Desktop view",
-    "desktop-title": "Width is more than 850px"
+    "slogan": "我们走，皮皮虾！",
+    "instruction": "这是一个仿照Reddit构建的网站, 闲话不多说!",
+    "smartphone": "手机模式",
+    "smartphone-title": "宽度小于 600px",
+    "smallscreen": "平板模式",
+    "smallscreen-title": "宽度小于 850px",
+    "desktop": "桌面模式",
+    "desktop-title": "宽度大于 850px"
   }
 }

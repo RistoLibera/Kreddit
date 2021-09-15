@@ -110,7 +110,7 @@ const DiscussionsList = (props) => {
 
         <div className='flex-column statistics'>
           <div className='group-name'>
-            <h2>Group: {group}</h2>
+            <h2>{t('content.group')} {group}</h2>
           </div>
           <div className='entry'>
             <button className='simple'onClick={() => history.push('/discussions/' + group + '/' + uid)} >
@@ -167,7 +167,7 @@ const DiscussionsList = (props) => {
 
   useEffect(() => {
     createList();
-  }, [documents, selectedGroups]);
+  }, [documents, selectedGroups, t]);
 
   return (
     <div className='discussions-list'>
