@@ -15,6 +15,10 @@ const GroupList = (props) => {
   const { documents, currentUser, groupView, update } = props;
   const spinnerCSS = css`
   display: block;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
   margin: 0 auto;
   border-color: red;
   `;
@@ -188,7 +192,7 @@ const GroupList = (props) => {
       {pageLoading 
         ?
           <div className='page-loader'>
-            <ClockLoader color='#D5D736' css={spinnerCSS} size={50} />
+            <ClockLoader color='#8E5829' css={spinnerCSS} size={100} />
           </div>
         :
           <ul>
