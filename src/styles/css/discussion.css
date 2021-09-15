@@ -1,11 +1,11 @@
-.discussion-page .discussion-container .discussion-content .group, .discussion-page .discussion-container .discussion-content .title .title-body .body-header .creator, .discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container, .discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container .edit-layer-0 .ternary .edit-discussion .upload, .discussion-page .discussion-container .discussion-content .title .title-body .title-buttons, .discussion-page .discussion-container .discussion-content .title .title-body .title-buttons .interaction, .discussion-page .discussion-container .discussion-content .title .reply-form-container, .discussion-page .discussion-container .discussion-content .title .reply-form-container .reply-layer-0 form fieldset .reply-buttons, .discussion-page .discussion-container .discussion-content .title .reply-form-container .reply-layer-0 form fieldset .reply-buttons .syntax-buttons, .discussion-page .discussion-container .discussion-content .title .reply-form-container .reply-layer-0 form fieldset .reply-buttons .creation-buttons, .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .subdiscussion-header, .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .subdiscussion-buttons, .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .subdiscussion-buttons .interaction {
+.discussion-page .discussion-container .discussion-content .group, .discussion-page .discussion-container .discussion-content .title .title-body .body-header .creator, .discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container, .discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container .ternary .edit-discussion .upload, .discussion-page .discussion-container .discussion-content .title .title-body .title-buttons, .discussion-page .discussion-container .discussion-content .title .title-body .title-buttons .interaction, .discussion-page .discussion-container .discussion-content .title .reply-form-container, .discussion-page .discussion-container .discussion-content .title .reply-form-container .reply-layer-0 form fieldset .reply-buttons, .discussion-page .discussion-container .discussion-content .title .reply-form-container .reply-layer-0 form fieldset .reply-buttons .syntax-buttons, .discussion-page .discussion-container .discussion-content .title .reply-form-container .reply-layer-0 form fieldset .reply-buttons .creation-buttons, .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .subdiscussion-header, .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .subdiscussion-buttons, .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .subdiscussion-buttons .interaction {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
-.discussion-page .discussion-container .discussion-content .title .title-rating, .discussion-page .discussion-container .discussion-content .title .title-body, .discussion-page .discussion-container .discussion-content .title .title-body .body-header, .discussion-page .discussion-container .discussion-content .title .title-body .title-content, .discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container .edit-layer-0 .ternary .edit-discussion, .discussion-page .discussion-container .discussion-content .title .reply-form-container .reply-layer-0 form, .discussion-page .discussion-container .discussion-content .subdiscussion-container ul {
+.discussion-page .discussion-container .discussion-content .title .title-rating, .discussion-page .discussion-container .discussion-content .title .title-body, .discussion-page .discussion-container .discussion-content .title .title-body .body-header, .discussion-page .discussion-container .discussion-content .title .title-body .title-content, .discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container .ternary .edit-discussion, .discussion-page .discussion-container .discussion-content .title .reply-form-container .reply-layer-0 form, .discussion-page .discussion-container .discussion-content .subdiscussion-container ul, .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .subdiscussion-content .edit-form-container .ternary .edit-subdiscussion {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -81,13 +81,13 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 30px;
-  width: 30px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
 }
 .discussion-page .discussion-container .discussion-content .title .title-body .body-header .creator .name {
   padding: 0 15px;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
 }
 .discussion-page .discussion-container .discussion-content .title .title-body .body-header .creator .time {
   font-size: 0.9rem;
@@ -109,25 +109,25 @@
   margin: 30px 20px 15px 5px;
   justify-content: flex-start;
 }
-.discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container .edit-layer-0 .ternary .edit-discussion .upload {
+.discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container .ternary .edit-discussion .upload {
   margin: 0;
 }
-.discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container .edit-layer-0 .ternary .edit-discussion .upload #img {
+.discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container .ternary .edit-discussion .upload #img {
   border: 2px solid black;
   cursor: pointer;
   padding: 6px 3px;
   margin-top: 5px;
 }
-.discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container .edit-layer-0 .ternary .edit-discussion .upload #files {
+.discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container .ternary .edit-discussion .upload #files {
   display: none;
 }
-.discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container .edit-layer-0 .ternary .edit-discussion fieldset {
+.discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container .ternary .edit-discussion fieldset {
   border: none;
   padding: 0;
   margin: 8px 0;
   position: relative;
 }
-.discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container .edit-layer-0 .ternary .edit-discussion fieldset textarea {
+.discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container .ternary .edit-discussion fieldset textarea {
   line-height: 1.3;
   resize: none;
   color: #333333;
@@ -137,7 +137,7 @@
   overflow-y: hidden;
   min-height: 50px;
 }
-.discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container .edit-layer-0 .ternary .edit-discussion fieldset button {
+.discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container .ternary .edit-discussion fieldset button {
   font-size: 1rem;
   display: block;
   text-decoration: none;
@@ -215,6 +215,7 @@
 .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .subdiscussion-header {
   justify-self: flex-start;
   grid-column: 1/span 1;
+  margin-left: 5px;
 }
 .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .subdiscussion-header .user-icon {
   display: inline-block;
@@ -224,6 +225,16 @@
   height: 25px;
   width: 25px;
   border-radius: 50%;
+  margin-right: 8px;
+}
+.discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .subdiscussion-header .name {
+  padding: 0 6px;
+  font-size: 1rem;
+}
+.discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .subdiscussion-header .time {
+  font-size: 0.7rem;
+  color: grey;
+  padding-top: 2px;
 }
 .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .subdiscussion-content {
   grid-column: 1/span 3;
@@ -231,6 +242,31 @@
   word-wrap: break-word;
   overflow: hidden;
   padding: 20px 40px;
+  line-height: 1.3;
+}
+.discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .subdiscussion-content .edit-form-container .ternary .edit-subdiscussion fieldset {
+  border: none;
+  padding: 0;
+  margin: 8px 0;
+  position: relative;
+  width: 100%;
+}
+.discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .subdiscussion-content .edit-form-container .ternary .edit-subdiscussion fieldset textarea {
+  line-height: 1.3;
+  resize: none;
+  color: #333333;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.2);
+  overflow-y: hidden;
+  min-height: 50px;
+}
+.discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .subdiscussion-content .edit-form-container .ternary .edit-subdiscussion fieldset button {
+  font-size: 1rem;
+  display: block;
+  text-decoration: none;
+  margin: 5px 0;
+  padding: 10px 10px;
+  border-radius: 5px;
 }
 .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .subdiscussion-buttons {
   grid-column: 1/span 3;
@@ -240,31 +276,31 @@
   width: 90%;
 }
 .discussion-page .discussion-container .discussion-content .subdiscussion-container ul .content-layer-2 {
-  width: 80%;
+  width: 85%;
 }
 .discussion-page .discussion-container .discussion-content .subdiscussion-container ul .content-layer-3 {
-  width: 70%;
+  width: 80%;
 }
 .discussion-page .discussion-container .discussion-content .subdiscussion-container ul .content-layer-4 {
-  width: 60%;
+  width: 75%;
 }
 .discussion-page .discussion-container .discussion-content .subdiscussion-container ul .content-layer-5 {
-  width: 50%;
+  width: 70%;
 }
 .discussion-page .discussion-container .discussion-content .subdiscussion-container ul .content-layer-6 {
-  width: 40%;
+  width: 65%;
 }
 .discussion-page .discussion-container .discussion-content .subdiscussion-container ul .content-layer-7 {
-  width: 30%;
+  width: 60%;
 }
 .discussion-page .discussion-container .discussion-content .subdiscussion-container ul .content-layer-8 {
-  width: 20%;
+  width: 55%;
 }
 .discussion-page .discussion-container .discussion-content .subdiscussion-container ul .content-layer-9 {
-  width: 10%;
+  width: 50%;
 }
 .discussion-page .discussion-container .discussion-content .subdiscussion-container ul .content-layer-10 {
-  width: 0%;
+  width: 45%;
 }
 
 /*# sourceMappingURL=discussion.css.map */

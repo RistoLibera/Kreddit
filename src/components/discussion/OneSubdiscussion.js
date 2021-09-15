@@ -128,8 +128,8 @@ const OneSubdiscussion = (props) => {
     <li className={layerClass}>
       <header className='subdiscussion-header'>
         <span className='user-icon' style={{ backgroundImage: `url('${iconURL}')` }} ></span>
-        <h1>{creator}</h1>
-        <h1>{time}</h1>
+        <h1 className='name'>{creator}</h1>
+        <h1 className='time'>{time}</h1>
       </header>
 
       <div className='subdiscussion-content'>

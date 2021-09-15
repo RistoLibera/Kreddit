@@ -13,7 +13,6 @@ const EditForm = (props) => {
   border-color: red;
   `;
   const [pageLoading, setPageLoading] = useState(false);
-  const [layerClass, setLayerClass] = useState('');
   const [editedContent, setEditedContent] = useState('');
 
   // Adjust textarea height
@@ -21,12 +20,6 @@ const EditForm = (props) => {
     const textareaHTML = event.target;
     textareaHTML.style.height = "auto";
     textareaHTML.style.height = (textareaHTML.scrollHeight) + "px";
-  };
-
-  // Adjust block width
-  const makeLayerClass = () => {
-    let className = 'edit-layer-' + parentLayer; 
-    setLayerClass(className);
   };
 
   // Update content
@@ -77,44 +70,41 @@ const EditForm = (props) => {
   };
 
   useEffect(() => {
-    makeLayerClass();
     setEditedContent(content);
   }, [content]);
 
   return (
     <div className={hidden}>
-      <div className={layerClass}>
-        {pageLoading
-          ?
-            <div className='page-loader'>
-              <BarLoader color='#D5D736' css={spinnerCSS} size={150} />
-            </div>
-          :
-            <div className='ternary'>
-              {parentLayer === 0
-                ?
-                  <form className='edit-discussion' onSubmit={handleEdit}>
-                    <fieldset className='modify-text'>
-                      <textarea onChange={adjustHeight} style={{ height: height }} type='text' id='content' name='content' maxLength="500" defaultValue={editedContent} placeholder={t('content.content-holder')} required/>
-                    </fieldset>
+      {pageLoading
+        ?
+          <div className='page-loader'>
+            <BarLoader color='#D5D736' css={spinnerCSS} size={150} />
+          </div>
+        :
+          <div className='ternary'>
+            {parentLayer === 0
+              ?
+                <form className='edit-discussion' onSubmit={handleEdit}>
+                  <fieldset className='modify-text'>
+                    <textarea onChange={adjustHeight} style={{ height: height }} type='text' id='content' name='content' maxLength="500" defaultValue={editedContent} placeholder={t('content.content-holder')} required/>
+                  </fieldset>
 
-                    <fieldset className='upload'>
-                      <label id="img" htmlFor='files'>{t('content.attachment')}</label>
-                      <input type='file' id='files' name='attachment'/><br></br>
-                      <button type='submit' value='Submit'>{t('content.submit')}</button>
-                    </fieldset>
-                  </form>
-                :
-                  <form className='edit-subdiscussion' onSubmit={handleEdit}>
-                    <fieldset className='modify-sub-text'>
-                      <textarea onChange={adjustHeight} style={{ height: height }} type='text' id='content' name='content' maxLength="500" defaultValue={editedContent} placeholder={t('content.content-holder')} required/>
-                      <button type='submit' value='Submit'>{t('content.submit')}</button>
-                    </fieldset>
-                  </form>
-              }
-            </div>
-        }
-      </div>
+                  <fieldset className='upload'>
+                    <label id="img" htmlFor='files'>{t('content.attachment')}</label>
+                    <input type='file' id='files' name='attachment'/><br></br>
+                    <button type='submit' value='Submit'>{t('content.submit')}</button>
+                  </fieldset>
+                </form>
+              :
+                <form className='edit-subdiscussion' onSubmit={handleEdit}>
+                  <fieldset className='modify-sub-text'>
+                    <textarea onChange={adjustHeight} style={{ height: height }} type='text' id='content' name='content' maxLength="500" defaultValue={editedContent} placeholder={t('content.content-holder')} required/>
+                    <button type='submit' value='Submit'>{t('content.submit')}</button>
+                  </fieldset>
+                </form>
+            }
+          </div>
+      }
     </div>
   );
 };

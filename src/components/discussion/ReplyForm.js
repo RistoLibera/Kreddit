@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import FirebasePack from '../../config/FirebasePack';
 import firebase from 'firebase/app';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBold, faItalic, faReply, faStrikethrough } from '@fortawesome/free-solid-svg-icons';
+import { faBold, faItalic, faStrikethrough } from '@fortawesome/free-solid-svg-icons';
 import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
 
