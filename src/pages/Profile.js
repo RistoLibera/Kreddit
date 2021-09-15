@@ -3,7 +3,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import FirebasePack from '../config/FirebasePack';
 import Default from '../assets/img/default-icon.jpg';
 import { css } from '@emotion/react';
-import BarLoader from 'react-spinners/BarLoader';
+import ClockLoader from 'react-spinners/ClockLoader';
 import ShowIcon from '../components/user/ShowIcon';
 import DeleteUser from '../components/user/DeleteUser';
 import ChangePassword from '../components/user/ChangePassword';
@@ -208,7 +208,7 @@ const Profile = () => {
       {pageLoading 
         ?
           <div className='page-loader'>
-            <BarLoader color='#D5D736' css={spinnerCSS} size={150} />
+            <ClockLoader color='#D5D736' css={spinnerCSS} size={150} />
           </div>
         :
           <div className='profile-container'>

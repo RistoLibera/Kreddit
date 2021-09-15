@@ -1,0 +1,17 @@
+.loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Poppins", sans-serif;
+  font-size: 3rem;
+}
+
+/*# sourceMappingURL=loading.css.map */

@@ -1,13 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import FirebasePack from '../../config/FirebasePack';
-import { css } from '@emotion/react';
-import RiseLoader from 'react-spinners/RiseLoader';
-
-const spinnerCSS = css`
-display: block;
-margin: 0 auto;
-border-color: red;
-`;
+import '../../styles/css/loading.css';
 
 export const AuthContext = React.createContext();
 
@@ -18,7 +11,7 @@ export const AuthProvider = ({ children }) => {
   const changeCurrentUser = () => {
     FirebasePack.auth().onAuthStateChanged((user) => {
       setCurrentUser(user);
-      setPending(false);
+      // setPending(false);
     });  
   };
 
@@ -28,11 +21,9 @@ export const AuthProvider = ({ children }) => {
 
   if(pending){
     return (
-      <section className='loading'>
-        <div className='page-loader'>
-          <RiseLoader color='#D5D736' css={spinnerCSS} size={150} />
-        </div>
-      </section>
+      <div className='loading'>
+        <h1>...Authenticating...</h1>
+      </div>
     );
   }
 
