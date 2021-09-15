@@ -18,12 +18,6 @@ const ReplyForm = (props) => {
   const [pageLoading, setPageLoading] = useState(false);
   const [layerClass, setLayerClass] =useState('');
 
-  // Adjust block width
-  const makeLayerClass = () => {
-    let className = 'reply-layer-' + parentLayer; 
-    setLayerClass(className);
-  };
-
   // Add subdiscussion
   const addSub = async (content, layer) => {
     let creator = (currentUser.email).slice(0, -9);
@@ -179,38 +173,32 @@ const ReplyForm = (props) => {
     rootUpdate();
   };
 
-  useEffect(() => {
-    makeLayerClass();
-  }, []);
-
   return (
     <div className={hidden}>
-      <div className={layerClass}>
-        {pageLoading
-          ?
-            <div className='page-loader'>
-              <BarLoader color='#D5D736' css={spinnerCSS} size={150} />
-            </div>
-          :
-            <form onSubmit={handleReply}>
-              <fieldset>
-                <textarea type='text' id='content' name='content' maxLength="200" placeholder={t('content.content-holder')} required/><br></br>
-                <div className='reply-buttons'>
-                  <div className='syntax-buttons'>
-                    <FontAwesomeIcon icon={faBold} color='' size='2x' />
-                    <FontAwesomeIcon icon={faItalic} color='' size='2x' />
-                    <FontAwesomeIcon icon={faStrikethrough} color='' size='2x' />
-                  </div>
-
-                  <div className='creation-buttons'>
-                    <button className='reset' type='reset' value='Reset'>{t('content.clear')} </button>
-                    <button className='submit' type='submit' value='Submit'>{t('content.create')} </button>
-                  </div>
+      {pageLoading
+        ?
+          <div className='page-loader'>
+            <BarLoader color='#D5D736' css={spinnerCSS} size={150} />
+          </div>
+        :
+          <form onSubmit={handleReply}>
+            <fieldset>
+              <textarea type='text' id='content' name='content' maxLength="200" placeholder={t('content.content-holder')} required/><br></br>
+              <div className='reply-buttons'>
+                <div className='syntax-buttons'>
+                  <FontAwesomeIcon icon={faBold} color='' size='2x' />
+                  <FontAwesomeIcon icon={faItalic} color='' size='2x' />
+                  <FontAwesomeIcon icon={faStrikethrough} color='' size='2x' />
                 </div>
-              </fieldset>
-            </form>
-        }
-      </div>
+
+                <div className='creation-buttons'>
+                  <button className='reset' type='reset' value='Reset'>{t('content.clear')} </button>
+                  <button className='submit' type='submit' value='Submit'>{t('content.create')} </button>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+      }
     </div>
   );
 };

@@ -35,7 +35,7 @@
 
       .title {
         display: grid;
-        grid-template-rows: auto auto;
+        grid-template-rows: auto auto auto;
         grid-template-columns: 50px 1fr;
         justify-content: space-between;
         align-items: initial;
@@ -158,6 +158,7 @@
                       width: 600px;
                       overflow-y:hidden;
                       min-height: 50px;
+                      border-radius: 10px;
                     }
                 
                     button {
@@ -204,57 +205,55 @@
           margin: 30px 20px 15px 5px;
           @extend %flex-row-direction;
           grid-column: 1 / span 2;
-        
-          .reply-layer-0 {
+                
+          form {
+            @extend %flex-column-direction;
             width: 100%;
-        
-            form {
-              @extend %flex-column-direction;
-        
-              fieldset {
-                border: none;
-                padding: 0;
-                margin: 8px 0;
-                position: relative;
-                      
-                textarea {
-                  line-height: 1.3;
-                  resize: none;
-                  color: hsl(0, 0, 20);
-                  border: 1px solid hsla(0, 0, 0, 0.3);
-                  box-shadow: inset 0 1px 4px hsla(0, 0, 0, 0.2);
-                  width: 600px;
-                  overflow-y:hidden;
-                  min-height: 100px;
-                }
-            
-                .reply-buttons {
+
+            fieldset {
+              border: none;
+              padding: 0;
+              margin: 8px 0;
+              position: relative;
+                    
+              textarea {
+                line-height: 1.3;
+                resize: none;
+                color: hsl(0, 0, 20);
+                border: 1px solid hsla(0, 0, 0, 0.3);
+                box-shadow: inset 0 1px 4px hsla(0, 0, 0, 0.2);
+                width: 600px;
+                overflow-y:hidden;
+                min-height: 100px;
+                border-radius: 10px;
+              }
+          
+              .reply-buttons {
+                @extend %flex-row-direction;
+      
+                button {
+                  font-size: 1rem;
+                  display: block;
+                  text-decoration: none;
+                  margin: 5px 0;
+                  padding: 10px 10px;
+                  border-radius: 5px;          
+                }      
+      
+                .syntax-buttons {
                   @extend %flex-row-direction;
-        
-                  button {
-                    font-size: 1rem;
-                    display: block;
-                    text-decoration: none;
-                    margin: 5px 0;
-                    padding: 10px 10px;
-                    border-radius: 5px;          
-                  }      
-        
-                  .syntax-buttons {
-                    @extend %flex-row-direction;
-                    font-size: 0.7rem;
-        
-                    svg {
-                    padding: 0 7px;
-                    }
-                  }
-        
-                  .creation-buttons {
-                    @extend %flex-row-direction;
+                  font-size: 0.7rem;
+      
+                  svg {
+                  padding: 0 7px;
                   }
                 }
-              }           
-            }
+      
+                .creation-buttons {
+                  @extend %flex-row-direction;
+                }
+              }
+            }           
           }
         }
       }
@@ -265,9 +264,9 @@
 
         li[class^="content-layer"] {
           display: grid;
-          grid-template-rows: auto auto auto;
+          grid-template-rows: auto auto auto auto;
           grid-template-columns: 1fr 1fr 1fr;
-          min-height: 180px;
+          min-height: 200px;
           margin: 10px 10px;
           padding: 5px;
           box-shadow: 0 2.5rem 2rem -2rem hsl(200 50% 20% / 40%);
@@ -278,6 +277,7 @@
           .subdiscussion-header {
             justify-self: flex-start;
             grid-column: 1 / span 1;
+            grid-row: 1 / span 1;
             @extend %flex-row-direction;
             margin-left: 5px;
 
@@ -318,6 +318,7 @@
                   @extend %flex-column-direction;
 
                   fieldset {
+                    @extend %flex-row-direction;
                     border: none;
                     padding: 0;
                     margin: 8px 0;
@@ -332,6 +333,9 @@
                       box-shadow: inset 0 1px 4px hsla(0, 0, 0, 0.2);
                       overflow-y:hidden;
                       min-height: 50px;
+                      width: 80%;
+                      margin-right: 20px;
+                      border-radius: 10px;
                     }
                 
                     button {
@@ -355,7 +359,91 @@
 
             .interaction {
               @extend %flex-row-direction;
+  
+              button {
+                font-size: 1rem;
+                display: block;
+                text-decoration: none;
+                margin: 0 18px;
+                padding: 5px 5px;
+                border-radius: 5px;          
+              }      
+            }
 
+            .title-rating {
+              @extend %flex-row-direction;
+              justify-content: flex-start;
+    
+              button {
+                font-size: 1rem;
+                display: block;
+                text-decoration: none;
+                margin: 5px 0;
+                padding: 3px 3px;
+                border-radius: 5px;          
+              }
+    
+              span {
+                font-size: 1.5rem;
+              }
+            }    
+          }
+
+          .reply-form-container {
+            margin: 30px 20px 15px 5px;
+            @extend %flex-row-direction;
+            grid-column: 1 / span 3;
+            grid-row: 4 / span 1;
+
+            form {
+              @extend %flex-column-direction;
+              width: 100%;
+  
+              fieldset {
+                border: none;
+                padding: 0;
+                margin: 8px 0;
+                position: relative;
+                      
+                textarea {
+                  line-height: 1.3;
+                  resize: none;
+                  color: hsl(0, 0, 20);
+                  border: 1px solid hsla(0, 0, 0, 0.3);
+                  box-shadow: inset 0 1px 4px hsla(0, 0, 0, 0.2);
+                  width: 600px;
+                  overflow-y:hidden;
+                  min-height: 100px;
+                  border-radius: 10px;
+                }
+            
+                .reply-buttons {
+                  @extend %flex-row-direction;
+        
+                  button {
+                    font-size: 1rem;
+                    display: block;
+                    text-decoration: none;
+                    margin: 5px 0;
+                    padding: 10px 10px;
+                    border-radius: 5px;   
+                    border: none;       
+                  }      
+        
+                  .syntax-buttons {
+                    @extend %flex-row-direction;
+                    font-size: 0.7rem;
+        
+                    svg {
+                    padding: 0 7px;
+                    }
+                  }
+        
+                  .creation-buttons {
+                    @extend %flex-row-direction;
+                  }
+                }
+              }           
             }
           }
         }
