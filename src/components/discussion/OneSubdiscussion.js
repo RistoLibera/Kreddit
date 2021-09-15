@@ -28,6 +28,7 @@ const OneSubdiscussion = (props) => {
   const [editHeight, setEditHeight] = useState(0);
 
   const checkCurrentEditor = () => {
+    if (!currentUser) return;
     let beCurrentEditor = currentUser.uid === document.data().creator_uid;
     setBeEditor(beCurrentEditor);
   };

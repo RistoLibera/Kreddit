@@ -13,13 +13,14 @@
 }
 
 .homepage {
-  height: 100%;
-  margin-top: 5rem;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 500px;
+  height: 100%;
+  position: absolute;
+  width: 100%;
 }
 .homepage .reactive-home {
+  margin-top: 4rem;
   height: 100%;
   justify-content: space-evenly;
 }

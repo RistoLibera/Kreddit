@@ -3,13 +3,14 @@
 // Default page
 .homepage {
   @extend %flex-column-direction;
-  height: 100%;
-  margin-top: 5rem;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 500px;
+  height: 100%;
+  position: absolute;
+  width: 100%;
 
   .reactive-home {
+    margin-top: 4rem;
     height: 100%;
     @extend %flex-column-direction;
     justify-content: space-evenly;
