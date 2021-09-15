@@ -1,0 +1,11 @@
+{
+  "title": "signup",
+  "content": {
+    "nickname": "Nickname:",
+    "nickname-holder": "Give yourself a cool nickname (3 or more)!",
+    "password": "Password:",
+    "password-holder": "A password (6 or more)!",
+    "clear": "Clear",
+    "signup": "Sign up"
+  }
+}

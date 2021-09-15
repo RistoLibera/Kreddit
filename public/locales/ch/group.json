@@ -1,0 +1,15 @@
+{
+  "title": "group",
+  "content": {
+    "create-group": "Create a group",
+    "creator": "Creator",
+    "join": "Join",
+    "group-limit": "You can create at most four groups",
+    "group-name": "Group Name",
+    "group-name-limit": "3 or more characters!",
+    "introduction": "Introduction",
+    "introduction-limit": "What is this group for?",
+    "symbol": "Upload Symbol",
+    "create": "Create"
+  }
+}

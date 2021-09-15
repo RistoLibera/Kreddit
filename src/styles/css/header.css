@@ -175,6 +175,7 @@
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
 .app-header .right-bar .user-bar .dropdown #dropdown-menu .dropdown-items {
+  text-align: center;
   justify-content: center;
   margin: 10px 5px;
   width: 130px;

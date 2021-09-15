@@ -1,0 +1,15 @@
+{
+  "title": "discussion",
+  "content": {
+    "create-discussion": "Create a discussion",
+    "group-warning": "You need join a group!",
+    "discussion": "Discussion",
+    "title": "Title",
+    "title-holder": "Mainpoint",
+    "content": "Content",
+    "content-holder": "Thought",
+    "attachment": "Attachment",
+    "create": "Create",
+    "entry": "Entry"
+  }
+}

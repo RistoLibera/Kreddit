@@ -18,6 +18,13 @@ const Language = () => {
         <span></span>
         {t('content.english')}
         </button>
+        <button onClick={() => changeLanguage("ch")}>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        {t('content.chinese')}
+        </button>
       <button onClick={() => changeLanguage("jp")}>
         <span></span>
         <span></span>

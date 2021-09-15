@@ -1,0 +1,12 @@
+{
+  "title": "login",
+  "content": {
+    "nickname": "Nickname:",
+    "nickname-holder": "Nickname",
+    "password": "Password:",
+    "password-holder": "Password",
+    "clear": "Clear",
+    "login": "Log In",
+    "instruction": "By logging in you agree to the ridiculously long terms that you didn't bother to read"
+  }
+}

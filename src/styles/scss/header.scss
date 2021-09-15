@@ -209,6 +209,7 @@
           border: 1px solid rgba(0, 0, 0, .2);
 
           .dropdown-items {
+            text-align: center;
             @extend %flex-row-direction;
             justify-content: center;
             margin: 10px 5px;
