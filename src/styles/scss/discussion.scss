@@ -297,7 +297,8 @@
               grid-column: 1 / span 1;
               grid-row: 1 / span 1;
               @extend %flex-row-direction;
-              margin-left: 5px;
+              margin-left: 15px;
+              margin-top: 10px;
   
               .user-icon {
                 display: inline-block;
@@ -484,9 +485,9 @@
 
         $content-layer: content-layer;
         $edit-layer: edit-layer;
-        @for $i from 1 through 10 {
+        @for $i from 1 through 15 {
           .#{$content-layer}-#{$i} {
-            width: 90% - 5 * ($i - 1);
+            width: 90% - 4 * ($i - 1);
           }
         }
 

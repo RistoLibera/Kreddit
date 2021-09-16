@@ -16,7 +16,7 @@ const handleFirebaseError = (error) => {
       message = 'User do not exist';
       break;
     case 'storage/object-not-found':
-      message = 'You should update to your own liking';
+      message = 'You could update your own icon';
       break;
     case  "auth/too-many-requests":
       message = 'You tried too many times!';

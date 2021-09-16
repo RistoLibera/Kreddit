@@ -33,7 +33,7 @@ const Discussion = () => {
   
   useEffect(() => {
     fetchThisDiscussion();
-  }, [uid ]);
+  }, [uid]);
 
   return (
     <section className='discussion-page'>

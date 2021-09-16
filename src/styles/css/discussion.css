@@ -238,7 +238,8 @@
   justify-self: flex-start;
   grid-column: 1/span 1;
   grid-row: 1/span 1;
-  margin-left: 5px;
+  margin-left: 15px;
+  margin-top: 10px;
 }
 .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .subdiscussion-content .subdiscussion-header .user-icon {
   display: inline-block;
@@ -378,31 +379,46 @@
   width: 90%;
 }
 .discussion-page .discussion-container .discussion-content .subdiscussion-container ul .content-layer-2 {
-  width: 85%;
+  width: 86%;
 }
 .discussion-page .discussion-container .discussion-content .subdiscussion-container ul .content-layer-3 {
-  width: 80%;
+  width: 82%;
 }
 .discussion-page .discussion-container .discussion-content .subdiscussion-container ul .content-layer-4 {
-  width: 75%;
+  width: 78%;
 }
 .discussion-page .discussion-container .discussion-content .subdiscussion-container ul .content-layer-5 {
-  width: 70%;
+  width: 74%;
 }
 .discussion-page .discussion-container .discussion-content .subdiscussion-container ul .content-layer-6 {
-  width: 65%;
+  width: 70%;
 }
 .discussion-page .discussion-container .discussion-content .subdiscussion-container ul .content-layer-7 {
-  width: 60%;
+  width: 66%;
 }
 .discussion-page .discussion-container .discussion-content .subdiscussion-container ul .content-layer-8 {
-  width: 55%;
+  width: 62%;
 }
 .discussion-page .discussion-container .discussion-content .subdiscussion-container ul .content-layer-9 {
-  width: 50%;
+  width: 58%;
 }
 .discussion-page .discussion-container .discussion-content .subdiscussion-container ul .content-layer-10 {
-  width: 45%;
+  width: 54%;
+}
+.discussion-page .discussion-container .discussion-content .subdiscussion-container ul .content-layer-11 {
+  width: 50%;
+}
+.discussion-page .discussion-container .discussion-content .subdiscussion-container ul .content-layer-12 {
+  width: 46%;
+}
+.discussion-page .discussion-container .discussion-content .subdiscussion-container ul .content-layer-13 {
+  width: 42%;
+}
+.discussion-page .discussion-container .discussion-content .subdiscussion-container ul .content-layer-14 {
+  width: 38%;
+}
+.discussion-page .discussion-container .discussion-content .subdiscussion-container ul .content-layer-15 {
+  width: 34%;
 }
 
 /*# sourceMappingURL=discussion.css.map */

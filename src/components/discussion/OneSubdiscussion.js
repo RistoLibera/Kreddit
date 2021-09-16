@@ -148,9 +148,14 @@ const OneSubdiscussion = (props) => {
           {currentUser
             ?
               <div className='interaction'>
-                <button className='reply-discussion' onClick={switchReplyHidden}>
-                  <FontAwesomeIcon icon={faReply} color='' size='2x' />
-                </button>
+                {layer > 14
+                  ?
+                    <div></div>
+                  :
+                    <button className='reply-discussion' onClick={switchReplyHidden}>
+                      <FontAwesomeIcon icon={faReply} color='' size='2x' />
+                    </button>
+                }
                 <button className='edit-discussion' onClick={toggleEdit} >
                   <FontAwesomeIcon icon={faEdit} color='' size='2x' />
                 </button>
@@ -158,9 +163,14 @@ const OneSubdiscussion = (props) => {
               </div>
             :
               <div className='interaction'>
-                <button className='reply-discussion'>
-                  <FontAwesomeIcon icon={faReply} color='' size='2x' />
-                </button>
+                {layer > 14
+                  ?
+                    <div></div>
+                  :
+                    <button className='reply-discussion'>
+                      <FontAwesomeIcon icon={faReply} color='' size='2x' />
+                    </button>
+                }
                 <button className='edit-discussion'>
                   <FontAwesomeIcon icon={faEdit} color='' size='2x' />
                 </button>
