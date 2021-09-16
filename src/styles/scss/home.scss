@@ -1,5 +1,25 @@
 @use 'base';
 
+// Display mode css
+.darkmode {
+  background-color: rgb(24, 26, 27);
+  color: rgb(232, 230, 227);
+
+  header {
+    background-color: rgb(24, 26, 27);
+    color: rgb(232, 230, 227);  
+  }
+
+  input, button, select, textarea {
+    background-color: #181a1b;
+  }
+
+  a {
+    color: rgb(232, 230, 227);
+  }
+}
+
+
 // Default page
 .homepage {
   @extend %flex-column-direction;

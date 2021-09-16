@@ -12,6 +12,21 @@
   align-items: center;
 }
 
+.darkmode {
+  background-color: #181a1b;
+  color: #e8e6e3;
+}
+.darkmode header {
+  background-color: #181a1b;
+  color: #e8e6e3;
+}
+.darkmode input, .darkmode button, .darkmode select, .darkmode textarea {
+  background-color: #181a1b;
+}
+.darkmode a {
+  color: #e8e6e3;
+}
+
 .homepage {
   background-size: cover;
   background-repeat: no-repeat;

@@ -5,9 +5,11 @@ import { faLightbulb as farLightbulb } from '@fortawesome/free-regular-svg-icons
 
 const DisplayMode = () => {
   const [lighton, setLighton] = useState(true);
+  const bodyHTML = document.querySelector('body');
 
   const changeMode = () => {
     setLighton(!lighton);
+    bodyHTML.classList.toggle('darkmode');
   };
 
   return (
