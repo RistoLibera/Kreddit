@@ -189,7 +189,13 @@ const DiscussionBody = (props) => {
   };
 
   const initialState = async () => {
+    setPageLoading(true);
     if (document.length === 0) return;
+    if (!document.exists) {
+      alert('Non-existence');
+      history.push('/discussions/00');
+      return;
+    }
     checkCurrentEditor();
     await fetchTitleContent();
     await fetchSubdiscussionInfos();

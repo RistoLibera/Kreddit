@@ -53,7 +53,7 @@ const Search = (props) => {
       alert("You can't");
       return;
     }
-    let confirmation = window.confirm('This action will wipe out everything in this discussion, proceed carefully!');
+    let confirmation = window.confirm('This action will wipe out everything in this discussion, proceed with caution!');
     if (!confirmation) {
       return;
     }
