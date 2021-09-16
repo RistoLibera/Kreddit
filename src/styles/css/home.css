@@ -14,17 +14,65 @@
 
 .darkmode {
   background-color: #181a1b;
-  color: #e8e6e3;
+  color: #e8e6e3 !important;
 }
 .darkmode header {
   background-color: #181a1b;
-  color: #e8e6e3;
+  color: #e8e6e3 !important;
 }
-.darkmode input, .darkmode button, .darkmode select, .darkmode textarea {
-  background-color: #181a1b;
+.darkmode html, .darkmode input, .darkmode button, .darkmode select, .darkmode textarea {
+  background-color: #181a1b !important;
+}
+.darkmode button {
+  border-color: #736b5e;
+}
+.darkmode .g-recaptcha-outer {
+  border-color: #736b5e !important;
+  background-color: #181a1b !important;
+  color: white !important;
+}
+.darkmode .recaptcha {
+  border-color: #736b5e !important;
+  background-color: #181a1b !important;
+  color: white !important;
 }
 .darkmode a {
+  color: #e8e6e3 !important;
+}
+.darkmode h1, .darkmode h2, .darkmode h3, .darkmode h4, .darkmode h5, .darkmode h6, .darkmode p {
+  color: rgba(219, 216, 212, 0.85) !important;
+}
+.darkmode :hover {
+  color: #e8e6e3 !important;
+}
+.darkmode ::placeholder {
+  color: #b2aba1 !important;
+}
+.darkmode .login-page .login-container .action form .buttons .submit-button {
+  background-color: #181a1b;
+  color: #c4bfb7;
+}
+.darkmode .login-page .login-container .action form .buttons .reset-button {
+  background-color: #2b2e30;
   color: #e8e6e3;
+}
+.darkmode .login-page .login-container .action form fieldset input {
+  color: #c8c3bc;
+  outline-color: currentcolor !important;
+  border-color: rgba(140, 130, 115, 0.3);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 4px inset;
+}
+.darkmode .app-header .left-bar form fieldset svg {
+  color: #c5925e;
+}
+.darkmode .app-header .left-bar form fieldset input::placeholder {
+  color: #ddd3c2 !important;
+}
+.darkmode .app-header .left-bar form fieldset button {
+  background-color: #70563c !important;
+}
+.darkmode .app-header .left-bar form fieldset button:hover {
+  border-color: #736b5e !important;
 }
 
 .homepage {

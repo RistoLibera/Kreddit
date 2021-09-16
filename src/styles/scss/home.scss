@@ -3,19 +3,83 @@
 // Display mode css
 .darkmode {
   background-color: rgb(24, 26, 27);
-  color: rgb(232, 230, 227);
+  color: rgb(232, 230, 227)!important;
 
   header {
     background-color: rgb(24, 26, 27);
-    color: rgb(232, 230, 227);  
+    color: rgb(232, 230, 227)!important;  
   }
 
-  input, button, select, textarea {
-    background-color: #181a1b;
+  html, input, button, select, textarea {
+    background-color: #181a1b!important;
+  }
+
+  button {
+    border-color: #736b5e;
+  }
+
+  .g-recaptcha-outer{
+    border-color: #736b5e!important;
+    background-color: #181a1b!important;
+    color: white!important;
+  }
+
+  .recaptcha {
+    border-color: #736b5e!important;
+    background-color: #181a1b!important;
+    color: white!important;
   }
 
   a {
+    color: rgb(232, 230, 227)!important;
+  }
+
+  h1, h2, h3, h4, h5, h6, p {
+    color: rgba(219, 216, 212, 0.85)!important;
+  }
+
+  :hover {
+    color: #e8e6e3 !important;
+  }
+
+  ::placeholder {
+    color: #b2aba1!important;
+  }
+
+
+  .login-page .login-container .action form .buttons .submit-button {
+    background-color: rgb(24, 26, 27);
+    color: rgb(196, 191, 183);
+  }
+
+  .login-page .login-container .action form .buttons .reset-button {
+    background-color: rgb(43, 46, 48);
     color: rgb(232, 230, 227);
+  }
+
+  .login-page .login-container .action form fieldset input {
+    color: rgb(200, 195, 188);
+    outline-color: currentcolor !important;
+    border-color: rgba(140, 130, 115, 0.3);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 4px inset;
+  }
+
+  .app-header .left-bar form fieldset {
+    svg {
+      color: rgb(197, 146, 94);
+    }
+
+    input::placeholder {
+      color: rgb(221, 211, 194)!important;
+    }
+
+    button {
+      background-color: #70563c!important;
+    }
+
+    button:hover {
+      border-color: #736b5e!important;
+    }
   }
 }
 
