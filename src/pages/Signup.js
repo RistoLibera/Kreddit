@@ -177,6 +177,7 @@ const Signup = () => {
                     render="explicit"
                     onloadCallback={loadCallback}
                     verifyCallback={verifyIfHuman}
+                    theme='dark'
                   />
                 </fieldset>
 

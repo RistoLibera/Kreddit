@@ -46,7 +46,7 @@
     color: #b2aba1!important;
   }
 
-
+  // Login page
   .login-page .login-container .action form .buttons .submit-button {
     background-color: rgb(24, 26, 27);
     color: rgb(196, 191, 183);
@@ -79,6 +79,70 @@
 
     button:hover {
       border-color: #736b5e!important;
+    }
+  }
+
+  // Sign up page
+  .signup-page .signup-container {
+    background-color: rgb(24, 26, 27)!important;
+    background-image: none!important;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 25px!important;
+  }
+
+  .signup-page .signup-container .signup-classic form .info .all-nations select {
+    outline-color: currentcolor!important;
+    border: 1px outset rgba(0, 0, 0, 0.5)!important;
+    color: rgb(232, 230, 227)!important;
+  }
+
+  .signup-page .signup-container .signup-classic form .buttons .submit-button {
+    background-color: rgb(24, 26, 27)!important;
+    color: rgb(196, 191, 183)!important;
+  }
+
+  // Profile page
+  .profile-page {
+    background-color: rgb(24, 26, 27)!important;
+  }
+
+  .profile-page .profile-container .lower-profile ol.gradient-list > li {
+    background-color: rgb(24, 26, 27)!important;
+  }
+
+  .entry button svg {
+    color: #e8e6e3 !important;
+  }
+
+  .upload label svg {
+    color: rgb(232, 230, 227)!important;
+  }
+
+  .upper-profile {
+    color: rgb(232, 230, 227)!important;
+  }
+
+  .profile-page .profile-container .upper-profile .info .lower-info .groups .as-creator span {
+    border-color: rgb(140, 130, 115)!important;
+    color: rgb(232, 230, 227)!important;
+  }
+
+  .profile-page .profile-container .upper-profile .info .lower-info .groups .as-member span {
+    border-color: rgb(158, 130, 87)!important;
+    color: rgb(232, 230, 227)!important;
+  }
+
+  .profile-page .profile-container .upper-profile .info .lower-info .discussions {
+    color: rgb(199, 195, 187)!important;
+  }
+
+  .registration {
+    form fieldset {
+      color: #e8e6e3!important;
+    }
+
+    button {
+      border-color: #736b5e!important;
+      color: #e8e6e3!important;
     }
   }
 }

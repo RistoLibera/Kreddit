@@ -74,6 +74,53 @@
 .darkmode .app-header .left-bar form fieldset button:hover {
   border-color: #736b5e !important;
 }
+.darkmode .signup-page .signup-container {
+  background-color: #181a1b !important;
+  background-image: none !important;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 25px !important;
+}
+.darkmode .signup-page .signup-container .signup-classic form .info .all-nations select {
+  outline-color: currentcolor !important;
+  border: 1px outset rgba(0, 0, 0, 0.5) !important;
+  color: #e8e6e3 !important;
+}
+.darkmode .signup-page .signup-container .signup-classic form .buttons .submit-button {
+  background-color: #181a1b !important;
+  color: #c4bfb7 !important;
+}
+.darkmode .profile-page {
+  background-color: #181a1b !important;
+}
+.darkmode .profile-page .profile-container .lower-profile ol.gradient-list > li {
+  background-color: #181a1b !important;
+}
+.darkmode .entry button svg {
+  color: #e8e6e3 !important;
+}
+.darkmode .upload label svg {
+  color: #e8e6e3 !important;
+}
+.darkmode .upper-profile {
+  color: #e8e6e3 !important;
+}
+.darkmode .profile-page .profile-container .upper-profile .info .lower-info .groups .as-creator span {
+  border-color: #8c8273 !important;
+  color: #e8e6e3 !important;
+}
+.darkmode .profile-page .profile-container .upper-profile .info .lower-info .groups .as-member span {
+  border-color: #9e8257 !important;
+  color: #e8e6e3 !important;
+}
+.darkmode .profile-page .profile-container .upper-profile .info .lower-info .discussions {
+  color: #c7c3bb !important;
+}
+.darkmode .registration form fieldset {
+  color: #e8e6e3 !important;
+}
+.darkmode .registration button {
+  border-color: #736b5e !important;
+  color: #e8e6e3 !important;
+}
 
 .homepage {
   background-size: cover;

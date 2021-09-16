@@ -117,6 +117,7 @@ const Login = () => {
                     render="explicit"
                     onloadCallback={loadCallback}
                     verifyCallback={verifyIfHuman}
+                    theme='dark'
                   />
                 </fieldset>
 
