@@ -192,6 +192,34 @@
   outline-color: currentcolor !important;
   background-color: #18873c !important;
 }
+.darkmode .discussion-page .discussion-container .discussion-content .group {
+  background-color: #8a7b2c !important;
+}
+.darkmode .discussion-page .discussion-container .discussion-content .group .group-name {
+  color: #e8e6e3 !important;
+  background-color: #8a7b2c !important;
+}
+.darkmode .discussion-page .discussion-container .discussion-content .title {
+  box-shadow: rgba(21, 48, 62, 0.4) 0px 2.5rem 2rem -2rem !important;
+  border-color: #454b4e !important;
+  background-color: #181a1b !important;
+  background-image: none !important;
+}
+.darkmode .discussion-page button {
+  border-color: #736b5e !important;
+  color: #e8e6e3 !important;
+}
+.darkmode .discussion-page button:disabled {
+  color: #988f81 !important;
+}
+.darkmode .discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container .ternary .edit-discussion fieldset textarea {
+  color: #c8c3bc !important;
+  border-color: rgba(140, 130, 115, 0.3) !important;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 4px inset !important;
+}
+.darkmode .upload label {
+  border-color: #8c8273 !important;
+}
 
 .homepage {
   background-size: cover;

@@ -250,7 +250,43 @@
     background-color: rgb(24, 135, 60)!important;
   }
 
+  // Discussion page
+  .discussion-page .discussion-container .discussion-content .group {
+    background-color: rgb(138, 123, 44)!important;
 
+    .group-name {
+      color: rgb(232, 230, 227)!important;
+      background-color: rgb(138, 123, 44)!important;
+    }
+  }
+
+  .discussion-page .discussion-container .discussion-content .title {
+    box-shadow: rgba(21, 48, 62, 0.4) 0px 2.5rem 2rem -2rem!important;
+    border-color: rgb(69, 75, 78)!important;
+    background-color: rgb(24, 26, 27)!important;
+    background-image: none!important;
+  }
+
+  .discussion-page {
+    button {
+      border-color: #736b5e!important;
+      color: #e8e6e3!important;
+    }
+
+    button:disabled {
+      color: rgb(152, 143, 129)!important;
+    }
+  }
+
+  .discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container .ternary .edit-discussion fieldset textarea {
+    color: rgb(200, 195, 188)!important;
+    border-color: rgba(140, 130, 115, 0.3)!important;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 4px inset!important;
+  }
+
+  .upload label {
+    border-color: rgb(140, 130, 115)!important;
+  }
 
 }
 

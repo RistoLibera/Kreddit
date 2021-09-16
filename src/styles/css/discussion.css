@@ -19,6 +19,10 @@
 .discussion-page button {
   cursor: pointer;
 }
+.discussion-page button:disabled {
+  cursor: default;
+  color: grey;
+}
 .discussion-page .hidden {
   display: none;
 }
@@ -130,6 +134,7 @@
   cursor: pointer;
   padding: 6px 3px;
   margin-top: 5px;
+  margin-right: 5px;
 }
 .discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container .ternary .edit-discussion .upload #files {
   display: none;
