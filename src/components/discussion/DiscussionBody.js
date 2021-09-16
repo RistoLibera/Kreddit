@@ -189,7 +189,7 @@ const DiscussionBody = (props) => {
   };
 
   const initialState = async () => {
-    setPageLoading(true);
+    // setPageLoading(true);
     if (document.length === 0) return;
     if (!document.exists) {
       alert('Non-existence');

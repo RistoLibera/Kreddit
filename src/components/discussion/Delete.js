@@ -3,6 +3,7 @@ import FirebasePack from '../../config/FirebasePack';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { useHistory } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Search = (props) => {
   const { document, currentUser, parentLayer, beEditor, rootUpdate } = props;
@@ -50,7 +51,7 @@ const Search = (props) => {
 
   const deleteThis = async () => {
     if(!beEditor) {
-      alert("You can't");
+      toast.error("You can't");
       return;
     }
     let confirmation = window.confirm('This action will wipe out everything in this discussion, proceed with caution!');
@@ -59,7 +60,7 @@ const Search = (props) => {
     }
     await deleteRecord();
     await deleteInfo();
-    alert('success!');
+    toast.success("success!");
     rootUpdate();
     if (parentLayer === 0 ) {
       history.push('/discussions/00');
@@ -67,9 +68,15 @@ const Search = (props) => {
   };
   
   return (
-    <button className='delete-discussion' onClick={deleteThis}>
-      <FontAwesomeIcon icon={faTrashAlt} color='' size='2x' />
-    </button>
+    <div className="delete-block">
+      <Toaster 
+        position="bottom-right"
+        reverseOrder={false}
+      />
+      <button className='delete-discussion' onClick={deleteThis}>
+        <FontAwesomeIcon icon={faTrashAlt} color='' size='2x' />
+      </button>
+    </div>
   );
 };
 
