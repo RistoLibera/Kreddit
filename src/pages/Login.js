@@ -6,8 +6,11 @@ import Recaptcha from 'react-recaptcha';
 import { css } from '@emotion/react';
 import ClockLoader from 'react-spinners/ClockLoader';
 import FirebasePack from '../config/FirebasePack';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import handleFirebaseError from '../components/error/handleFirebaseError';
 import '../styles/css/user.css';
+import toast from 'react-hot-toast';
 
 const Login = () => {
   const { t } = useTranslation('login');
@@ -22,7 +25,6 @@ const Login = () => {
   margin: 0 auto;
   border-color: red;
   `;
-  const [errorMessage, setErrorMessage] = useState([]);
   const [pageLoading, setPageLoading] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
 
@@ -33,6 +35,18 @@ const Login = () => {
     );
   }
 
+  // Corner notification block
+  const alertNotif = (message) => {
+    toast((t) => (
+      <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
+        <span>
+          <FontAwesomeIcon icon={faTimesCircle} color='red' size='2x' />
+        </span>
+        <span style={{ paddingLeft: '10px'}}>{message}</span>
+      </span>
+    ));
+  };
+
   // Login existed user
   const loginExisted = async (email, password) => {
     try {
@@ -41,7 +55,8 @@ const Login = () => {
         .signInWithEmailAndPassword(email, password);
         history.push('/');
     } catch (error) {
-      setErrorMessage(handleFirebaseError(error));
+      let errorMessage = handleFirebaseError(error);
+      alertNotif(errorMessage);
       setPageLoading(false);
     }
   };
@@ -110,9 +125,6 @@ const Login = () => {
                   <button className='submit-button' type='submit' value='Submit' disabled={!isVerified}>{t('content.login')}</button>
                 </fieldset>
               </form>
-            </div>
-            <div className='error-message'>
-              <h2>{errorMessage}</h2>
             </div>
           </div>
         }

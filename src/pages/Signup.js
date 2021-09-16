@@ -4,7 +4,7 @@ import { AuthContext } from '../components/loading/Auth';
 import { useTranslation } from "react-i18next";
 import Recaptcha from 'react-recaptcha';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMars, faVenus } from '@fortawesome/free-solid-svg-icons';
+import { faMars, faVenus, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faTwitter, faGoogle, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { css } from '@emotion/react';
 import ClockLoader from 'react-spinners/ClockLoader';
@@ -14,6 +14,7 @@ import SelectCountry from '../components/user/SelectCountry';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import PersonIcon from '@material-ui/icons/Person';
 import '../styles/css/user.css';
+import toast from 'react-hot-toast';
 
 const Signup = () => {
   const { t } = useTranslation('signup');
@@ -49,6 +50,18 @@ const Signup = () => {
     );
   }
 
+  // Corner notification block
+  const alertNotif = (message) => {
+    toast((t) => (
+      <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
+        <span>
+          <FontAwesomeIcon icon={faTimesCircle} color='red' size='2x' />
+        </span>
+        <span style={{ paddingLeft: '10px'}}>{message}</span>
+      </span>
+    ));
+  };
+
   // Create new user
   const createNew = async (email, password) => {
     let credential;
@@ -58,7 +71,8 @@ const Signup = () => {
         .auth()
         .createUserWithEmailAndPassword(email, password);
     } catch (error) {
-      setErrorMessage(handleFirebaseError(error));
+      let errorMessage = handleFirebaseError(error);
+      alertNotif(errorMessage);
       setPageLoading(false);
     }
     return credential;
