@@ -51,7 +51,12 @@ const Search = (props) => {
 
   const deleteThis = async () => {
     if(!beEditor) {
-      toast.error("You can't");
+      toast((t) => (
+        <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer'}}>
+          <span>❌</span>
+          <span style={{ paddingLeft: '10px'}}>You can't!</span>
+        </span>
+      ));
       return;
     }
     let confirmation = window.confirm('This action will wipe out everything in this discussion, proceed with caution!');
@@ -60,7 +65,12 @@ const Search = (props) => {
     }
     await deleteRecord();
     await deleteInfo();
-    toast.success("success!");
+    toast((t) => (
+      <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer'}}>
+        <span>✅</span>
+        <span style={{ paddingLeft: '10px'}}>success!</span>
+      </span>
+    ));
     rootUpdate();
     if (parentLayer === 0 ) {
       history.push('/discussions/00');

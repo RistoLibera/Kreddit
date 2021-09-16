@@ -141,6 +141,7 @@
   position: relative;
 }
 .discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container .ternary .edit-discussion fieldset textarea {
+  padding: 8px;
   line-height: 1.3;
   resize: none;
   color: #333333;
@@ -188,6 +189,7 @@
   position: relative;
 }
 .discussion-page .discussion-container .discussion-content .reply-form-container form fieldset textarea {
+  padding: 8px;
   line-height: 1.3;
   resize: none;
   color: #333333;
@@ -279,6 +281,7 @@
   width: 100%;
 }
 .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .reply-content .edit-form-container .ternary .edit-subdiscussion fieldset textarea {
+  padding: 8px;
   line-height: 1.3;
   resize: none;
   color: #333333;
@@ -347,6 +350,7 @@
   position: relative;
 }
 .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .reply-form-container form fieldset textarea {
+  padding: 8px;
   line-height: 1.3;
   resize: none;
   color: #333333;
