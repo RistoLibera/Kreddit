@@ -26,7 +26,8 @@
 - You can create group(4 for most).
 - You can upload group symbol.
 - You can see when the group were created.
-- You can jump to certain group's discussions.
+- You can toggle group view.
+- You can jump to group's discussions.
 
 ### For discussion
 
@@ -37,6 +38,7 @@
 - You can create subdiscussions on any discussions.
 - You can receive notification about your discussions.
 - You can see when the discussions were created.
+- You can check creator's profile by clicking icon.
 
 ### Upon environment
 
@@ -81,7 +83,7 @@ $ npm install
 
 - Create server
 ```ruby
-$ npm run
+$ npm start
 ```
 
 - Browse content

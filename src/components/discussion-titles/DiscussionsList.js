@@ -141,7 +141,10 @@ const DiscussionsList = (props) => {
 
   const createList = async () => {
     let container = [];
-    if(documents.length === 0) return;
+    if(documents.length === 0) {
+      setPageLoading(false);
+      return;
+    }
 
     for (const [index, doc] of documents.entries()) {
       let data = doc.data();
