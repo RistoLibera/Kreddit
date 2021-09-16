@@ -1,10 +1,25 @@
 import React, { useState, useEffect} from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
+import toast from 'react-hot-toast';
 
 //  change view matrix or line
 const FilterButtons = (props) => {
   const { documents, updateSelection, cancelSelection, allSelection, optionalGroup } = props;
   const [listTags, setListTags] = useState([]);
   const [allActive, setAllActive] = useState('active');
+
+  // Corner notification block
+  const warningNotif = () => {
+    toast((t) => (
+      <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
+        <span>
+          <FontAwesomeIcon icon={faExclamationCircle} color='#CCCC00' size='2x' />
+        </span>
+        <span style={{ paddingLeft: '10px'}}>You have select all!</span>
+      </span>
+    ));
+  };
 
   // Show discussion by group
   const selectGroup = (event, name) => {
@@ -18,7 +33,7 @@ const FilterButtons = (props) => {
         setAllActive('active');
         allSelection();
       } else {
-        alert('You have select all!');
+        warningNotif();
       }
     } else {
       setAllActive('inactive');

@@ -2,24 +2,30 @@ import React, { useState, useEffect } from 'react';
 import FirebasePack from '../../config/FirebasePack';
 import firebase from 'firebase/app';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCaretSquareDown, faCaretSquareUp } from '@fortawesome/free-solid-svg-icons';
+import { faCaretSquareDown, faCaretSquareUp, faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
+import toast from 'react-hot-toast';
 
 const RatingButtons = (props) => {
   const { rating, currentUser, document, rootUpdate } = props;
   const [disableUp, setDisableUp] = useState(false);
   const [disableDown, setDisableDown] = useState(false);
 
-  // Trigger warning when not logged in
-  const triggerWarning = () => {
-    alert('Please log in!');
+  // Corner notification block
+  const warningNotif = () => {
+    toast((t) => (
+      <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
+        <span>
+          <FontAwesomeIcon icon={faExclamationCircle} color='#CCCC00' size='2x' />
+        </span>
+        <span style={{ paddingLeft: '10px'}}>Please log in!</span>
+      </span>
+    ));
   };
 
   // Check if rated
   const checkRated = async () => {
     if (document.length === 0) return;
     if (!currentUser) {
-      setDisableUp(true);
-      setDisableDown(true);
       return;
     }
     let currentUID = currentUser.uid;
@@ -89,7 +95,7 @@ const RatingButtons = (props) => {
       await sendNotif(currentUser.uid);
       rootUpdate();
     } else {
-      triggerWarning();
+      warningNotif();
     }
   };
 
@@ -101,7 +107,7 @@ const RatingButtons = (props) => {
       await sendNotif(currentUser.uid);
       rootUpdate();
     } else {
-      triggerWarning();
+      warningNotif();
     }
   };
 

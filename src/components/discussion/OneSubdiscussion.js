@@ -8,7 +8,8 @@ import EditForm from './EditForm';
 import Delete from './Delete';
 import RatingButtons from './RatingButtons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faReply, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faReply, faTrashAlt, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import toast from 'react-hot-toast';
 
 const OneSubdiscussion = (props) => {
   const { currentUser, document, rootUpdate } = props;
@@ -54,11 +55,23 @@ const OneSubdiscussion = (props) => {
       setEditHidden('hidden');
     }
   };
-  
+
+  // Corner notification block
+  const alertNotif = () => {
+    toast((t) => (
+      <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
+        <span>
+          <FontAwesomeIcon icon={faTimesCircle} color='red' size='2x' />
+        </span>
+        <span style={{ paddingLeft: '10px'}}>You can't!</span>
+      </span>
+    ));
+  };
+
   // Toggle edit form
   const toggleEdit = (event) => {
     if(currentUser.uid !== document.data().creator_uid) {
-      alert("You can't");
+      alertNotif();
       return;
     }
     switchEditHidden();

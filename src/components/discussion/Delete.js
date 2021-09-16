@@ -60,7 +60,8 @@ const Search = (props) => {
       </span>
     ));
   };
-
+  
+  // Corner notification block
   const successNotif = () => {
     toast((t) => (
       <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>

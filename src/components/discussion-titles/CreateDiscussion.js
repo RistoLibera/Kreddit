@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from "react-i18next";
 import FirebasePack from '../../config/FirebasePack';
 import firebase from 'firebase/app';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
+import toast from 'react-hot-toast';
 
 //  change view matrix or line
 const CreateDiscussion = (props) => {
@@ -135,6 +138,18 @@ const CreateDiscussion = (props) => {
       console.log(error);
     }
   };
+
+  // Corner notification block
+  const successNotif = () => {
+    toast((t) => (
+      <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
+        <span>
+          <FontAwesomeIcon icon={faCheckCircle} color='green' size='2x' />
+        </span>
+        <span style={{ paddingLeft: '10px'}}>success!</span>
+      </span>
+    ));
+  };
   
   const handleCreation = async (event) => {
     event.preventDefault();
@@ -150,7 +165,7 @@ const CreateDiscussion = (props) => {
     await updateInfo(groupUID, groupValue, discussionUID, titleValue, currentUser.uid);
     event.target.reset();
     switchHidden();
-    alert('success!');
+    successNotif();
     setPageLoading(false);
     update();
   };
