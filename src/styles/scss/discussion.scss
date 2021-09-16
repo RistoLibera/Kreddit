@@ -247,7 +247,13 @@
         
             .reply-buttons {
               @extend %flex-row-direction;
-              padding: 0 20px;
+              padding: 3px 15px;
+
+              .creation-buttons {
+                button {
+                  margin: 0 3px;
+                }
+              }
 
               button {
                 cursor: pointer;
@@ -457,7 +463,13 @@
             
                 .reply-buttons {
                   @extend %flex-row-direction;
-                  padding: 0 20px;
+                  padding: 3px 15px;
+
+                  .creation-buttons {
+                    button {
+                      margin: 0 3px;
+                    }
+                  }
 
                   button {
                     cursor: pointer;

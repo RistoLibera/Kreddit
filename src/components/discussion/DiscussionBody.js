@@ -5,7 +5,7 @@ import { DateTime, Interval } from "luxon";
 import FirebasePack from '../../config/FirebasePack';
 import { css } from '@emotion/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faReply, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faExclamationCircle, faReply, faTrashAlt, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import ClockLoader from 'react-spinners/ClockLoader';
 import DefaultIcon from '../../assets/img/default-icon.jpg';
 import DefaultSymbol from '../../assets/img/default-symbol.png';
@@ -14,6 +14,7 @@ import EditForm from './EditForm';
 import Delete from './Delete';
 import RatingButtons from './RatingButtons';
 import SubDiscussionBody from './SubDiscussionBody';
+import toast from 'react-hot-toast';
 
 const DiscussionBody = (props) => {
   const { currentUser } = useContext(AuthContext);
@@ -68,10 +69,22 @@ const DiscussionBody = (props) => {
     }
   };
   
+  // Corner notification block
+  const alertNotif = () => {
+    toast((t) => (
+      <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
+        <span>
+          <FontAwesomeIcon icon={faTimesCircle} color='red' size='2x' />
+        </span>
+        <span style={{ paddingLeft: '10px'}}>You can't!</span>
+      </span>
+    ));
+  };
+  
   // Toggle edit form
   const toggleEdit = (event) => {
     if(currentUser.uid !== document.data().creator_uid) {
-      alert("You can't");
+      alertNotif();
       return;
     }
     switchEditHidden();
@@ -188,10 +201,22 @@ const DiscussionBody = (props) => {
     setSubDocs(container);
   };
 
+  // Corner notification block
+  const warningNotif = () => {
+    toast((t) => (
+      <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
+        <span>
+          <FontAwesomeIcon icon={faExclamationCircle} color='#CCCC00' size='2x' />
+        </span>
+        <span style={{ paddingLeft: '10px'}}>Non-existence!</span>
+      </span>
+    ));
+  };
+  
   const initialState = async () => {
     if (document.length === 0) return;
     if (!document.exists) {
-      alert('Non-existence');
+      warningNotif();
       history.push('/discussions/00');
       return;
     }

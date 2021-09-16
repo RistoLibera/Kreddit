@@ -11,12 +11,17 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Search from './pages/Search';
 import './styles/css/reset.css';
+import { Toaster } from 'react-hot-toast';
 
 const Routes = () => {
   return (
     <AuthProvider>
       <Router>
         <Header />
+        <Toaster 
+        position="bottom-right"
+        reverseOrder={false}
+        />
         <Switch>
           <Route exact path='/login' component={Login} />
           <Route exact path='/signup' component={Signup} />

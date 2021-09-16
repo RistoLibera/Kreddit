@@ -1,9 +1,9 @@
 import React from 'react';
 import FirebasePack from '../../config/FirebasePack';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faTrashAlt, faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { useHistory } from 'react-router-dom';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 const Search = (props) => {
   const { document, currentUser, parentLayer, beEditor, rootUpdate } = props;
@@ -49,14 +49,32 @@ const Search = (props) => {
     }
   };
 
+  // Corner notification block
+  const alertNotif = () => {
+    toast((t) => (
+      <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
+        <span>
+          <FontAwesomeIcon icon={faTimesCircle} color='red' size='2x' />
+        </span>
+        <span style={{ paddingLeft: '10px'}}>You can't!</span>
+      </span>
+    ));
+  };
+
+  const successNotif = () => {
+    toast((t) => (
+      <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
+        <span>
+          <FontAwesomeIcon icon={faCheckCircle} color='green' size='2x' />
+        </span>
+        <span style={{ paddingLeft: '10px'}}>success!</span>
+      </span>
+    ));
+  };
+
   const deleteThis = async () => {
     if(!beEditor) {
-      toast((t) => (
-        <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer'}}>
-          <span>❌</span>
-          <span style={{ paddingLeft: '10px'}}>You can't!</span>
-        </span>
-      ));
+      alertNotif();
       return;
     }
     let confirmation = window.confirm('This action will wipe out everything in this discussion, proceed with caution!');
@@ -65,12 +83,7 @@ const Search = (props) => {
     }
     await deleteRecord();
     await deleteInfo();
-    toast((t) => (
-      <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer'}}>
-        <span>✅</span>
-        <span style={{ paddingLeft: '10px'}}>success!</span>
-      </span>
-    ));
+    successNotif();
     rootUpdate();
     if (parentLayer === 0 ) {
       history.push('/discussions/00');
@@ -78,15 +91,9 @@ const Search = (props) => {
   };
   
   return (
-    <div className="delete-block">
-      <Toaster 
-        position="bottom-right"
-        reverseOrder={false}
-      />
-      <button className='delete-discussion' onClick={deleteThis}>
-        <FontAwesomeIcon icon={faTrashAlt} color='' size='2x' />
-      </button>
-    </div>
+    <button className='delete-discussion' onClick={deleteThis}>
+      <FontAwesomeIcon icon={faTrashAlt} color='' size='2x' />
+    </button>
   );
 };
 

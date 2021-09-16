@@ -1,11 +1,12 @@
-import React, { useState, useEffect }  from 'react';
+import React, { useState }  from 'react';
 import { useTranslation } from "react-i18next";
 import FirebasePack from '../../config/FirebasePack';
 import firebase from 'firebase/app';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBold, faItalic, faStrikethrough } from '@fortawesome/free-solid-svg-icons';
+import { faBold, faCheckCircle, faItalic, faStrikethrough } from '@fortawesome/free-solid-svg-icons';
 import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
+import toast from 'react-hot-toast';
 
 const ReplyForm = (props) => {
   const { t } = useTranslation('reply');
@@ -16,7 +17,6 @@ const ReplyForm = (props) => {
   border-color: red;
   `;
   const [pageLoading, setPageLoading] = useState(false);
-  const [layerClass, setLayerClass] =useState('');
 
   // Add subdiscussion
   const addSub = async (content, layer) => {
@@ -155,6 +155,18 @@ const ReplyForm = (props) => {
     }
   };
 
+  // Corner notification block
+  const successNotif = () => {
+    toast((t) => (
+      <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
+        <span>
+          <FontAwesomeIcon icon={faCheckCircle} color='green' size='2x' />
+        </span>
+        <span style={{ paddingLeft: '10px'}}>success!</span>
+      </span>
+    ));
+  };
+
   const handleReply = async (event) => {
     event.preventDefault();
     setPageLoading(true);
@@ -166,7 +178,7 @@ const ReplyForm = (props) => {
     await updateCount();
     await updateInfo(subUID, currentUser.uid);
     await sendNotif(currentUser.uid);
-    alert('success!');
+    successNotif();
     event.target.reset();
     switchHidden();
     setPageLoading(false);

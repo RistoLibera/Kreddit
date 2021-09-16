@@ -201,7 +201,10 @@
   border-radius: 10px;
 }
 .discussion-page .discussion-container .discussion-content .reply-form-container form fieldset .reply-buttons {
-  padding: 0 20px;
+  padding: 3px 15px;
+}
+.discussion-page .discussion-container .discussion-content .reply-form-container form fieldset .reply-buttons .creation-buttons button {
+  margin: 0 3px;
 }
 .discussion-page .discussion-container .discussion-content .reply-form-container form fieldset .reply-buttons button {
   cursor: pointer;
@@ -362,7 +365,10 @@
   border-radius: 10px;
 }
 .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .reply-form-container form fieldset .reply-buttons {
-  padding: 0 20px;
+  padding: 3px 15px;
+}
+.discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .reply-form-container form fieldset .reply-buttons .creation-buttons button {
+  margin: 0 3px;
 }
 .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .reply-form-container form fieldset .reply-buttons button {
   cursor: pointer;
