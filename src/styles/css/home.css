@@ -226,6 +226,19 @@
   background-color: #181a1b !important;
   background-image: none !important;
 }
+.darkmode .app-header .right-bar .user-bar .notification-center ul {
+  background-color: #181a1b !important;
+  border-top-color: currentcolor !important;
+}
+.darkmode .app-header .right-bar .user-bar .notification-center ul #clear-all {
+  background-color: #755f1a !important;
+  border-color: currentcolor !important;
+}
+.darkmode .app-header .right-bar .user-bar .notification-center ul li {
+  border-left-color: rgba(132, 105, 70, 0.22) !important;
+  border-right-color: rgba(132, 105, 70, 0.22) !important;
+  list-style-image: none !important;
+}
 
 .homepage {
   background-size: cover;

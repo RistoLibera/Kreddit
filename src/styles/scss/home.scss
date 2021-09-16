@@ -294,6 +294,23 @@
     background-color: rgb(24, 26, 27)!important;
     background-image: none!important;
   }
+
+  // Notification
+  .app-header .right-bar .user-bar .notification-center ul {
+    background-color: rgb(24, 26, 27)!important;
+    border-top-color: currentcolor!important;
+  }
+
+  .app-header .right-bar .user-bar .notification-center ul #clear-all {
+    background-color: rgb(117, 95, 26)!important;
+    border-color: currentcolor!important;
+  }
+
+  .app-header .right-bar .user-bar .notification-center ul li {
+    border-left-color: rgba(132, 105, 70, 0.22)!important;
+    border-right-color: rgba(132, 105, 70, 0.22)!important;
+    list-style-image: none!important;
+  }
 }
 
 
