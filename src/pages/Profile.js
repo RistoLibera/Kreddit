@@ -3,6 +3,8 @@ import { useParams, useHistory } from 'react-router-dom';
 import FirebasePack from '../config/FirebasePack';
 import Default from '../assets/img/default-icon.jpg';
 import { css } from '@emotion/react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 import ClockLoader from 'react-spinners/ClockLoader';
 import ShowIcon from '../components/user/ShowIcon';
 import DeleteUser from '../components/user/DeleteUser';
@@ -11,6 +13,7 @@ import ShowInfo from '../components/user/ShowInfo';
 import Titles from '../components/user/Titles';
 import ShowStatistic from '../components/user/ShowStatistic';
 import '../styles/css/profile.css';
+import toast from 'react-hot-toast';
 
 const Profile = () => {
   const { uid }  = useParams();
@@ -80,6 +83,18 @@ const Profile = () => {
     }
   };
 
+  // Corner notification block
+  const warningNotif = () => {
+    toast((t) => (
+      <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
+        <span>
+          <FontAwesomeIcon icon={faExclamationCircle} color='#CCCC00' size='2x' />
+        </span>
+        <span style={{ paddingLeft: '10px'}}>Non-existence!</span>
+      </span>
+    ));
+  };
+
   // Get info
   const getInfo = async() => {
     let groupArray;
@@ -92,7 +107,7 @@ const Profile = () => {
           .get();
       let info = cache.data();
       if(!info) {
-        alert('Non-existence');
+        warningNotif();
         history.push('/');
       }
       setNickname(info.nickname);

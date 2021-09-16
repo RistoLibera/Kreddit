@@ -5,6 +5,8 @@ import FirebasePack from '../../config/FirebasePack';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell as farBell } from '@fortawesome/free-regular-svg-icons';
 import { faBellSlash as farBellSlash } from '@fortawesome/free-regular-svg-icons';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import toast from 'react-hot-toast';
 
 const ShowNotif = (props) => {
   const { t } = useTranslation('header');
@@ -12,6 +14,18 @@ const ShowNotif = (props) => {
   const [listTags, setListTags] = useState([]);
   const [showUL, setShowUL] = useState('hidden');
 
+  // Corner notification block
+  const successNotif = () => {
+    toast((t) => (
+      <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
+        <span>
+          <FontAwesomeIcon icon={faCheckCircle} color='green' size='2x' />
+        </span>
+        <span style={{ paddingLeft: '10px'}}>success!</span>
+      </span>
+    ));
+  };
+    
   // Clear all notifications
   const clearNotif = async () => {
     try {
@@ -30,7 +44,7 @@ const ShowNotif = (props) => {
       console.log(error);
     }
     setListTags([]);
-    alert('success');
+    successNotif();
     update();
   };
 

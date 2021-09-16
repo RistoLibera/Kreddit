@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import { useTranslation } from "react-i18next";
 import FirebasePack from '../../config/FirebasePack';
 import firebase from 'firebase/app';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimesCircle , faCheckCircle, faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
+import toast from 'react-hot-toast';
 
 const CreateGroup = (props) => {
   const { t } = useTranslation('group');
@@ -81,6 +84,42 @@ const CreateGroup = (props) => {
     }
   };
 
+  // Corner notification block
+  const alertNotif = () => {
+    toast((t) => (
+      <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
+        <span>
+          <FontAwesomeIcon icon={faTimesCircle} color='red' size='2x' />
+        </span>
+        <span style={{ paddingLeft: '10px'}}>Group already created!</span>
+      </span>
+    ));
+  };
+  
+  // Corner notification block
+  const warningNotif = () => {
+    toast((t) => (
+      <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
+        <span>
+          <FontAwesomeIcon icon={faExclamationCircle} color='#CCCC00' size='2x' />
+        </span>
+        <span style={{ paddingLeft: '10px'}}>Reach creation limit!</span>
+      </span>
+    ));
+  };
+
+  // Corner notification block
+  const successNotif = () => {
+    toast((t) => (
+      <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
+        <span>
+          <FontAwesomeIcon icon={faCheckCircle} color='green' size='2x' />
+        </span>
+        <span style={{ paddingLeft: '10px'}}>success!</span>
+      </span>
+    ));
+  };
+  
   const handleCreation = async (event) => {
     event.preventDefault();
     setPageLoading(true);
@@ -93,11 +132,11 @@ const CreateGroup = (props) => {
     let symbolFile = symbol.files[0];
 
     if(documents && documents.some((groupDoc) => groupDoc.data().name  === nameValue)) {
-      alert("Group already created!");
+      alertNotif();
       setPageLoading(false);
       return;
     } else if(amount > 3) {
-      alert("Reach creation limit!");
+      warningNotif();
       setPageLoading(false);
       return;
     } else {
@@ -105,7 +144,7 @@ const CreateGroup = (props) => {
       await createNew(nameValue, creator, introductionValue);
       await updateSymbol(nameValue, symbolFile);
       await updateInfo(nameValue, uid);
-      alert('success!');
+      successNotif();
     }
     event.target.reset();
     setPageLoading(false);

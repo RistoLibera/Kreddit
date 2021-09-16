@@ -7,8 +7,9 @@ import firebase from 'firebase/app';
 import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserSlash } from '@fortawesome/free-solid-svg-icons';
+import { faUserSlash, faTimesCircle , faCheckCircle} from '@fortawesome/free-solid-svg-icons';
 import handleFirebaseError from '../../components/error/handleFirebaseError';
+import toast from 'react-hot-toast';
 
 const DeleteUser = (props) => {
   const { t } = useTranslation('profile');
@@ -121,6 +122,30 @@ const DeleteUser = (props) => {
       console.log(error);
     }
   };
+
+  // Corner notification block
+  const alertNotif = (message) => {
+    toast((t) => (
+      <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
+        <span>
+          <FontAwesomeIcon icon={faTimesCircle} color='red' size='2x' />
+        </span>
+        <span style={{ paddingLeft: '10px'}}>{message}</span>
+      </span>
+    ));
+  };
+
+  // Corner notification block
+  const successNotif = () => {
+    toast((t) => (
+      <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
+        <span>
+          <FontAwesomeIcon icon={faCheckCircle} color='green' size='2x' />
+        </span>
+        <span style={{ paddingLeft: '10px'}}>success!</span>
+      </span>
+    ));
+  };
   
   const handleChange = async (event) => {
     event.preventDefault();
@@ -138,7 +163,7 @@ const DeleteUser = (props) => {
 
     errorMessage = await reAuthenticate(email, old_password.value);
     if (errorMessage) {
-      alert(errorMessage);
+      alertNotif(errorMessage);
       event.target.reset();
       setPageLoading(false);  
     } else {
@@ -146,7 +171,7 @@ const DeleteUser = (props) => {
       await deleteIcon();
       await deleteInfo();  
       await deleteAccount();
-      alert('success!');
+      successNotif();  
       history.push('/');  
     }
   };

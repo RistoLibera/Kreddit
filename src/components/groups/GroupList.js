@@ -4,10 +4,11 @@ import { useTranslation } from "react-i18next";
 import { DateTime, Interval } from "luxon";
 import Default from '../../assets/img/default-symbol.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowAltCircleRight, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faArrowAltCircleRight, faUserPlus, faTimesCircle , faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import FirebasePack from '../../config/FirebasePack';
 import { css } from '@emotion/react';
 import ClockLoader from 'react-spinners/ClockLoader';
+import toast from 'react-hot-toast';
 
 const GroupList = (props) => {
   const { t } = useTranslation('group');
@@ -50,11 +51,36 @@ const GroupList = (props) => {
     }
     return buttonState;
   };
+
+  // Corner notification block
+  const alertNotif = () => {
+    toast((t) => (
+      <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
+        <span>
+          <FontAwesomeIcon icon={faTimesCircle} color='red' size='2x' />
+        </span>
+        <span style={{ paddingLeft: '10px'}}>Please log in!</span>
+      </span>
+    ));
+  };
+
+  // Corner notification block
+  const successNotif = () => {
+    toast((t) => (
+      <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
+        <span>
+          <FontAwesomeIcon icon={faCheckCircle} color='green' size='2x' />
+        </span>
+        <span style={{ paddingLeft: '10px'}}>success!</span>
+      </span>
+    ));
+  };
   
   //  Join group
   const joinGroup = async (groupName, groupUID, user) => {
+    console.log(1);
     if (!user) {
-      alert('Please log in!');
+      alertNotif();
       return;
     }
     
@@ -69,7 +95,7 @@ const GroupList = (props) => {
           group_name: groupName,
           group_uid: groupUID
         });
-      alert('success!');
+        successNotif();
     } catch (error) {
       console.log(error);
     }
@@ -143,18 +169,10 @@ const GroupList = (props) => {
         </div>
 
         <div className='right-block'>
-          {currentUser 
-            ? 
-              <button className='join-group' onClick={() => joinGroup(groupName, groupUID, currentUser)} disabled={buttonState}>
-                <FontAwesomeIcon icon={faUserPlus} color='' size='2x' className='join-in' />
-                <h1>{t('content.join')}</h1>
-                </button>
-            :
-              <button className='join-group'>
-                <FontAwesomeIcon icon={faUserPlus} color='' size='2x'  className='join-in' />
-                <h1>{t('content.join')}</h1>
-              </button>
-          }
+          <button className='join-group' onClick={() => joinGroup(groupName, groupUID, currentUser)} disabled={buttonState}>
+            <FontAwesomeIcon icon={faUserPlus} color='' size='2x' className='join-in' />
+            <h1>{t('content.join')}</h1>
+          </button>
           <button className='quick-link' onClick={() => history.push('/discussions/' + groupName)} >
             <FontAwesomeIcon icon={faArrowAltCircleRight} color='' size='2x' />
           </button>

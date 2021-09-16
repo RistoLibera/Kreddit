@@ -7,8 +7,9 @@ import { css } from '@emotion/react';
 import BarLoader from 'react-spinners/BarLoader';
 import Lock from '../../assets/img/lock.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faKey } from '@fortawesome/free-solid-svg-icons';
+import { faKey, faTimesCircle , faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import handleFirebaseError from '../../components/error/handleFirebaseError';
+import toast from 'react-hot-toast';
 
 const ChangePassword = (props) => {
   const { t } = useTranslation('profile');
@@ -74,6 +75,30 @@ const ChangePassword = (props) => {
     }
   };
 
+  // Corner notification block
+  const alertNotif = (message) => {
+    toast((t) => (
+      <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
+        <span>
+          <FontAwesomeIcon icon={faTimesCircle} color='red' size='2x' />
+        </span>
+        <span style={{ paddingLeft: '10px'}}>{message}</span>
+      </span>
+    ));
+  };
+
+  // Corner notification block
+  const successNotif = () => {
+    toast((t) => (
+      <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
+        <span>
+          <FontAwesomeIcon icon={faCheckCircle} color='green' size='2x' />
+        </span>
+        <span style={{ paddingLeft: '10px'}}>success!</span>
+      </span>
+    ));
+  };
+
   const handleChange = async (event) => {
     event.preventDefault();
     setPageLoading(true);
@@ -84,10 +109,10 @@ const ChangePassword = (props) => {
 
     errorMessage = await reAuthenticate(email, old_password.value);
     if (errorMessage) {
-      alert(errorMessage);
+      alertNotif(errorMessage);
     } else {
       await changePassword(new_password.value);
-      alert('success!');  
+      successNotif();  
     }
     event.target.reset();
     setPageLoading(false);
