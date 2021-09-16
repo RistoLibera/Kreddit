@@ -262,7 +262,7 @@
 
   .discussion-page .discussion-container .discussion-content .title {
     box-shadow: rgba(21, 48, 62, 0.4) 0px 2.5rem 2rem -2rem!important;
-    border-color: rgb(69, 75, 78)!important;
+    border-color: rgb(152, 170, 179)!important;
     background-color: rgb(24, 26, 27)!important;
     background-image: none!important;
   }
@@ -288,6 +288,12 @@
     border-color: rgb(140, 130, 115)!important;
   }
 
+  .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^="content-layer"] .subdiscussion-content {
+    box-shadow: rgba(21, 48, 62, 0.4) 0px 2.5rem 2rem -2rem!important;
+    border-color: rgb(152, 170, 179)!important;
+    background-color: rgb(24, 26, 27)!important;
+    background-image: none!important;
+  }
 }
 
 

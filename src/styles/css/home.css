@@ -201,7 +201,7 @@
 }
 .darkmode .discussion-page .discussion-container .discussion-content .title {
   box-shadow: rgba(21, 48, 62, 0.4) 0px 2.5rem 2rem -2rem !important;
-  border-color: #454b4e !important;
+  border-color: #98aab3 !important;
   background-color: #181a1b !important;
   background-image: none !important;
 }
@@ -219,6 +219,12 @@
 }
 .darkmode .upload label {
   border-color: #8c8273 !important;
+}
+.darkmode .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .subdiscussion-content {
+  box-shadow: rgba(21, 48, 62, 0.4) 0px 2.5rem 2rem -2rem !important;
+  border-color: #98aab3 !important;
+  background-color: #181a1b !important;
+  background-image: none !important;
 }
 
 .homepage {
