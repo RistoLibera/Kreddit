@@ -17,7 +17,7 @@ import SubDiscussionBody from './SubDiscussionBody';
 
 const DiscussionBody = (props) => {
   const { currentUser } = useContext(AuthContext);
-  const { document, rootUpdate } = props;
+  const { document, rootUpdate, uid } = props;
   const history = useHistory();
   const spinnerCSS = css`
   display: block;
@@ -189,7 +189,6 @@ const DiscussionBody = (props) => {
   };
 
   const initialState = async () => {
-    // setPageLoading(true);
     if (document.length === 0) return;
     if (!document.exists) {
       alert('Non-existence');
@@ -205,6 +204,11 @@ const DiscussionBody = (props) => {
   useEffect(() => {
     initialState();
   }, [document]);
+
+  useEffect(() => {
+    setPageLoading(true);
+    initialState();
+  }, [uid]);
 
   return (
     <div className='discussion-container'>

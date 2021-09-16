@@ -37,7 +37,7 @@ const Discussion = () => {
 
   return (
     <section className='discussion-page'>
-      <DiscussionBody document={discussionDoc} rootUpdate={fetchThisDiscussion} />
+      <DiscussionBody document={discussionDoc} rootUpdate={fetchThisDiscussion} uid={uid} />
     </section>
   );
 };
