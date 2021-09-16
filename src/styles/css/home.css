@@ -24,7 +24,7 @@
   background-color: #181a1b !important;
 }
 .darkmode button {
-  border-color: #736b5e;
+  border-color: #736b5e !important;
 }
 .darkmode .g-recaptcha-outer {
   border-color: #736b5e !important;
@@ -49,21 +49,21 @@
   color: #b2aba1 !important;
 }
 .darkmode .login-page .login-container .action form .buttons .submit-button {
-  background-color: #181a1b;
-  color: #c4bfb7;
+  background-color: #181a1b !important;
+  color: #c4bfb7 !important;
 }
 .darkmode .login-page .login-container .action form .buttons .reset-button {
-  background-color: #2b2e30;
-  color: #e8e6e3;
+  background-color: #2b2e30 !important;
+  color: #e8e6e3 !important;
 }
 .darkmode .login-page .login-container .action form fieldset input {
-  color: #c8c3bc;
+  color: #c8c3bc !important;
   outline-color: currentcolor !important;
-  border-color: rgba(140, 130, 115, 0.3);
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 4px inset;
+  border-color: rgba(140, 130, 115, 0.3) !important;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 4px inset !important;
 }
 .darkmode .app-header .left-bar form fieldset svg {
-  color: #c5925e;
+  color: #c5925e !important;
 }
 .darkmode .app-header .left-bar form fieldset input::placeholder {
   color: #ddd3c2 !important;
@@ -118,6 +118,30 @@
   color: #e8e6e3 !important;
 }
 .darkmode .registration button {
+  border-color: #736b5e !important;
+  color: #e8e6e3 !important;
+}
+.darkmode .groups-page .group-container .list-view ul li .right-block .join-group {
+  text-decoration-color: currentcolor !important;
+  background-color: black !important;
+  background-image: none !important;
+  color: #e8e6e3 !important;
+}
+.darkmode .groups-page .group-container .list-view ul li .right-block .join-group:disabled {
+  background-color: #60686c !important;
+  background-image: none !important;
+  color: #e8e6e3 !important;
+}
+.darkmode .quick-link {
+  color: #e8e6e3 !important;
+}
+.darkmode .group-controller .grid-list {
+  background-color: #4f4424 !important;
+}
+.darkmode .group-controller .display-control {
+  color: #e8e6e3 !important;
+}
+.darkmode .form-container form fieldset button {
   border-color: #736b5e !important;
   color: #e8e6e3 !important;
 }

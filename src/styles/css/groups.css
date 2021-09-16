@@ -16,6 +16,9 @@
   height: 100%;
   padding-top: 5.5rem;
 }
+.groups-page button {
+  cursor: pointer;
+}
 .groups-page .group-container {
   width: 100%;
 }
@@ -256,6 +259,7 @@
   box-sizing: inherit;
 }
 .groups-page .group-container header .group-controller .display-control {
+  cursor: pointer;
   font-size: 1rem;
   display: block;
   text-decoration: none;

@@ -15,7 +15,7 @@
   }
 
   button {
-    border-color: #736b5e;
+    border-color: #736b5e!important;
   }
 
   .g-recaptcha-outer{
@@ -48,25 +48,25 @@
 
   // Login page
   .login-page .login-container .action form .buttons .submit-button {
-    background-color: rgb(24, 26, 27);
-    color: rgb(196, 191, 183);
+    background-color: rgb(24, 26, 27)!important;
+    color: rgb(196, 191, 183)!important;
   }
 
   .login-page .login-container .action form .buttons .reset-button {
-    background-color: rgb(43, 46, 48);
-    color: rgb(232, 230, 227);
+    background-color: rgb(43, 46, 48)!important;
+    color: rgb(232, 230, 227)!important;
   }
 
   .login-page .login-container .action form fieldset input {
-    color: rgb(200, 195, 188);
+    color: rgb(200, 195, 188)!important;
     outline-color: currentcolor !important;
-    border-color: rgba(140, 130, 115, 0.3);
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 4px inset;
+    border-color: rgba(140, 130, 115, 0.3)!important;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 4px inset!important;
   }
 
   .app-header .left-bar form fieldset {
     svg {
-      color: rgb(197, 146, 94);
+      color: rgb(197, 146, 94)!important;
     }
 
     input::placeholder {
@@ -145,6 +145,47 @@
       color: #e8e6e3!important;
     }
   }
+
+  // Group page
+  .groups-page .group-container .list-view ul li .right-block .join-group {
+    text-decoration-color: currentcolor!important;
+    background-color: rgb(0, 0, 0)!important;
+    background-image: none!important;
+    color: rgb(232, 230, 227)!important;
+  }
+
+  .groups-page .group-container .list-view ul li .right-block .join-group:disabled {
+    background-color: rgb(96, 104, 108)!important;
+    background-image: none!important;
+    color: rgb(232, 230, 227)!important;
+  }
+
+  .quick-link {
+    color: #e8e6e3!important;
+  }
+
+  .group-controller {
+    .grid-list {
+      background-color: #4f4424!important;
+    }
+
+    .display-control {
+      color: #e8e6e3!important;
+    }
+  }
+
+  .form-container {
+    form {
+      fieldset {
+        button {
+          border-color: #736b5e!important;
+          color: #e8e6e3!important;
+        }
+      }
+    }
+  }
+
+
 }
 
 

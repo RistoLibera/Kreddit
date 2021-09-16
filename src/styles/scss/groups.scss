@@ -7,6 +7,10 @@
   height: 100%;
   padding-top: 5.5rem;
 
+  button {
+    cursor: pointer;
+  }
+
   .group-container  {
     @extend %flex-column-direction;
     width: 100%;
@@ -272,6 +276,7 @@
         }
 
         .display-control {
+          cursor: pointer;
           font-size: 1rem;
           display: block;
           text-decoration: none;
