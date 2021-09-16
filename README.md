@@ -19,11 +19,13 @@
 - You can search for what you like.
 - You can edit your password.
 - You can delete your account.
+- You can see what discussions were created.
 
 ### By group
 
 - You can join in groups.
 - You can create group(4 for most).
+- You can give group a brief introduction.
 - You can upload group symbol.
 - You can see when the group were created.
 - You can toggle group view.
@@ -31,7 +33,7 @@
 
 ### For discussion
 
-- You can create, edit, delete your own discussions.
+- You can create, edit, delete your own discussion.
 - You can sort discussions by group.
 - You can upload images to discussions.
 - You can rate discussions.
@@ -43,6 +45,7 @@
 ### Upon environment
 
 - You can log in as a human.
+- You can receive tips about your action.
 - You can switch between light mode and dark mode.
 - You can discuss on smartphone comfortably.
 - You can discuss on various browsers.
