@@ -146,6 +146,39 @@
     }
   }
 
+  // Omnipresent form
+  .form-container {
+    form {
+      fieldset {
+        input {
+          color: rgb(200, 195, 188)!important;
+          border-color: rgba(140, 130, 115, 0.3)!important;
+          box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 4px inset!important;
+        }
+
+        textarea {
+          color: rgb(200, 195, 188)!important;
+          border-color: rgba(140, 130, 115, 0.3)!important;
+          box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 4px inset!important;
+        }
+
+        select {
+          border: 1px outset rgba(143, 130, 19, 0.5)!important;
+          color: #e8e6e3!important;
+        }
+        
+        label {
+          border-color: #736b5e!important;
+        }
+
+        button {
+          border-color: #736b5e!important;
+          color: #e8e6e3!important;
+        }
+      }
+    }
+  }
+
   // Group page
   .groups-page .group-container .list-view ul li .right-block .join-group {
     text-decoration-color: currentcolor!important;
@@ -174,16 +207,49 @@
     }
   }
 
-  .form-container {
-    form {
-      fieldset {
-        button {
-          border-color: #736b5e!important;
-          color: #e8e6e3!important;
-        }
-      }
+  //  Title page
+  .discussions-page .discussions-container header .discussions-controller .filter-buttons ul {
+    li {
+      border-color: rgb(129, 113, 61)!important;
+    }
+
+    .inactive {
+      color: rgb(232, 230, 227)!important;
+      background-color: rgb(24, 26, 27)!important;
+      background-image: none!important;
+    }
+
+    .active {
+      background: #938045;
     }
   }
+
+  .discussions-controller {
+    button {
+      color: #e8e6e3!important;
+    }
+  }
+
+  .discussions-page .discussions-container .discussions-list .list .card {
+    h1, h2, h3, h4, h5, h6 p {
+      color: rgb(232, 230, 227) !important;
+    }
+
+    background-color: rgb(60, 65, 67)!important;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 10px!important;
+  }
+
+  .group-name {
+    background-color: rgb(109, 83, 35)!important;
+  }
+
+  .discussions-page .discussions-container .discussions-list .list .card button.simple {
+    color: rgb(232, 230, 227)!important;
+    border-color: currentcolor!important;
+    outline-color: currentcolor!important;
+    background-color: rgb(24, 135, 60)!important;
+  }
+
 
 
 }

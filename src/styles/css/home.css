@@ -121,6 +121,27 @@
   border-color: #736b5e !important;
   color: #e8e6e3 !important;
 }
+.darkmode .form-container form fieldset input {
+  color: #c8c3bc !important;
+  border-color: rgba(140, 130, 115, 0.3) !important;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 4px inset !important;
+}
+.darkmode .form-container form fieldset textarea {
+  color: #c8c3bc !important;
+  border-color: rgba(140, 130, 115, 0.3) !important;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 4px inset !important;
+}
+.darkmode .form-container form fieldset select {
+  border: 1px outset rgba(143, 130, 19, 0.5) !important;
+  color: #e8e6e3 !important;
+}
+.darkmode .form-container form fieldset label {
+  border-color: #736b5e !important;
+}
+.darkmode .form-container form fieldset button {
+  border-color: #736b5e !important;
+  color: #e8e6e3 !important;
+}
 .darkmode .groups-page .group-container .list-view ul li .right-block .join-group {
   text-decoration-color: currentcolor !important;
   background-color: black !important;
@@ -141,9 +162,35 @@
 .darkmode .group-controller .display-control {
   color: #e8e6e3 !important;
 }
-.darkmode .form-container form fieldset button {
-  border-color: #736b5e !important;
+.darkmode .discussions-page .discussions-container header .discussions-controller .filter-buttons ul li {
+  border-color: #81713d !important;
+}
+.darkmode .discussions-page .discussions-container header .discussions-controller .filter-buttons ul .inactive {
   color: #e8e6e3 !important;
+  background-color: #181a1b !important;
+  background-image: none !important;
+}
+.darkmode .discussions-page .discussions-container header .discussions-controller .filter-buttons ul .active {
+  background: #938045;
+}
+.darkmode .discussions-controller button {
+  color: #e8e6e3 !important;
+}
+.darkmode .discussions-page .discussions-container .discussions-list .list .card {
+  background-color: #3c4143 !important;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 10px !important;
+}
+.darkmode .discussions-page .discussions-container .discussions-list .list .card h1, .darkmode .discussions-page .discussions-container .discussions-list .list .card h2, .darkmode .discussions-page .discussions-container .discussions-list .list .card h3, .darkmode .discussions-page .discussions-container .discussions-list .list .card h4, .darkmode .discussions-page .discussions-container .discussions-list .list .card h5, .darkmode .discussions-page .discussions-container .discussions-list .list .card h6 p {
+  color: #e8e6e3 !important;
+}
+.darkmode .group-name {
+  background-color: #6d5323 !important;
+}
+.darkmode .discussions-page .discussions-container .discussions-list .list .card button.simple {
+  color: #e8e6e3 !important;
+  border-color: currentcolor !important;
+  outline-color: currentcolor !important;
+  background-color: #18873c !important;
 }
 
 .homepage {
