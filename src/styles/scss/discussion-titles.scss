@@ -7,6 +7,10 @@
   padding-top: 6rem;
   margin: 0 30px;
 
+  button {
+    cursor: pointer;
+  }
+
   .discussions-container  {
     @extend %flex-column-direction;
     width: 100%;
@@ -157,12 +161,18 @@
             }
 
             select {
+              padding: 0 10px;
+              text-align: center;
               height: 30px;
               border: 1px outset rgba(143, 130, 19, 0.5);
               border-radius: 10px;
               outline: none;
               appearance: none;
               text-align: center;
+
+              option {
+                text-align: left;
+              }
             }
           }
         }

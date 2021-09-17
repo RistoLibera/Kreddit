@@ -17,6 +17,9 @@
   padding-top: 6rem;
   margin: 0 30px;
 }
+.discussions-page button {
+  cursor: pointer;
+}
 .discussions-page .discussions-container {
   width: 100%;
   margin: 0 30px;
@@ -128,12 +131,17 @@
   float: left;
 }
 .discussions-page .discussions-container header #create-discussion form .groups select {
+  padding: 0 10px;
+  text-align: center;
   height: 30px;
   border: 1px outset rgba(143, 130, 19, 0.5);
   border-radius: 10px;
   outline: none;
   appearance: none;
   text-align: center;
+}
+.discussions-page .discussions-container header #create-discussion form .groups select option {
+  text-align: left;
 }
 .discussions-page .discussions-container .discussions-list .page-loader {
   z-index: 999;

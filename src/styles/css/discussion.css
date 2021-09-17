@@ -166,6 +166,7 @@
   border-radius: 5px;
 }
 .discussion-page .discussion-container .discussion-content .title .title-body .title-content .scripting {
+  font-size: 1.4rem;
   margin: 30px 20px 15px 5px;
   word-wrap: break-word;
   max-width: 700px;
@@ -278,6 +279,9 @@
   padding: 20px 40px;
   line-height: 1.3;
 }
+.discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .reply-content .scripting {
+  font-size: 1rem;
+}
 .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .reply-content .edit-form-container .block-loader {
   padding-top: 30px;
 }
@@ -335,6 +339,10 @@
   margin: 5px 0;
   padding: 3px 3px;
   border-radius: 5px;
+}
+.discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .subdiscussion-buttons .title-rating button:disabled {
+  cursor: default;
+  color: grey;
 }
 .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .subdiscussion-buttons .title-rating span {
   padding: 0 10px;

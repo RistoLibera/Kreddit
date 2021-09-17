@@ -6,6 +6,7 @@
   align-items: inherit;
   height: 100%;
   padding: 6rem 6rem 0 3rem;
+  margin-top: 1rem;
 
   .search-history {
     @extend %flex-column-direction;
@@ -53,10 +54,12 @@
 
     ul {
       @extend %flex-column-direction;
+
       li {
         @extend %flex-row-direction;
         list-style: none;
         font-size: 1.3rem;
+        margin: 5px 0;
         padding: 10px 7px;
         border: 2px solid rgba(173, 161, 161, 0.836);
         border-radius: 20px;
@@ -80,8 +83,10 @@
       li {
         @extend %flex-row-direction;
         list-style: none;
-        font-size: 1.5rem;
-
+        font-size: 1.8rem;
+        margin: 5px 0;
+        font-size: 2rem;
+        font-weight: 800;
       }
     }
   }
