@@ -76,7 +76,7 @@
 
 .signup-page {
   height: 100%;
-  padding-top: 6rem;
+  padding-top: 8rem;
 }
 .signup-page .page-loader {
   z-index: 999;
@@ -199,7 +199,7 @@
 
 .login-page {
   height: 100%;
-  padding-top: 8rem;
+  padding-top: 10rem;
 }
 .login-page .page-loader {
   z-index: 999;

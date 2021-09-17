@@ -68,7 +68,7 @@
 .signup-page {
   @extend %flex-column-direction;
   height: 100%;
-  padding-top: 6rem;
+  padding-top: 8rem;
 
   .page-loader {
     z-index: 999;
@@ -229,7 +229,7 @@
 .login-page {
   @extend %flex-column-direction;
   height: 100%;
-  padding-top: 8rem;
+  padding-top: 10rem;
 
   .page-loader {
     z-index: 999;

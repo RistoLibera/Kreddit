@@ -5,7 +5,6 @@ import firebase from 'firebase/app';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle , faCheckCircle, faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 import { css } from '@emotion/react';
-import DefaultSymbol from '../../assets/img/default-symbol.png';
 import BarLoader from 'react-spinners/BarLoader';
 import toast from 'react-hot-toast';
 
@@ -60,6 +59,7 @@ const CreateGroup = (props) => {
 
   // Update group symbol
   const updateSymbol = async (name, symbol) => {
+    if (!symbol) return;
     try {
       await FirebasePack
         .storage()
