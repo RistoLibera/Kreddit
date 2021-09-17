@@ -36,7 +36,14 @@ const FilterButtons = (props) => {
         warningNotif();
       }
     } else {
-      setAllActive('inactive');
+      let allActiveListHTML = [...allButtons].filter((li) => li.className === 'active');
+      if (allActiveListHTML.length === 1 && allActiveListHTML[0] === element) {
+        setAllActive('active');
+        allSelection();
+      } else {
+        setAllActive('inactive');
+      }
+
       if (element.className === 'inactive') {
         element.className = 'active';
         updateSelection(name);
@@ -44,6 +51,7 @@ const FilterButtons = (props) => {
         element.className = 'inactive';
         cancelSelection(name);
       }
+
     }
   };
 
