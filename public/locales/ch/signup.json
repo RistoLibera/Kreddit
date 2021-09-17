@@ -6,6 +6,7 @@
     "password": "密码:",
     "password-holder": "六位以上的密码！",
     "clear": "清除",
-    "signup": "注册"
+    "signup": "注册",
+    "auth-alert": "注册失败！"
   }
 }

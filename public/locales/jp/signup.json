@@ -6,6 +6,7 @@
     "password": "パスワード：",
     "password-holder": "６チャラ以上！",
     "clear": "クリア",
-    "signup": "サインアップ"
+    "signup": "サインアップ",
+    "auth-alert": "サインアップ失敗！"
   }
 }

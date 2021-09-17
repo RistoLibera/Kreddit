@@ -7,6 +7,10 @@
     "old-password": "旧密码",
     "new-password": "新密码",
     "create": "创建",
-    "join": "加入"
+    "join": "加入",
+    "success": "成功！",
+    "reauth-alert": "验证失败！",
+    "password-alert": "修改密码失败！",
+    "warning": "页面不存在！"
   }
 }

@@ -10,6 +10,10 @@
     "introduction": "紹介",
     "introduction-holder": "目的は？",
     "symbol": "象徴アップロード",
-    "create": "作成"
+    "create": "作成",
+    "creation-alert": "すでに作成された！",
+    "creation-warning": "作成限界だ！",
+    "success": "成功！",
+    "auth-warning": "ログインしてください！"
   }
 }

@@ -11,6 +11,11 @@
     "attachment": "附件",
     "create": "创建",
     "entry": "进入",
-    "group": "小组："
+    "group": "小组：",
+    "alert": "人民不会答应！",
+    "success": "成功！",
+    "warning": "没有，没有！",
+    "auth-warning": "请登入！",
+    "select-warning": "无用之举！"
   }
 }

@@ -11,6 +11,11 @@
     "attachment": "添付",
     "create": "作成",
     "entry": "エントリ",
-    "group": "グループ:"
+    "group": "グループ:",
+    "alert": "させるか？",
+    "success": "成功！",
+    "warning": "存在じゃない！",
+    "auth-warning": "ログインしてください！",
+    "select-warning": "無駄はただの無駄よ！"
   }
 }

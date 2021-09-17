@@ -7,6 +7,10 @@
     "old-password": "以前のパスワード",
     "new-password": "新しいパスワード",
     "create": "作成",
-    "join": "参加"
+    "join": "参加",
+    "success": "成功！",
+    "reauth-alert": "再認証失敗！",
+    "password-alert": "パスワード変更失敗！",
+    "warning": "存在じゃない！"
   }
 }

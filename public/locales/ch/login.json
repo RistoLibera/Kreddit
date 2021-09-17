@@ -7,6 +7,7 @@
     "password-holder": "密码",
     "clear": "清除",
     "login": "登入",
-    "instruction": "当你读这段文字时这段文字正被阅读"
+    "instruction": "当你阅读这段文字时这段文字正在被阅读",
+    "auth-alert": "登入失败！"
   }
 }
