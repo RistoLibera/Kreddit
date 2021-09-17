@@ -50,26 +50,6 @@
 - You can discuss on smartphone comfortably.
 - You can discuss on various browsers.
 
-## Database structure
-
-### Firestore
-  Data structure
-  groups - Anime -         content             - discussions - 0  1  2    - subdis - 0   1   2   3  
-  -  creator symbol introduction time  -            -  title time  -             - content uid rating -        - content uid rating
-
-  user-info    -  notif - 0  - from: uid  content: what to do?
-  user-info    -    created-groups   -   name array creator
-  user-info    -    joined-groups   -   
-                -     created-discussions    - database position
-
-### Firestorage
-
-discussion-image
-
-group-symbol group-name
-
-user-icon  uid
-
 ## Initial Setup
 
 ### Getting start
