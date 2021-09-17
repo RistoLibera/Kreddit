@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import FirebasePack from '../config/FirebasePack';
-import Default from '../assets/img/default-icon.jpg';
+import DefaultIcon from '../assets/img/default-icon.jpg';
+import DefaultSymbol from '../assets/img/default-symbol.png';
 import { css } from '@emotion/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
@@ -40,7 +41,7 @@ const Profile = () => {
 
   // Get icon
   const getIcon = async () => {
-    let icon = Default;
+    let icon = DefaultIcon;
     try {
       icon = 
         await FirebasePack
@@ -57,8 +58,9 @@ const Profile = () => {
   const getSymbol = async (groupArray, code) => {
     let container = [];
     for (const groupName of groupArray) {
+      let url = DefaultSymbol;
       try {
-        let url = 
+        url = 
           await FirebasePack
             .storage()
             .ref('group-symbol/' + groupName + '/symbol.jpg')
@@ -66,6 +68,7 @@ const Profile = () => {
         container.push(url);
       } catch (error) {
         console.log(error);
+        container.push(url);
       }
     }
     switch (code) {

@@ -106,8 +106,10 @@
 
               ul{
                 @extend %flex-row-direction;
+                justify-content: flex-start;
 
                 li {
+                  margin-right: 5px;
                   list-style: none;
                   width: 25px;
                   height: 25px;
@@ -142,8 +144,10 @@
 
               ul{
                 @extend %flex-row-direction;
+                justify-content: flex-start;
 
                 li {
+                  margin-right: 5px;
                   list-style: none;
                   width: 25px;
                   height: 25px;
