@@ -47,8 +47,18 @@
 - You can log in as a human.
 - You can receive tips about your action.
 - You can switch between light mode and dark mode.
-- You can discuss on smartphone comfortably.
-- You can discuss on various browsers.
+- You can discuss on smartphone comfortably(unfinished).
+- You can discuss on various browsers(unfinished).
+
+## Database structure
+
+### Firestore
+
+..uploading...
+
+### Firestorage
+
+..uploading...
 
 ## Initial Setup
 
@@ -73,12 +83,3 @@ $ npm start
 ```ruby
 $ https://localhost:3000
 ```
-
-### Test Account
-
-- nickname: 123456
-- Password: 123456
-
-
-
-
