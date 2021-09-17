@@ -311,6 +311,24 @@
     border-right-color: rgba(132, 105, 70, 0.22)!important;
     list-style-image: none!important;
   }
+
+  // Header profile
+  .app-header .right-bar .user-bar .dropdown #dropdown-menu {
+    background-color: rgb(24, 26, 27)!important;
+    border-color: rgba(140, 130, 115, 0.2)!important;
+
+    .dropdown-items {
+      color: #e8e6e3!important;
+
+      button {
+        color: #e8e6e3!important;
+      }
+    }
+  }
+
+  .app-header .right-bar .user-bar .dropdown #dropdown-menu #signout {
+    border-color: rgb(84, 91, 94)!important;
+  }
 }
 
 

@@ -20,7 +20,7 @@ const ShowInfo = (props) => {
 
   return (
     <div className='upper-info'>
-      <ReactCountryFlag countryCode={nation} style={{ fontSize: '2rem' }} className='nation'/>
+      <ReactCountryFlag countryCode={nation} style={{ fontSize: '2rem' }} className='nation' svg/>
       <h2>{nickname}</h2>
       {showGender()}
    </div>
