@@ -11,6 +11,12 @@
     "attachment": "Attachment",
     "create": "Create",
     "entry": "Entry",
-    "group": "Group:"
+    "group": "Group:",
+    "alert": "You can't!",
+    "success": "Success!",
+    "warning": "Non-existence!",
+    "auth-warning": "Please log in!",
+    "select-warning": "You have select all!"
+
   }
 }

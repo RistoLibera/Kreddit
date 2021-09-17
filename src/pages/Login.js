@@ -8,7 +8,6 @@ import ClockLoader from 'react-spinners/ClockLoader';
 import FirebasePack from '../config/FirebasePack';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
-import handleFirebaseError from '../components/error/handleFirebaseError';
 import '../styles/css/user.css';
 import toast from 'react-hot-toast';
 
@@ -36,13 +35,13 @@ const Login = () => {
   }
 
   // Corner notification block
-  const alertNotif = (message) => {
-    toast((t) => (
-      <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
+  const alertNotif = () => {
+    toast((e) => (
+      <span onClick={() => toast.dismiss(e.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
         <span>
           <FontAwesomeIcon icon={faTimesCircle} color='red' size='2x' />
         </span>
-        <span style={{ paddingLeft: '10px'}}>{message}</span>
+        <span style={{ paddingLeft: '10px'}}>{t('content.auth-alert')}</span>
       </span>
     ));
   };
@@ -55,8 +54,8 @@ const Login = () => {
         .signInWithEmailAndPassword(email, password);
         history.push('/');
     } catch (error) {
-      let errorMessage = handleFirebaseError(error);
-      alertNotif(errorMessage);
+      console.log(error);
+      alertNotif();
       setPageLoading(false);
     }
   };

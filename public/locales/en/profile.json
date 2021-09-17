@@ -7,6 +7,11 @@
     "old-password": "Old Password",
     "new-password": "New Password",
     "create": "create",
-    "join": "join"
+    "join": "join",
+    "success": "Success!",
+    "reauth-alert": "Fail to re-auth!",
+    "password-alert": "Fail to change password!",
+    "warning": "Non-existence!"
+
   }
 }

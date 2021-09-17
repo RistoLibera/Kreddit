@@ -51,13 +51,13 @@ const Signup = () => {
   }
 
   // Corner notification block
-  const alertNotif = (message) => {
-    toast((t) => (
-      <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
+  const alertNotif = () => {
+    toast((e) => (
+      <span onClick={() => toast.dismiss(e.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
         <span>
           <FontAwesomeIcon icon={faTimesCircle} color='red' size='2x' />
         </span>
-        <span style={{ paddingLeft: '10px'}}>{message}</span>
+        <span style={{ paddingLeft: '10px'}}>{t('content.auth-alert')}</span>
       </span>
     ));
   };
@@ -71,8 +71,8 @@ const Signup = () => {
         .auth()
         .createUserWithEmailAndPassword(email, password);
     } catch (error) {
-      let errorMessage = handleFirebaseError(error);
-      alertNotif(errorMessage);
+      console.log(error);
+      alertNotif();
       setPageLoading(false);
     }
     return credential;

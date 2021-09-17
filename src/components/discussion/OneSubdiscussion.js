@@ -1,4 +1,5 @@
 import React, { useState, useEffect }  from 'react';
+import { useTranslation } from "react-i18next";
 import { useHistory } from 'react-router-dom';
 import { DateTime, Interval } from "luxon";
 import FirebasePack from '../../config/FirebasePack';
@@ -12,6 +13,7 @@ import { faEdit, faReply, faTrashAlt, faTimesCircle } from '@fortawesome/free-so
 import toast from 'react-hot-toast';
 
 const OneSubdiscussion = (props) => {
+  const { t } = useTranslation('discussion');
   const { currentUser, document, rootUpdate } = props;
   const history = useHistory();
   const title = '';
@@ -58,12 +60,12 @@ const OneSubdiscussion = (props) => {
 
   // Corner notification block
   const alertNotif = () => {
-    toast((t) => (
-      <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
+    toast((e) => (
+      <span onClick={() => toast.dismiss(e.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
         <span>
           <FontAwesomeIcon icon={faTimesCircle} color='red' size='2x' />
         </span>
-        <span style={{ paddingLeft: '10px'}}>You can't!</span>
+        <span style={{ paddingLeft: '10px'}}>{t('content.alert')}</span>
       </span>
     ));
   };

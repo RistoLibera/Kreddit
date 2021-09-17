@@ -124,25 +124,25 @@ const DeleteUser = (props) => {
   };
 
   // Corner notification block
-  const alertNotif = (message) => {
-    toast((t) => (
-      <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
+  const alertNotif = () => {
+    toast((e) => (
+      <span onClick={() => toast.dismiss(e.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
         <span>
           <FontAwesomeIcon icon={faTimesCircle} color='red' size='2x' />
         </span>
-        <span style={{ paddingLeft: '10px'}}>{message}</span>
+        <span style={{ paddingLeft: '10px'}}>{t('content.reauth-alert')}</span>
       </span>
     ));
   };
 
   // Corner notification block
   const successNotif = () => {
-    toast((t) => (
-      <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
+    toast((e) => (
+      <span onClick={() => toast.dismiss(e.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
         <span>
           <FontAwesomeIcon icon={faCheckCircle} color='green' size='2x' />
         </span>
-        <span style={{ paddingLeft: '10px'}}>success!</span>
+        <span style={{ paddingLeft: '10px'}}>{t('content.success')}</span>
       </span>
     ));
   };
@@ -163,7 +163,7 @@ const DeleteUser = (props) => {
 
     errorMessage = await reAuthenticate(email, old_password.value);
     if (errorMessage) {
-      alertNotif(errorMessage);
+      alertNotif();
       event.target.reset();
       setPageLoading(false);  
     } else {

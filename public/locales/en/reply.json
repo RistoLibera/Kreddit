@@ -3,6 +3,7 @@
   "content": {
     "content-holder": "Thought",
     "clear": "Clear",
-    "create": "Create"
+    "create": "Create",
+    "success": "Success!"
   }
 }

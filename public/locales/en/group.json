@@ -10,6 +10,10 @@
     "introduction": "Introduction",
     "introduction-holder": "What is this group for?",
     "symbol": "Upload Symbol",
-    "create": "Create"
+    "create": "Create",
+    "creation-alert": "Group already created!",
+    "creation-warning": "Reach creation limit!",
+    "success": "Success!",
+    "auth-warning": "Please log in!"
   }
 }

@@ -1,22 +1,24 @@
 import React, { useState, useEffect} from 'react';
+import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 import toast from 'react-hot-toast';
 
 //  change view matrix or line
 const FilterButtons = (props) => {
+  const { t } = useTranslation('discussion');
   const { documents, updateSelection, cancelSelection, allSelection, optionalGroup } = props;
   const [listTags, setListTags] = useState([]);
   const [allActive, setAllActive] = useState('active');
 
   // Corner notification block
   const warningNotif = () => {
-    toast((t) => (
-      <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
+    toast((e) => (
+      <span onClick={() => toast.dismiss(e.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
         <span>
           <FontAwesomeIcon icon={faExclamationCircle} color='#CCCC00' size='2x' />
         </span>
-        <span style={{ paddingLeft: '10px'}}>You have select all!</span>
+        <span style={{ paddingLeft: '10px'}}>{t('content.select-warning')}</span>
       </span>
     ));
   };

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from "react-i18next";
 import FirebasePack from '../../config/FirebasePack';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt, faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
@@ -6,6 +7,7 @@ import { useHistory } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
 const Search = (props) => {
+  const { t } = useTranslation('discussion');
   const { document, currentUser, parentLayer, beEditor, rootUpdate } = props;
   const history = useHistory();
   
@@ -51,24 +53,24 @@ const Search = (props) => {
 
   // Corner notification block
   const alertNotif = () => {
-    toast((t) => (
-      <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
+    toast((e) => (
+      <span onClick={() => toast.dismiss(e.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
         <span>
           <FontAwesomeIcon icon={faTimesCircle} color='red' size='2x' />
         </span>
-        <span style={{ paddingLeft: '10px'}}>You can't!</span>
+        <span style={{ paddingLeft: '10px'}}>{t('content.alert')}</span>
       </span>
     ));
   };
   
   // Corner notification block
   const successNotif = () => {
-    toast((t) => (
-      <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
+    toast((e) => (
+      <span onClick={() => toast.dismiss(e.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
         <span>
           <FontAwesomeIcon icon={faCheckCircle} color='green' size='2x' />
         </span>
-        <span style={{ paddingLeft: '10px'}}>success!</span>
+        <span style={{ paddingLeft: '10px'}}>{t('content.success')}</span>
       </span>
     ));
   };

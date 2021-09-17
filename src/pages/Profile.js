@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from "react-i18next";
 import { useParams, useHistory } from 'react-router-dom';
 import FirebasePack from '../config/FirebasePack';
 import DefaultIcon from '../assets/img/default-icon.jpg';
@@ -17,6 +18,7 @@ import '../styles/css/profile.css';
 import toast from 'react-hot-toast';
 
 const Profile = () => {
+  const { t } = useTranslation('profile');
   const { uid }  = useParams();
   const history = useHistory();
   const spinnerCSS = css`
@@ -88,12 +90,12 @@ const Profile = () => {
 
   // Corner notification block
   const warningNotif = () => {
-    toast((t) => (
-      <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
+    toast((e) => (
+      <span onClick={() => toast.dismiss(e.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
         <span>
           <FontAwesomeIcon icon={faExclamationCircle} color='#CCCC00' size='2x' />
         </span>
-        <span style={{ paddingLeft: '10px'}}>Non-existence!</span>
+        <span style={{ paddingLeft: '10px'}}>{t('content.warning')}</span>
       </span>
     ));
   };

@@ -141,12 +141,12 @@ const CreateDiscussion = (props) => {
 
   // Corner notification block
   const successNotif = () => {
-    toast((t) => (
-      <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
+    toast((e) => (
+      <span onClick={() => toast.dismiss(e.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
         <span>
           <FontAwesomeIcon icon={faCheckCircle} color='green' size='2x' />
         </span>
-        <span style={{ paddingLeft: '10px'}}>success!</span>
+        <span style={{ paddingLeft: '10px'}}>{t('content.success')}</span>
       </span>
     ));
   };

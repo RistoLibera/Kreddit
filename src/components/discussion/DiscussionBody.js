@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { useTranslation } from "react-i18next";
 import { useHistory } from 'react-router-dom';
 import { AuthContext } from '../loading/Auth';
 import { DateTime, Interval } from "luxon";
@@ -17,6 +18,7 @@ import SubDiscussionBody from './SubDiscussionBody';
 import toast from 'react-hot-toast';
 
 const DiscussionBody = (props) => {
+  const { t } = useTranslation('discussion');
   const { currentUser } = useContext(AuthContext);
   const { document, rootUpdate, uid } = props;
   const history = useHistory();
@@ -71,12 +73,12 @@ const DiscussionBody = (props) => {
   
   // Corner notification block
   const alertNotif = () => {
-    toast((t) => (
-      <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
+    toast((e) => (
+      <span onClick={() => toast.dismiss(e.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
         <span>
           <FontAwesomeIcon icon={faTimesCircle} color='red' size='2x' />
         </span>
-        <span style={{ paddingLeft: '10px'}}>You can't!</span>
+        <span style={{ paddingLeft: '10px'}}>{t('content.alert')}</span>
       </span>
     ));
   };
@@ -203,12 +205,12 @@ const DiscussionBody = (props) => {
 
   // Corner notification block
   const warningNotif = () => {
-    toast((t) => (
-      <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
+    toast((e) => (
+      <span onClick={() => toast.dismiss(e.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
         <span>
           <FontAwesomeIcon icon={faExclamationCircle} color='#CCCC00' size='2x' />
         </span>
-        <span style={{ paddingLeft: '10px'}}>Non-existence!</span>
+        <span style={{ paddingLeft: '10px'}}>{t('content.warning')}</span>
       </span>
     ));
   };

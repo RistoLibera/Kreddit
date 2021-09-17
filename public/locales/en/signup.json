@@ -6,6 +6,7 @@
     "password": "Password:",
     "password-holder": "A password (6 or more)!",
     "clear": "Clear",
-    "signup": "Sign up"
+    "signup": "Sign up",
+    "auth-alert": "Fail to sign up!"
   }
 }

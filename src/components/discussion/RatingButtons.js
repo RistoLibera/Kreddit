@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from "react-i18next";
 import FirebasePack from '../../config/FirebasePack';
 import firebase from 'firebase/app';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,18 +7,19 @@ import { faCaretSquareDown, faCaretSquareUp, faExclamationCircle } from '@fortaw
 import toast from 'react-hot-toast';
 
 const RatingButtons = (props) => {
+  const { t } = useTranslation('discussion');
   const { rating, currentUser, document, rootUpdate } = props;
   const [disableUp, setDisableUp] = useState(false);
   const [disableDown, setDisableDown] = useState(false);
 
   // Corner notification block
   const warningNotif = () => {
-    toast((t) => (
-      <span onClick={() => toast.dismiss(t.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
+    toast((e) => (
+      <span onClick={() => toast.dismiss(e.id)} style={{ display: 'flex', flexDirection: 'row', cursor: 'pointer', alignItems: 'center', justifyContent: 'center'}}>
         <span>
           <FontAwesomeIcon icon={faExclamationCircle} color='#CCCC00' size='2x' />
         </span>
-        <span style={{ paddingLeft: '10px'}}>Please log in!</span>
+        <span style={{ paddingLeft: '10px'}}>{t('content.auth-warning')}</span>
       </span>
     ));
   };
