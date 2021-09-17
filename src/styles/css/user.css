@@ -154,6 +154,8 @@
   padding: 0;
 }
 .signup-page .signup-container .signup-classic form .info .gender input {
+  width: 15px;
+  height: 15px;
   margin-right: 14px;
 }
 .signup-page .signup-container .signup-classic form .info .all-nations {

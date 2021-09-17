@@ -161,7 +161,7 @@ const Signup = () => {
                     <label htmlFor='male'>
                       <FontAwesomeIcon icon={faMars} color='cornflowerblue' size='2x' />
                     </label>
-                    <input type='radio' id='male' name='gender' value='male' checked onChange={e => {}}/>
+                    <input type='radio' id='male' name='gender' value='male' checked/>
                     <label htmlFor='female'>
                       <FontAwesomeIcon icon={faVenus} color='crimson' size='2x' />
                     </label>
