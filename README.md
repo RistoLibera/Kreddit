@@ -58,7 +58,9 @@
 
 ### Firestorage
 
-..uploading...
+discussion-title-image/ + title-name/ + img.jpg
+group-symbol/ + group-name/ + symbol.jpg
+user-icon/ + uid/ + icon.jpg
 
 ## Initial Setup
 
