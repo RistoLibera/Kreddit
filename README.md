@@ -54,12 +54,14 @@
 
 ### Firestore
 
-..uploading...
+<img src="https://raw.githubusercontent.com/RistoLibera/Kreddit/main/src/assets/database/database.png" width="400"/>
 
 ### Firestorage
 
 discussion-title-image/ + title-name/ + img.jpg
+
 group-symbol/ + group-name/ + symbol.jpg
+
 user-icon/ + uid/ + icon.jpg
 
 ## Initial Setup
