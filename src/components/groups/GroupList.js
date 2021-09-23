@@ -90,7 +90,7 @@ const GroupList = (props) => {
         .collection('user-info')
         .doc(user.uid)
         .collection('joined-groups')
-        .doc(groupName)
+        .doc(groupUID)
         .set({
           group_name: groupName,
           group_uid: groupUID
