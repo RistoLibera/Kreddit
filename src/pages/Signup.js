@@ -131,10 +131,10 @@ const Signup = () => {
         :
           <div className='signup-container'>
             <div className="signup-connect">
-              <a className="btn btn-social btn-facebook"><FontAwesomeIcon className="fa fa-facebook" icon={faFacebook} size='lg'/> Sign in with Facebook</a>
-              <a className="btn btn-social btn-twitter"><FontAwesomeIcon className="fa fa-twitter" icon={faTwitter} size='lg'/> Sign in with Twitter</a>
-              <a className="btn btn-social btn-google"><FontAwesomeIcon className="fa fa-google" icon={faGoogle} size='lg'/> Sign in with Google</a>
-              <a className="btn btn-social btn-linkedin"><FontAwesomeIcon className="fa fa-linkedin" icon={faLinkedin} size='lg'/> Sign in with Linkedin</a>
+              <a className="btn btn-social facebook-share-btn"><FontAwesomeIcon className="fa fa-facebook" icon={faFacebook} size='lg'/> Sign in with Facebook</a>
+              <a className="btn btn-social twitter-share-btn"><FontAwesomeIcon className="fa fa-twitter" icon={faTwitter} size='lg'/> Sign in with Twitter</a>
+              <a className="btn btn-social google-share-btn"><FontAwesomeIcon className="fa fa-google" icon={faGoogle} size='lg'/> Sign in with Google</a>
+              <a className="btn btn-social linkedin-share-btn"><FontAwesomeIcon className="fa fa-linkedin" icon={faLinkedin} size='lg'/> Sign in with Linkedin</a>
             </div>
 
             <div className="signup-classic">            

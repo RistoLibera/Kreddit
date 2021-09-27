@@ -14,6 +14,7 @@ const DiscussionTitles = () => {
   const { currentUser } = useContext(AuthContext);
   const [formHidden, setFormHidden] = useState('hidden');
   const [GroupsDoc, setGroupsDoc] = useState([]);
+  const [hasDiscussionsDocs, setHasDiscussionsDocs] = useState(true);
   const [discussionsDocs, setDiscussionsDocs] = useState([]);
   const [selectedGroups, setSelectedGroups] = useState([]);
 
@@ -71,7 +72,11 @@ const DiscussionTitles = () => {
         });   
       }
     }
-    setDiscussionsDocs(container);
+    if (container.length === 0 ) {
+      setHasDiscussionsDocs(false);
+    } else {
+      setDiscussionsDocs(container);
+    }
   };
 
   const fetchDiscussions = async () => {
@@ -113,7 +118,12 @@ const DiscussionTitles = () => {
               <div></div>
           }
         </header>
-        <DiscussionsList documents={discussionsDocs} selectedGroups={selectedGroups} />
+        {hasDiscussionsDocs
+          ?
+            <DiscussionsList documents={discussionsDocs} selectedGroups={selectedGroups} />
+          :
+            <div></div>
+          }
       </div>
     </section>
   );

@@ -58,19 +58,19 @@
   border-radius: 5px 0 0 5px;
 }
 
-.btn-facebook {
+.facebook-share-btn {
   background-color: #3b5897;
 }
 
-.btn-twitter {
+.twitter-share-btn {
   background-color: #53abee;
 }
 
-.btn-google {
+.google-share-btn {
   background-color: #de4e3b;
 }
 
-.btn-linkedin {
+.linkedin-share-btn {
   background-color: #00a1db;
 }
 

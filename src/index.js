@@ -7,7 +7,7 @@ import './i18n';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Suspense fallback={<div></div>}>
+    <Suspense fallback={<div className='loading'><h1>...Authenticating...</h1></div>}>
       <Routes />
     </Suspense>
   </React.StrictMode>,
