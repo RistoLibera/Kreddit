@@ -183,10 +183,7 @@ const GroupList = (props) => {
     
   const createList = async () => {
     let container = [];
-    if(documents.length === 0) {
-      setPageLoading(false);
-      return;
-    }
+    if(documents.length === 0) return;
     
     for (const [index, doc] of documents.entries()) {
       let groupUID = doc.id;

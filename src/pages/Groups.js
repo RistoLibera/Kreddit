@@ -10,6 +10,7 @@ const Groups = () => {
   const { t } = useTranslation('group');
   const { currentUser } = useContext(AuthContext);
   const [formHidden, setFormHidden] = useState("hidden");
+  const [hasGroupsDoc, setHasGroupsDoc] = useState(true);
   const [GroupsDoc, setGroupsDoc] = useState([]);
   const [groupView, setGroupView] = useState('list-view');
 
@@ -58,7 +59,11 @@ const Groups = () => {
           .collection('groups')
           .orderBy("created_time", "asc")
           .get();
-      storeGroups(cache);
+      if(cache.docs.length === 0) {
+        setHasGroupsDoc(false);
+      } else {
+        storeGroups(cache);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -96,7 +101,12 @@ const Groups = () => {
           </div>
           <CreateGroup documents={GroupsDoc} currentUser={currentUser} hidden={formHidden} update={fetchGroups} />
         </header>
-        <GroupList documents={GroupsDoc} currentUser={currentUser} groupView={groupView} update={fetchGroups}/>
+        {hasGroupsDoc
+          ?
+            <GroupList documents={GroupsDoc} currentUser={currentUser} groupView={groupView} update={fetchGroups}/>
+          :
+            <div></div>
+        }
       </div>
     </section>
   );
