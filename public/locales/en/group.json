@@ -14,6 +14,8 @@
     "creation-alert": "Group already created!",
     "creation-warning": "Reach creation limit!",
     "success": "Success!",
-    "auth-warning": "Please log in!"
+    "auth-warning": "Please log in!",
+    "grid": "Grid",
+    "list": "List"
   }
 }

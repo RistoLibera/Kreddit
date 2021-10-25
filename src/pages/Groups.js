@@ -89,8 +89,8 @@ const Groups = () => {
                 </div>
               </div>
               <div className="text">
-                <span>Grid</span>
-                <span>List</span>
+                <span>{t('content.grid')}</span>
+                <span>{t('content.list')}</span>
               </div>
             </button>
 

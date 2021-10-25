@@ -14,6 +14,8 @@
     "creation-alert": "这小组似曾相识",
     "creation-warning": "不是说好最多建四个吗？！",
     "success": "成功！",
-    "auth-warning": "请登入！"
+    "auth-warning": "请登入！",
+    "grid": "方格",
+    "list": "横列"
   }
 }
