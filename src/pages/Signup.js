@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import Recaptcha from 'react-recaptcha';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMars, faVenus, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
-import { faFacebook, faTwitter, faGoogle, faLinkedin, faPinterest } from "@fortawesome/free-brands-svg-icons";
+import { faFacebook, faTwitter, faLinkedin, faPinterest } from "@fortawesome/free-brands-svg-icons";
 import { css } from '@emotion/react';
 import ClockLoader from 'react-spinners/ClockLoader';
 import FirebasePack from '../config/FirebasePack';
@@ -140,11 +140,11 @@ const Signup = () => {
                 <a className="btn btn-social twitter-share-btn"><FontAwesomeIcon className="fa fa-twitter" icon={faTwitter} size='lg'/> Share with Twitter</a>
               </TwitterShareButton>
 
-              <PinterestShareButton url='https://kreddit-d2cd8.web.app/' >
+              <PinterestShareButton url='https://kreddit-d2cd8.web.app/' media={Koin}>
                 <a className="btn btn-social pinterest-share-btn"><FontAwesomeIcon className="fa fa-pinterest" icon={faPinterest} size='lg'/> Share with Pinterest</a>
               </PinterestShareButton>
 
-              <LinkedinShareButton url='https://kreddit-d2cd8.web.app/' media='https://farm8.staticflickr.com/7027/6851755809_df5b2051c9_z.jpg'>
+              <LinkedinShareButton url='https://kreddit-d2cd8.web.app/' >
                 <a className="btn btn-social linkedin-share-btn"><FontAwesomeIcon className="fa fa-linkedin" icon={faLinkedin} size='lg'/> Share with Linkedin</a>
               </LinkedinShareButton>
             </div>

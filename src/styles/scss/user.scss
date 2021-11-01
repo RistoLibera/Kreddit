@@ -1,6 +1,6 @@
 @use 'base';
 
-// Fake buttons
+// Share buttons
 .btn {
   display: block;
   background: hsl(59, 76%, 71%);
@@ -31,7 +31,6 @@
   }
 }
 
-// Fake buttons
 .btn-social {
   padding-left: 64px;
   position: relative;
@@ -69,16 +68,6 @@
   @extend %flex-column-direction;
   height: 100%;
   padding-top: 8rem;
-
-  .page-loader {
-    z-index: 999;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    transform: translate(50%, -50%);
-  }
 
   .signup-container {
     @extend %flex-row-direction;
@@ -236,16 +225,6 @@
   @extend %flex-column-direction;
   height: 100%;
   padding-top: 10rem;
-
-  .page-loader {
-    z-index: 999;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    transform: translate(50%, -50%);
-  }
   
   .login-container {
     @extend %flex-row-direction;
@@ -347,7 +326,11 @@
   }
 }
 
-
+@media (max-width: 850px) {
+  .signup-page {
+    padding-top: 6rem;
+  }
+}
 
 
 

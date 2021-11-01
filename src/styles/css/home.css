@@ -306,12 +306,22 @@
   color: white;
 }
 
+.page-loader {
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+}
+
 @media (max-width: 850px) {
   .homepage .reactive-home {
-    margin-top: 7rem;
+    margin-top: 5rem;
   }
   .homepage .reactive-home .display-mode {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
   .homepage .reactive-home .display-mode h1 {
     margin-left: 1.5rem;

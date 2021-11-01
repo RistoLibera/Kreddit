@@ -78,15 +78,6 @@
   height: 100%;
   padding-top: 8rem;
 }
-.signup-page .page-loader {
-  z-index: 999;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 50%;
-  right: 50%;
-  transform: translate(50%, -50%);
-}
 .signup-page .signup-container {
   justify-content: center;
   align-items: flex-start;
@@ -205,15 +196,6 @@
   height: 100%;
   padding-top: 10rem;
 }
-.login-page .page-loader {
-  z-index: 999;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 50%;
-  right: 50%;
-  transform: translate(50%, -50%);
-}
 .login-page .login-container {
   width: 800px;
 }
@@ -285,6 +267,12 @@
 }
 .login-page .login-container .action form .buttons .submit-button:disabled {
   cursor: default;
+}
+
+@media (max-width: 850px) {
+  .signup-page {
+    padding-top: 6rem;
+  }
 }
 
 /*# sourceMappingURL=user.css.map */

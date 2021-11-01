@@ -123,8 +123,6 @@
   }
 
   .right-bar {
-    // @extend %flex-row-direction;
-    // margin-right: 60px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
@@ -410,12 +408,85 @@
     }
 
     .mode-bar {
+      padding-left: 10px;
       grid-column: 3 / span 1;
       display: block;
       cursor: pointer;
 
       svg {
         color: #938045;
+      }
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .app-header {
+    grid-template-columns: 1fr 3fr 1fr;
+    .left-bar{
+      form {
+        fieldset {
+          height: 30px;
+
+          svg {
+            width: 0.5em;
+            height: 0.5em;
+          }
+
+          input {
+            font-size: 0.7rem;
+            margin-right: 0px;
+            padding-left: 25px;  
+          }
+
+          input::placeholder {
+            font-size: 0.65rem;
+            color:grey;
+          }
+  
+        }
+
+        fieldset:hover {
+          input::placeholder {
+            font-size: 0.65rem;
+            color:black;
+          }
+
+          button {
+            font-size: 0.35rem;
+            height: 50%;
+            top: 9px;
+          }
+  
+        }
+
+      }
+    }
+
+    .middle-bar {
+      .discussions-bar {
+        font-size: 0.9rem;
+      }
+
+      #icon {
+        img {
+          height: 50px;
+          width: 50px;
+        }  
+      }
+
+      .groups-bar {
+        font-size: 0.9rem;
+      }
+    }
+
+    .right-bar {
+      .user-bar {
+        .gain-access {
+          button {
+            font-size: 0.7rem;
+          }
+        }
       }
     }
   }
