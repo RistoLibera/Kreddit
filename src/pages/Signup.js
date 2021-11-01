@@ -5,16 +5,17 @@ import { useTranslation } from "react-i18next";
 import Recaptcha from 'react-recaptcha';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMars, faVenus, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
-import { faFacebook, faTwitter, faGoogle, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faFacebook, faTwitter, faGoogle, faLinkedin, faPinterest } from "@fortawesome/free-brands-svg-icons";
 import { css } from '@emotion/react';
 import ClockLoader from 'react-spinners/ClockLoader';
 import FirebasePack from '../config/FirebasePack';
-import handleFirebaseError from '../components/error/handleFirebaseError';
 import SelectCountry from '../components/user/SelectCountry';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import PersonIcon from '@material-ui/icons/Person';
 import '../styles/css/user.css';
 import toast from 'react-hot-toast';
+import Koin from '../assets/img/header-koin.png';
+import { FacebookShareButton, TwitterShareButton, PinterestShareButton, LinkedinShareButton } from "react-share";
 
 const Signup = () => {
   const { t } = useTranslation('signup');
@@ -131,10 +132,21 @@ const Signup = () => {
         :
           <div className='signup-container'>
             <div className="signup-connect">
-              <a className="btn btn-social facebook-share-btn"><FontAwesomeIcon className="fa fa-facebook" icon={faFacebook} size='lg'/> Sign in with Facebook</a>
-              <a className="btn btn-social twitter-share-btn"><FontAwesomeIcon className="fa fa-twitter" icon={faTwitter} size='lg'/> Sign in with Twitter</a>
-              <a className="btn btn-social pinterest-share-btn"><FontAwesomeIcon className="fa fa-google" icon={faGoogle} size='lg'/> Sign in with Pinterest</a>
-              <a className="btn btn-social linkedin-share-btn"><FontAwesomeIcon className="fa fa-linkedin" icon={faLinkedin} size='lg'/> Sign in with Linkedin</a>
+              <FacebookShareButton url='https://kreddit-d2cd8.web.app/' >
+                <a className="btn btn-social facebook-share-btn"><FontAwesomeIcon className="fa fa-facebook" icon={faFacebook} size='lg'/> Share with Facebook</a>
+              </FacebookShareButton>
+
+              <TwitterShareButton url='https://kreddit-d2cd8.web.app/' >
+                <a className="btn btn-social twitter-share-btn"><FontAwesomeIcon className="fa fa-twitter" icon={faTwitter} size='lg'/> Share with Twitter</a>
+              </TwitterShareButton>
+
+              <PinterestShareButton url='https://kreddit-d2cd8.web.app/' >
+                <a className="btn btn-social pinterest-share-btn"><FontAwesomeIcon className="fa fa-pinterest" icon={faPinterest} size='lg'/> Share with Pinterest</a>
+              </PinterestShareButton>
+
+              <LinkedinShareButton url='https://kreddit-d2cd8.web.app/' media='https://farm8.staticflickr.com/7027/6851755809_df5b2051c9_z.jpg'>
+                <a className="btn btn-social linkedin-share-btn"><FontAwesomeIcon className="fa fa-linkedin" icon={faLinkedin} size='lg'/> Share with Linkedin</a>
+              </LinkedinShareButton>
             </div>
 
             <div className="signup-classic">            
@@ -161,7 +173,7 @@ const Signup = () => {
                     <label htmlFor='male'>
                       <FontAwesomeIcon icon={faMars} color='cornflowerblue' size='2x' />
                     </label>
-                    <input type='radio' id='male' name='gender' value='male' checked/>
+                    <input type='radio' id='male' name='gender' value='male' defaultChecked/>
                     <label htmlFor='female'>
                       <FontAwesomeIcon icon={faVenus} color='crimson' size='2x' />
                     </label>

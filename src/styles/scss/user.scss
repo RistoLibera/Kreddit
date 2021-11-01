@@ -90,10 +90,16 @@
     box-shadow: 0 3px 25px rgba(0, 0, 0, 0.5);
     
     .signup-connect {
+      @extend %flex-column-direction;
+      align-items: flex-start;
       background: linear-gradient(134deg, #fbce50, #e08106);
       color: white;
       padding: 30px 30px;
-      margin: 30px 30px 0 0;
+      margin: 30px 30px 30px 0;
+
+      button {
+        min-width: 250px;
+      }
     }
 
     .signup-classic {

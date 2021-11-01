@@ -5,7 +5,7 @@
   align-items: center;
 }
 
-.signup-page, .signup-page .signup-container .signup-classic form, .signup-page .signup-container .signup-classic form .recaptcha, .login-page, .login-page .login-container .instruction, .login-page .login-container .action form {
+.signup-page, .signup-page .signup-container .signup-connect, .signup-page .signup-container .signup-classic form, .signup-page .signup-container .signup-classic form .recaptcha, .login-page, .login-page .login-container .instruction, .login-page .login-container .action form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -96,10 +96,14 @@
   box-shadow: 0 3px 25px rgba(0, 0, 0, 0.5);
 }
 .signup-page .signup-container .signup-connect {
+  align-items: flex-start;
   background: linear-gradient(134deg, #fbce50, #e08106);
   color: white;
   padding: 30px 30px;
-  margin: 30px 30px 0 0;
+  margin: 30px 30px 30px 0;
+}
+.signup-page .signup-container .signup-connect button {
+  min-width: 250px;
 }
 .signup-page .signup-container .signup-classic {
   margin: 20px 0 5px 0;
