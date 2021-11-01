@@ -51,16 +51,16 @@
   }
   
 }
-.facebook-share {
+.facebook-share-btn {
   background-color: hsl(221, 44%, 41%);
 }
-.twitter-share {
+.twitter-share-btn {
   background-color: hsl(206, 82%, 63%);
 }
-.google-share {
+.google-share-btn {
   background-color: hsl(7, 71%, 55%); 
 }
-.linkedin-share {
+.linkedin-share-btn {
   background-color: hsl(196, 100%, 43%);
 }
 
@@ -84,7 +84,7 @@
     @extend %flex-row-direction;
     justify-content: center;
     align-items:flex-start;
-    width: 800px;
+    width: 750px;
     background: white;
     border-radius: 10px;
     box-shadow: 0 3px 25px rgba(0, 0, 0, 0.5);

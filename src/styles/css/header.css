@@ -1,4 +1,4 @@
-.app-header .middle-bar, .app-header .middle-bar #icon, .app-header .right-bar .user-bar, .app-header .right-bar .user-bar .notification-center ul #clear-all, .app-header .right-bar .user-bar .notification-center ul li, .app-header .right-bar .user-bar .dropdown #dropdown-menu .dropdown-items, .app-header .right-bar .user-bar .dropdown #dropdown-menu .language-buttons, .app-header .right-bar .user-bar .dropdown #dropdown-menu #signout {
+.app-header .middle-bar #icon, .app-header .right-bar .user-bar, .app-header .right-bar .user-bar .notification-center ul #clear-all, .app-header .right-bar .user-bar .notification-center ul li, .app-header .right-bar .user-bar .dropdown #dropdown-menu .dropdown-items, .app-header .right-bar .user-bar .dropdown #dropdown-menu .language-buttons, .app-header .right-bar .user-bar .dropdown #dropdown-menu #signout {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -20,7 +20,7 @@
   background-color: white;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  grid-template-rows: auto;
+  grid-template-rows: 81px;
   padding-top: 5px;
   padding-bottom: 5px;
   border-bottom: 0.5px solid grey;
@@ -79,6 +79,9 @@
   cursor: pointer;
 }
 .app-header .middle-bar {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 3fr 2fr 3fr;
   margin: 0 70px;
 }
 .app-header .middle-bar .discussions-bar {
@@ -86,6 +89,8 @@
   font-size: 1.5rem;
   text-align: center;
   cursor: pointer;
+  align-self: center;
+  justify-self: flex-start;
 }
 .app-header .middle-bar #icon {
   justify-content: center;
@@ -101,7 +106,9 @@
   font-size: 1.5rem;
   text-align: center;
   cursor: pointer;
-  padding-right: 60px;
+  align-self: center;
+  justify-self: flex-end;
+  padding-right: 30px;
 }
 .app-header .right-bar {
   display: grid;
