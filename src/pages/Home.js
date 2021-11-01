@@ -13,7 +13,7 @@ const Home = () => {
     let windowWidth = window.innerWidth;
     let instruction = <p>{t('content.instruction')}</p>;
 
-    if (windowWidth < 600) {
+    if (windowWidth < 700) {
       return (
         <div className="reactive-home">
           <div className="display-mode">

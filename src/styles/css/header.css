@@ -20,7 +20,7 @@
   background-color: white;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  grid-template-rows: 81px;
+  grid-template-rows: auto;
   padding-top: 5px;
   padding-bottom: 5px;
   border-bottom: 0.5px solid grey;

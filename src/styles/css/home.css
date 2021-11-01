@@ -277,7 +277,7 @@
   width: 100%;
 }
 .homepage .reactive-home {
-  margin-top: 4rem;
+  margin-top: 5rem;
   height: 100%;
   justify-content: space-evenly;
 }
@@ -304,6 +304,24 @@
 .homepage .reactive-home .slogan {
   font-size: 2rem;
   color: white;
+}
+
+@media (max-width: 850px) {
+  .homepage .reactive-home {
+    margin-top: 7rem;
+  }
+  .homepage .reactive-home .display-mode {
+    font-size: 2.5rem;
+  }
+  .homepage .reactive-home .display-mode h1 {
+    margin-left: 1.5rem;
+  }
+  .homepage .reactive-home .instruction {
+    font-size: 1rem;
+  }
+  .homepage .reactive-home .slogan {
+    font-size: 1.3rem;
+  }
 }
 
 /*# sourceMappingURL=home.css.map */

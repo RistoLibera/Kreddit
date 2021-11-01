@@ -363,7 +363,7 @@
   width: 100%;
 
   .reactive-home {
-    margin-top: 4rem;
+    margin-top: 5rem;
     height: 100%;
     @extend %flex-column-direction;
     justify-content: space-evenly;
@@ -395,6 +395,30 @@
     .slogan {
       font-size: 2rem;
       color: white;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .homepage {
+    .reactive-home {
+      margin-top: 7rem;
+      .display-mode {
+        font-size: 2.5rem;
+
+        h1 {
+          margin-left: 1.5rem;
+        }
+      }
+
+      .instruction {
+        font-size: 1rem;
+        
+      }
+
+      .slogan {
+        font-size: 1.3rem;
+      }
     }
   }
 }
