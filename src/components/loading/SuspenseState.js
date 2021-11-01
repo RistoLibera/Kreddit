@@ -25,7 +25,7 @@ export const SuspenseState = () => {
             <fieldset>
               <FontAwesomeIcon icon={faSearch} color='' size='2x' />
               <input type='text' id='keyword' name='keyword' placeholder='' maxLength='15'></input>
-              <button type='submit' value='Submit'></button>
+              <button type='submit' value='Submit'>&emsp;&emsp;&emsp;&emsp;</button>
             </fieldset>
           </form>
         </div>
@@ -53,3 +53,5 @@ export const SuspenseState = () => {
     </section>
   );
 };
+
+export default SuspenseState;

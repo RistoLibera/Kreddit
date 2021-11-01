@@ -88,6 +88,22 @@
   background-color: #181a1b !important;
   color: #c4bfb7 !important;
 }
+.darkmode .signup-page .signup-container .signup-connect {
+  color: #e8e6e3 !important;
+  background-image: linear-gradient(134deg, #9b7304, #b36705) !important;
+}
+.darkmode .facebook-share-btn {
+  background-color: #2f4679 !important;
+}
+.darkmode .twitter-share-btn {
+  background-color: #0f5b96 !important;
+}
+.darkmode .pinterest-share-btn {
+  background-color: #a12b1b !important;
+}
+.darkmode .linkedin-share-btn {
+  background-color: #0081af !important;
+}
 .darkmode .profile-page {
   background-color: #181a1b !important;
 }
