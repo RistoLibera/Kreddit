@@ -186,7 +186,7 @@
           }
 
           li:hover {
-            font-size: 800;
+            font-weight: 800;
           }
         }
       }
@@ -482,10 +482,78 @@
 
     .right-bar {
       .user-bar {
+        .notification-center {
+          svg {
+            font-size: 1.5rem;
+          }
+
+          ul {
+            padding-top: 5px;
+            margin-top: 20px;
+            top: 25px;
+            #clear-all {
+              font-size: 0.8rem;
+            }
+
+            li {
+              font-size: 0.6rem;
+              width: 80px;
+            }
+          }
+        }
+
+        .dropdown {
+          .dropbtn {
+            width: 27px;
+            height: 27px;  
+          }
+
+          #dropdown-menu {
+            top: 35px;
+
+            .dropdown-items {
+              width: 100px;
+            }
+
+            h3 {
+              font-size: 1rem;
+            }
+
+            a {
+              font-size: 1.4rem;
+            }
+
+            .language-buttons {
+              button {
+                font-size: 0.7rem;
+              }
+            }
+
+            #signout {
+              height: 20px;
+              width: 80px;
+              
+              svg {
+                width: 14px;
+              }
+
+              span {
+                font-size: 0.5rem;
+              }
+            }
+          }
+        }
+
         .gain-access {
           button {
             font-size: 0.7rem;
           }
+        }
+      }
+
+      .mode-bar {  
+        svg {
+          font-size: 1.5rem;
         }
       }
     }

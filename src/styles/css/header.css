@@ -160,7 +160,7 @@
   border-bottom: 1px solid rgba(116, 92, 61, 0.22);
 }
 .app-header .right-bar .user-bar .notification-center ul li:hover {
-  font-size: 800;
+  font-weight: 800;
 }
 .app-header .right-bar .user-bar .dropdown {
   position: relative;
@@ -386,8 +386,55 @@
   .app-header .middle-bar .groups-bar {
     font-size: 0.9rem;
   }
+  .app-header .right-bar .user-bar .notification-center svg {
+    font-size: 1.5rem;
+  }
+  .app-header .right-bar .user-bar .notification-center ul {
+    padding-top: 5px;
+    margin-top: 20px;
+    top: 25px;
+  }
+  .app-header .right-bar .user-bar .notification-center ul #clear-all {
+    font-size: 0.8rem;
+  }
+  .app-header .right-bar .user-bar .notification-center ul li {
+    font-size: 0.6rem;
+    width: 80px;
+  }
+  .app-header .right-bar .user-bar .dropdown .dropbtn {
+    width: 27px;
+    height: 27px;
+  }
+  .app-header .right-bar .user-bar .dropdown #dropdown-menu {
+    top: 35px;
+  }
+  .app-header .right-bar .user-bar .dropdown #dropdown-menu .dropdown-items {
+    width: 100px;
+  }
+  .app-header .right-bar .user-bar .dropdown #dropdown-menu h3 {
+    font-size: 1rem;
+  }
+  .app-header .right-bar .user-bar .dropdown #dropdown-menu a {
+    font-size: 1.4rem;
+  }
+  .app-header .right-bar .user-bar .dropdown #dropdown-menu .language-buttons button {
+    font-size: 0.7rem;
+  }
+  .app-header .right-bar .user-bar .dropdown #dropdown-menu #signout {
+    height: 20px;
+    width: 80px;
+  }
+  .app-header .right-bar .user-bar .dropdown #dropdown-menu #signout svg {
+    width: 14px;
+  }
+  .app-header .right-bar .user-bar .dropdown #dropdown-menu #signout span {
+    font-size: 0.5rem;
+  }
   .app-header .right-bar .user-bar .gain-access button {
     font-size: 0.7rem;
+  }
+  .app-header .right-bar .mode-bar svg {
+    font-size: 1.5rem;
   }
 }
 

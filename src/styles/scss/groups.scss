@@ -11,7 +11,7 @@
     cursor: pointer;
   }
 
-  .group-container  {
+  .group-container {
     @extend %flex-column-direction;
     width: 100%;
 
@@ -559,6 +559,43 @@
             }
           }
         }
+      }
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .groups-page {
+    padding-top: 4rem;
+
+    .group-container {
+      header {
+        .group-controller {
+          .grid-list {
+            padding: 3px 6px 3px 4px;
+
+            .icon {
+              transform: scale(0.8);
+            }
+
+            .text {
+              margin-left: 0;
+              transform: scale(0.8);
+            }
+          }
+
+          .display-control {
+            padding: 5px;
+            font-size: 0.8rem;
+          }
+        }
+
+        #create-group {
+          form {
+            
+          }
+        }
+
       }
     }
   }

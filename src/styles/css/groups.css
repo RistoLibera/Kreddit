@@ -460,4 +460,24 @@
   cursor: pointer;
 }
 
+@media (max-width: 850px) {
+  .groups-page {
+    padding-top: 4rem;
+  }
+  .groups-page .group-container header .group-controller .grid-list {
+    padding: 3px 6px 3px 4px;
+  }
+  .groups-page .group-container header .group-controller .grid-list .icon {
+    transform: scale(0.8);
+  }
+  .groups-page .group-container header .group-controller .grid-list .text {
+    margin-left: 0;
+    transform: scale(0.8);
+  }
+  .groups-page .group-container header .group-controller .display-control {
+    padding: 5px;
+    font-size: 0.8rem;
+  }
+}
+
 /*# sourceMappingURL=groups.css.map */
