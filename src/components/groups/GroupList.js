@@ -164,7 +164,7 @@ const GroupList = (props) => {
 
           <div className="lower">
             <p className='creator'>{t('content.creator')}: {creator}</p>
-            <p>{time}</p>
+            <p className='time'>{time}</p>
           </div>
         </div>
 

@@ -432,11 +432,11 @@
             .lower {
               @extend %flex-row-direction;
               padding: 5px;
+              font-size: 1.1rem;
 
               .creator {
                 padding-right: 17px;
                 font-style: italic;
-                font-size: 1.1rem;
               }
             }
           }
@@ -490,7 +490,7 @@
       ul {
         margin: 10px 40px;
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
         grid-template-rows: auto;
 
         li {
@@ -535,12 +535,6 @@
 
             .join-group {
               text-align: center;
-              // font-size: 1.2rem;
-              // display: block;
-              // text-decoration: none;
-              // margin: 5px 5px;
-              // padding: 13px 10px;
-              // background: black;  
               color: black;
               cursor: pointer;
 
@@ -562,10 +556,12 @@
             }
 
             .quick-link {
-              width: 40px;
-              height: 40px;   
               font-size: 1rem;
               cursor: pointer;
+              svg {
+                width: 40px;
+                height: 40px;     
+              }
             }
           }
         }
@@ -632,10 +628,95 @@
                 margin-left: 2rem;
               }
             }
-            
           }
         }
+      }
 
+      .list-view {
+        padding-top: 0;
+
+        ul {
+          margin: 5px 50px;
+
+          li {
+            margin: 10px 0;
+
+            .left-block {
+              .img {
+                width: 40px;
+                height: 40px;
+              }
+            }
+
+            .middle-block {
+              .upper {
+                font-size: 1.3rem;
+                padding: 2px;
+              }
+
+              .middle {
+                padding: 2px;
+                font-size: 0.6rem;
+              }
+
+              .lower {
+                padding: 2px;
+                font-size: 0.7rem;
+              }
+            }
+
+            .right-block {
+              .join-group {
+                font-size: 0.7rem;
+                padding: 7px 5px;
+              }
+
+              .quick-link {
+                font-size: 0.9rem;
+              }
+            }
+          }
+        }
+      }
+
+      .grid-view {
+        padding-top: 5px;
+
+        ul {
+          margin: 5px 5px;
+          grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+
+          li {
+            .left-block {
+              .img {
+                width: 40px;
+                height: 40px;
+              }
+            }
+
+            .middle-block {
+              .upper {
+                font-size: 1rem;
+              }
+            }
+
+            .right-block {
+              .join-group {
+                .join-in {
+                  width: 20px;
+                  height: 20px;
+                }
+              }
+
+              .quick-link {
+                svg {
+                  width: 20px;
+                  height: 20px;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
