@@ -353,6 +353,53 @@
     padding: 5px;
     border-radius: 5px;
   }
+
+  .login-page {
+    padding-top: 5rem;
+  }
+  .login-page .login-container {
+    width: 700px;
+  }
+  .login-page .login-container .instruction {
+    margin-right: 30px;
+  }
+  .login-page .login-container .instruction h1 {
+    font-size: 3rem;
+    margin: 20px 10px 30px;
+  }
+  .login-page .login-container .instruction p {
+    font-size: 0.5rem;
+  }
+  .login-page .login-container .action form fieldset {
+    margin: 4px 0;
+  }
+  .login-page .login-container .action form fieldset label {
+    padding: 10px 5px 0 0;
+  }
+  .login-page .login-container .action form fieldset input {
+    width: 60%;
+    height: 18px;
+    font-size: 8px;
+  }
+  .login-page .login-container .action form .name {
+    font-size: 0.8rem;
+    padding-left: 25px;
+  }
+  .login-page .login-container .action form .password {
+    font-size: 0.8rem;
+    padding-left: 25px;
+  }
+  .login-page .login-container .action form .password label {
+    padding-right: 10px;
+  }
+  .login-page .login-container .action form .recaptcha {
+    transform: scale(0.8);
+  }
+  .login-page .login-container .action form .buttons button {
+    font-size: 0.7rem;
+    margin: 0;
+    padding: 5px;
+  }
 }
 
 /*# sourceMappingURL=user.css.map */
