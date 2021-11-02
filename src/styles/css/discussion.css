@@ -26,6 +26,15 @@
 .discussion-page .hidden {
   display: none;
 }
+.discussion-page .discussion-container .page-loader {
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+}
 .discussion-page .discussion-container .discussion-content .group {
   padding: 10px 40px;
   margin-bottom: 10px;
@@ -176,6 +185,12 @@
 .discussion-page .discussion-container .discussion-content .reply-form-container {
   margin: 30px 20px 15px 5px;
   grid-column: 1/span 2;
+  position: relative;
+}
+.discussion-page .discussion-container .discussion-content .reply-form-container .block-loader {
+  position: absolute;
+  left: 50%;
+  top: 0;
 }
 .discussion-page .discussion-container .discussion-content .reply-form-container form {
   width: 100%;
@@ -344,9 +359,13 @@
   margin: 30px 20px 15px 5px;
   grid-column: 1/span 3;
   grid-row: 4/span 1;
+  position: relative;
 }
 .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .reply-form-container .block-loader {
   padding-top: 20px;
+  position: absolute;
+  left: 50%;
+  top: 0;
 }
 .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .reply-form-container form {
   width: 100%;

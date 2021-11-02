@@ -322,6 +322,15 @@
 .groups-page .group-container header #create-group form .upload #files {
   display: none;
 }
+.groups-page .group-container .page-loader {
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+}
 .groups-page .group-container .list-view {
   width: 100%;
   padding-top: 10px;
@@ -462,7 +471,7 @@
 
 @media (max-width: 850px) {
   .groups-page {
-    padding-top: 4rem;
+    padding-top: 3rem;
   }
   .groups-page .group-container header .group-controller .grid-list {
     padding: 3px 6px 3px 4px;
@@ -477,6 +486,28 @@
   .groups-page .group-container header .group-controller .display-control {
     padding: 5px;
     font-size: 0.8rem;
+  }
+  .groups-page .group-container header #create-group form legend {
+    font-size: 0.9rem;
+  }
+  .groups-page .group-container header #create-group form fieldset input {
+    padding: 5px 5px 0px 15px;
+    font-size: 0.6rem;
+    width: 80%;
+    height: 18px;
+  }
+  .groups-page .group-container header #create-group form fieldset label {
+    font-size: 0.7rem;
+    padding: 1px 0 5px 10px;
+  }
+  .groups-page .group-container header #create-group form fieldset button {
+    font-size: 0.7rem;
+    padding: 5px;
+    margin-right: 2rem;
+  }
+  .groups-page .group-container header #create-group form .upload #symbol {
+    font-size: 0.5rem;
+    margin-left: 2rem;
   }
 }
 
