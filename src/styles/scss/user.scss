@@ -73,7 +73,7 @@
     @extend %flex-row-direction;
     justify-content: center;
     align-items:flex-start;
-    width: 750px;
+    width: 800px;
     background: white;
     border-radius: 10px;
     box-shadow: 0 3px 25px rgba(0, 0, 0, 0.5);
@@ -327,8 +327,110 @@
 }
 
 @media (max-width: 850px) {
+  .btn {
+    margin: 10px 0;
+    padding: 10px 5px;
+  
+  }
+
   .signup-page {
     padding-top: 6rem;
+    .signup-container {
+      width: 600px;
+
+      .signup-connect {
+        padding: 35px 20px;
+        margin: 10px;
+
+        button {
+          min-width: 200px;
+          a {
+            font-size: 0.6rem;
+
+            svg {
+              width: 30px;
+            }
+          }
+        }
+      }
+
+      .signup-classic {
+        margin: 10px 0 5px 10px;
+        form {
+          fieldset {
+            margin: 4px 0;
+  
+            input {
+              width: 80%;
+              height: 18px;
+              font-size: 8px;
+            }
+
+            .materials {
+              right: 50px;
+              bottom: 3px;
+            }  
+          }
+  
+          legend {
+            font-size: 1.2rem;
+          }
+
+          .name {
+            font-size: 0.8rem;
+            padding-left: 25px;
+          }
+    
+          .password {
+            font-size: 0.8rem;
+            padding-left: 25px;
+          }  
+
+          .info {
+            margin-left: 10px;
+
+            .gender {  
+              label {
+                font-size: 0.8rem;
+              }
+  
+              input {
+                width: 8px;
+                height: 8px;
+                margin-right: 10px;
+              }
+            } 
+            
+            .all-nations {
+              margin-left: 0px;
+              margin-right: 30px;
+
+              select {
+                font-size: 0.6rem;
+                height: 20px;
+              }
+            }
+          }
+
+          .recaptcha {
+            transform:scale(0.8);
+          }
+  
+          .buttons {
+            padding-right: 30px;
+
+            button {
+              font-size: 0.7rem;
+              display: block;
+              text-decoration: none;
+              margin: 0;
+              padding: 5px;
+              border-radius: 5px;          
+            }
+          }
+        }
+      }
+    }
   }
 }
 
