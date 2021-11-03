@@ -454,6 +454,89 @@
   .profile-page .profile-container .upper-profile .registration {
     margin-left: 0px;
   }
+  .profile-page .profile-container .upper-profile .registration .lock img {
+    width: 100px;
+    height: 100px;
+    padding-top: 2.5rem;
+    padding-left: 1rem;
+  }
+  .profile-page .profile-container .upper-profile .registration .change-password .change-container .toggle-show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+  }
+  .profile-page .profile-container .upper-profile .registration .change-password .change-container .toggle-show svg {
+    width: 20px;
+    height: 20px;
+  }
+  .profile-page .profile-container .upper-profile .registration .change-password .change-container form fieldset legend {
+    padding-left: 15px;
+    font-size: 0.6rem;
+  }
+  .profile-page .profile-container .upper-profile .registration .change-password .change-container form fieldset input {
+    width: 80%;
+    padding: 2px 0 2px 15px;
+    font-size: 10px;
+  }
+  .profile-page .profile-container .upper-profile .registration .change-password .change-container form fieldset button {
+    font-size: 0.6rem;
+    padding: 3px;
+  }
+  .profile-page .profile-container .upper-profile .registration .delete-user .delete-container .toggle-show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+  }
+  .profile-page .profile-container .upper-profile .registration .delete-user .delete-container .toggle-show svg {
+    width: 20px;
+    height: 20px;
+  }
+  .profile-page .profile-container .upper-profile .registration .delete-user .delete-container form {
+    margin: 0 0 50px 30px;
+  }
+  .profile-page .profile-container .upper-profile .registration .delete-user .delete-container form fieldset legend {
+    padding-left: 15px;
+    font-size: 0.6rem;
+  }
+  .profile-page .profile-container .upper-profile .registration .delete-user .delete-container form fieldset input {
+    width: 80%;
+    padding: 2px 0 2px 15px;
+    font-size: 10px;
+  }
+  .profile-page .profile-container .upper-profile .registration .delete-user .delete-container form fieldset button {
+    font-size: 0.6rem;
+    padding: 3px;
+  }
+  .profile-page .profile-container .lower-profile ol.gradient-list {
+    margin: 0.3rem 0;
+  }
+  .profile-page .profile-container .lower-profile ol.gradient-list > li::before, .profile-page .profile-container .lower-profile ol.gradient-list > li::after {
+    height: 2rem;
+    width: 2rem;
+    bottom: 1.3rem;
+    top: unset;
+  }
+  .profile-page .profile-container .lower-profile ol.gradient-list > li::before {
+    font: 900 1em/1 "Montserrat";
+  }
+  .profile-page .profile-container .lower-profile ol.gradient-list > li + li {
+    margin-top: 0rem;
+  }
+  .profile-page .profile-container .lower-profile .title-blocks ol li .title .img {
+    width: 20px;
+    height: 20px;
+  }
+  .profile-page .profile-container .lower-profile .title-blocks ol li .title h1 {
+    font-size: 0.8rem;
+  }
+  .profile-page .profile-container .lower-profile .title-blocks ol li .entry button svg {
+    width: 26px;
+    height: 26px;
+  }
 }
 
 /*# sourceMappingURL=profile.css.map */

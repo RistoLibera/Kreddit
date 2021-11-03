@@ -204,6 +204,7 @@
           @extend %flex-column-direction;
 
         }
+
         .change-password {
           .change-container {
             height: 100%;
@@ -438,7 +439,6 @@
         }
 
         .entry {
-
           button {
             border: none;
             cursor: pointer;
@@ -569,6 +569,138 @@
         .registration {
           margin-left: 0px;
 
+          .lock {
+            img {
+              width: 100px;
+              height: 100px;
+              padding-top: 2.5rem;
+              padding-left: 1rem;
+            }
+          }
+
+          .change-password {
+            .change-container {
+              .toggle-show {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 26px;
+                height: 26px;
+  
+                svg {
+                  width: 20px;
+                  height: 20px;
+  
+                }
+              }
+
+              form {
+                fieldset {
+                  legend {
+                    padding-left: 15px;
+                    font-size: 0.6rem;
+                  }
+
+                  input {
+                    width: 80%;
+                    padding: 2px 0 2px 15px;
+                    font-size: 10px;
+
+                  }
+
+                  button {
+                    font-size: 0.6rem;
+                    padding: 3px;
+                  }
+                }
+              }
+            }
+          }
+
+          .delete-user {
+            .delete-container {
+              .toggle-show {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 26px;
+                height: 26px;
+  
+                svg {
+                  width: 20px;
+                  height: 20px;
+  
+                }
+              }
+
+              form {
+                margin: 0 0 50px 30px;
+
+                fieldset {
+                  legend {
+                    padding-left: 15px;
+                    font-size: 0.6rem;
+                  }
+
+                  input {
+                    width: 80%;
+                    padding: 2px 0 2px 15px;
+                    font-size: 10px;
+
+                  }
+
+                  button {
+                    font-size: 0.6rem;
+                    padding: 3px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .lower-profile {
+        ol.gradient-list {
+          margin: 0.3rem 0;
+          > li {
+            &::before,
+            &::after {
+              height: 2rem;
+              width: 2rem;
+              bottom: 1.3rem;
+              top: unset;
+            }
+            &::before {
+              font: 900 1em/1 'Montserrat';
+            }
+
+            + li {
+              margin-top: 0rem;
+            }  
+          }
+        }
+
+        .title-blocks ol li {
+          .title {
+            .img {
+              width: 20px;
+              height: 20px;
+            }
+
+            h1 {
+              font-size: 0.8rem;
+            }
+          }
+
+          .entry {
+            button {
+              svg {
+                width: 26px;
+                height: 26px;
+              }
+            }
+          }
         }
       }
     }
