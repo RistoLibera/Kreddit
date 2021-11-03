@@ -31,7 +31,7 @@
         position: relative;
 
         .filter-buttons {
-          width: 1000px;
+          max-width: 900px;
 
           ul {
             text-align: center;
@@ -252,7 +252,7 @@
         overflow:hidden;
         & .card {
           cursor:pointer;
-          min-width:700px;
+          width:700px;
           margin-bottom:10px;
           perspective:600px;
           transition:all 0.1s;
@@ -306,6 +306,7 @@
               height: 100px;
               align-self: self-end;
               width: 300px;
+              font-size: 0.9rem;
 
               & .title {
                 display: none;
@@ -319,7 +320,6 @@
                 height: 100%;
                 overflow: hidden;
                 letter-spacing: 1px;
-                font-size: 0.9rem;
                 display: block;
                 word-wrap: break-word;
               }
@@ -337,6 +337,7 @@
               display: none;
             }
             & .trend {
+              display: none;
               padding-bottom: 0;
             }
           }
@@ -400,13 +401,181 @@
             background-color: #d9bd8a;
           }
         }
-
-        
-
       }
-      
     }
   }  
+}
+
+@media (max-width: 850px) {
+  .discussions-page {
+    padding-top: 3.5rem;
+    margin: 0 10px;
+
+    .discussions-container {
+      margin: 0 10px;
+
+      header {
+        .discussions-controller {
+          .filter-buttons {
+            max-width: 600px;
+
+            ul {
+              li {
+                margin: 0px 5px;
+                font-size: 0.5rem;
+              }
+            }
+          }
+
+          #toggle-display {
+            font-size: 0.6rem;
+            padding: 3px;
+          }
+        }
+
+        #create-discussion {
+          margin: 5px 0;
+
+          form {
+            fieldset {
+              margin: 2px 0;
+
+              legend {
+                font-size: 1rem;
+              }    
+
+              input {
+                padding: 3px 5px 3px 15px;
+                font-size: 0.6rem;
+                width: 80%;
+                height: 18px;
+              }
+
+              label {
+                font-size: 0.7rem;
+                padding: 1px 0 5px 10px;
+              }
+
+              button {
+                font-size: 0.7rem;
+                padding: 5px;
+                margin: 0;
+              }
+            }
+
+            .groups {
+              select {
+                padding: 0 5px;
+                font-size: 0.6rem;
+              }
+            }
+
+            .upload { 
+              #img {
+                font-size: 0.5rem;
+                margin-left: 4rem;
+              }
+
+              .submit {
+                margin-right: 3rem;
+              }
+            }
+          }
+        }
+      }
+
+      .discussions-list {
+        .list {
+          .card {
+            width: 500px;
+            height: 70px;
+
+            .title-img {
+              height: 70px;
+              width: 100px;  
+            }
+
+            .info {
+              height: 70px;
+              padding: 0;
+              padding-left: 20px;
+
+              .title {
+                font-size: 0.75rem;
+                padding-top: 10px;
+                padding-left: 20px;
+              }
+
+              .created-by {
+                padding-top: 10px;
+                margin: 3px 0;
+                padding-left: 20px;
+
+                .icon {
+                  height: 20px;
+                  width: 20px;
+                  margin-left: 10px;
+                }
+
+                .creator {
+                  font-size: 10px;
+                  margin-left: 10px;
+                }
+              }
+            }
+
+            .statistics {
+              height: 70px;
+
+              .group-name {
+                padding: 10px 5px;
+                font-size: 0.8rem;
+              }
+
+              .trend {
+                padding: 15px 15px 4px;
+
+                .amount {
+                  font-size: 0.6rem;
+                }
+
+                .rating {
+                  font-size: 0.6rem;
+                }
+
+                .time {
+                  font-size: 0.7rem;
+                }
+              }
+            }
+          }
+
+          .open {
+            padding: 10px;
+            font-size: 0.7rem;
+
+            .info {
+              .content {
+                margin-left: 30px;
+                width: 200px;
+              }
+            }
+
+            .title-img {
+              width: 120px;
+            }
+            
+            .statistics {
+              .entry {
+                margin: 10px 0 40px 20px;
+              }
+            }
+          }
+        }
+        
+      }
+    }
+  }
 }
 
 
