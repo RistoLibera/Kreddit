@@ -232,9 +232,6 @@
   cursor: pointer;
 }
 .profile-page .profile-container .upper-profile .registration .delete-user .delete-container .toggle-show svg {
-  position: absolute;
-  bottom: 0;
-  right: 1px;
   width: 30px;
   height: 30px;
 }
@@ -385,6 +382,78 @@
 }
 .profile-page .profile-container .lower-profile .title-blocks ol li .entry:hover .fa-door-open {
   display: block;
+}
+
+@media (max-width: 850px) {
+  .profile-page {
+    margin-top: 0;
+    padding-top: 5rem;
+  }
+  .profile-page .profile-container .upper-profile {
+    padding: 20px;
+  }
+  .profile-page .profile-container .upper-profile .profile-icon {
+    width: 60px;
+    height: 60px;
+    margin-right: 2rem;
+  }
+  .profile-page .profile-container .upper-profile .profile-icon .upload {
+    top: -5px;
+    right: -20px;
+  }
+  .profile-page .profile-container .upper-profile .profile-icon .upload label svg {
+    font-size: 1.3rem;
+  }
+  .profile-page .profile-container .upper-profile .info {
+    align-items: center;
+  }
+  .profile-page .profile-container .upper-profile .info .upper-info {
+    padding-right: 30px;
+    width: 80%;
+    grid-template-columns: 50px minmax(50px, 1fr) 50px;
+    padding-left: 10px;
+  }
+  .profile-page .profile-container .upper-profile .info .upper-info .nation {
+    width: 0.8em !important;
+    height: 0.8em !important;
+  }
+  .profile-page .profile-container .upper-profile .info .upper-info h2 {
+    font-size: 1.4rem;
+  }
+  .profile-page .profile-container .upper-profile .info .lower-info .groups .as-creator h5 {
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  .profile-page .profile-container .upper-profile .info .lower-info .groups .as-creator ul li {
+    width: 20px;
+    height: 20px;
+  }
+  .profile-page .profile-container .upper-profile .info .lower-info .groups .as-creator span {
+    font-size: 0.5rem;
+    width: 20px;
+    height: 20px;
+  }
+  .profile-page .profile-container .upper-profile .info .lower-info .groups .as-member h5 {
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  .profile-page .profile-container .upper-profile .info .lower-info .groups .as-member ul li {
+    width: 20px;
+    height: 20px;
+  }
+  .profile-page .profile-container .upper-profile .info .lower-info .groups .as-member span {
+    font-size: 0.5rem;
+    width: 20px;
+    height: 20px;
+  }
+  .profile-page .profile-container .upper-profile .info .lower-info .discussions {
+    padding-left: 0px;
+    right: -20px;
+    font-size: 1rem;
+  }
+  .profile-page .profile-container .upper-profile .registration {
+    margin-left: 0px;
+  }
 }
 
 /*# sourceMappingURL=profile.css.map */

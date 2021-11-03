@@ -281,9 +281,9 @@
               cursor: pointer;
 
               svg {
-                position: absolute;
-                bottom: 0;
-                right: 1px;
+                // position: absolute;
+                // bottom: 0;
+                // right: 1px;
                 width: 30px;
                 height: 30px;
               }
@@ -460,6 +460,115 @@
           .fa-door-open {
             display: block;
           }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .profile-page {
+    margin-top: 0;
+    padding-top: 5rem;
+
+    .profile-container {
+      .upper-profile {
+        padding: 20px;
+
+        .profile-icon {
+          width: 60px;
+          height: 60px;
+          margin-right: 2rem;
+
+          .upload {
+            top: -5px;
+            right: -20px;
+
+            label {
+              svg {
+                font-size: 1.3rem;
+              }
+            }
+          }
+        }
+        
+        .info {
+          align-items: center;
+          
+          .upper-info {
+            padding-right: 30px;
+            width: 80%;
+            grid-template-columns: 50px minmax(50px, 1fr) 50px;
+            padding-left: 10px;
+
+            .nation {
+              width: 0.8em!important;
+              height: 0.8em !important;
+            }
+
+            h2 {
+              font-size: 1.4rem;
+            }
+
+          }
+
+          .lower-info {
+            .groups {
+              .as-creator {
+                h5 {
+                  text-align: center;
+                  font-size: 0.9rem;
+                }
+
+                ul {
+                  li {
+                    width: 20px;
+                    height: 20px;
+  
+                  }
+                }
+
+                span {
+                  font-size: 0.5rem;
+                  width: 20px;
+                  height: 20px;
+                }
+              }
+
+              .as-member {
+                h5 {
+                  text-align: center;
+                  font-size: 0.9rem;
+                }
+
+                ul {
+                  li {
+                    width: 20px;
+                    height: 20px;
+  
+                  }
+                }
+
+                span {
+                  font-size: 0.5rem;
+                  width: 20px;
+                  height: 20px;
+                }
+              }
+            }
+
+            .discussions {
+              padding-left: 0px;
+              right: -20px;
+              font-size: 1rem;
+
+            }
+          }
+        }
+
+        .registration {
+          margin-left: 0px;
+
         }
       }
     }
