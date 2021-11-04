@@ -461,23 +461,23 @@
     left: 3px;
   }
   .app-header .left-bar form fieldset input {
-    font-size: 0.4rem;
+    font-size: 4.8px;
     margin-right: 0px;
     padding-left: 15px;
   }
   .app-header .left-bar form fieldset input::placeholder {
-    font-size: 0.35rem;
+    font-size: 4.8px;
     color: grey;
   }
   .app-header .left-bar form fieldset:hover input::placeholder {
-    font-size: 0.45rem;
+    font-size: 4.8px;
     color: black;
   }
   .app-header .left-bar form fieldset:hover button {
-    font-size: 0.25rem;
-    top: 10px;
-    height: 30%;
-    right: -5px;
+    font-size: 3px;
+    top: 8px;
+    height: 40%;
+    right: -7px;
   }
   .app-header .middle-bar {
     margin: 0;
@@ -550,7 +550,7 @@
     padding-right: 10px;
   }
   .app-header .right-bar .user-bar .gain-access button {
-    font-size: 0.35rem;
+    font-size: 6px;
   }
   .app-header .right-bar .mode-bar {
     padding-left: 5px;

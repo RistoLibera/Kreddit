@@ -133,19 +133,19 @@ const Signup = () => {
           <div className='signup-container'>
             <div className="signup-connect">
               <FacebookShareButton url='https://kreddit-d2cd8.web.app/' >
-                <a className="btn btn-social facebook-share-btn"><FontAwesomeIcon className="fa fa-facebook" icon={faFacebook} size='lg'/> Share with Facebook</a>
+                <a className="btn btn-social facebook-share-btn"><FontAwesomeIcon className="fa fa-facebook" icon={faFacebook} size='lg'/><span>Share with Facebook</span></a>
               </FacebookShareButton>
 
               <TwitterShareButton url='https://kreddit-d2cd8.web.app/' >
-                <a className="btn btn-social twitter-share-btn"><FontAwesomeIcon className="fa fa-twitter" icon={faTwitter} size='lg'/> Share with Twitter</a>
+                <a className="btn btn-social twitter-share-btn"><FontAwesomeIcon className="fa fa-twitter" icon={faTwitter} size='lg'/><span>Share with Twitter</span></a>
               </TwitterShareButton>
 
               <PinterestShareButton url='https://kreddit-d2cd8.web.app/' media={Koin}>
-                <a className="btn btn-social pinterest-share-btn"><FontAwesomeIcon className="fa fa-pinterest" icon={faPinterest} size='lg'/> Share with Pinterest</a>
+                <a className="btn btn-social pinterest-share-btn"><FontAwesomeIcon className="fa fa-pinterest" icon={faPinterest} size='lg'/><span>Share with Pinterest</span></a>
               </PinterestShareButton>
 
               <LinkedinShareButton url='https://kreddit-d2cd8.web.app/' >
-                <a className="btn btn-social linkedin-share-btn"><FontAwesomeIcon className="fa fa-linkedin" icon={faLinkedin} size='lg'/> Share with Linkedin</a>
+                <a className="btn btn-social linkedin-share-btn"><FontAwesomeIcon className="fa fa-linkedin" icon={faLinkedin} size='lg'/><span>Share with Linkedin</span></a>
               </LinkedinShareButton>
             </div>
 

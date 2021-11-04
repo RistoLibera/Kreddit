@@ -419,5 +419,156 @@
     padding: 5px;
   }
 }
+@media (max-width: 600px) {
+  .btn {
+    margin: 10px 0;
+    padding: 10px 5px;
+  }
+
+  .signup-page {
+    padding-top: 4rem;
+    width: 100%;
+  }
+  .signup-page .signup-container {
+    width: 340px;
+  }
+  .signup-page .signup-container .signup-connect {
+    background: none;
+    padding: 30px 0px 20px 30px;
+    margin: 0px;
+  }
+  .signup-page .signup-container .signup-connect button {
+    min-width: 40px;
+    margin-bottom: 20px;
+  }
+  .signup-page .signup-container .signup-connect button a {
+    height: 20px;
+    font-size: 0.6rem;
+    color: white;
+    position: relative;
+  }
+  .signup-page .signup-container .signup-connect button a svg {
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 2.5px;
+    left: 2.5px;
+  }
+  .signup-page .signup-container .signup-connect button a span {
+    display: none;
+  }
+  .signup-page .signup-container .signup-classic {
+    margin: 10px 0 5px 10px;
+  }
+  .signup-page .signup-container .signup-classic form fieldset {
+    margin: 4px 0;
+  }
+  .signup-page .signup-container .signup-classic form fieldset input {
+    width: 220px;
+    padding: 5px 0px 5px 15px;
+    margin-top: 0;
+    height: 18px;
+    font-size: 8px;
+  }
+  .signup-page .signup-container .signup-classic form fieldset .materials {
+    right: 74px;
+    bottom: 14px;
+  }
+  .signup-page .signup-container .signup-classic form legend {
+    font-size: 1rem;
+  }
+  .signup-page .signup-container .signup-classic form .name {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.7rem;
+    padding-left: 25px;
+  }
+  .signup-page .signup-container .signup-classic form .password {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.7rem;
+    padding-left: 25px;
+  }
+  .signup-page .signup-container .signup-classic form .info {
+    margin-left: 10px;
+  }
+  .signup-page .signup-container .signup-classic form .info .gender label {
+    font-size: 0.7rem;
+  }
+  .signup-page .signup-container .signup-classic form .info .gender input {
+    width: 8px;
+    height: 8px;
+    margin-right: 10px;
+  }
+  .signup-page .signup-container .signup-classic form .info .all-nations {
+    margin-left: 0px;
+    margin-right: 46px;
+  }
+  .signup-page .signup-container .signup-classic form .info .all-nations select {
+    font-size: 0.5rem;
+    height: 20px;
+  }
+  .signup-page .signup-container .signup-classic form .recaptcha {
+    transform: scale(0.6);
+  }
+  .signup-page .signup-container .signup-classic form .buttons {
+    padding-right: 30px;
+  }
+  .signup-page .signup-container .signup-classic form .buttons button {
+    font-size: 0.8rem;
+    display: block;
+    text-decoration: none;
+    margin: 0;
+    padding: 5px;
+    border-radius: 5px;
+  }
+
+  .login-page {
+    padding-top: 3rem;
+  }
+  .login-page .login-container {
+    width: 650px;
+  }
+  .login-page .login-container .instruction {
+    margin-right: 30px;
+  }
+  .login-page .login-container .instruction h1 {
+    font-size: 3rem;
+    margin: 20px 10px 30px;
+  }
+  .login-page .login-container .instruction p {
+    font-size: 0.5rem;
+  }
+  .login-page .login-container .action form fieldset {
+    margin: 4px 0;
+  }
+  .login-page .login-container .action form fieldset label {
+    padding: 10px 5px 0 0;
+  }
+  .login-page .login-container .action form fieldset input {
+    width: 60%;
+    height: 18px;
+    font-size: 8px;
+  }
+  .login-page .login-container .action form .name {
+    font-size: 0.8rem;
+    padding-left: 25px;
+  }
+  .login-page .login-container .action form .password {
+    font-size: 0.8rem;
+    padding-left: 25px;
+  }
+  .login-page .login-container .action form .password label {
+    padding-right: 10px;
+  }
+  .login-page .login-container .action form .recaptcha {
+    transform: scale(0.8);
+  }
+  .login-page .login-container .action form .buttons button {
+    font-size: 0.7rem;
+    margin: 0;
+    padding: 5px;
+  }
+}
 
 /*# sourceMappingURL=user.css.map */

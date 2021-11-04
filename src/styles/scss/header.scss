@@ -585,28 +585,28 @@
           }
 
           input {
-            font-size: 0.4rem;
+            font-size: 4.8px;
             margin-right: 0px;
             padding-left: 15px;  
           }
 
           input::placeholder {
-            font-size: 0.35rem;
+            font-size: 4.8px;
             color:grey;
           }
         }
 
         fieldset:hover {
           input::placeholder {
-            font-size: 0.45rem;
+            font-size: 4.8px;
             color:black;
           }
 
           button {
-            font-size: 0.25rem;
-            top: 10px;
-            height: 30%;
-            right: -5px;  
+            font-size: 3px;
+            top: 8px;
+            height: 40%;
+            right: -7px;  
           }
         }
       }
@@ -710,7 +710,7 @@
           padding-right: 10px;
           
           button {
-            font-size: 0.35rem;
+            font-size: 6px;
           }
         }
       }
