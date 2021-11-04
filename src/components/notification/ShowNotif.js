@@ -90,13 +90,22 @@ const ShowNotif = (props) => {
     container.reverse();
     setListTags(container);
   };
+
+  // For smartphone responsiveness
+  const toggleShowOnSmartphone = () => {
+    if (showUL === 'hidden') {
+      setShowUL('show');
+    } else {
+      setShowUL('hidden');
+    }
+  };
   
   useEffect(() => {
     createNotif();
   }, [documents, t]);
 
   return (
-    <div className='notification-center' onMouseEnter={() => setShowUL('show')} onMouseLeave={() => setShowUL('hidden')}>
+    <div className='notification-center' onMouseEnter={() => setShowUL('show')} onMouseLeave={() => setShowUL('hidden')} onClick={() => toggleShowOnSmartphone()} >
       {documents.length === 0
         ?
           <FontAwesomeIcon icon={farBellSlash} color='' size='2x' />

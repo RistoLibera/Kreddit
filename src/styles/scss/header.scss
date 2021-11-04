@@ -489,7 +489,160 @@
 
           ul {
             padding-top: 5px;
-            margin-top: 20px;
+            margin-top: 15px;
+            top: 25px;
+            #clear-all {
+              font-size: 0.8rem;
+            }
+
+            li {
+              font-size: 0.6rem;
+              width: 80px;
+            }
+          }
+        }
+
+        .dropdown {
+          .dropbtn {
+            width: 27px;
+            height: 27px;  
+          }
+
+          #dropdown-menu {
+            top: 35px;
+
+            .dropdown-items {
+              width: 100px;
+            }
+
+            h3 {
+              font-size: 1rem;
+            }
+
+            a {
+              font-size: 1.4rem;
+            }
+
+            .language-buttons {
+              button {
+                font-size: 0.7rem;
+              }
+            }
+
+            #signout {
+              height: 20px;
+              width: 80px;
+
+              svg {
+                width: 14px;
+              }
+
+              span {
+                font-size: 0.5rem;
+              }
+            }
+          }
+        }
+
+        .gain-access {
+          button {
+            font-size: 0.7rem;
+          }
+        }
+      }
+
+      .mode-bar {  
+        svg {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .app-header {
+    grid-template-columns: 1fr 1.5fr 1fr;
+    padding: 2px 0;
+
+    .left-bar{
+      align-items: flex-start;
+      
+      form {
+        padding: 0px 5px 0 5px;
+        width: 80%;
+
+        fieldset {
+          height: 25px;
+
+          svg {
+            width: 0.4em;
+            height: 0.4em;
+            bottom: 5px;
+            left: 3px;
+          }
+
+          input {
+            font-size: 0.5rem;
+            margin-right: 0px;
+            padding-left: 20px;  
+          }
+
+          input::placeholder {
+            font-size: 0.45rem;
+            color:grey;
+          }
+  
+        }
+
+        fieldset:hover {
+          input::placeholder {
+            font-size: 0.65rem;
+            color:black;
+          }
+
+          button {
+            font-size: 0.35rem;
+            height: 50%;
+            top: 9px;
+          }
+  
+        }
+
+      }
+    }
+
+    .middle-bar {
+      margin: 0;
+
+      .discussions-bar {
+        padding-left: 10px;
+        font-size: 0.6rem;
+      }
+
+      #icon {
+        img {
+          height: 35px;
+          width: 35px;
+        }  
+      }
+
+      .groups-bar {
+        font-size: 0.6rem;
+        padding-right: 20px;
+      }
+    }
+
+    .right-bar {
+      .user-bar {
+        .notification-center {
+          svg {
+            font-size: 1.5rem;
+          }
+
+          ul {
+            padding-top: 5px;
+            margin-top: 13px;
             top: 25px;
             #clear-all {
               font-size: 0.8rem;
