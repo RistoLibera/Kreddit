@@ -564,6 +564,8 @@
   .app-header {
     grid-template-columns: 1fr 1.5fr 1fr;
     padding: 2px 0;
+    top: unset;
+    bottom: 0;
 
     .left-bar{
       align-items: flex-start;
@@ -576,39 +578,37 @@
           height: 25px;
 
           svg {
-            width: 0.4em;
-            height: 0.4em;
-            bottom: 5px;
+            width: 0.3em;
+            height: 0.3em;
+            bottom: 6px;
             left: 3px;
           }
 
           input {
-            font-size: 0.5rem;
+            font-size: 0.4rem;
             margin-right: 0px;
-            padding-left: 20px;  
+            padding-left: 15px;  
           }
 
           input::placeholder {
-            font-size: 0.45rem;
+            font-size: 0.35rem;
             color:grey;
           }
-  
         }
 
         fieldset:hover {
           input::placeholder {
-            font-size: 0.65rem;
+            font-size: 0.45rem;
             color:black;
           }
 
           button {
-            font-size: 0.35rem;
-            height: 50%;
-            top: 9px;
+            font-size: 0.25rem;
+            top: 10px;
+            height: 30%;
+            right: -5px;  
           }
-  
         }
-
       }
     }
 
@@ -616,7 +616,7 @@
       margin: 0;
 
       .discussions-bar {
-        padding-left: 10px;
+        padding-left: 0px;
         font-size: 0.6rem;
       }
 
@@ -636,14 +636,20 @@
     .right-bar {
       .user-bar {
         .notification-center {
+          position: static;
+
           svg {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
           }
 
           ul {
-            padding-top: 5px;
-            margin-top: 13px;
-            top: 25px;
+            padding-top: 2px;
+            margin-top: 5px;
+            position: fixed;
+            top: 0;
+            left: 0;
+    
+
             #clear-all {
               font-size: 0.8rem;
             }
@@ -657,56 +663,63 @@
 
         .dropdown {
           .dropbtn {
-            width: 27px;
-            height: 27px;  
+            width: 24px;
+            height: 24px;  
           }
 
           #dropdown-menu {
-            top: 35px;
+            top: -140px;
 
             .dropdown-items {
-              width: 100px;
+              margin: 5px 3px;
+              width: 80px;
             }
 
             h3 {
-              font-size: 1rem;
+              font-size: 0.8rem;
             }
 
             a {
-              font-size: 1.4rem;
+              font-size: 1rem;
             }
 
             .language-buttons {
               button {
-                font-size: 0.7rem;
+                padding: 2px;
+                margin: 3px;
+                font-size: 0.5rem;
               }
             }
 
             #signout {
-              height: 20px;
-              width: 80px;
+              height: 18px;
+              width: 60px;
 
               svg {
-                width: 14px;
+                width: 9px;
               }
 
               span {
-                font-size: 0.5rem;
+                font-size: 0.4rem;
               }
             }
           }
         }
 
         .gain-access {
+          padding-right: 10px;
+          
           button {
-            font-size: 0.7rem;
+            font-size: 0.35rem;
           }
         }
       }
 
-      .mode-bar {  
+      .mode-bar { 
+        padding-left: 5px;
+         
         svg {
-          font-size: 1.5rem;
+          font-size: 1.2rem;
         }
       }
     }

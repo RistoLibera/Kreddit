@@ -432,3 +432,37 @@
     }
   }
 }
+
+@media (max-width: 600px) {  
+  .homepage {
+    background-position: 50% 50%;
+    
+    .reactive-home {
+      margin-top: 5rem;
+      justify-content: flex-start;
+
+      .display-mode {
+        font-size: 2rem;
+
+        h1 {
+          margin-left: 1.5rem;
+        }
+      }
+
+      .instruction {
+        font-size: 1.2rem;
+
+        p {
+          margin-top: 5rem;
+          margin-left: 2rem;
+        }
+      }
+
+      .slogan {
+        margin-top: 5rem;
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+

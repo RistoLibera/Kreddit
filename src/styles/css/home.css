@@ -333,5 +333,31 @@
     font-size: 1.3rem;
   }
 }
+@media (max-width: 600px) {
+  .homepage {
+    background-position: 50% 50%;
+  }
+  .homepage .reactive-home {
+    margin-top: 5rem;
+    justify-content: flex-start;
+  }
+  .homepage .reactive-home .display-mode {
+    font-size: 2rem;
+  }
+  .homepage .reactive-home .display-mode h1 {
+    margin-left: 1.5rem;
+  }
+  .homepage .reactive-home .instruction {
+    font-size: 1.2rem;
+  }
+  .homepage .reactive-home .instruction p {
+    margin-top: 5rem;
+    margin-left: 2rem;
+  }
+  .homepage .reactive-home .slogan {
+    margin-top: 5rem;
+    font-size: 1.5rem;
+  }
+}
 
 /*# sourceMappingURL=home.css.map */

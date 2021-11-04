@@ -441,6 +441,8 @@
   .app-header {
     grid-template-columns: 1fr 1.5fr 1fr;
     padding: 2px 0;
+    top: unset;
+    bottom: 0;
   }
   .app-header .left-bar {
     align-items: flex-start;
@@ -453,34 +455,35 @@
     height: 25px;
   }
   .app-header .left-bar form fieldset svg {
-    width: 0.4em;
-    height: 0.4em;
-    bottom: 5px;
+    width: 0.3em;
+    height: 0.3em;
+    bottom: 6px;
     left: 3px;
   }
   .app-header .left-bar form fieldset input {
-    font-size: 0.5rem;
+    font-size: 0.4rem;
     margin-right: 0px;
-    padding-left: 20px;
+    padding-left: 15px;
   }
   .app-header .left-bar form fieldset input::placeholder {
-    font-size: 0.45rem;
+    font-size: 0.35rem;
     color: grey;
   }
   .app-header .left-bar form fieldset:hover input::placeholder {
-    font-size: 0.65rem;
+    font-size: 0.45rem;
     color: black;
   }
   .app-header .left-bar form fieldset:hover button {
-    font-size: 0.35rem;
-    height: 50%;
-    top: 9px;
+    font-size: 0.25rem;
+    top: 10px;
+    height: 30%;
+    right: -5px;
   }
   .app-header .middle-bar {
     margin: 0;
   }
   .app-header .middle-bar .discussions-bar {
-    padding-left: 10px;
+    padding-left: 0px;
     font-size: 0.6rem;
   }
   .app-header .middle-bar #icon img {
@@ -491,13 +494,18 @@
     font-size: 0.6rem;
     padding-right: 20px;
   }
+  .app-header .right-bar .user-bar .notification-center {
+    position: static;
+  }
   .app-header .right-bar .user-bar .notification-center svg {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
   .app-header .right-bar .user-bar .notification-center ul {
-    padding-top: 5px;
-    margin-top: 13px;
-    top: 25px;
+    padding-top: 2px;
+    margin-top: 5px;
+    position: fixed;
+    top: 0;
+    left: 0;
   }
   .app-header .right-bar .user-bar .notification-center ul #clear-all {
     font-size: 0.8rem;
@@ -507,39 +515,48 @@
     width: 80px;
   }
   .app-header .right-bar .user-bar .dropdown .dropbtn {
-    width: 27px;
-    height: 27px;
+    width: 24px;
+    height: 24px;
   }
   .app-header .right-bar .user-bar .dropdown #dropdown-menu {
-    top: 35px;
+    top: -140px;
   }
   .app-header .right-bar .user-bar .dropdown #dropdown-menu .dropdown-items {
-    width: 100px;
-  }
-  .app-header .right-bar .user-bar .dropdown #dropdown-menu h3 {
-    font-size: 1rem;
-  }
-  .app-header .right-bar .user-bar .dropdown #dropdown-menu a {
-    font-size: 1.4rem;
-  }
-  .app-header .right-bar .user-bar .dropdown #dropdown-menu .language-buttons button {
-    font-size: 0.7rem;
-  }
-  .app-header .right-bar .user-bar .dropdown #dropdown-menu #signout {
-    height: 20px;
+    margin: 5px 3px;
     width: 80px;
   }
-  .app-header .right-bar .user-bar .dropdown #dropdown-menu #signout svg {
-    width: 14px;
+  .app-header .right-bar .user-bar .dropdown #dropdown-menu h3 {
+    font-size: 0.8rem;
   }
-  .app-header .right-bar .user-bar .dropdown #dropdown-menu #signout span {
+  .app-header .right-bar .user-bar .dropdown #dropdown-menu a {
+    font-size: 1rem;
+  }
+  .app-header .right-bar .user-bar .dropdown #dropdown-menu .language-buttons button {
+    padding: 2px;
+    margin: 3px;
     font-size: 0.5rem;
   }
+  .app-header .right-bar .user-bar .dropdown #dropdown-menu #signout {
+    height: 18px;
+    width: 60px;
+  }
+  .app-header .right-bar .user-bar .dropdown #dropdown-menu #signout svg {
+    width: 9px;
+  }
+  .app-header .right-bar .user-bar .dropdown #dropdown-menu #signout span {
+    font-size: 0.4rem;
+  }
+  .app-header .right-bar .user-bar .gain-access {
+    padding-right: 10px;
+  }
   .app-header .right-bar .user-bar .gain-access button {
-    font-size: 0.7rem;
+    font-size: 0.35rem;
+  }
+  .app-header .right-bar .mode-bar {
+    padding-left: 5px;
   }
   .app-header .right-bar .mode-bar svg {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 }
 
