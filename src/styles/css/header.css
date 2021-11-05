@@ -519,7 +519,7 @@
     height: 24px;
   }
   .app-header .right-bar .user-bar .dropdown #dropdown-menu {
-    top: -140px;
+    top: -170px;
   }
   .app-header .right-bar .user-bar .dropdown #dropdown-menu .dropdown-items {
     margin: 5px 3px;
@@ -538,7 +538,7 @@
   }
   .app-header .right-bar .user-bar .dropdown #dropdown-menu #signout {
     height: 18px;
-    width: 60px;
+    width: 70px;
   }
   .app-header .right-bar .user-bar .dropdown #dropdown-menu #signout svg {
     width: 9px;

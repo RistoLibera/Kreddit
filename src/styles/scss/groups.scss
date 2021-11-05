@@ -513,6 +513,7 @@
             padding: 5px 0;
             // text-align: center;
             .upper {
+              text-align: center;
               font-size: 1.3rem;
             }
 
@@ -722,3 +723,174 @@
   }
 }
 
+@media (max-width: 600px) {
+  .groups-page {
+    padding-top: 0;
+
+    .group-container {
+      width: 300px;
+      
+      header {
+        margin-top: 20px;
+        
+        .group-controller {
+          flex-direction: row;
+          justify-content: space-between;
+
+          .grid-list {
+            margin-left: 15px;
+            padding: 3px 6px 3px 4px;
+            margin: 0;
+
+            .icon {
+              transform: scale(0.8);
+            }
+
+            .text {
+              margin-left: 0;
+              transform: scale(0.8);
+            }
+          }
+
+          .display-control {
+            margin-right: 15px;
+            padding: 5px;
+            font-size: 12px;
+          }
+        }
+
+        #create-group {
+          margin-top: 30px;
+
+          form {
+            legend {
+              font-size: 14px;
+            }
+
+            fieldset {
+              input {
+                padding: 3px 5px 3px 15px;
+                font-size: 0.6rem;
+                width: 250px;
+                height: 18px;
+                margin: 0;
+              }
+
+              textarea {
+                width: 280px;
+              }
+
+              label {
+                font-size: 0.7rem;
+                padding: 10px 0;
+              }
+
+              button {
+                font-size: 0.7rem;
+                padding: 5px;
+                margin-right: 2rem;
+              }
+            }
+
+            .upload {
+              #symbol {
+                font-size: 0.5rem;
+                margin-left: 2rem;
+              }
+            }
+          }
+        }
+      }
+
+      .list-view {
+        margin-top: 20px;
+        padding-top: 0;
+
+        ul {
+          margin: 0;
+
+          li {
+            margin: 10px 0;
+
+            .left-block {
+              .img {
+                width: 40px;
+                height: 40px;
+              }
+            }
+
+            .middle-block {
+              .upper {
+                font-size: 1.1rem;
+                padding: 2px;
+              }
+
+              .middle {
+                padding: 2px;
+                font-size: 0.6rem;
+              }
+
+              .lower {
+                padding: 2px;
+                font-size: 0.7rem;
+              }
+            }
+
+            .right-block {
+              .join-group {
+                margin: 0;
+                font-size: 0.7rem;
+                padding: 7px 5px;
+              }
+
+              .quick-link {
+                font-size: 0.9rem;
+              }
+            }
+          }
+        }
+      }
+
+      .grid-view {
+        margin-top: 10px;
+        padding-top: 5px;
+
+        ul {
+          margin: 5px 5px;
+          grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+
+          li {
+            .left-block {
+              .img {
+                width: 40px;
+                height: 40px;
+              }
+            }
+
+            .middle-block {
+              .upper {
+                font-size: 1rem;
+              }
+            }
+
+            .right-block {
+              .join-group {
+                .join-in {
+                  width: 20px;
+                  height: 20px;
+                }
+              }
+
+              .quick-link {
+                svg {
+                  width: 20px;
+                  height: 20px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

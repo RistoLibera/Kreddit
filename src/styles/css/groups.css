@@ -430,6 +430,7 @@
   padding: 5px 0;
 }
 .groups-page .group-container .grid-view ul li .middle-block .upper {
+  text-align: center;
   font-size: 1.3rem;
 }
 .groups-page .group-container .grid-view ul li .middle-block .middle {
@@ -549,6 +550,124 @@
   .groups-page .group-container .grid-view ul {
     margin: 5px 5px;
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+  .groups-page .group-container .grid-view ul li .left-block .img {
+    width: 40px;
+    height: 40px;
+  }
+  .groups-page .group-container .grid-view ul li .middle-block .upper {
+    font-size: 1rem;
+  }
+  .groups-page .group-container .grid-view ul li .right-block .join-group .join-in {
+    width: 20px;
+    height: 20px;
+  }
+  .groups-page .group-container .grid-view ul li .right-block .quick-link svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+@media (max-width: 600px) {
+  .groups-page {
+    padding-top: 0;
+  }
+  .groups-page .group-container {
+    width: 300px;
+  }
+  .groups-page .group-container header {
+    margin-top: 20px;
+  }
+  .groups-page .group-container header .group-controller {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .groups-page .group-container header .group-controller .grid-list {
+    margin-left: 15px;
+    padding: 3px 6px 3px 4px;
+    margin: 0;
+  }
+  .groups-page .group-container header .group-controller .grid-list .icon {
+    transform: scale(0.8);
+  }
+  .groups-page .group-container header .group-controller .grid-list .text {
+    margin-left: 0;
+    transform: scale(0.8);
+  }
+  .groups-page .group-container header .group-controller .display-control {
+    margin-right: 15px;
+    padding: 5px;
+    font-size: 12px;
+  }
+  .groups-page .group-container header #create-group {
+    margin-top: 30px;
+  }
+  .groups-page .group-container header #create-group form legend {
+    font-size: 14px;
+  }
+  .groups-page .group-container header #create-group form fieldset input {
+    padding: 3px 5px 3px 15px;
+    font-size: 0.6rem;
+    width: 250px;
+    height: 18px;
+    margin: 0;
+  }
+  .groups-page .group-container header #create-group form fieldset textarea {
+    width: 280px;
+  }
+  .groups-page .group-container header #create-group form fieldset label {
+    font-size: 0.7rem;
+    padding: 10px 0;
+  }
+  .groups-page .group-container header #create-group form fieldset button {
+    font-size: 0.7rem;
+    padding: 5px;
+    margin-right: 2rem;
+  }
+  .groups-page .group-container header #create-group form .upload #symbol {
+    font-size: 0.5rem;
+    margin-left: 2rem;
+  }
+  .groups-page .group-container .list-view {
+    margin-top: 20px;
+    padding-top: 0;
+  }
+  .groups-page .group-container .list-view ul {
+    margin: 0;
+  }
+  .groups-page .group-container .list-view ul li {
+    margin: 10px 0;
+  }
+  .groups-page .group-container .list-view ul li .left-block .img {
+    width: 40px;
+    height: 40px;
+  }
+  .groups-page .group-container .list-view ul li .middle-block .upper {
+    font-size: 1.1rem;
+    padding: 2px;
+  }
+  .groups-page .group-container .list-view ul li .middle-block .middle {
+    padding: 2px;
+    font-size: 0.6rem;
+  }
+  .groups-page .group-container .list-view ul li .middle-block .lower {
+    padding: 2px;
+    font-size: 0.7rem;
+  }
+  .groups-page .group-container .list-view ul li .right-block .join-group {
+    margin: 0;
+    font-size: 0.7rem;
+    padding: 7px 5px;
+  }
+  .groups-page .group-container .list-view ul li .right-block .quick-link {
+    font-size: 0.9rem;
+  }
+  .groups-page .group-container .grid-view {
+    margin-top: 10px;
+    padding-top: 5px;
+  }
+  .groups-page .group-container .grid-view ul {
+    margin: 5px 5px;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
   }
   .groups-page .group-container .grid-view ul li .left-block .img {
     width: 40px;
