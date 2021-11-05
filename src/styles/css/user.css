@@ -543,45 +543,54 @@
     padding-top: 3rem;
   }
   .login-page .login-container {
-    width: 650px;
+    width: 300px;
+    flex-direction: column;
   }
   .login-page .login-container .instruction {
-    margin-right: 30px;
+    margin-right: 0px;
+    flex-direction: row;
+    width: 100%;
   }
   .login-page .login-container .instruction h1 {
-    font-size: 3rem;
+    font-size: 45px;
     margin: 20px 10px 30px;
   }
   .login-page .login-container .instruction p {
-    font-size: 0.5rem;
+    width: 100%;
+    font-size: 7px;
+    margin: 50px 10px 20px 40px;
   }
   .login-page .login-container .action form fieldset {
     margin: 4px 0;
   }
   .login-page .login-container .action form fieldset label {
-    padding: 10px 5px 0 0;
+    font-size: 10px;
+    padding: 10px 5px 0 20px;
   }
   .login-page .login-container .action form fieldset input {
-    width: 60%;
+    width: 50%;
     height: 18px;
-    font-size: 8px;
+    font-size: 7px;
+    padding: 3px 0px 3px 15px;
   }
   .login-page .login-container .action form .name {
     font-size: 0.8rem;
-    padding-left: 25px;
+    padding-left: 0px;
+    justify-content: space-around;
   }
   .login-page .login-container .action form .password {
+    justify-content: space-around;
     font-size: 0.8rem;
-    padding-left: 25px;
+    padding-left: 0px;
   }
   .login-page .login-container .action form .password label {
     padding-right: 10px;
   }
   .login-page .login-container .action form .recaptcha {
-    transform: scale(0.8);
+    transform: scale(0.5);
   }
   .login-page .login-container .action form .buttons button {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     margin: 0;
     padding: 5px;
   }

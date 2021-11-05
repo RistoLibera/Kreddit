@@ -642,7 +642,7 @@
 
           .recaptcha {
             margin: 0 20px 4px 0;
-            transform:scale(0.5);
+            transform: scale(0.5);
           }
   
           .buttons {
@@ -666,18 +666,23 @@
     padding-top: 3rem;
 
     .login-container {
-      width: 650px;
+      width: 300px;
+      flex-direction: column;
 
       .instruction {
-        margin-right: 30px;
+        margin-right: 0px;
+        flex-direction: row;
+        width: 100%;
 
         h1 {
-          font-size: 3rem;
+          font-size: 45px;
           margin: 20px 10px 30px;
         }
 
         p {
-          font-size: 0.5rem;
+          width: 100%;
+          font-size: 7px;
+          margin: 50px 10px 20px 40px;
         }
       }
 
@@ -687,36 +692,41 @@
             margin: 4px 0;
 
             label {
-              padding: 10px 5px 0 0;
+              font-size: 10px;
+              padding: 10px 5px 0 20px;
             }
 
             input {
-              width: 60%;
+              width: 50%;
               height: 18px;
-              font-size: 8px;
+              font-size: 7px;
+              padding: 3px 0px 3px 15px;
             }
           }
 
           .name {
             font-size: 0.8rem;
-            padding-left: 25px;
+            padding-left: 0px;
+            justify-content: space-around;
           }
     
           .password {
+            justify-content: space-around;
+
             label {
               padding-right: 10px;
             }  
             font-size: 0.8rem;
-            padding-left: 25px;
+            padding-left: 0px;
           }  
 
           .recaptcha {
-            transform:scale(0.8);
+            transform: scale(0.5);
           }
 
           .buttons {
             button {
-              font-size: 0.7rem;
+              font-size: 0.8rem;
               margin: 0;
               padding: 5px;
             }
