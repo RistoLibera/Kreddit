@@ -100,7 +100,7 @@
   background: linear-gradient(134deg, #fbce50, #e08106);
   color: white;
   padding: 30px 30px;
-  margin: 30px 30px 30px 0;
+  margin: 30px 40px 30px 0;
 }
 .signup-page .signup-container .signup-connect button {
   min-width: 250px;
@@ -422,7 +422,7 @@
 @media (max-width: 600px) {
   .btn {
     margin: 10px 0;
-    padding: 10px 5px;
+    padding: 5px 5px;
   }
 
   .signup-page {
@@ -430,15 +430,22 @@
     width: 100%;
   }
   .signup-page .signup-container {
-    width: 340px;
+    width: 300px;
+    height: 330px;
+    position: relative;
   }
   .signup-page .signup-container .signup-connect {
-    background: none;
-    padding: 30px 0px 20px 30px;
+    background: linear-gradient(134deg, #fbce50, #e08106);
+    padding: 30px 10px 20px 10px;
     margin: 0px;
+    border-radius: 10px 0 0 10px;
+    height: 330px;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
   }
   .signup-page .signup-container .signup-connect button {
-    min-width: 40px;
+    min-width: 30px;
     margin-bottom: 20px;
   }
   .signup-page .signup-container .signup-connect button a {
@@ -448,8 +455,8 @@
     position: relative;
   }
   .signup-page .signup-container .signup-connect button a svg {
-    width: 35px;
-    height: 35px;
+    width: 25px;
+    height: 25px;
     position: absolute;
     top: 2.5px;
     left: 2.5px;
@@ -458,21 +465,26 @@
     display: none;
   }
   .signup-page .signup-container .signup-classic {
-    margin: 10px 0 5px 10px;
+    margin: 10px 0 0 0;
+    position: absolute;
+    right: -15px;
+  }
+  .signup-page .signup-container .signup-classic form {
+    width: 260px;
   }
   .signup-page .signup-container .signup-classic form fieldset {
     margin: 4px 0;
   }
   .signup-page .signup-container .signup-classic form fieldset input {
-    width: 220px;
-    padding: 5px 0px 5px 15px;
+    width: 180px;
+    padding: 3px 0px 3px 15px;
     margin-top: 0;
     height: 18px;
-    font-size: 8px;
+    font-size: 7px;
   }
   .signup-page .signup-container .signup-classic form fieldset .materials {
-    right: 74px;
-    bottom: 14px;
+    right: 67px;
+    bottom: 11px;
   }
   .signup-page .signup-container .signup-classic form legend {
     font-size: 1rem;
@@ -490,26 +502,30 @@
     padding-left: 25px;
   }
   .signup-page .signup-container .signup-classic form .info {
-    margin-left: 10px;
+    margin: 4px 0 0 25px;
   }
   .signup-page .signup-container .signup-classic form .info .gender label {
+    padding-bottom: 4px;
     font-size: 0.7rem;
+    margin-right: 5px;
   }
   .signup-page .signup-container .signup-classic form .info .gender input {
+    padding: 3px 0px 3px 5px;
     width: 8px;
     height: 8px;
     margin-right: 10px;
   }
   .signup-page .signup-container .signup-classic form .info .all-nations {
     margin-left: 0px;
-    margin-right: 46px;
+    margin-right: 56px;
   }
   .signup-page .signup-container .signup-classic form .info .all-nations select {
-    font-size: 0.5rem;
+    font-size: 0.4rem;
     height: 20px;
   }
   .signup-page .signup-container .signup-classic form .recaptcha {
-    transform: scale(0.6);
+    margin: 0 20px 4px 0;
+    transform: scale(0.5);
   }
   .signup-page .signup-container .signup-classic form .buttons {
     padding-right: 30px;
