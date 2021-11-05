@@ -5,7 +5,7 @@
 - This is a discussion website imitating Reddit, 
   within which has a set of basic functionality to prove my understanding of Javascript and SCSS
 
-- Online: https://kreddit-d2cd8.web.app
+- Online: https://kreddit-unpublic-d62c1.web.app/
 - Local:  http://localhost:3000
 
 ## What does this have

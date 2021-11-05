@@ -5,17 +5,17 @@ import 'firebase/auth';
 
 let firebaseConfig = {
 
-  apiKey: 'AIzaSyC9T6qvb1JCKtZN8gnrHsJ_NYEI2GpJpu4',
+  apiKey: "AIzaSyD0m-DvpDN3NRh5NHOJjr3AmGhzacHwC9o",
 
-  authDomain: 'kreddit-d2cd8.firebaseapp.com',
+  authDomain: "kreddit-unpublic-d62c1.firebaseapp.com",
 
-  projectId: 'kreddit-d2cd8',
+  projectId: "kreddit-unpublic-d62c1",
 
-  storageBucket: 'kreddit-d2cd8.appspot.com',
+  storageBucket: "kreddit-unpublic-d62c1.appspot.com",
 
-  messagingSenderId: '537953826225',
+  messagingSenderId: "1079800175997",
 
-  appId: '1:537953826225:web:2d3f22ca1f58f675c8b990'
+  appId: "1:1079800175997:web:e25a8474dd93aadda80014"
 
 };
 
