@@ -706,3 +706,289 @@
     }
   }
 }
+
+@media (max-width: 600px) {
+  .profile-page {
+    margin-top: 0;
+    padding-top: 0;
+
+    .profile-container {
+      width: 300px;
+      margin-top: 20px;
+
+
+      .upper-profile {
+        padding: 10px;
+        border-left: none;
+        border-right: none;
+        display: grid;
+        grid-template-rows: auto auto;
+        grid-template-columns: 170px 130px;
+        width: 100%;
+
+        .profile-icon {
+          grid-column: 1/span 2;
+          grid-row: 1/span 1;
+          justify-self: center;
+          width: 60px;
+          height: 60px;
+          margin-right: 0;
+          margin-bottom: 0px;
+
+          .upload {
+            top: -5px;
+            right: -20px;
+
+            label {
+              svg {
+                font-size: 1.3rem;
+              }
+            }
+          }
+        }
+        
+        .info {
+          grid-column: 1/span 1;
+          grid-row: 2/span 1;
+          align-items: center;
+          margin: 0;
+          padding: 0;
+
+          .upper-info {
+            padding: 0;
+            margin-bottom: 10px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+
+            .nation {
+              width: 1em!important;
+              height: 1em !important;
+            }
+
+            h2 {
+              font-size: 24px;
+            }
+
+            svg {
+              font-size: 1.5em;
+              margin-right: 15px;
+            }
+          }
+
+          .lower-info {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+
+            .groups {
+              .as-creator {
+                grid-template-columns: 40px 60px 30px;
+
+                h5 {
+                  text-align: center;
+                  font-size: 11px;
+                }
+
+                ul {
+                  li {
+                    width: 15px;
+                    height: 15px;
+  
+                  }
+                }
+
+                span {
+                  margin: 0;
+                  font-size: 7px;
+                  width: 15px;
+                  height: 15px;
+                }
+              }
+
+              .as-member {
+                grid-template-columns: 40px 60px 30px;
+
+                h5 {
+                  text-align: center;
+                  font-size: 11px;
+                }
+
+                ul {
+                  li {
+                    width: 15px;
+                    height: 15px;
+  
+                  }
+                }
+
+                span {
+                  margin: 0;
+                  font-size: 7px;
+                  width: 15px;
+                  height: 15px;
+                }
+              }
+            }
+
+            .discussions {
+              position: static;
+              padding-left: 0px;
+              right: -20px;
+              font-size: 12px;
+
+              .as-participant {
+                p {
+                  padding-left: 2px;
+                }
+              }
+            }
+          }
+        }
+
+        .registration {
+          grid-column: 2/span 1;
+          grid-row: 2/span 1;
+          margin-left: 0px;
+
+          .lock {
+            img {
+              width: 80px;
+              height: 80px;
+              padding-top: 2.5rem;
+              padding-left: 1rem;
+            }
+          }
+
+          .change-password {
+            .change-container {
+              .toggle-show {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 23px;
+                height: 23px;
+  
+                svg {
+                  width: 18px;
+                  height: 18px;
+                }
+              }
+
+              form {
+                margin: 40px 0 0 20px;
+
+                fieldset {
+                  legend {
+                    padding-left: 10px;
+                    font-size: 10px;
+                  }
+
+                  input {
+                    width: 100%;
+                    padding: 2px 0 2px 10px;
+                    font-size: 9px;
+                  }
+
+                  button {
+                    font-size: 9.5px;
+                    padding: 3px;
+                  }
+                }
+              }
+            }
+          }
+
+          .delete-user {
+            .delete-container {
+              .toggle-show {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 23px;
+                height: 23px;
+  
+                svg {
+                  width: 18px;
+                  height: 18px;  
+                }
+              }
+
+              form {
+                margin: 0 0 50px 20px;
+
+                fieldset {
+                  legend {
+                    text-align: center;
+                    padding-left: 10px;
+                    font-size: 10px;
+                  }
+
+                  input {
+                    width: 100%;
+                    padding: 2px 0 2px 10px;
+                    font-size: 9px;
+                  }
+
+                  button {
+                    font-size: 9.5px;
+                    padding: 3px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .lower-profile {
+        ol.gradient-list {
+          margin: 0.3rem 0;
+          
+          > li {
+            box-shadow: none;
+            padding: 0.5rem 1rem 1rem 2rem;
+            
+            &::before,
+            &::after {
+              height: 2rem;
+              width: 2rem;
+              bottom: 1.3rem;
+              top: unset;
+            }
+            &::before {
+              font: 900 1em/1 'Montserrat';
+            }
+
+            + li {
+              margin-top: 0rem;
+            }  
+          }
+        }
+
+        .title-blocks ol li {
+          .title {
+            .img {
+              width: 20px;
+              height: 20px;
+            }
+
+            h1 {
+              font-size: 0.8rem;
+            }
+          }
+
+          .entry {
+            button {
+              svg {
+                width: 26px;
+                height: 26px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
