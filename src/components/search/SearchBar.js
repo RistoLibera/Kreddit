@@ -19,7 +19,7 @@ const Search = () => {
     <form onSubmit={jumpToSearchPage}>
       <fieldset>
         <FontAwesomeIcon icon={faSearch} color='' size='2x' />
-        <input type='text' id='keyword' name='keyword' placeholder={t('content.search-holder')} maxLength='15'></input>
+        <input type='text' id='keyword' name='keyword' placeholder={t('content.search-holder')} maxLength='10'></input>
         <button type='submit' value='Submit'>{t('content.search-button')}</button>
       </fieldset>
     </form>

@@ -106,5 +106,63 @@
     font-size: 0.8rem;
   }
 }
+@media (max-width: 600px) {
+  .search-result-page {
+    width: 100%;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 0;
+    padding: 0;
+  }
+  .search-result-page .search-history {
+    margin-top: 20px;
+  }
+  .search-result-page .search-history h2 {
+    font-size: 20px;
+    height: 30px;
+    margin-bottom: 0;
+  }
+  .search-result-page .search-history ul {
+    width: 300px;
+    min-height: 40px;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .search-result-page .search-history ul li {
+    width: unset;
+    font-size: 9px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: auto;
+  }
+  .search-result-page .search-history ul li a {
+    grid-row: 2/span 1;
+    border: 1px solid gray;
+    border-radius: 30px;
+    padding: 7px;
+  }
+  .search-result-page .search-history ul li button {
+    grid-row: 1/span 1;
+    font-size: 11px;
+  }
+  .search-result-page .titles {
+    margin: 10px 0;
+  }
+  .search-result-page .titles h2 {
+    font-size: 20px;
+    height: 30px;
+  }
+  .search-result-page .titles ul li {
+    font-size: 0.8rem;
+  }
+  .search-result-page .users h2 {
+    font-size: 20px;
+    height: 30px;
+  }
+  .search-result-page .users ul li {
+    font-size: 14px;
+  }
+}
 
 /*# sourceMappingURL=search.css.map */

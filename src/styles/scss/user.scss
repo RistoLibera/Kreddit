@@ -221,6 +221,7 @@
           }
 
           .submit-button:disabled {
+            opacity: 0.5;
             cursor: default;
           }
         }
@@ -338,6 +339,7 @@
           }
 
           .submit-button:disabled {
+            opacity: 0.5;
             cursor: default;
           }
         }
@@ -525,14 +527,15 @@
   }
 
   .signup-page {
-    padding-top: 4rem;
+    padding-top: 0rem;
     width: 100%;
-
+    
     .signup-container {
       width: 300px;
       height: 330px;
       position: relative;
-      
+      margin-top: 20px;
+
       .signup-connect {
         background: linear-gradient(134deg, #fbce50, #e08106);
         padding: 30px 10px 20px 10px;
@@ -581,15 +584,16 @@
   
             input {
               width: 180px;
-              padding: 3px 0px 3px 15px;
+              padding: 3px 0px 3px 10px;
               margin-top: 0;
               height: 18px;
-              font-size: 7px;
+              font-size: 7.7px;
             }
 
             .materials {
-              right: 67px;
-              bottom: 11px;
+              font-size: 1.3rem;
+              right: 70px;
+              bottom: 12px;
             }  
           }
   
@@ -663,7 +667,7 @@
   }
 
   .login-page {
-    padding-top: 3rem;
+    padding-top: 0rem;
 
     .login-container {
       width: 300px;
@@ -681,7 +685,7 @@
 
         p {
           width: 100%;
-          font-size: 7px;
+          font-size: 8px;
           margin: 50px 10px 20px 40px;
         }
       }
@@ -699,25 +703,25 @@
             input {
               width: 50%;
               height: 18px;
-              font-size: 7px;
+              font-size: 9px;
               padding: 3px 0px 3px 15px;
             }
           }
 
           .name {
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             padding-left: 0px;
             justify-content: space-around;
           }
     
           .password {
             justify-content: space-around;
+            font-size: 0.9rem;
+            padding-left: 0px;
 
             label {
               padding-right: 10px;
             }  
-            font-size: 0.8rem;
-            padding-left: 0px;
           }  
 
           .recaptcha {
