@@ -627,5 +627,211 @@
     padding: 0 4px;
   }
 }
+@media (max-width: 600px) {
+  .discussion-page {
+    padding-top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .discussion-page .discussion-container {
+    margin-top: 20px;
+    width: 300px;
+  }
+  .discussion-page .discussion-container .discussion-content .group {
+    padding: 5px 10px;
+  }
+  .discussion-page .discussion-container .discussion-content .group .group-symbol {
+    height: 30px;
+    width: 30px;
+    margin-top: 0;
+  }
+  .discussion-page .discussion-container .discussion-content .group .group-name {
+    font-size: 1rem;
+  }
+  .discussion-page .discussion-container .discussion-content .title {
+    grid-template-columns: 20px 1fr;
+    padding: 8px 10px;
+    margin: 10px;
+  }
+  .discussion-page .discussion-container .discussion-content .title .title-rating button {
+    font-size: 8px;
+    padding: 2px;
+  }
+  .discussion-page .discussion-container .discussion-content .title .title-rating span {
+    font-size: 12px;
+  }
+  .discussion-page .discussion-container .discussion-content .title .title-body {
+    padding-left: 10px;
+    align-items: flex-end;
+  }
+  .discussion-page .discussion-container .discussion-content .title .title-body .body-header .creator span {
+    width: 25px;
+    height: 25px;
+  }
+  .discussion-page .discussion-container .discussion-content .title .title-body .body-header .creator .name {
+    font-size: 14px;
+    padding: 0 5px;
+  }
+  .discussion-page .discussion-container .discussion-content .title .title-body .body-header .creator .time {
+    font-size: 9px;
+    margin-top: 2px;
+  }
+  .discussion-page .discussion-container .discussion-content .title .title-body .body-header .title-name {
+    margin-top: 5px;
+    padding-left: 30px;
+    font-size: 1.3rem;
+  }
+  .discussion-page .discussion-container .discussion-content .title .title-body .title-content {
+    align-items: flex-start;
+    padding: 5px 0 10px 0;
+  }
+  .discussion-page .discussion-container .discussion-content .title .title-body .title-content .title-img {
+    width: 200px;
+    margin-left: 8px;
+  }
+  .discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container {
+    margin: 10px 15px 5px 5px;
+  }
+  .discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container .ternary .edit-discussion .upload {
+    width: 180px;
+  }
+  .discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container .ternary .edit-discussion .upload #img {
+    font-size: 0.5rem;
+    margin-top: 2px;
+    padding: 4px 2px;
+  }
+  .discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container .ternary .edit-discussion fieldset {
+    margin: 4px 0;
+  }
+  .discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container .ternary .edit-discussion fieldset textarea {
+    width: 180px;
+    font-size: 0.8rem;
+  }
+  .discussion-page .discussion-container .discussion-content .title .title-body .title-content .edit-form-container .ternary .edit-discussion fieldset button {
+    font-size: 0.5rem;
+    padding: 5px;
+  }
+  .discussion-page .discussion-container .discussion-content .title .title-body .title-content .scripting {
+    font-size: 0.8rem;
+    margin: 10px 10px 5px 10px;
+  }
+  .discussion-page .discussion-container .discussion-content .title .title-body .title-buttons {
+    margin-right: 10px;
+  }
+  .discussion-page .discussion-container .discussion-content .title .title-body .title-buttons .interaction button {
+    font-size: 0.5rem;
+    padding: 2px;
+    margin: 0 8px;
+  }
+  .discussion-page .discussion-container .discussion-content .reply-form-container {
+    margin: 5px 20px 5px 5px;
+  }
+  .discussion-page .discussion-container .discussion-content .reply-form-container form fieldset {
+    margin: 3px 0;
+  }
+  .discussion-page .discussion-container .discussion-content .reply-form-container form fieldset textarea {
+    padding: 8px;
+    width: 200px;
+    font-size: 0.8rem;
+    height: 60px;
+  }
+  .discussion-page .discussion-container .discussion-content .reply-form-container form fieldset .reply-buttons button {
+    font-size: 0.5rem;
+    padding: 3px;
+  }
+  .discussion-page .discussion-container .discussion-content .reply-form-container form fieldset .reply-buttons .creation-buttons .reset {
+    margin-right: 5px;
+  }
+  .discussion-page .discussion-container .discussion-content .reply-form-container form fieldset .reply-buttons .syntax-buttons {
+    font-size: 0.4rem;
+  }
+  .discussion-page .discussion-container .discussion-content .reply-form-container form fieldset .reply-buttons .syntax-buttons svg {
+    padding: 0 4px;
+  }
+  .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] {
+    margin: 5px;
+  }
+  .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .subdiscussion-content {
+    grid-template-rows: 25px minmax(40px, auto) 30px auto;
+  }
+  .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .subdiscussion-content .subdiscussion-header {
+    margin-left: 15px;
+    margin-top: 8px;
+  }
+  .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .subdiscussion-content .subdiscussion-header .user-icon {
+    height: 23px;
+    width: 23px;
+    margin-right: 3px;
+  }
+  .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .subdiscussion-content .subdiscussion-header .name {
+    font-size: 13px;
+  }
+  .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .subdiscussion-content .subdiscussion-header .time {
+    font-size: 9px;
+    padding-top: 0;
+    min-width: 80px;
+    margin-top: 2px;
+  }
+  .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .reply-content {
+    padding: 15px 20px 5px;
+  }
+  .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .reply-content .scripting {
+    font-size: 0.7rem;
+  }
+  .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .reply-content .edit-form-container .ternary .edit-subdiscussion fieldset textarea {
+    min-height: 40px;
+    font-size: 0.7rem;
+    width: 100%;
+    margin-right: 10px;
+  }
+  .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .reply-content .edit-form-container .ternary .edit-subdiscussion fieldset button {
+    font-size: 0.5rem;
+    margin-right: 10px;
+    padding: 5px;
+  }
+  .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .subdiscussion-buttons {
+    padding: 0 20px 5px;
+  }
+  .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .subdiscussion-buttons .interaction button {
+    font-size: 0.45rem;
+    padding: 2px;
+    margin: 0 5px;
+  }
+  .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .subdiscussion-buttons .title-rating button {
+    font-size: 8px;
+    padding: 2px;
+  }
+  .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .subdiscussion-buttons .title-rating span {
+    font-size: 12px;
+    padding: 0 5px;
+  }
+  .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .reply-form-container {
+    margin: 15px 20px 5px 5px;
+  }
+  .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .reply-form-container form fieldset {
+    margin: 3px 0;
+  }
+  .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .reply-form-container form fieldset textarea {
+    padding: 8px;
+    width: 180px;
+    font-size: 0.8rem;
+    height: 50px;
+  }
+  .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .reply-form-container form fieldset .reply-buttons button {
+    font-size: 0.5rem;
+    padding: 3px;
+  }
+  .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .reply-form-container form fieldset .reply-buttons .creation-buttons .reset {
+    margin-right: 5px;
+  }
+  .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .reply-form-container form fieldset .reply-buttons .syntax-buttons {
+    font-size: 0.4rem;
+  }
+  .discussion-page .discussion-container .discussion-content .subdiscussion-container ul li[class^=content-layer] .reply-form-container form fieldset .reply-buttons .syntax-buttons svg {
+    padding: 0 4px;
+  }
+}
 
 /*# sourceMappingURL=discussion.css.map */

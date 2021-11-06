@@ -19,6 +19,9 @@ const Routes = () => {
       <Router>
         <Header />
         <Toaster 
+          toastOptions={{
+            className: 'toast-bar'
+          }}
         position="bottom-right"
         reverseOrder={false}
         />

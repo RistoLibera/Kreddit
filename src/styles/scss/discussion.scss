@@ -811,4 +811,305 @@
   }
 }
 
+@media (max-width: 600px) {
+  .discussion-page {
+    padding-top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    .discussion-container {
+      margin-top: 20px;
+      width: 300px;
+
+      .discussion-content {
+        .group {
+          padding: 5px 10px;
+
+          .group-symbol {
+            height: 30px;
+            width: 30px;
+            margin-top: 0;
+          }
+
+          .group-name {
+            font-size: 1rem;
+          }  
+        }
+
+        .title {
+          grid-template-columns: 20px 1fr;
+          padding: 8px 10px;
+          margin: 10px;
+
+          .title-rating {
+            button {
+              font-size: 8px;
+              padding: 2px;
+            }
+
+            span {
+              font-size: 12px;
+            }
+          }
+
+          .title-body {
+            padding-left: 10px;
+            align-items: flex-end;
+
+            .body-header {
+              .creator {
+                span {
+                  width: 25px;
+                  height: 25px;
+                }
+
+                .name {
+                  font-size: 14px;
+                  padding: 0 5px;
+                }
+
+                .time {
+                  font-size: 9px;
+                  margin-top: 2px;
+                }
+              }
+
+              .title-name {
+                margin-top: 5px;
+                padding-left: 30px;
+                font-size: 1.3rem;
+              }
+            }
+
+            .title-content {
+              align-items: flex-start;
+              padding: 5px 0 10px 0;
+
+              .title-img {
+                width: 200px;
+                margin-left: 8px;
+              }
+
+              .edit-form-container {
+                margin: 10px 15px 5px 5px;
+
+                .ternary {
+                  .edit-discussion {
+                    .upload {
+                      width: 180px;
+
+                      #img {
+                        font-size: 0.5rem;
+                        margin-top: 2px;
+                        padding: 4px 2px;
+
+                      }
+                    }
+
+                    fieldset {
+                      margin: 4px 0;
+
+                      textarea {
+                        width: 180px;
+                        font-size: 0.8rem;
+                      }
+
+                      button {
+                        font-size: 0.5rem;
+                        padding: 5px;
+
+                      }
+                    }
+                  }
+                }
+              }
+
+              .scripting {
+                font-size: 0.8rem;
+                margin: 10px 10px 5px 10px;
+              }
+            }
+
+            .title-buttons {
+              margin-right: 10px;
+
+              .interaction {
+                button {
+                  font-size: 0.5rem;
+                  padding: 2px;
+                  margin: 0 8px;
+                }
+              }
+            }
+          }
+        }
+
+        .reply-form-container {
+          margin: 5px 20px 5px 5px;
+
+          form {
+            fieldset {
+              margin: 3px 0;
+
+              textarea {
+                padding: 8px;
+                width: 200px;
+                font-size: 0.8rem;
+                height: 60px;
+              }
+
+              .reply-buttons {
+                button {
+                  font-size: 0.5rem;
+                  padding: 3px;
+                }
+
+                .creation-buttons {
+                  .reset {
+                    margin-right: 5px;
+                  }
+                }
+                
+                .syntax-buttons {
+                  font-size: 0.4rem;
+      
+                  svg {
+                  padding: 0 4px;
+                  }
+                }  
+              }
+            }
+          }
+        }
+
+        .subdiscussion-container ul {
+
+          li[class^="content-layer"] {
+            margin: 5px;
+
+            .subdiscussion-content {
+              grid-template-rows: 25px minmax(40px, auto) 30px auto;
+
+              .subdiscussion-header {
+                margin-left: 15px;
+                margin-top: 8px;
+
+                .user-icon {
+                  height: 23px;
+                  width: 23px;  
+                  margin-right: 3px;
+                }
+
+                .name {
+                  font-size: 13px;
+                }
+
+                .time {
+                  font-size: 9px;
+                  padding-top: 0;
+                  min-width: 80px;
+                  margin-top: 2px;
+                }
+              }
+            }
+
+            .reply-content {
+              padding: 15px 20px 5px;
+
+              .scripting {
+                font-size: 0.7rem;
+              }  
+
+              .edit-form-container {
+                .ternary {
+                  .edit-subdiscussion {
+                    fieldset {
+                      textarea {
+                        min-height: 40px;
+                        font-size: 0.7rem;
+                        width: 100%;
+                        margin-right: 10px;
+                      }
+
+                      button {
+                        font-size: 0.5rem;
+                        margin-right: 10px;
+                        padding: 5px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            .subdiscussion-buttons {
+              padding: 0 20px 5px;
+
+              .interaction {
+                button {
+                  font-size: 0.45rem;
+                  padding: 2px;
+                  margin: 0 5px;
+                }
+              }
+
+              .title-rating {
+                button {
+                  font-size: 8px;
+                  padding: 2px;
+                }
+
+                span {
+                  font-size: 12px;
+                  padding: 0 5px;
+                }
+              }
+            }
+
+            .reply-form-container {
+              margin: 15px 20px 5px 5px;
+
+              form {
+                fieldset {
+                  margin: 3px 0;
+
+                  textarea {
+                    padding: 8px;
+                    width: 180px;
+                    font-size: 0.8rem;
+                    height: 50px;
+                  }
+    
+                  .reply-buttons {
+                    button {
+                      font-size: 0.5rem;
+                      padding: 3px;
+                    }
+    
+                    .creation-buttons {
+                      .reset {
+                        margin-right: 5px;
+                      }
+                    }
+                    
+                    .syntax-buttons {
+                      font-size: 0.4rem;
+          
+                      svg {
+                      padding: 0 4px;
+                      }
+                    }  
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 

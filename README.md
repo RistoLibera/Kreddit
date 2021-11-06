@@ -47,8 +47,8 @@
 - You can log in as a human.
 - You can receive tips about your action.
 - You can switch between light mode and dark mode.
-- You can discuss on smartphone comfortably(unfinished).
-- You can discuss on various browsers(unfinished).
+- You can discuss on smartphone comfortably.
+- You can discuss on various browsers.
 
 ## Database structure
 

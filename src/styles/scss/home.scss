@@ -388,7 +388,7 @@
     .instruction {
       font-size: 1.75rem;
       width: 70%;
-      color: rgba(236, 234, 234, 0.856);
+      color: rgba(236, 234, 234, 0.9);
 
       p {
         margin-left: 15rem;
@@ -438,6 +438,19 @@
 }
 
 @media (max-width: 600px) {  
+  .go4109123758 {
+    margin-bottom: 30px;
+  }
+
+  .toast-bar {
+    font-size: 14px;
+    padding: 3px;
+
+    svg {
+      font-size: 20px;
+    }
+  }
+
   .homepage {
     background-position: 50% 50%;
     
