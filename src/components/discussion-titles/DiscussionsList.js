@@ -113,7 +113,7 @@ const DiscussionsList = (props) => {
             <h2>{t('content.group')} {group}</h2>
           </div>
           <div className='entry'>
-            <button className='simple'onClick={() => history.push('/discussions/' + group + '/' + uid)} >
+            <button className='simple' onClick={() => history.push('/discussions/' + group + '/' + uid)} >
               {t('content.entry')}
             </button>
           </div>

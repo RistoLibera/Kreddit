@@ -141,7 +141,7 @@
   text-align: center;
 }
 .discussions-page .discussions-container header #create-discussion form .groups select option {
-  text-align: left;
+  text-align: center;
 }
 .discussions-page .discussions-container .discussions-list .page-loader {
   z-index: 999;
@@ -452,6 +452,197 @@
   }
   .discussions-page .discussions-container .discussions-list .list .open .statistics .entry {
     margin: 10px 0 40px 20px;
+  }
+}
+@media (max-width: 600px) {
+  .discussions-page {
+    padding-top: 0;
+    margin: 0;
+  }
+  .discussions-page .discussions-container {
+    width: 300px;
+    margin: 0;
+  }
+  .discussions-page .discussions-container header {
+    margin: 20px 10px;
+  }
+  .discussions-page .discussions-container header .discussions-controller .filter-buttons {
+    max-width: 600px;
+  }
+  .discussions-page .discussions-container header .discussions-controller .filter-buttons ul li {
+    margin: 0px 5px;
+    font-size: 0.5rem;
+  }
+  .discussions-page .discussions-container header .discussions-controller #toggle-display {
+    font-size: 0.6rem;
+    padding: 3px;
+  }
+  .discussions-page .discussions-container header #create-discussion {
+    margin: 20px 0;
+  }
+  .discussions-page .discussions-container header #create-discussion form fieldset {
+    width: 280px;
+    margin: 2px 0;
+  }
+  .discussions-page .discussions-container header #create-discussion form fieldset legend {
+    font-size: 14px;
+    float: unset !important;
+  }
+  .discussions-page .discussions-container header #create-discussion form fieldset input {
+    padding: 3px 5px 3px 15px;
+    font-size: 0.6rem;
+    width: 240px;
+    height: 18px;
+    margin: 0;
+  }
+  .discussions-page .discussions-container header #create-discussion form fieldset textarea {
+    width: 280px;
+  }
+  .discussions-page .discussions-container header #create-discussion form fieldset label {
+    font-size: 0.7rem;
+    padding: 10px 0;
+  }
+  .discussions-page .discussions-container header #create-discussion form fieldset button {
+    font-size: 0.7rem;
+    padding: 5px;
+    margin-right: 2rem;
+  }
+  .discussions-page .discussions-container header #create-discussion form .groups {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    height: 21px;
+  }
+  .discussions-page .discussions-container header #create-discussion form .groups select {
+    margin-bottom: 18px;
+    height: 20px;
+  }
+  .discussions-page .discussions-container header #create-discussion form .upload #img {
+    font-size: 0.5rem;
+    margin-left: 4rem;
+  }
+  .discussions-page .discussions-container header #create-discussion form .upload .submit {
+    margin-right: 3rem;
+  }
+  .discussions-page .discussions-container .discussions-list .list .card {
+    width: 300px;
+    display: grid;
+    grid-template-columns: 60px 160px 80px;
+    grid-template-rows: 60px;
+    height: 60px;
+  }
+  .discussions-page .discussions-container .discussions-list .list .card .title-img {
+    height: 60px;
+    width: 60px;
+  }
+  .discussions-page .discussions-container .discussions-list .list .card .info {
+    height: 60px;
+    padding: 0;
+    min-width: unset;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .discussions-page .discussions-container .discussions-list .list .card .info .title {
+    font-size: 14px;
+    padding: 0;
+  }
+  .discussions-page .discussions-container .discussions-list .list .card .info .created-by {
+    padding: 0;
+    margin: 3px 0;
+    margin-right: 10px;
+  }
+  .discussions-page .discussions-container .discussions-list .list .card .info .created-by .icon {
+    height: 16px;
+    width: 16px;
+    margin-left: 10px;
+  }
+  .discussions-page .discussions-container .discussions-list .list .card .info .created-by .creator {
+    font-size: 12px;
+    margin-left: 4px;
+  }
+  .discussions-page .discussions-container .discussions-list .list .card .statistics {
+    height: 60px;
+    width: 80px;
+  }
+  .discussions-page .discussions-container .discussions-list .list .card .statistics .group-name {
+    padding: 10px 5px;
+    font-size: 10px;
+  }
+  .discussions-page .discussions-container .discussions-list .list .card .statistics .trend {
+    padding: 0;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    margin-top: 3px;
+  }
+  .discussions-page .discussions-container .discussions-list .list .card .statistics .trend .amount {
+    grid-column: 1/span 1;
+    grid-row: 1/span 1;
+    font-size: 8px;
+  }
+  .discussions-page .discussions-container .discussions-list .list .card .statistics .trend .amount svg {
+    font-size: 10px;
+  }
+  .discussions-page .discussions-container .discussions-list .list .card .statistics .trend .rating {
+    grid-column: 2/span 1;
+    grid-row: 1/span 1;
+    font-size: 8px;
+  }
+  .discussions-page .discussions-container .discussions-list .list .card .statistics .trend .rating svg {
+    font-size: 10px;
+  }
+  .discussions-page .discussions-container .discussions-list .list .card .statistics .trend .time {
+    margin-top: 4px;
+    grid-column: 1/span 2;
+    grid-row: 2/span 1;
+    font-size: 7px;
+  }
+  .discussions-page .discussions-container .discussions-list .list .card.open {
+    padding: 0px !important;
+    font-size: 0.7rem;
+    width: 300px;
+    display: grid;
+    grid-template-columns: 60px 160px 80px;
+    grid-template-rows: 60px;
+    height: 60px;
+  }
+  .discussions-page .discussions-container .discussions-list .list .card.open .title-img {
+    transition: none;
+    transform: none;
+    width: 60px;
+  }
+  .discussions-page .discussions-container .discussions-list .list .card.open .info {
+    height: 60px;
+    width: 160px;
+    transform: none;
+  }
+  .discussions-page .discussions-container .discussions-list .list .card.open .info .content {
+    padding: 0;
+    margin: 5px 15px 5px 30px;
+    width: 160px;
+    font-size: 9px;
+  }
+  .discussions-page .discussions-container .discussions-list .list .card.open .statistics {
+    justify-content: center;
+    align-items: center;
+  }
+  .discussions-page .discussions-container .discussions-list .list .card.open .statistics .entry {
+    width: 80px;
+    height: 60px;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .discussions-page .discussions-container .discussions-list .list .card.open .statistics .entry button {
+    transition: none;
+    padding: 8px;
+  }
+  .discussions-page .discussions-container .discussions-list .list .card.open .statistics .trend {
+    display: none;
   }
 }
 

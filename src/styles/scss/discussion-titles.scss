@@ -171,7 +171,7 @@
               text-align: center;
 
               option {
-                text-align: left;
+                text-align: center;
               }
             }
           }
@@ -578,6 +578,251 @@
   }
 }
 
+@media (max-width: 600px) {
+  .discussions-page {
+    padding-top: 0;
+    margin: 0;
 
+    .discussions-container {
+      width: 300px;
+      margin: 0;
+
+      header {
+        margin: 20px 10px;
+
+        .discussions-controller {
+          .filter-buttons {
+            max-width: 600px;
+
+            ul {
+              li {
+                margin: 0px 5px;
+                font-size: 0.5rem;
+              }
+            }
+          }
+
+          #toggle-display {
+            font-size: 0.6rem;
+            padding: 3px;
+          }
+        }
+
+        #create-discussion {
+          margin: 20px 0;
+
+          form {
+            fieldset {
+              width: 280px;
+              margin: 2px 0;
+
+              legend {
+                font-size: 14px;
+                float: unset!important;
+              }    
+
+              input {
+                padding: 3px 5px 3px 15px;
+                font-size: 0.6rem;
+                width: 240px;
+                height: 18px;
+                margin: 0;
+              }
+
+              textarea {
+                width: 280px;
+              }
+
+              label {
+                font-size: 0.7rem;
+                padding: 10px 0;
+              }
+
+              button {
+                font-size: 0.7rem;
+                padding: 5px;
+                margin-right: 2rem;
+              }
+            }
+
+            .groups {
+              display: flex;
+              flex-direction: row;
+              justify-content: flex-end;
+              align-items: center;
+              height: 21px;
+
+              select {
+                margin-bottom: 18px;
+                height: 20px;
+              }
+            }
+
+            .upload { 
+              #img {
+                font-size: 0.5rem;
+                margin-left: 4rem;
+              }
+
+              .submit {
+                margin-right: 3rem;
+              }
+            }
+          }
+        }
+      }
+
+      .discussions-list {
+        // width: 300px;
+
+        .list {
+          .card {
+            width: 300px;
+            display: grid;
+            grid-template-columns: 60px 160px 80px;
+            grid-template-rows: 60px;
+            height: 60px;
+
+            .title-img {
+              height: 60px;
+              width: 60px;  
+            }
+
+            .info {
+              height: 60px;
+              padding: 0;
+              min-width: unset;
+              justify-content: space-evenly;
+              align-items: center;
+
+              .title {
+                font-size: 14px;
+                padding: 0;
+              }
+
+              .created-by {
+                padding: 0;
+                margin: 3px 0;
+                margin-right: 10px;
+
+                .icon {
+                  height: 16px;
+                  width: 16px;
+                  margin-left: 10px;
+                }
+
+                .creator {
+                  font-size: 12px;
+                  margin-left: 4px;
+                }
+              }
+            }
+
+            .statistics {
+              height: 60px;
+              width: 80px;
+
+              .group-name {
+                padding: 10px 5px;
+                font-size: 10px;
+              }
+
+              .trend {
+                padding: 0;
+                display: grid;
+                grid-template-rows: 1fr 1fr;
+                grid-template-columns: 1fr 1fr;
+                justify-items: center;
+                margin-top: 3px;
+
+                .amount {
+                  grid-column: 1/span 1;
+                  grid-row: 1/span 1;
+                  font-size: 8px;
+
+                  svg {
+                    font-size: 10px;
+                  }
+                }
+
+                .rating {
+                  grid-column: 2/span 1;
+                  grid-row: 1/span 1;
+                  font-size: 8px;
+
+                  svg {
+                    font-size: 10px;
+                  }
+                }
+
+                .time {
+                  margin-top: 4px;
+                  grid-column: 1/span 2;
+                  grid-row: 2/span 1;
+                  font-size: 7px;
+                }
+              }
+            }
+          }
+
+          & .card {
+            &.open {
+              padding: 0px!important;
+              font-size: 0.7rem;
+              width: 300px;
+              display: grid;
+              grid-template-columns: 60px 160px 80px;
+              grid-template-rows: 60px;
+              height: 60px;
+              
+              .title-img {
+                transition: none;
+                transform: none;
+                width: 60px;
+              }
+
+              .info {
+                height: 60px;
+                width: 160px;
+                transform: none;
+
+                .content {
+                  padding: 0;
+                  margin: 5px 15px 5px 30px;
+                  width: 160px;
+                  font-size: 9px;
+                }
+              }
+  
+              .statistics {
+                justify-content: center;
+                align-items: center;
+
+                .entry {
+                  width: 80px;
+                  height: 60px;
+                  margin: 0;
+                  display: flex;
+                  flex-direction: row;
+                  justify-content: center;
+                  align-items: center;
+
+                  button {
+                    transition: none;
+                    padding: 8px;
+                  }
+                }
+
+                .trend {
+                  display: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 
 
