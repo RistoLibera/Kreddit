@@ -1,5 +1,8 @@
 # Project: Kreddit
 
+- Part of Odin Project: JavaScript Final Project.
+- Class URL: https://www.theodinproject.com/paths/full-stack-ruby-on-rails/courses/javascript/lessons/javascript-final-project
+
 ## What is this
 
 - This is a discussion website imitating Reddit, 
