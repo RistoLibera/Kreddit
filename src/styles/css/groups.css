@@ -416,6 +416,9 @@
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   grid-template-rows: auto;
 }
+.groups-page .group-container .grid-view ul li {
+  margin-bottom: 15px;
+}
 .groups-page .group-container .grid-view ul li .left-block .img {
   display: inline-block;
   width: 90px;
@@ -570,6 +573,7 @@
 @media (max-width: 600px) {
   .groups-page {
     padding-top: 0;
+    padding-bottom: 3rem;
   }
   .groups-page .group-container {
     width: 300px;

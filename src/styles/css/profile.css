@@ -542,6 +542,7 @@
   .profile-page {
     margin-top: 0;
     padding-top: 0;
+    padding-bottom: 3rem;
   }
   .profile-page .profile-container {
     width: 300px;

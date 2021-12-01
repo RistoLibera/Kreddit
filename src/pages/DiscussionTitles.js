@@ -107,7 +107,7 @@ const DiscussionTitles = () => {
           <div className='discussions-controller'>
             <FilterButtons documents={GroupsDoc}  updateSelection={updateSelection} cancelSelection={cancelSelection} allSelection={allSelection} optionalGroup={optionalGroup} />
             {currentUser
-                ? <button id='toggle-display' onClick={switchHidden}>{t('content.create-discussion')}</button>
+                ? <div id='toggle-display'><button onClick={switchHidden}>{t('content.create-discussion')}</button></div>
                 : <div></div>
             }
           </div>

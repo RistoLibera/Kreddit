@@ -26,12 +26,13 @@
       }
       
       .discussions-controller {
-        @extend %flex-row-direction;
+        display: grid;
+        grid-template-rows: auto;
         width: 100%;
         position: relative;
 
         .filter-buttons {
-          max-width: 900px;
+          grid-column: 1/span1;
 
           ul {
             text-align: center;
@@ -59,13 +60,15 @@
         }
 
         #toggle-display {
-          position: absolute;
-          right: 0;
-          top: 0;
+          grid-column: 2/span1;
+          grid-row: 1/span1;
+          // position: absolute;
+          // right: 0;
+          // top: 0;
           font-size: 1rem;
           display: block;
           text-decoration: none;
-          padding: 5px 5px;
+          padding: 8px 5px;
           border-radius: 5px;          
         }
       }
@@ -417,8 +420,6 @@
       header {
         .discussions-controller {
           .filter-buttons {
-            max-width: 600px;
-
             ul {
               li {
                 margin: 0px 5px;
@@ -429,7 +430,7 @@
 
           #toggle-display {
             font-size: 0.6rem;
-            padding: 3px;
+            padding: 1px;
           }
         }
 
@@ -582,6 +583,7 @@
   .discussions-page {
     padding-top: 0;
     margin: 0;
+    padding-bottom: 3rem;
 
     .discussions-container {
       width: 300px;
@@ -592,11 +594,9 @@
 
         .discussions-controller {
           .filter-buttons {
-            max-width: 600px;
-
             ul {
               li {
-                margin: 0px 5px;
+                margin: 0px 5px 5px 0px;
                 font-size: 0.5rem;
               }
             }
@@ -723,7 +723,9 @@
               width: 80px;
 
               .group-name {
-                padding: 10px 5px;
+                box-sizing: border-box;
+                height: 30px;
+                padding: 5px 5px;
                 font-size: 10px;
               }
 
