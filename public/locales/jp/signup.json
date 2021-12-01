@@ -1,12 +1,12 @@
 {
-  "title": "サインアップ",
+  "title": "登録",
   "content": {
     "nickname": "ニックネーム：",
     "nickname-holder": "３チャラ以上！",
     "password": "パスワード：",
     "password-holder": "６チャラ以上！",
     "clear": "クリア",
-    "signup": "サインアップ",
-    "auth-alert": "サインアップ失敗！"
+    "signup": "登録",
+    "auth-alert": "登録失敗！"
   }
 }

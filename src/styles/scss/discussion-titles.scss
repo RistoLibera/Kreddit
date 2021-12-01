@@ -69,7 +69,11 @@
           display: block;
           text-decoration: none;
           padding: 8px 5px;
-          border-radius: 5px;          
+          border-radius: 5px; 
+           
+          button {
+            float: right;
+          }        
         }
       }
 

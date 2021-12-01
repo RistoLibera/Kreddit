@@ -225,7 +225,8 @@
   height: 100%;
 }
 .profile-page .profile-container .upper-profile .registration .delete-user .delete-container .toggle-show {
-  position: relative;
+  display: flex;
+  justify-content: center;
   width: 38px;
   height: 38px;
   border: 2px solid black;

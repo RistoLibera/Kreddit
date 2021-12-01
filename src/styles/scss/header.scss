@@ -422,7 +422,8 @@
 
 @media (max-width: 850px) {
   .app-header {
-    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-columns: 2fr 3fr 2fr;
+    
     .left-bar{
       form {
         fieldset {
@@ -464,6 +465,8 @@
     }
 
     .middle-bar {
+      margin: 0 30px;
+
       .discussions-bar {
         font-size: 0.9rem;
       }
@@ -513,6 +516,11 @@
 
             .dropdown-items {
               width: 100px;
+
+              button {
+                display: flex;
+                justify-content: center;
+              }
             }
 
             h3 {
