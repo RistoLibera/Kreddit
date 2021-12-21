@@ -357,6 +357,7 @@
     justify-content: flex-start;
   }
   .homepage .reactive-home .display-mode {
+    margin: 0 20px;
     font-size: 2rem;
   }
   .homepage .reactive-home .display-mode h1 {
