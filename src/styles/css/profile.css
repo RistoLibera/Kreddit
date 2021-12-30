@@ -32,6 +32,7 @@
   position: relative;
 }
 .profile-page .profile-container .upper-profile {
+  background-color: lightgrey;
   margin: 0 1rem 1rem;
   justify-content: flex-start;
   border: 1px solid black;
@@ -170,6 +171,9 @@
   justify-content: space-between;
   align-items: initial;
   height: 100px;
+}
+.profile-page .profile-container .upper-profile .registration .lock {
+  margin-top: 30px;
 }
 .profile-page .profile-container .upper-profile .registration .change-password .change-container {
   height: 100%;
@@ -454,6 +458,9 @@
   }
   .profile-page .profile-container .upper-profile .registration {
     margin-left: 0px;
+  }
+  .profile-page .profile-container .upper-profile .registration .lock {
+    margin-top: 0px;
   }
   .profile-page .profile-container .upper-profile .registration .lock img {
     width: 100px;

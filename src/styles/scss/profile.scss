@@ -25,6 +25,7 @@
     position: relative;
     
     .upper-profile {
+      background-color: lightgrey;
       @extend %flex-row-direction;
       margin: 0 1rem 1rem;
       justify-content: flex-start;
@@ -202,7 +203,7 @@
 
         .lock {
           @extend %flex-column-direction;
-
+          margin-top: 30px;
         }
 
         .change-password {
@@ -571,6 +572,8 @@
           margin-left: 0px;
 
           .lock {
+            margin-top: 0px;
+
             img {
               width: 100px;
               height: 100px;

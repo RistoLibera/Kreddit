@@ -107,6 +107,10 @@
 .darkmode .profile-page {
   background-color: #181a1b !important;
 }
+.darkmode .profile-page .profile-container .upper-profile {
+  background-color: #313537;
+  border-color: #8c8273;
+}
 .darkmode .profile-page .profile-container .lower-profile ol.gradient-list > li {
   background-color: #181a1b !important;
 }
