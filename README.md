@@ -73,20 +73,20 @@ user-icon/ + uid/ + icon.jpg
 
 - Clone repository
 ```ruby
-$ git clone git@github.com:RistoLibera/Kreddit.git
+git clone git@github.com:RistoLibera/Kreddit.git
 ```
 
 - Install node_modules
 ```ruby
-$ npm install
+npm install
 ```
 
 - Create server
 ```ruby
-$ npm start
+npm start
 ```
 
 - Browse content
 ```ruby
-$ https://localhost:3000
+https://localhost:3000
 ```
